@@ -1,0 +1,109 @@
+/* Local build only: the Service Pages overview (/services) and the shared placeholder served for every other page.
+   Not part of the Webflow rebuild. The overview cards reuse the global navigation dropdown card classes
+   (nav-dropdown__link services, nav-dropdown__link-bg/img/link-inner/link-label/link-bubble, image-darken-overlay);
+   the combo is-overview only resizes them for a page grid. Their hover comes from the site's Global Code. */
+
+/* Overview */
+.dev-overview {
+  min-height: 100svh;
+  padding: 16em var(--_sizes---page-gutter) 10em;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.dev-overview_header {
+  margin-bottom: 5em;
+  text-align: center;
+}
+.heading-style-h2-brand.is-dev {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--text-colour--black);
+  letter-spacing: -.01em;
+  font-size: 3.76em;
+  line-height: 1.05;
+}
+.dev-overview_grid {
+  grid-column-gap: 1.6em;
+  grid-row-gap: 1.6em;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: 140em;
+  display: grid;
+}
+.nav-dropdown__link.services.is-overview {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  padding: 2em;
+}
+.nav-dropdown__link.services.is-overview .nav-dropdown__link-label {
+  font-size: max(3.2em, 22px);
+  line-height: 1.05;
+}
+.nav-dropdown__link.services.is-overview .nav-dropdown__link-bubble {
+  flex: none;
+  width: max(2.4em, 26px);
+  height: max(2.4em, 26px);
+  padding: max(.6em, 6px);
+}
+@media screen and (max-width: 991px) {
+  .dev-overview {
+    padding-top: 14em;
+  }
+  .dev-overview_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .nav-dropdown__link.services.is-overview {
+    aspect-ratio: 16 / 10;
+    padding: max(1.6em, 16px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .dev-overview {
+    padding-top: 12em;
+    padding-bottom: 8em;
+  }
+  .dev-overview_header {
+    margin-bottom: 3.6em;
+  }
+  .heading-style-h2-brand.is-dev {
+    font-size: max(3.76em, 30px);
+  }
+  .dev-overview_grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 12px;
+  }
+  .nav-dropdown__link.services.is-overview {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Placeholder */
+.dev-placeholder {
+  min-height: 100svh;
+  padding: 12em var(--_sizes---page-gutter);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  grid-row-gap: 4em;
+  text-align: center;
+}
+.dev-placeholder_text {
+  max-width: 16em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--brand-font);
+  color: var(--text-colour--black);
+  font-size: 4.4em;
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+@media screen and (max-width: 767px) {
+  .dev-placeholder_text {
+    font-size: max(2.6em, 30px);
+  }
+}

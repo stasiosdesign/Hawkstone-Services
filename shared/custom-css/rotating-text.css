@@ -1,0 +1,27 @@
+/* rotating-text: custom CSS (Webflow: Embed element). Rotating headline words. */
+[data-rotating-title] {
+  width: 100%;
+}
+.rotating-text__highlight {
+  display: inline-block;
+  position: relative;
+}
+.rotating-text__inner {
+  display: inline-block;
+}
+.rotating-text__word {
+  display: block;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rotating-line {
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  white-space: nowrap;
+}
+.rotating-line-mask {
+  overflow-x: visible !important;
+  overflow-y: clip !important;
+}

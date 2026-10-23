@@ -1,0 +1,28 @@
+<!-- Global component: Page Transition. Mirror of the live Webflow site: do not edit here. Parameter: text (the page name shown by the loader). -->
+<div>
+      <div data-load-wrap="" class="page-transition">
+        <div data-load-bg="" class="transition__bg about"></div>
+        <div data-load-container="" class="transition__container">
+          <div class="transition__text-wrap"><span data-load-text="" data-load-reset="" class="transition__text-el">{{text}}</span></div>
+        </div>
+      </div>
+      <div class="code-embed-2 w-embed">
+        <style>
+  /* Hide the drawer group in Webflow Designer only */
+  html.wf-design-mode .page-transition {
+    /* Option A: fully remove */
+    /* display: none !important; */
+    /* Option B (safer while editing): invisible & non-blocking */
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+  /* Optional: also hide in Webflow Editor */
+  html.w-editor .page-transition {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+</style>
+      </div>
+    </div>

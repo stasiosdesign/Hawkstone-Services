@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Local build only (not part of the Webflow rebuild): the shared placeholder that serve.ps1 returns for every page
+     other than the six service pages and the Service Pages overview, whatever the address. <base href="/"> keeps the
+     partials' relative paths working at any depth. The button is the global Main CTA (black variant). -->
+<html data-wf-page="6a970b2f83c8893b415525a0" data-wf-site="69525a8c456ef60671509d83" lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>Hawkstone</title>
+  <meta name="robots" content="noindex">
+  <!--#include file="/global/partials/head.html" -->
+  <link href="../shared/css/service-pages.css" rel="stylesheet" type="text/css">
+  <link href="../dev/css/dev-pages.css" rel="stylesheet" type="text/css">
+  <!--#include file="/global/partials/head-code.html" -->
+</head>
+<body class="body">
+<div>
+  <!--#include file="/global/partials/page-transition.html" text="Hawkstone" -->
+  <!--#include file="/global/partials/global-code.html" -->
+  <!--#include file="/global/partials/navigation-floating.html" -->
+  <!--#include file="/global/partials/navigation-desktop.html" -->
+  <!--#include file="/shared/partials/service-logo.html" -->
+  <main class="page-wrapper">
+    <section class="dev-placeholder">
+      <h1 class="dev-placeholder_text">This page is not included in this development version.</h1>
+      <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/services" class="wrapper_cta w-inline-block">
+        <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
+          <div class="btn-icon-content__mask cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 buton"><span data-button-anim-target="" class="btn-icon-content__text">Service Pages</span></div>
+          <div data-button-anim-target="" class="btn-icon-content__bg cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"></div>
+        </div>
+        <div class="square_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 white"></div>
+      </a>
+    </section>
+  </main>
+</div>
+<!--#include file="/global/partials/scripts.html" -->
+</body>
+</html>

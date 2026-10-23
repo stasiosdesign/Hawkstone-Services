@@ -1,0 +1,95 @@
+/* feature-pills: custom CSS (Webflow: Embed element). Osmo "Expanding Feature Pills" states, unchanged. */
+/* Max width of expanded pill/content */
+[data-feature-pills-init] {
+  --content-item-expanded: 25em;
+}
+
+@media screen and (max-width: 991px){
+  [data-feature-pills-init] {
+    --content-item-expanded: calc(50% - 0.5em);
+  }
+}
+
+@media screen and (max-width: 767px){
+  [data-feature-pills-init] {
+    --content-item-expanded: 100%;
+  }
+}
+
+/* Default state + transition */
+[data-feature-pills-button] {
+  opacity: 1;
+  transition: opacity 400ms ease-in-out 300ms;
+}
+
+[data-feature-pills-inner] {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out 0ms;
+}
+
+[data-feature-pills-visual] {
+  opacity: 0;
+  transition: opacity 350ms ease-in-out;
+}
+
+[data-feature-pills-cover] {
+  opacity: 1;
+  transition: opacity 350ms ease-in-out;
+}
+
+
+/* Active Pill */
+[data-feature-pills-item][data-active="true"] [data-feature-pills-button] {
+  opacity: 0;
+  transition: opacity 50ms ease-in-out 0ms;
+}
+
+[data-feature-pills-item][data-active="true"] [data-feature-pills-inner] {
+  opacity: 1;
+}
+
+
+/* Active Visual */
+[data-feature-pills-visual][data-active="true"] {
+  opacity: 1;
+}
+
+[data-feature-pills-cover][data-active="false"] {
+  opacity: 0;
+}
+
+
+/* Close button */
+[data-feature-pills-close] {
+  transform: scale(0) rotate(135deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 500ms cubic-bezier(.7, 0, .3, 1);
+}
+
+[data-feature-pills-active="true"] [data-feature-pills-close] {
+  transform: scale(1) rotate(45deg);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* 'edit' mode where buttons are hidden and inner content is shown */
+[data-feature-pills-init][data-edit-mode="true"] [data-feature-pills-collection] {
+  overflow: auto;
+  justify-content: start;
+}
+
+[data-feature-pills-init][data-edit-mode="true"] [data-feature-pills-button] {
+  display: none;
+}
+
+[data-feature-pills-init][data-edit-mode="true"] [data-feature-pills-content] {
+  position: relative;
+  pointer-events: auto;
+}
+
+[data-feature-pills-init][data-edit-mode="true"] [data-feature-pills-inner] {
+  opacity: 1;
+  transform: translate(0px, 0em);
+}

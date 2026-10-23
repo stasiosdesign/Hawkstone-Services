@@ -1,0 +1,7 @@
+/* step-timeline-media: custom CSS (Webflow: Embed element). Fades and scales the step photos (Service visual frames) with the step states. */
+[data-step-timeline-item] .service-visual_frame { opacity: 0.35; transition: opacity .25s; }
+[data-step-timeline-item][data-status="active"] .service-visual_frame { opacity: 0.5; }
+[data-step-timeline-item][data-current] .service-visual_frame { opacity: 1; }
+[data-step-timeline-item] .service-visual_img { transform: scale(1.04); transition: transform .8s cubic-bezier(.645,.045,.355,1); }
+[data-step-timeline-item][data-current] .service-visual_img { transform: scale(1); }
+@media (prefers-reduced-motion: reduce) { [data-step-timeline-item] .service-visual_img { transform: none; transition: none; } }

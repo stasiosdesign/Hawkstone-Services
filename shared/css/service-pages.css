@@ -1,0 +1,4940 @@
+/* Native Webflow classes shared by two or more of the six service pages.
+   Recreate these as classes and combo classes in Webflow Designer.
+   Generated from the Webflow export, then maintained by hand. */
+
+/* ==================== Hero ==================== */
+/* Full-bleed photo under a light overall shade, darkest at the top (behind the nav) and the bottom (behind the text).
+   One row at the bottom: the H1 on the left (3.4vw) and, from 58.6% across, the supporting text (1.1vw) and the
+   consultation button. Rule: the tops of the H1 and the text are level to the pixel (checked from rendered pixels;
+   the aside is lifted .2vw for it); the bottoms need not match. Markup: shared/partials/service-hero.html. */
+.service-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: var(--theme--obsidian-d3);
+}
+.service-hero_image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-hero_overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, #0000008c 0%, #00000047 16%, #00000033 32%, #00000040 46%, #00000080 60%, #000000b8 72%, #000000d9 100%);
+}
+@media screen and (max-width: 767px) {
+  .service-hero_overlay {
+    background-image: linear-gradient(180deg, #0000008c 0%, #00000040 16%, #00000040 28%, #00000080 42%, #000000bf 60%, #000000d9 100%);
+  }
+}
+.service-hero_text {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: calc(54.2vw - var(--_sizes---page-gutter)) 33.4vw;
+  grid-column-gap: 4.4vw;
+  align-items: start;
+  width: 100%;
+  padding: 0 var(--_sizes---page-gutter) 5.5vw;
+}
+.heading-style-h1-normal.is-service-hero {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  color: var(--text-colour--white);
+  text-align: left;
+  letter-spacing: -.055em;
+  font-size: 3.4vw;
+  line-height: 1.04;
+}
+.service-hero_aside {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  grid-row-gap: 1.9vw;
+  /* Lifts the first line so its letters start level with the top of the H1's letters */
+  margin-top: -.2vw;
+}
+.text-size-small.service-page.is-service-hero {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  color: var(--text-colour--white);
+  text-align: left;
+  letter-spacing: -.02em;
+  font-size: max(1.1vw, 14px);
+  line-height: 1.45;
+}
+@media screen and (max-width: 991px) {
+  .service-hero_text {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 4em;
+    padding-bottom: 6em;
+  }
+  .heading-style-h1-normal.is-service-hero {
+    font-size: 6vw;
+  }
+  .text-size-small.service-page.is-service-hero {
+    max-width: 34em;
+    font-size: max(1.7em, 15px);
+  }
+  .service-hero_aside {
+    grid-row-gap: 2.4em;
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-hero_text {
+    padding-bottom: max(8em, 72px);
+  }
+  .heading-style-h1-normal.is-service-hero {
+    font-size: 8.4vw;
+    line-height: 1.02;
+  }
+}
+
+/* ==================== Horizontal process (copies the "Our process" section of fluid.glass/approach) ==================== */
+/* Heading sizes follow the shared --service-h type scale (4em if unset). */
+/* Desktop: the section is as tall as the horizontal travel needs (set by shared/custom-js/horizontal-process.js); its
+   inner frame pins for that length while the track of panels slides left. Panels: steps (a photo pair one side, label,
+   heading and two-column text the other) alternate with full-bleed photos. The rule at the top is the progress bar.
+   Measurements are fluid.glass's at 1440px, in viewport units (1vw = 1.44em on desktop). */
+.h-process {
+  position: relative;
+  height: 420vh;
+  background-color: var(--theme--obsidian-d3);
+  color: var(--theme--ivory-base);
+}
+.h-process_sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+/* Clearance below the fixed floating navigation (its buttons end about 5vw down, at most 92px): pinned content
+   starts on this line so it never sits under the buttons */
+.page-wrapper.is-service {
+  --service-nav-clear: calc(min(5vw, 92px) + 2em);
+}
+.h-process_bar {
+  position: absolute;
+  z-index: 2;
+  top: var(--service-nav-clear);
+  left: var(--_sizes---page-gutter);
+  right: var(--_sizes---page-gutter);
+  height: 1px;
+  background-color: #f5f4f133;
+}
+.h-process_bar-fill {
+  height: 100%;
+  background-color: var(--theme--ivory-base);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.h-process_track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  will-change: transform;
+}
+.h-process_section-label {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--service-nav-clear) + 1.6em);
+  left: var(--_sizes---page-gutter);
+  display: flex;
+  align-items: center;
+  grid-column-gap: .9em;
+  margin: 0;
+  letter-spacing: .08em;
+  font-size: max(1.26em, 12px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.h-process_section-label::before {
+  content: "";
+  width: .48em;
+  height: .48em;
+  background-color: var(--theme--primary);
+}
+/* Opening panel: section heading and text, then the first full-bleed photo */
+.h-process_intro {
+  display: flex;
+  flex: none;
+  flex-flow: column;
+  justify-content: center;
+  width: 55vw;
+  height: 100%;
+  padding-left: 10.5vw;
+}
+.h-process_intro-heading {
+  margin: 0 0 .65em;
+  font-family: var(--font-family--normal-font);
+  color: var(--theme--ivory-base);
+  letter-spacing: -.035em;
+  font-size: var(--service-h, 4em);
+  font-weight: 400;
+  line-height: 1;
+}
+.h-process_intro-text {
+  max-width: 23em;
+  margin: 0;
+  opacity: .8;
+  font-size: max(1.62em, 15px);
+  line-height: 1.3;
+}
+.h-process_slide {
+  position: relative;
+  flex: none;
+  width: 98vw;
+  height: 100%;
+}
+/* The last step is a full screen wide, so the track ends on it alone, with the photo before it fully scrolled away */
+.h-process_slide:last-child {
+  width: 100vw;
+}
+/* fluid.glass's slide container: the text column comes first in the DOM; is-layout-1 puts the photo on the left,
+   is-layout-2 on the right. Both columns are centred vertically, so the photo sits level with the text. */
+.h-process_slide-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.h-process_column {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.h-process_column.is-text {
+  width: 40vw;
+}
+.h-process_column.is-media {
+  width: 24vw;
+  height: 30vw;
+}
+.h-process_slide-inner.is-layout-1 .h-process_column.is-text {
+  left: 42vw;
+}
+.h-process_slide-inner.is-layout-1 .h-process_column.is-media {
+  left: 10.4vw;
+}
+.h-process_slide-inner.is-layout-2 .h-process_column.is-text {
+  left: 14.6vw;
+}
+.h-process_slide-inner.is-layout-2 .h-process_column.is-media {
+  left: 62vw;
+}
+.h-process_photo {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+}
+.h-process_photo.is-primary {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.h-process_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.h-process_label {
+  display: inline-block;
+  margin: 0 0 1.9em;
+  padding: .55em .7em .5em;
+  border-radius: .15em;
+  background-color: #ffffff1a;
+  color: #ffffffb3;
+  letter-spacing: .02em;
+  font-size: max(1.2em, 12px);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.h-process_heading {
+  margin: 0 0 .42em;
+  font-family: var(--font-family--normal-font);
+  color: var(--theme--ivory-d3);
+  letter-spacing: -.03em;
+  font-size: var(--service-h, 4em);
+  font-weight: 400;
+  line-height: 1;
+}
+/* Copy longer than the reference's runs in two columns instead of one long paragraph */
+.h-process_text {
+  margin: 0;
+  opacity: .8;
+  columns: 2;
+  column-gap: 2.4em;
+  font-size: max(1.5em, 14px);
+  line-height: 1.3;
+}
+.h-process_column.is-text .wrapper_cta {
+  margin-top: 3.2em;
+}
+.h-process_asset {
+  position: relative;
+  flex: none;
+  width: 93.75vw;
+  height: 100%;
+  overflow: hidden;
+}
+/* fluid.glass's .asset: the panel's size, scaled 1.1; the script drifts it from -25% to 25% across the panel */
+.h-process_asset-inner {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.1);
+}
+@media screen and (max-width: 991px) {
+  .h-process {
+    height: auto !important;
+    padding: 8em 0;
+  }
+  .h-process_sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .h-process_bar {
+    display: none;
+  }
+  .h-process_section-label {
+    position: static;
+    margin: 0 var(--_sizes---page-gutter) 6em;
+    font-size: max(1.26em, 12px);
+  }
+  .h-process_intro {
+    width: auto;
+    height: auto;
+    padding: 0 var(--_sizes---page-gutter);
+  }
+  .h-process_intro-text {
+    font-size: max(1.62em, 15px);
+    line-height: 1.5;
+  }
+  .h-process_track {
+    flex-direction: column;
+    grid-row-gap: 7em;
+    width: auto;
+    transform: none !important;
+  }
+  .h-process_slide,
+  .h-process_slide:last-child {
+    width: auto;
+    height: auto;
+    padding: 0 var(--_sizes---page-gutter);
+  }
+  .h-process_slide-inner {
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 4.8em;
+    height: auto;
+  }
+  .h-process_column {
+    position: relative;
+    top: auto;
+    left: auto !important;
+    transform: none;
+  }
+  .h-process_column.is-text {
+    width: auto;
+  }
+  .h-process_column.is-media {
+    width: 80%;
+    height: auto;
+    aspect-ratio: .8;
+  }
+  .h-process_photo {
+    transform: none !important;
+  }
+  .h-process_label {
+    font-size: max(1.26em, 12px);
+  }
+  .h-process_text {
+    max-width: 38em;
+    columns: 1;
+    font-size: max(1.5em, 15px);
+    line-height: 1.5;
+  }
+  .h-process_asset {
+    width: auto;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    margin: 0 var(--_sizes---page-gutter);
+  }
+  .h-process_asset-inner {
+    transform: none !important;
+  }
+}
+
+/* ==================== Service logo (tablet and mobile) ==================== */
+.service-logo {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .service-logo {
+    z-index: 400;
+    display: block;
+    position: fixed;
+    top: 3em;
+    left: 2em;
+    height: 5em;
+    mix-blend-mode: difference;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-logo {
+    top: 1.1em;
+    left: 1.1em;
+  }
+}
+.service-logo_img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+/* ==================== Consultation pill (Service CTA Bar; copies the fluid.glass bottom bar) ==================== */
+/* The bar is a fixed unit centred at the bottom of the screen, shown once the hero button has scrolled away: a
+   back-to-top square (left) and the consultation pill (right), .6em apart. The pill: the Hawkstone mark (the logo
+   cropped to its building mark, without the wordmark), a hairline, the label and the arrow in a square, all on one
+   centre line. Shown and hidden (hero button or footer in view) by shared/custom-js/service-cta-bar.js (is-hidden on
+   the bar); the square scrolls to the top. */
+.service-cta-bar {
+  position: fixed;
+  z-index: 450;
+  left: 50%;
+  bottom: 2.4em;
+  display: flex;
+  align-items: stretch;
+  grid-column-gap: .6em;
+  font-size: max(1em, 9px);
+  transform: translate(-50%, 0);
+  transition: opacity .35s ease, transform .35s ease, visibility .35s;
+}
+.service-cta-bar.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 1.5em);
+}
+/* Back to top: a square the height of the pill, in the pill's colour, with the site's arrow turned to point up;
+   on hover it turns white with a black arrow, like the pill's own arrow square. */
+.service-cta-bar_top {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 5.6em;
+  height: 5.6em;
+  padding: 0;
+  border: 0;
+  border-radius: .2em;
+  background-color: #111314;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+.service-cta-bar_top-icon {
+  width: 1.3em;
+  height: 1.3em;
+  transform: rotate(-45deg);
+  transition: filter .3s ease, transform .3s ease;
+}
+.service-cta-bar_top:hover {
+  background-color: var(--neutral--white);
+}
+.service-cta-bar_top:hover .service-cta-bar_top-icon {
+  filter: invert(1);
+  transform: rotate(-45deg) translate(.1em, -.1em);
+}
+.service-cta-bar_top:focus-visible {
+  outline: 2px solid var(--neutral--white);
+  outline-offset: 2px;
+}
+.service-cta-pill {
+  display: flex;
+  align-items: center;
+  grid-column-gap: 1.4em;
+  height: 5.6em;
+  padding: 0 .8em 0 1.6em;
+  border-radius: .2em;
+  background-color: #111314;
+  color: var(--neutral--white);
+  text-decoration: none;
+  transition: background-color .3s ease;
+}
+.service-cta-pill:hover {
+  background-color: #1c1f21;
+}
+/* The logo image is 435 x 308 with the mark in x 135-302, y 0-207: show only that box, 2.8em tall */
+.service-cta-pill_mark {
+  position: relative;
+  flex: none;
+  width: 2.26em;
+  height: 2.8em;
+  overflow: hidden;
+}
+.service-cta-pill_logo {
+  position: absolute;
+  top: 0;
+  left: -1.83em;
+  width: auto;
+  height: 4.17em;
+  max-width: none;
+}
+.service-cta-pill_text {
+  padding-left: 1.4em;
+  border-left: 1px solid #ffffff26;
+  white-space: nowrap;
+  letter-spacing: -.01em;
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.service-cta-pill_square {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 4em;
+  margin-left: .6em;
+  border-radius: .15em;
+  background-color: #ffffff14;
+  transition: background-color .3s ease;
+}
+.service-cta-pill_icon {
+  width: 1.3em;
+  height: 1.3em;
+  transition: transform .3s ease, filter .3s ease;
+}
+/* Hover: the label stays white; the arrow square turns white and the (white) arrow black, by inverting it. */
+.service-cta-pill:hover .service-cta-pill_square {
+  background-color: var(--neutral--white);
+}
+.service-cta-pill:hover .service-cta-pill_icon {
+  filter: invert(1);
+  transform: translate(.1em, -.1em);
+}
+@media screen and (max-width: 767px) {
+  /* Phones: one step smaller, so the square and the pill fit side by side with a margin (down to 320px). */
+  .service-cta-bar {
+    bottom: max(1.6em, 12px);
+    font-size: max(1em, 9px);
+  }
+}
+
+/* ==================== Sticky steps ==================== */
+.sticky-steps.is-service {
+  padding-top: 8em;
+}
+@media screen and (max-width: 991px) {
+  .sticky-steps.is-service {
+    padding-top: 6em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sticky-steps.is-service {
+    padding-top: 5em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .sticky-steps.is-service {
+    padding-top: 4em;
+  }
+}
+
+/* ==================== Section intro ==================== */
+/* Offset introduction (Fluid Glass): a fine rule across the content, the small label at the left (columns 1-4) and the
+   statement in the right field from the seventh column. Combo is-dark on the wrapper, label and statement inside the
+   dark process band. */
+.service-intro {
+  grid-column-gap: 2em;
+  grid-row-gap: 2.4em;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  border-top: 1px solid #11111124;
+  padding-top: 2.4em;
+  display: grid;
+}
+@media screen and (max-width: 767px) {
+  .service-intro {
+    grid-row-gap: 2em;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 2em;
+  }
+}
+.service-intro.is-dark {
+  border-top-color: #ffffff2e;
+}
+.label-wrapeper.is-service-intro {
+  grid-column: 1 / 5;
+  justify-content: flex-start;
+  padding-top: .5em;
+}
+@media screen and (max-width: 767px) {
+  .label-wrapeper.is-service-intro {
+    grid-column: auto;
+    padding-top: 0;
+  }
+}
+.text-size-medium.is-service-intro {
+  font-size: 1.5em;
+}
+@media screen and (max-width: 991px) {
+  .text-size-medium.is-service-intro {
+    font-size: max(1.53em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .text-size-medium.is-service-intro {
+    font-size: max(1.41em, 15px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .text-size-medium.is-service-intro {
+    font-size: max(1.36em, 15px);
+  }
+}
+.text-size-medium.is-service-intro.is-dark {
+  color: #ffffffb8;
+}
+.text-size-x-large.is-service-intro {
+  grid-column: 7 / 13;
+  max-width: 14.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: -.03em;
+  font-size: 4em;
+  line-height: 1.06;
+}
+@media screen and (max-width: 991px) {
+  .text-size-x-large.is-service-intro {
+    font-size: 3.4em;
+  }
+}
+@media screen and (max-width: 991px) {
+  .text-size-x-large.is-service-intro {
+    grid-column: 5 / 13;
+  }
+}
+@media screen and (max-width: 767px) {
+  .text-size-x-large.is-service-intro {
+    grid-column: auto;
+    font-size: max(2.82em, 19px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .text-size-x-large.is-service-intro {
+    font-size: 2.16em;
+    line-height: 1.2;
+  }
+}
+.text-size-x-large.is-service-intro.is-dark {
+  color: var(--theme--ivory-d3);
+}
+.text-size-medium.is-service-faq {
+  font-size: 1.8em;
+}
+@media screen and (max-width: 991px) {
+  .text-size-medium.is-service-faq {
+    font-size: max(1.77em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .text-size-medium.is-service-faq {
+    font-size: max(1.62em, 15px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .text-size-medium.is-service-faq {
+    font-size: max(1.58em, 15px);
+  }
+}
+
+/* ==================== Process slides ==================== */
+/* Copied from the Fluid Glass "Our process" sequence: a dark band opening with the section intro under a rule, then one
+   full-height slide per step. Each slide is a 12-column grid with the composed photo pair (Service visual, is-process)
+   in columns 2-5 and the reading group (index, heading, text) in columns 8-11; the combo is-reverse swaps them
+   (reading columns 3-6, photos columns 8-11). The slides are sticky at the top of the viewport, so each one stacks
+   over the last as the page scrolls, the vertical equivalent of Fluid's pinned horizontal sequence. The last step
+   (is-final) is centred: index and heading, a strip of photo frames wider than the viewport, and the text beneath.
+   Below 992px the slides are ordinary blocks: reading group, then the photo group. Used on Rural, Luxury, Planning
+   and 3D in place of the Osmo step timeline. */
+.section.is-service-process {
+  background-color: var(--theme--obsidian-d3);
+  color: var(--text-colour--white);
+  padding-top: 8em;
+  padding-bottom: 0;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-process {
+    padding-top: 6em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-process {
+    padding-top: 5em;
+  }
+}
+.service-process {
+  width: 100%;
+  margin-top: 6em;
+  position: relative;
+}
+@media screen and (max-width: 991px) {
+  .service-process {
+    margin-top: 4em;
+  }
+}
+.service-process_slide {
+  grid-column-gap: 2em;
+  grid-row-gap: 4em;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  min-height: 100svh;
+  padding: 8em var(--_sizes---page-gutter);
+  background-color: var(--theme--obsidian-d3);
+  display: grid;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+@media screen and (max-width: 991px) {
+  .service-process_slide {
+    grid-row-gap: 3.2em;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    position: relative;
+  }
+}
+.service-visual.is-process {
+  grid-column: 2 / 6;
+  grid-row: 1;
+}
+.service-process_reading {
+  grid-column: 8 / 12;
+  grid-row: 1;
+  grid-row-gap: 2.4em;
+  flex-flow: column;
+  align-items: flex-start;
+  display: flex;
+}
+.service-process_slide.is-reverse .service-visual.is-process {
+  grid-column: 8 / 12;
+}
+.service-process_slide.is-reverse .service-process_reading {
+  grid-column: 3 / 7;
+}
+@media screen and (max-width: 991px) {
+  .service-visual.is-process,
+  .service-process_slide.is-reverse .service-visual.is-process {
+    grid-column: auto;
+    grid-row: 2;
+    max-width: 460px;
+  }
+  .service-process_reading,
+  .service-process_slide.is-reverse .service-process_reading {
+    grid-column: auto;
+    grid-row: 1;
+  }
+}
+.service-process_index {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: #ffffff80;
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+@media screen and (max-width: 991px) {
+  .service-process_index {
+    font-size: max(1.3em, 12px);
+  }
+}
+.service-process_heading {
+  max-width: 10.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--theme--ivory-d3);
+  letter-spacing: -.035em;
+  font-size: 4.6em;
+  font-weight: 400;
+  line-height: 1.04;
+}
+@media screen and (max-width: 991px) {
+  .service-process_heading {
+    font-size: max(3.6em, 26px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-process_heading {
+    font-size: 2.8em;
+  }
+}
+.service-process_text {
+  max-width: 24em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: #ffffffb8;
+  font-size: 1.6em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+@media screen and (max-width: 991px) {
+  .service-process_text {
+    max-width: 34em;
+    font-size: max(1.6em, 15px);
+  }
+}
+/* Final slide: centred index and heading, the photo strip, the text */
+.service-process_slide.is-final {
+  grid-row-gap: 0;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  display: flex;
+}
+.service-process_centre {
+  grid-row-gap: 2em;
+  flex-flow: column;
+  align-items: center;
+  padding-left: var(--_sizes---page-gutter);
+  padding-right: var(--_sizes---page-gutter);
+  display: flex;
+}
+.service-process_strip {
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5em;
+  margin-bottom: 4em;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .service-process_strip {
+    grid-column-gap: 1.2em;
+    margin-top: 3.6em;
+    margin-bottom: 3.2em;
+  }
+}
+.service-process_strip-frame {
+  flex: none;
+  overflow: hidden;
+}
+.service-process_strip-frame.is-tall {
+  aspect-ratio: .68;
+  width: 11.4vw;
+}
+.service-process_strip-frame.is-wide {
+  aspect-ratio: 1.75;
+  width: 19vw;
+}
+@media screen and (max-width: 767px) {
+  .service-process_strip-frame.is-tall {
+    width: 30vw;
+  }
+  .service-process_strip-frame.is-wide {
+    width: 48vw;
+  }
+}
+.service-process_strip-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.service-process_text.is-centred {
+  max-width: 32em;
+  padding-left: var(--_sizes---page-gutter);
+  padding-right: var(--_sizes---page-gutter);
+  text-align: center;
+}
+
+/* ==================== Service visual (composed photo group) ==================== */
+/* One composite of two unequal photos: the primary frame anchored top-left (63.3% of the group, 4:5), the supporting
+   frame bottom-right (50% wide, 4:5), overlapping at one corner; the group is taller than wide (ratio .857). Used by
+   the process slides (combo is-process) and the Project Management case study (is-case). For a single photo, give the
+   primary frame the combo is-solo and leave the secondary out. */
+.service-visual {
+  aspect-ratio: .857;
+  width: 100%;
+  position: relative;
+}
+.service-visual_frame {
+  background-color: #11111114;
+  border-radius: .2em;
+  position: absolute;
+  overflow: hidden;
+}
+.service-visual_frame.is-primary {
+  aspect-ratio: .81;
+  width: 63.3%;
+  top: 0;
+  left: 0;
+}
+.service-visual_frame.is-secondary {
+  aspect-ratio: .8;
+  width: 50%;
+  bottom: 0;
+  right: 0;
+}
+.service-visual_frame.is-primary.is-solo {
+  aspect-ratio: auto;
+  width: 100%;
+  height: 100%;
+}
+.service-visual_img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==================== Split text ==================== */
+.section.is-service-split {
+  margin-top: 4em;
+  margin-bottom: 10em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-split {
+    margin-top: 4em;
+    margin-bottom: 4em;
+  }
+}
+@media screen and (max-width: 991px) {
+  .container.blog-page.is-service-split {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container.blog-page.is-service-split {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.row.is-service-split {
+  border-top: .1em solid var(--neutral--lighter-1);
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 6em;
+  margin-right: 0;
+  padding-top: 3em;
+}
+@media screen and (max-width: 991px) {
+  .row.is-service-split {
+    margin-top: 3em;
+  }
+}
+/* Split rows copy the Fluid Glass services rows: a medium-weight title in the left third (4 of 12 columns), the text in
+   one reading column from the sixth (7 of 12), a fine rule above each row. */
+.heading-style-h2-normal.resize.is-service {
+  letter-spacing: -.02em;
+  font-size: 2.2em;
+  font-weight: 500;
+  line-height: 1.25;
+}
+@media screen and (max-width: 767px) {
+  .heading-style-h2-normal.resize.is-service {
+    font-size: max(2.4em, 18px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .heading-style-h2-normal.resize.is-service {
+    font-size: 1.9em;
+  }
+}
+.col.col-lg-4.col-md-12.is-sticky {
+  position: sticky;
+  top: 4em;
+}
+@media screen and (max-width: 991px) {
+  .col.col-lg-4.col-md-12.is-sticky {
+    position: static;
+  }
+}
+.text-rich-text-styled.is-service {
+  max-width: 64em;
+}
+.text-rich-text-styled.is-service.is-small {
+  font-size: .95em;
+}
+@media screen and (max-width: 767px) {
+  .text-rich-text-styled.is-service.is-small {
+    width: 100%;
+  }
+}
+/* Long-form reading text (split sections, FAQ answers): 18px at 1440 with open line spacing at every size. */
+.text-rich-text-styled.is-service p, .text-rich-text-styled.is-service li {
+  line-height: 1.55;
+}
+.text-rich-text-styled.is-service p {
+  font-size: 1.8em;
+}
+.text-rich-text-styled.is-service li {
+  font-size: max(.85em, 15px);
+}
+@media screen and (max-width: 991px) {
+  .text-rich-text-styled.is-service p {
+    font-size: max(1.8em, 16px);
+  }
+  .text-rich-text-styled.is-service li {
+    font-size: max(1em, 16px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .text-rich-text-styled.is-service p {
+    font-size: max(1.6em, 16px);
+  }
+  .text-rich-text-styled.is-service li {
+    font-size: max(1em, 15px);
+  }
+}
+
+/* ==================== Projects (three full-screen panels that stack on scroll) ==================== */
+/* Header, then three edge-to-edge panels, each a photo the height of the screen with the project name (bottom left)
+   and a white Main CTA "View Project" (bottom right) over a soft gradient; then the View All Projects CTA. From 768px
+   each panel but the last sinks by a quarter of its height under a darkening shade as it scrolls up past the top of
+   the screen, and the next panel slides over it: Planning's overlapping rows (shared/custom-js/service-overlap.js,
+   hooks data-service-overlap*). Photos are revealed once from a black cover with a slight zoom. Below 768px the panels
+   are shorter (4:5) and simply follow each other. In Webflow: one Collection List, limit 3. Hover:
+   custom-css/service-projects.css. */
+.section.is-service-projects {
+  padding-top: 14em;
+  padding-bottom: 10em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-projects {
+    padding-top: 11em;
+    padding-bottom: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-projects {
+    padding-top: 8em;
+    padding-bottom: 7em;
+  }
+}
+.service-projects_header {
+  grid-row-gap: 1.6em;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 6em;
+  padding-left: var(--_sizes---page-gutter);
+  padding-right: var(--_sizes---page-gutter);
+  text-align: center;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .service-projects_header {
+    margin-bottom: 4.8em;
+  }
+}
+.service-projects_label {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: #111c;
+  font-size: max(1.3em, 12px);
+  font-weight: 300;
+  line-height: 1.2;
+}
+@media screen and (max-width: 991px) {
+  .service-projects_label {
+    font-size: max(1.3em, 12px);
+  }
+}
+.heading-style-h2-brand.is-service-projects {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--text-colour--black);
+  letter-spacing: -.01em;
+  font-size: 3.76em;
+  line-height: 1.05;
+}
+@media screen and (max-width: 991px) {
+  .heading-style-h2-brand.is-service-projects {
+    font-size: 3.76em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .heading-style-h2-brand.is-service-projects {
+    font-size: max(3.76em, 24px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .heading-style-h2-brand.is-service-projects {
+    font-size: 2.63em;
+  }
+}
+.service-projects_list {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+.service-projects_panel {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 40em;
+  overflow: hidden;
+  background-color: var(--theme--obsidian-d4);
+  color: var(--text-colour--white);
+}
+.service-projects_media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.service-projects_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-projects_cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--theme--obsidian-d4);
+  opacity: 0;
+  pointer-events: none;
+}
+/* Gradient under the text: clear over the top half of the photo, darker towards the bottom edge. */
+.service-projects_media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(180deg, #0000001f 0%, #0000 30%, #0000 50%, #000000a6 100%);
+  pointer-events: none;
+}
+.service-projects_content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  grid-column-gap: 4em;
+  grid-row-gap: 2.4em;
+  /* clear of the floating CTA bar (shared/custom-js/service-cta-bar.js) when a panel fills the screen */
+  padding-bottom: 12em;
+}
+/* Project name: the sans and size of the section headings (H2 scale), so it holds its own over a full-screen photo. */
+.heading-style-h3-brand.is-service-projects {
+  max-width: 12em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--white);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.wrapper_cta.service-projects_cta {
+  flex: none;
+}
+@media screen and (max-width: 991px) {
+  .service-projects_panel {
+    min-height: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-projects_list {
+    grid-row-gap: 3px;
+  }
+  .service-projects_panel {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+  .service-projects_content {
+    flex-flow: column;
+    align-items: flex-start;
+    padding-bottom: 3.2em;
+  }
+}
+.service-projects_actions {
+  justify-content: center;
+  margin-top: 6em;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .service-projects_actions {
+    margin-top: 4em;
+  }
+}
+
+/* ==================== Accordions (FAQ and process) ==================== */
+.accordion-css.is-service {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.accordion-css.process-home.is-service {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================== Inline CTA ==================== */
+.service-cta {
+  grid-column-gap: 4em;
+  grid-row-gap: 4em;
+  border-top: 1px solid #11111124;
+  border-bottom: 1px solid #11111124;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6em;
+  padding: 3.6em 0;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .service-cta {
+    grid-row-gap: 2.8em;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 3.2em 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-cta {
+    grid-row-gap: 2.4em;
+    align-items: stretch;
+    padding: 2.8em 0;
+  }
+}
+.service-cta_text {
+  max-width: 24em;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.01em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.2em;
+  font-weight: 400;
+  line-height: 1.3;
+}
+@media screen and (max-width: 991px) {
+  .service-cta_text {
+    font-size: max(2em, 16px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-cta_text {
+    max-width: none;
+    font-size: max(1.9em, 16px);
+  }
+}
+
+/* ==================== Fit lists ==================== */
+/* Offset services layout: a fine rule across the content, the small label at the left (columns 1-4), the heading in the
+   right field from the sixth column, and the detail rows beneath on the same axis: each a ruled row of title (2 of 7
+   columns) and list (5 columns). Combos: service-fit_details is-full with service-fit_row is-full when a page has no
+   heading (the rows then span the content, title in columns 1-5, list from column 6); service-fit_row is-untitled for a
+   list or paragraph without a title; service-fit_row is-alt for the lighter "something else" row. */
+.section.is-service-fit {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-fit {
+    padding-top: 10em;
+    padding-bottom: 10em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-fit {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-service-fit {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+}
+.service-fit {
+  grid-column-gap: 2em;
+  grid-row-gap: 0;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  border-top: 1px solid #11111124;
+  padding-top: 2.4em;
+  display: grid;
+}
+@media screen and (max-width: 767px) {
+  .service-fit {
+    grid-row-gap: 2.4em;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 2em;
+  }
+}
+.label-wrapeper.is-service-fit {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  justify-content: flex-start;
+  padding-top: .5em;
+}
+@media screen and (max-width: 767px) {
+  .label-wrapeper.is-service-fit {
+    grid-column: auto;
+    grid-row: auto;
+    padding-top: 0;
+  }
+}
+.service-fit_heading {
+  grid-column: 6 / 13;
+  grid-row: 1;
+  max-width: 12.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.03em;
+  font-size: 4em;
+  font-weight: 400;
+  line-height: 1.06;
+}
+@media screen and (max-width: 991px) {
+  .service-fit_heading {
+    font-size: 3.4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-fit_heading {
+    grid-column: auto;
+    grid-row: auto;
+    font-size: max(2.82em, 19px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-fit_heading {
+    font-size: 2.26em;
+  }
+}
+.service-fit_details {
+  grid-column: 1 / 13;
+  grid-row: 2;
+  flex-direction: column;
+  margin-top: 6.4em;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .service-fit_details {
+    margin-top: 5.4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-fit_details {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 1.6em;
+  }
+}
+/* No label or heading on the page (Project Management): no section rule, so the first row carries the only rule. */
+.service-fit.is-plain {
+  border-top-style: none;
+  padding-top: 0;
+}
+.service-fit_details.is-full {
+  grid-column: 1 / 13;
+  grid-row: 1;
+  margin-top: 0;
+}
+@media screen and (max-width: 767px) {
+  .service-fit_details.is-full {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+.service-fit_row {
+  grid-column-gap: 2em;
+  grid-row-gap: 1.6em;
+  grid-template-rows: auto;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  color: var(--text-colour--black);
+  border-top: 1px solid #11111124;
+  padding-top: 2.4em;
+  padding-bottom: 3.6em;
+  display: grid;
+}
+@media screen and (max-width: 767px) {
+  .service-fit_row {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 2em;
+    padding-bottom: 2.8em;
+  }
+}
+.service-fit_row.is-full {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+@media screen and (max-width: 767px) {
+  .service-fit_row.is-full {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.service-fit_row.is-untitled {
+  grid-template-columns: minmax(0, 1fr);
+}
+.service-fit_row.is-alt {
+  color: #11111194;
+}
+.service-fit_title {
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .15em;
+  font-size: max(2em, 17px);
+  font-weight: 500;
+  line-height: 1.25em;
+}
+@media screen and (max-width: 991px) {
+  .service-fit_title {
+    font-size: max(1.9em, 16px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-fit_title {
+    padding-top: 0;
+    font-size: max(1.76em, 15px);
+  }
+}
+.service-fit_list {
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  flex-direction: column;
+  display: flex;
+}
+.service-fit_item {
+  flex-direction: row;
+  align-items: flex-start;
+  display: flex;
+}
+/* List marker: a small hollow diamond (a rotated bordered square), as on the Fluid Glass services rows. */
+.service-fit_marker {
+  width: .55em;
+  height: .55em;
+  color: var(--theme--obsidian-d4);
+  border: 1px solid currentColor;
+  flex: none;
+  margin-top: 1.15em;
+  margin-right: 2.2em;
+  transform: rotate(45deg);
+}
+@media screen and (max-width: 767px) {
+  .service-fit_marker {
+    margin-right: 1.6em;
+  }
+}
+.service-fit_body {
+  min-width: 0;
+  max-width: 36em;
+  font-family: var(--font-family--normal-font);
+  flex: 1;
+  font-size: max(1.7em, 15px);
+  font-weight: 300;
+  line-height: 1.65em;
+}
+@media screen and (max-width: 991px) {
+  .service-fit_body {
+    font-size: max(1.7em, 15px);
+  }
+}
+.service-fit_text {
+  color: var(--theme--obsidian-base);
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline;
+}
+.service-fit_marker.is-alt {
+  color: #11111152;
+}
+.service-fit_link {
+  color: var(--theme--obsidian-d4);
+  text-underline-offset: .26em;
+  padding-left: .3em;
+  font-weight: 400;
+  text-decoration: underline;
+  display: inline;
+}
+.service-fit_note {
+  grid-column: 6 / 13;
+  grid-row: 3;
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
+  border-top: 1px solid #11111124;
+  flex-direction: column;
+  margin-top: 0;
+  padding-top: 3.2em;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .service-fit_note {
+    grid-column: auto;
+    grid-row: auto;
+    padding-top: 2.4em;
+  }
+}
+.service-fit_note-text {
+  max-width: 34em;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.7em;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+@media screen and (max-width: 991px) {
+  .service-fit_note-text {
+    font-size: max(1.7em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-fit_note-text {
+    max-width: none;
+    font-size: max(1.61em, 15px);
+  }
+}
+
+/* ==================== Stacked sub-heading ==================== */
+.heading-wrapper.is-stacked {
+  align-items: flex-start;
+}
+.div-block-41.is-stacked {
+  grid-column-gap: 1.2em;
+  grid-row-gap: 1.2em;
+  align-items: flex-start;
+}
+.text-size-regular.label.is-stacked {
+  line-height: 0;
+}
+@media screen and (min-width: 1440px) {
+  .text-size-regular.label.is-stacked {
+    padding-top: .4em;
+    padding-bottom: .2em;
+  }
+}
+.div-block-40.is-stacked {
+  width: auto;
+}
+
+/* ==================== Statement ==================== */
+/* Prominent statement with a quiet field (Tandem): a small label, one very large statement in the brand display font
+   (6em, 20em measure, about 80% of the content), and the compact note or action underneath, centred on the page
+   background with deep clearance above and below. Dark variant: is-dark (Heritage, Planning). */
+.section.is-service-statement {
+  padding-top: 20em;
+  padding-bottom: 20em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-statement {
+    padding-top: 14em;
+    padding-bottom: 14em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-statement {
+    padding-top: 10em;
+    padding-bottom: 10em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-service-statement {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+}
+.section.is-service-statement.is-dark {
+  background-color: var(--theme--obsidian-d3);
+  color: var(--text-colour--white);
+}
+.service-statement {
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--_sizes---page-gutter);
+  padding-right: var(--_sizes---page-gutter);
+  text-align: center;
+  display: flex;
+}
+.label-wrapeper.is-service-statement {
+  justify-content: center;
+  margin-bottom: 3.2em;
+}
+@media screen and (max-width: 767px) {
+  .label-wrapeper.is-service-statement {
+    margin-bottom: 2.4em;
+  }
+}
+.service-statement_text {
+  max-width: 20em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--brand-font);
+  color: inherit;
+  letter-spacing: -.015em;
+  font-size: 5.2em;
+  font-weight: var(--font-weight--light);
+  line-height: 1.06;
+}
+@media screen and (max-width: 991px) {
+  .service-statement_text {
+    font-size: 4.6em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-statement_text {
+    max-width: 18em;
+    font-size: max(3.8em, 26px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-statement_text {
+    max-width: none;
+    font-size: 2.8em;
+    line-height: 1.14;
+  }
+}
+.service-statement_meta {
+  grid-row-gap: 2.8em;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 5.6em;
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .service-statement_meta {
+    grid-row-gap: 2.4em;
+    margin-top: 3.6em;
+  }
+}
+.text-size-regular.is-service-statement {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+@media screen and (max-width: 991px) {
+  .text-size-regular.is-service-statement {
+    font-size: max(1.3em, 12px);
+  }
+}
+
+/* ==================== Bouncy tabs (Osmo component) ==================== */
+.section.is-service-dark {
+  background-color: var(--theme--obsidian-d3);
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-dark {
+    padding-top: 7.2em;
+    padding-bottom: 7.2em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-dark {
+    padding-top: 5.6em;
+    padding-bottom: 5.6em;
+  }
+}
+.bouncy-tabs {
+  width: 100%;
+  max-width: 150em;
+  padding: 10em var(--_sizes---page-gutter);
+  grid-column-gap: 4.8em;
+  grid-row-gap: 4.8em;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .bouncy-tabs {
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs {
+    grid-column-gap: 3.2em;
+    grid-row-gap: 3.2em;
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .bouncy-tabs {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+}
+.heading-statement.is-service-tabs {
+  width: 14em;
+  font-size: 3.01em;
+}
+@media screen and (max-width: 991px) {
+  .heading-statement.is-service-tabs {
+    width: auto;
+    max-width: 14em;
+    font-size: 2.82em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .heading-statement.is-service-tabs {
+    font-size: 2.44em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .heading-statement.is-service-tabs {
+    font-size: 2.16em;
+  }
+}
+.bouncy-tabs__nav {
+  background-color: #1111110f;
+  border-radius: .2em;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: .4em;
+  display: inline-flex;
+  position: relative;
+}
+.bouncy-tabs__ghost {
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #11111114;
+  border-radius: .2em;
+  width: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bouncy-tabs__indicator {
+  z-index: 2;
+  background-color: var(--theme--obsidian-d3);
+  pointer-events: none;
+  border-radius: .2em;
+  width: 3em;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bouncy-tabs__button {
+  z-index: 3;
+  font-family: var(--font-family--normal-font);
+  color: #1119;
+  letter-spacing: .01em;
+  appearance: none;
+  background-color: #0000;
+  border: none;
+  border-radius: .14em;
+  padding: .85em 1.6em;
+  font-size: 1.6em;
+  font-weight: 400;
+  transition: color .3s;
+  position: relative;
+}
+@media screen and (max-width: 991px) {
+  .bouncy-tabs__button {
+    font-size: max(1.6em, 14px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__button {
+    font-size: max(1.4em, 13px);
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+  }
+}
+.bouncy-tabs__collection {
+  width: 100%;
+  height: 54em;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__collection {
+    height: auto;
+    min-height: 60em;
+  }
+}
+.bouncy-tabs__list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* Panel: process composition on a 12-column grid, the photo in columns 1-6 and the narrow reading group from column 8. */
+.bouncy-tabs__item {
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  height: 100%;
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__item {
+    grid-column-gap: 2.8em;
+    grid-row-gap: 2.8em;
+    align-items: stretch;
+    flex-flow: column;
+    display: flex;
+    /* Size to the content on phones: a 100% height collapsed the panel (and its photo) to nothing */
+    height: auto;
+  }
+}
+.bouncy-tabs__item-text {
+  grid-column: 8 / 13;
+  grid-row: 1;
+  grid-column-gap: 1.6em;
+  grid-row-gap: 1.6em;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+}
+.bouncy-tabs__heading {
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.015em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2.6em;
+  font-weight: 400;
+  line-height: 1.15em;
+}
+@media screen and (max-width: 991px) {
+  .bouncy-tabs__heading {
+    font-size: max(2.05em, 17px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__heading {
+    font-size: max(1.76em, 16px);
+  }
+}
+.bouncy-tabs__para {
+  max-width: 28em;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.7em;
+  font-weight: 300;
+  line-height: 1.65em;
+}
+@media screen and (max-width: 991px) {
+  .bouncy-tabs__para {
+    font-size: max(1.7em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__para {
+    max-width: none;
+    font-size: max(1.59em, 15px);
+  }
+}
+.bouncy-tabs__item-visual {
+  grid-column: 1 / 7;
+  grid-row: 1;
+  border-radius: .2em;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs__item-visual {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    height: auto;
+  }
+}
+.bouncy-tabs__item-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.heading-statement.is-service-tabs.is-dark {
+  color: var(--text-colour--white);
+}
+.bouncy-tabs__nav.is-dark {
+  background-color: #ffffff12;
+}
+.bouncy-tabs__ghost.is-dark {
+  background-color: #ffffff17;
+}
+.bouncy-tabs__indicator.is-dark {
+  background-color: #ffffff29;
+}
+.bouncy-tabs__button.is-dark {
+  color: #ffffff8c;
+}
+.bouncy-tabs__collection.is-dark {
+  background-color: #0000;
+}
+.bouncy-tabs__heading.is-dark {
+  color: var(--text-colour--white);
+}
+.bouncy-tabs__para.is-dark {
+  color: #ffffffb8;
+}
+
+/* ==================== Numbered steps ==================== */
+.container.is-service-steps {
+  padding-bottom: 10em;
+}
+@media screen and (max-width: 991px) {
+  .container.is-service-steps {
+    padding-bottom: 8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container.is-service-steps {
+    padding-bottom: 6em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .container.is-service-steps {
+    padding-bottom: 5em;
+  }
+}
+/* Header (copied from the Fluid Glass services introduction): a fine rule, the heading in the right field from column 6,
+   then the ruled rows across the full content width. */
+.service-steps_head {
+  grid-column-gap: 2em;
+  grid-row-gap: 2.4em;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  width: 100%;
+  border-top: 1px solid #11111124;
+  padding-top: 2.4em;
+  padding-bottom: 6.4em;
+  display: grid;
+}
+@media screen and (max-width: 991px) {
+  .service-steps_head {
+    padding-bottom: 5.4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-steps_head {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 2em;
+    padding-bottom: 4em;
+  }
+}
+.service-steps_heading {
+  grid-column: 6 / 13;
+  max-width: 12.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.03em;
+  font-size: 4em;
+  font-weight: 400;
+  line-height: 1.06;
+}
+@media screen and (max-width: 991px) {
+  .service-steps_heading {
+    grid-column: 5 / 13;
+    font-size: 3.4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-steps_heading {
+    grid-column: auto;
+    font-size: max(2.82em, 19px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-steps_heading {
+    font-size: 2.26em;
+  }
+}
+.service-steps_list {
+  width: 100%;
+}
+.service-steps_item {
+  border-top: 1px solid #11111124;
+  width: 100%;
+  padding-top: 3.2em;
+  padding-bottom: 3.2em;
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .service-steps_item {
+    padding-top: 2.8em;
+    padding-bottom: 2.8em;
+  }
+}
+/* Rows copy the Fluid Glass services rows: a small index, a medium-weight title in the left third, the text in the
+   right two thirds. */
+.service-steps_row {
+  grid-column-gap: 2.4em;
+  grid-row-gap: 1.6em;
+  grid-template-rows: auto;
+  grid-template-columns: 3em minmax(0, 4fr) minmax(0, 7fr);
+  align-items: start;
+  width: 100%;
+  display: grid;
+}
+@media screen and (max-width: 991px) {
+  .service-steps_row {
+    grid-column-gap: 2em;
+    grid-template-columns: 3em minmax(0, 1fr);
+  }
+}
+.service-steps_badge {
+  flex: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 3em;
+  padding-top: .4em;
+  display: flex;
+}
+.service-steps_number {
+  font-family: var(--font-family--normal-font);
+  color: #111c;
+  letter-spacing: .08em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.service-steps_title {
+  min-width: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.02em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .15em;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1.25em;
+}
+@media screen and (max-width: 991px) {
+  .service-steps_title {
+    font-size: max(2em, 17px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-steps_title {
+    padding-top: .45em;
+    font-size: max(1.76em, 17px);
+  }
+}
+.service-steps_body {
+  min-width: 0;
+  max-width: 36em;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  padding-top: .2em;
+  font-size: 1.7em;
+  font-weight: 300;
+  line-height: 1.55em;
+}
+@media screen and (max-width: 991px) {
+  .service-steps_body {
+    grid-column-start: 2;
+    max-width: none;
+    font-size: max(1.7em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-steps_body {
+    font-size: max(1.6em, 15px);
+  }
+}
+.service-steps_text {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline;
+}
+.service-steps_cta {
+  width: 100%;
+  border-top: 1px solid #11111124;
+  margin-top: 0;
+  padding: 3.2em 0 0;
+  display: block;
+}
+.service-steps_cta-card {
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
+}
+
+/* ==================== Editorial rows ==================== */
+/* Broad editorial rows: a header row with the heading in columns 1-7 and the intro or action in columns 9-12, then one
+   ruled row per entry on a 12-column grid: index and title top-left (columns 1-7), the text bottom-left on the same
+   columns, and the photo in columns 9-12 spanning both rows, with column 8 as the channel. Rows are link blocks where
+   the old cards were links. Used for the Rural planning routes, Heritage building types, Luxury budget and planning,
+   Planning refusal options, 3D clients and Project Management project types. Hover: custom-css/service-editorial.css. */
+.section.is-service-editorial {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-editorial {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-editorial {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-service-editorial {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+}
+.service-editorial_head {
+  grid-column-gap: 2em;
+  grid-row-gap: 2.4em;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+  padding-bottom: 6em;
+  display: grid;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    padding-bottom: 4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-editorial_head {
+    padding-bottom: 3.2em;
+  }
+}
+.service-editorial_heading {
+  grid-column: 1 / 8;
+  max-width: 11em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: 4.8em;
+  font-weight: 400;
+  line-height: 1;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_heading {
+    grid-column: auto;
+    max-width: 13em;
+    font-size: max(3.67em, 25px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-editorial_heading {
+    font-size: max(3.1em, 22px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-editorial_heading {
+    font-size: 2.4em;
+  }
+}
+.service-editorial_aside {
+  grid-column: 9 / 13;
+  grid-row-gap: 2.4em;
+  flex-flow: column;
+  align-items: flex-start;
+  padding-bottom: .6em;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_aside {
+    grid-column: auto;
+    padding-bottom: 0;
+  }
+}
+.text-size-regular-copy.is-service-editorial {
+  max-width: 30em;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: max(1.7em, 15px);
+}
+@media screen and (max-width: 991px) {
+  .text-size-regular-copy.is-service-editorial {
+    font-size: max(1.7em, 15px);
+  }
+}
+.service-editorial_rows {
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid #11111124;
+  display: flex;
+}
+.service-editorial_row {
+  grid-column-gap: 2em;
+  grid-row-gap: 3.2em;
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
+  width: 100%;
+  color: var(--text-colour--black);
+  border-top: 1px solid #11111124;
+  padding-top: 3.2em;
+  padding-bottom: 3.2em;
+  text-decoration: none;
+  display: grid;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_row {
+    grid-row-gap: 2.4em;
+    grid-template-rows: auto;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 2.8em;
+    padding-bottom: 2.8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-editorial_row {
+    padding-top: 2.4em;
+    padding-bottom: 2.4em;
+  }
+}
+.service-editorial_title-group {
+  grid-column: 1 / 8;
+  grid-row: 1;
+  grid-row-gap: 1.6em;
+  flex-flow: column;
+  align-items: flex-start;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_title-group {
+    grid-column: auto;
+    grid-row: 1;
+  }
+}
+.service-editorial_index {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: #111c;
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1.2;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_index {
+    font-size: max(1.3em, 12px);
+  }
+}
+.service-editorial_title {
+  max-width: 11em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.03em;
+  font-size: 3.8em;
+  font-weight: 400;
+  line-height: 1.02;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_title {
+    font-size: max(2.8em, 20px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-editorial_title {
+    font-size: max(2.2em, 18px);
+  }
+}
+.service-editorial_body {
+  grid-column: 1 / 8;
+  grid-row: 2;
+  align-self: end;
+  grid-row-gap: 1.6em;
+  flex-flow: column;
+  align-items: flex-start;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_body {
+    grid-column: auto;
+    grid-row: 3;
+    align-self: start;
+  }
+}
+.text-size-regular-copy.is-service-editorial-text {
+  max-width: 34em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.6em;
+  line-height: 1.55;
+}
+@media screen and (max-width: 991px) {
+  .text-size-regular-copy.is-service-editorial-text {
+    font-size: max(1.55em, 15px);
+  }
+}
+.service-editorial_media {
+  grid-column: 9 / 13;
+  grid-row: 1 / span 2;
+  align-self: start;
+  aspect-ratio: 1 / .87;
+  background-color: var(--theme--ivory-d2);
+  border-radius: .2em;
+  overflow: hidden;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_media {
+    grid-column: auto;
+    grid-row: 2;
+    aspect-ratio: 16 / 10;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-editorial_media {
+    aspect-ratio: 4 / 3;
+  }
+}
+.service-editorial_img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 1.2s cubic-bezier(.2, .6, .2, 1);
+}
+/* ===================================================================================================================
+   Service patterns (developed on Luxury Architecture, shared by the service pages)
+   =================================================================================================================== */
+/* ==================== Tabs: tab bar layout ==================== */
+/* Combo class on the shared bouncy tabs (shared/custom-css/bouncy-tabs.css, shared/custom-js/bouncy-tabs.js): the
+   intro is left-aligned and the tabs are a row of separate grey chips, the active one black with white text (the
+   script's sliding indicator and hover ghost are not used). */
+.bouncy-tabs.is-tab-bar {
+  align-items: stretch;
+}
+.bouncy-tabs.is-tab-bar .wrapper_statement {
+  align-items: flex-start;
+}
+.bouncy-tabs.is-tab-bar .heading-statement.is-service-tabs {
+  width: auto;
+  max-width: 16em;
+  margin-left: 0;
+  text-align: left;
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  grid-column-gap: .4em;
+  grid-row-gap: .4em;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__ghost,
+.bouncy-tabs.is-tab-bar .bouncy-tabs__indicator {
+  display: none;
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__button {
+  flex: none;
+  padding: .6em 1.1em;
+  border-radius: .15em;
+  background-color: var(--theme--ivory-d2);
+  color: var(--theme--obsidian-d3);
+  letter-spacing: -.01em;
+  font-size: max(1.4em, 13px);
+  line-height: 1.3;
+  transition: background-color .3s ease, color .3s ease;
+}
+/* Touch sizes: chips at least 40px tall below 992px. */
+@media screen and (max-width: 991px) {
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__button {
+    min-height: 40px;
+  }
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__button:hover {
+  background-color: var(--theme--ivory-d3);
+}
+.bouncy-tabs.is-tab-bar [data-bouncy-tabs-button][data-active] {
+  background-color: var(--theme--obsidian-d3);
+  color: var(--neutral--white);
+}
+/* Each panel spans the content width (gutter to gutter) as a split card: the photo bleeds to the card's left, top and
+   bottom edges across 60%, and the text sits on the stone-coloured 40% at the right, centred vertically: the step
+   number, heading and paragraph, closed by a thin rule. */
+.bouncy-tabs.is-tab-bar .bouncy-tabs__collection {
+  height: 56em;
+  border-radius: .3em;
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__item {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-column-gap: 0;
+  align-items: stretch;
+  padding: 0;
+  border-radius: .3em;
+  overflow: hidden;
+  background-color: var(--theme--ivory-d1);
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__item-visual {
+  grid-column: 1;
+  border-radius: 0;
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__item-text {
+  grid-column: 2;
+  justify-content: center;
+  grid-row-gap: 0;
+  padding: 4em 5.6em;
+}
+.bouncy-tabs__label {
+  margin: 0 0 1.6em;
+  padding: .55em .7em .5em;
+  border-radius: .15em;
+  background-color: #11111112;
+  color: #111111a6;
+  font-size: max(1.2em, 12px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  line-height: 1;
+}
+.section.is-service-dark .bouncy-tabs__label {
+  background-color: #ffffff1a;
+  color: #ffffffb3;
+}
+/* Smaller, more refined panel type than the section headings */
+.page-wrapper.is-service .bouncy-tabs.is-tab-bar .bouncy-tabs__heading {
+  font-size: calc(var(--service-h) * .7);
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__para {
+  margin-top: 1.1em;
+  font-size: max(1.5em, 14px);
+}
+.bouncy-tabs.is-tab-bar .bouncy-tabs__item-text::after {
+  content: "";
+  align-self: stretch;
+  height: 1px;
+  margin-top: 3.2em;
+  background-color: currentColor;
+  opacity: .3;
+}
+@media screen and (max-width: 767px) {
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__button {
+    font-size: max(1.3em, 13px);
+  }
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__collection {
+    height: auto;
+  }
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__item {
+    grid-row-gap: 0;
+  }
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__item-text {
+    padding: 2.8em 2.4em 3.2em;
+  }
+  .bouncy-tabs.is-tab-bar .bouncy-tabs__item-visual {
+    order: -1;
+  }
+}
+
+/* ==================== Sticky cards (restores the editorial sticky cards of docs 3e; Fitosauna two-column section) ==================== */
+/* Two equal columns between thin rules, split by a 1px rule. The left panel holds 6em below the top of the screen
+   while the photo cards scroll past on the right, then leaves with the section. CSS sticky only, no script. */
+.section.service-cards {
+  padding-top: 6em;
+  padding-bottom: 12em;
+}
+.service-cards_layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border-top: 1px solid #11111124;
+  border-bottom: 1px solid #11111124;
+}
+.service-cards_left {
+  padding: 3em 3em 3em var(--_sizes---page-gutter);
+  border-right: 1px solid #11111124;
+}
+.service-cards_sticky {
+  position: sticky;
+  top: var(--service-nav-clear, 6em);
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  grid-row-gap: 2.4em;
+}
+.service-cards_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  font-size: 3.4em;
+  line-height: 1.06;
+}
+.service-cards_intro {
+  max-width: 30em;
+  margin: 0;
+  color: var(--text-colour--black);
+  font-size: max(1.7em, 15px);
+  line-height: 1.5;
+}
+.service-cards_right {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 3em;
+  padding: 3em var(--_sizes---page-gutter) 3em 3em;
+}
+.service-cards_card {
+  background-color: var(--theme--ivory-d1);
+}
+.service-cards_media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.service-cards_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-cards_info {
+  padding: 2.4em;
+}
+.service-cards_title {
+  margin: 0;
+  padding-bottom: .7em;
+  border-bottom: 1px solid var(--text-colour--black);
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.03em;
+  font-size: max(3em, 22px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.service-cards_meta {
+  display: grid;
+  grid-template-columns: 5em minmax(0, 1fr);
+  align-items: start;
+  margin-top: 2.4em;
+}
+.service-cards_number,
+.service-cards_text {
+  margin: 0;
+  color: var(--text-colour--black);
+  font-size: max(1.45em, 14px);
+  line-height: 1.5;
+}
+.service-cards_text {
+  padding: 0 0 0 1.6em;
+  border-left: 1px solid var(--text-colour--black);
+}
+@media screen and (max-width: 991px) {
+  .section.service-cards {
+    padding-bottom: 8em;
+  }
+  .service-cards_layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service-cards_left {
+    padding: 3em var(--_sizes---page-gutter);
+    border-right: 0;
+    border-bottom: 1px solid #11111124;
+  }
+  .service-cards_sticky {
+    position: static;
+  }
+  .service-cards_intro {
+    font-size: max(1.7em, 15px);
+  }
+  .service-cards_right {
+    padding: 3em var(--_sizes---page-gutter);
+  }
+  .service-cards_heading {
+    font-size: max(2.8em, 24px);
+  }
+  .service-cards_title {
+    font-size: max(2.6em, 22px);
+  }
+  .service-cards_number,
+  .service-cards_text {
+    font-size: max(1.6em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  /* Phones: the number sits above the text, which takes the full card width (no side rule). */
+  .service-cards_meta {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 1.2em;
+    margin-top: 2em;
+  }
+  .service-cards_text {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .service-cards_info {
+    padding: 2em 2em 2.8em;
+  }
+}
+
+/* Tablet (768-991px): once the columns stack, each card lies on its side, photo left (2/5) and text right (3/5), so
+   three full-width cards don't become three tall posters. */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .service-cards_card {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .service-cards_media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+  .service-cards_info {
+    align-self: center;
+  }
+}
+/* Band variant (Luxury "Budget and planning certainty", Rural "Our approach"): a light grey band with no rule above
+   it; the cards one step darker than the band. Optional label above the heading in the sticky panel. */
+.section.service-cards.is-band {
+  background-color: var(--theme--ivory-d1);
+}
+.service-cards_layout.is-band {
+  border-top-style: none;
+}
+.service-cards_card.is-band {
+  background-color: var(--theme--ivory-d2);
+}
+.label-wrapeper.service-cards_label {
+  justify-content: flex-start;
+}
+
+/* ==================== Editorial rows: stacked process (copies the telhaclarke.com.au/process stack cards) ==================== */
+/* Header: label left, heading from column 4. Rows: a rule, a numbered square beside the title in columns 1-7 with the
+   text under it, a 4:3 photo in columns 9-12. Each row pins one title band below the row before, so the next row
+   covers everything of the one before except its band (the text starts below the band, so none of it shows).
+   Every pinned row is given extra depth (hidden behind the rows after it) so all six end on the same line: when the
+   last row reaches its place, the whole stack scrolls away together instead of the last row sweeping over the rest. */
+.section.is-service-editorial.is-stacked {
+  --service-row-pad: 2em;
+  --service-stack-top: var(--service-nav-clear, 6em);
+  --service-row-title: 3em;
+  --service-step-size: 3.6em;
+  --service-stack-band: calc(2 * var(--service-row-pad) + var(--service-step-size) + 1px);
+}
+.is-service-editorial.is-stacked .service-editorial_head {
+  padding-bottom: 6em;
+}
+.is-service-editorial.is-stacked .service-stack_label {
+  grid-column: 1 / 4;
+  align-self: start;
+  justify-content: flex-start;
+  padding-top: 1.2em;
+}
+.is-service-editorial.is-stacked .service-stack_label .text-size-regular {
+  margin: 0;
+}
+.service-stack_heading {
+  grid-column: 4 / 12;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.is-service-editorial.is-stacked .service-editorial_rows {
+  border-bottom: 0;
+}
+.is-service-editorial.is-stacked .service-editorial_row {
+  position: sticky;
+  top: var(--service-stack-top);
+  grid-row-gap: 0;
+  grid-template-rows: auto 1fr;
+  padding: var(--service-row-pad) 0;
+  background-color: var(--theme--ivory-base);
+}
+/* Row i of n pins i-1 bands down; every row but the last gets (n - i) bands of hidden depth and pulls the next row up
+   by the same amount, so all rows end on one line and leave together. n comes from the number of rows (3 to 8). */
+.is-service-editorial.is-stacked .service-editorial_rows { --n: 6; }
+.is-service-editorial.is-stacked .service-editorial_rows:has(> :nth-child(3):last-child) { --n: 3; }
+.is-service-editorial.is-stacked .service-editorial_rows:has(> :nth-child(4):last-child) { --n: 4; }
+.is-service-editorial.is-stacked .service-editorial_rows:has(> :nth-child(5):last-child) { --n: 5; }
+.is-service-editorial.is-stacked .service-editorial_rows:has(> :nth-child(7):last-child) { --n: 7; }
+.is-service-editorial.is-stacked .service-editorial_rows:has(> :nth-child(8):last-child) { --n: 8; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(1) { --i: 1; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(2) { --i: 2; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(3) { --i: 3; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(4) { --i: 4; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(5) { --i: 5; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(6) { --i: 6; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(7) { --i: 7; }
+.is-service-editorial.is-stacked .service-editorial_row:nth-child(8) { --i: 8; }
+.is-service-editorial.is-stacked .service-editorial_row {
+  top: calc(var(--service-stack-top) + (var(--i) - 1) * var(--service-stack-band));
+  padding-bottom: calc(var(--service-row-pad) + (var(--n) - var(--i)) * var(--service-stack-band));
+}
+.is-service-editorial.is-stacked .service-editorial_row + .service-editorial_row {
+  margin-top: calc(-1 * (var(--n) - var(--i) + 1) * var(--service-stack-band));
+}
+.service-stack_intro {
+  grid-column: 4 / 12;
+  max-width: 40em;
+  margin: 1.6em 0 0;
+  color: #111111b3;
+  font-size: 1.7em;
+  line-height: 1.5;
+}
+.service-cards_text p {
+  margin: 0;
+}
+.service-cards_text p + p {
+  margin-top: .8em;
+}
+.is-service-editorial.is-stacked .service-editorial_title-group {
+  grid-column: 1 / 8;
+  flex-flow: row;
+  align-items: center;
+  grid-column-gap: 1.6em;
+  min-height: var(--service-step-size);
+}
+.service-stack_number {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: .1em;
+  background-color: var(--theme--ivory-d3);
+  color: var(--theme--obsidian-d3);
+  font-size: 1.3em;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1;
+  /* Trims the line box to the digits' cap height so flex centring centres the figure itself, not its line */
+  text-box: trim-both cap alphabetic;
+  /* Poppins' figures sit high in their box: nudge them down so the ink is centred (measured from pixels) */
+  padding-top: .18em;
+}
+.is-service-editorial.is-stacked .service-editorial_title {
+  max-width: none;
+  letter-spacing: -.03em;
+  font-size: var(--service-row-title);
+  line-height: 1.1;
+}
+/* The text starts further below the title than the band shows, so a pinned row never reveals any of it */
+.is-service-editorial.is-stacked .service-editorial_body {
+  grid-column: 1 / 8;
+  align-self: start;
+  grid-row-gap: 1.2em;
+  padding-top: 2.8em;
+}
+.is-service-editorial.is-stacked .text-size-regular-copy.is-service-editorial-text {
+  max-width: 34em;
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+.is-service-editorial.is-stacked .service-editorial_media {
+  grid-column: 9 / 13;
+  align-self: start;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-editorial.is-stacked {
+    --service-row-pad: 2.4em;
+    --service-row-title: max(2.2em, 20px);
+    /* Start the stack below the fixed logo and Get in Touch bar of tablet and mobile */
+    --service-stack-top: 76px;
+  }
+  .is-service-editorial.is-stacked .service-stack_label,
+  .service-stack_heading,
+  .is-service-editorial.is-stacked .service-editorial_title-group,
+  .is-service-editorial.is-stacked .service-editorial_body,
+  .is-service-editorial.is-stacked .service-editorial_media {
+    grid-column: auto;
+  }
+  .is-service-editorial.is-stacked .service-editorial_head {
+    padding-bottom: 4em;
+  }
+  .is-service-editorial.is-stacked .service-stack_label {
+    padding-top: 0;
+  }
+  .is-service-editorial.is-stacked .service-editorial_row {
+    grid-template-rows: auto;
+    grid-row-gap: 2em;
+  }
+  .is-service-editorial.is-stacked .service-editorial_body {
+    padding-top: 0;
+  }
+  .is-service-editorial.is-stacked .service-editorial_media {
+    aspect-ratio: 16 / 10;
+  }
+  .is-service-editorial.is-stacked .text-size-regular-copy.is-service-editorial-text {
+    font-size: max(1.55em, 15px);
+    line-height: 1.45;
+  }
+}
+/* Phones and short screens: the rows simply stack (six pinned rows leave too little room to read) */
+@media screen and (max-width: 767px), screen and (max-height: 640px) {
+  .is-service-editorial.is-stacked .service-editorial_row {
+    position: relative;
+    top: auto !important;
+    margin-top: 0 !important;
+    padding-bottom: var(--service-row-pad) !important;
+  }
+}
+
+/* ==================== Type scale ==================== */
+/* Every heading on the service pages (section and item headings alike) is one size, close to the H1, and set on two lines
+   with a line break (.service-br); phones drop the break and let headings wrap naturally. The hero H1, the serif statement
+   and global components (Final CTA, footer) keep their own sizes. */
+.page-wrapper.is-service {
+  --service-h: 4em;
+  --service-h2: var(--service-h);
+  --service-h3: var(--service-h);
+}
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service {
+    --service-h: 3.4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service {
+    --service-h: max(2.8em, 24px);
+  }
+  .service-br {
+    display: none;
+  }
+}
+@media screen and (max-width: 479px) {
+  .page-wrapper.is-service {
+    --service-h: 2.4em;
+  }
+}
+.page-wrapper.is-service .heading-statement.is-service-tabs,
+.page-wrapper.is-service .service-editorial_heading,
+.page-wrapper.is-service .service-fit_heading,
+.page-wrapper.is-service .div-block-40.is-stacked .text-size-x-large,
+.page-wrapper.is-service .heading-style-h2-brand.is-service-projects,
+.page-wrapper.is-service .bouncy-tabs__heading,
+.page-wrapper.is-service .service-process_heading,
+.page-wrapper.is-service .h-process_heading,
+.page-wrapper.is-service .h-process_intro-heading {
+  width: auto;
+  max-width: none;
+  font-size: var(--service-h);
+  line-height: 1.06;
+}
+.page-wrapper.is-service .heading-statement.is-service-tabs,
+.page-wrapper.is-service .service-editorial_heading,
+.page-wrapper.is-service .service-fit_heading,
+.page-wrapper.is-service .div-block-40.is-stacked .text-size-x-large,
+.page-wrapper.is-service .heading-style-h2-brand.is-service-projects,
+.page-wrapper.is-service .bouncy-tabs__heading,
+.page-wrapper.is-service .service-process_heading,
+.page-wrapper.is-service .h-process_heading,
+.page-wrapper.is-service .h-process_intro-heading {
+  letter-spacing: -.035em;
+}
+/* Recent Projects: centred, on one line, in the same sans as the other section headings */
+.page-wrapper.is-service .heading-style-h2-brand.is-service-projects {
+  font-family: var(--font-family--normal-font);
+  font-weight: 400;
+}
+/* Recent Projects: a dark band for contrast with the sections around it */
+.page-wrapper.is-service .section.is-service-projects {
+  background-color: var(--theme--obsidian-d3);
+}
+.page-wrapper.is-service .heading-style-h2-brand.is-service-projects {
+  color: var(--neutral--white);
+}
+
+/* ==================== Fit list: ticks and other services ==================== */
+/* "It's for you if" items get a black-square tick instead of the diamond; the second row is a list of the other
+   services as ruled links with an arrow, in place of "It probably isn't if". */
+.service-fit_marker.is-tick {
+  width: 2em;
+  height: 2em;
+  margin-top: .35em;
+  border: 0;
+  background-color: var(--theme--obsidian-d3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.1 10.6l3 3 6-6.4' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: none;
+}
+.service-other_intro {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 1.2em;
+}
+.service-other_text {
+  max-width: 24em;
+  margin: 0;
+  color: #111111a6;
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+.service-other_list {
+  display: flex;
+  flex-flow: column;
+}
+.service-other_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6em 0;
+  border-bottom: 1px solid #11111124;
+  color: var(--text-colour--black);
+  text-decoration: none;
+  transition: padding .35s ease;
+}
+.service-other_link:first-child {
+  padding-top: 0;
+}
+.service-other_name {
+  letter-spacing: -.02em;
+  font-size: 2.2em;
+  line-height: 1.2;
+}
+.service-other_arrow {
+  width: 1.6em;
+  height: 1.6em;
+  transition: transform .35s ease;
+}
+@media (hover: hover) {
+  .service-other_link:hover {
+    padding-left: .8em;
+  }
+  .service-other_link:hover .service-other_arrow {
+    transform: translate(.2em, -.2em);
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-other_name {
+    font-size: max(1.9em, 17px);
+  }
+}
+/* Statement after the hero: a little more space below than above, which reads as even */
+.page-wrapper.is-service .section.is-service-statement {
+  padding-bottom: 23em;
+}
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service .section.is-service-statement { padding-bottom: 16em; }
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service .section.is-service-statement { padding-bottom: 11.5em; }
+}
+@media screen and (max-width: 479px) {
+  .page-wrapper.is-service .section.is-service-statement { padding-bottom: 8em; }
+}
+/* View All Projects sits centred between the last project image and the end of the band */
+.page-wrapper.is-service .section.is-service-projects {
+  padding-bottom: 6em;
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service .section.is-service-projects {
+    padding-bottom: 4em;
+  }
+}
+/* Large screens: keep the sticky cards inside the site's 1800px content column, like the sections around them */
+@media screen and (min-width: 1920px) {
+  .service-cards_left { padding-left: calc((100vw - 1800px) / 2 + var(--_sizes---page-gutter)); }
+  .service-cards_right { padding-right: calc((100vw - 1800px) / 2 + var(--_sizes---page-gutter)); }
+}
+
+/* ==================== Six steps: offset rows (reference: numbered advisory list) ==================== */
+/* Desktop: a small marker in column 1, the title from column 2, the step number in a square at the end of the text
+   columns (8), the text under the title, the photo in columns 9-12; dashed rules between rows. The title group is
+   display: contents so its title and number sit on the row's own grid. */
+@media screen and (min-width: 992px) {
+  .is-service-editorial.is-stacked .service-editorial_row {
+    border-top: 1px dashed #11111140;
+    grid-template-rows: var(--service-step-size) auto;
+    align-content: start;
+  }
+  .is-service-editorial.is-stacked .service-editorial_row::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: .7em;
+    height: .7em;
+    background-color: var(--theme--primary);
+  }
+  .is-service-editorial.is-stacked .service-editorial_title-group {
+    display: contents;
+  }
+  .is-service-editorial.is-stacked .service-editorial_title {
+    grid-column: 2 / 8;
+    grid-row: 1;
+    align-self: center;
+  }
+  .is-service-editorial.is-stacked .service-stack_number {
+    grid-column: 8;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+  }
+  .is-service-editorial.is-stacked .service-editorial_body {
+    grid-column: 2 / 8;
+    grid-row: 2;
+  }
+  .is-service-editorial.is-stacked .service-editorial_media {
+    grid-column: 9 / 13;
+    grid-row: 1 / span 2;
+  }
+  .is-service-editorial.is-stacked .service-stack_heading {
+    grid-column: 2 / 12;
+  }
+  .is-service-editorial.is-stacked .service-stack_label {
+    grid-column: 2 / 12;
+    grid-row: 1;
+    padding-top: 0;
+  }
+  .is-service-editorial.is-stacked .service-stack_heading {
+    grid-row: 2;
+    margin-top: 1.6em;
+  }
+  .is-service-editorial.is-stacked .service-stack_intro {
+    grid-column: 2 / 9;
+    grid-row: 3;
+  }
+}
+/* ==================== Sticky steps: one floating photo (is-single-image) ==================== */
+/* The steps start straight after the hero on the light page colour (dark text, black Main CTA), and each step
+   shows one photo centred in the sticky half with space all round instead of the overlapping pair. */
+.sticky-steps.is-service.is-single-image {
+  padding-top: 0;
+}
+.sticky-steps.is-service.is-single-image .sticky-steps__container {
+  background-color: var(--theme--ivory-base);
+  color: var(--text-colour--black);
+}
+.sticky-steps.is-service.is-single-image .sticky-steps__text .text-size-x-large,
+.sticky-steps.is-service.is-single-image .sticky-steps__p {
+  color: var(--text-colour--black);
+}
+.sticky-steps.is-service.is-single-image .sticky-steps__cover-image {
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: auto;
+  max-height: 74svh;
+  aspect-ratio: .8;
+  border-radius: .3em;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 991px) {
+  .sticky-steps.is-service.is-single-image .sticky-steps__visual {
+    aspect-ratio: 1.15;
+  }
+  .sticky-steps.is-service.is-single-image .sticky-steps__cover-image {
+    left: 0;
+    width: 70%;
+    max-height: none;
+    transform: translate(0, -50%);
+  }
+}
+
+
+
+/* Chip tabs on a dark section: light chips, the active one white; panels as a lifted dark card */
+.section.is-service-dark .bouncy-tabs.is-tab-bar .bouncy-tabs__button {
+  background-color: #ffffff1a;
+  color: var(--neutral--white);
+}
+.section.is-service-dark .bouncy-tabs.is-tab-bar .bouncy-tabs__button:hover {
+  background-color: #ffffff2e;
+}
+.section.is-service-dark .bouncy-tabs.is-tab-bar [data-bouncy-tabs-button][data-active] {
+  background-color: var(--neutral--white);
+  color: var(--theme--obsidian-d3);
+}
+.section.is-service-dark .bouncy-tabs.is-tab-bar .bouncy-tabs__item {
+  background-color: var(--theme--obsidian-d1);
+  color: var(--neutral--white);
+}
+/* Horizontal process: short step text stays in one column (two columns are for copy longer than the reference's) */
+.h-process_text.is-short {
+  max-width: 26em;
+  columns: 1;
+}
+
+
+
+/* ==================== Other services: cards ==================== */
+/* The "Looking for something else?" row: its intro on top, then the other five services as portrait cards across
+   the full width (from the floating navigation's service cards): name top left with a small icon slot top right,
+   the short description bottom left and the arrow in a square bottom right. */
+.service-fit_row.service-other {
+  grid-template-columns: minmax(0, 1fr);
+  grid-row-gap: 3.2em;
+}
+.service-other_list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column-gap: 1.2em;
+  grid-row-gap: 1.2em;
+}
+.service-other_card {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  aspect-ratio: 4 / 5;
+  padding: 2em;
+  border-radius: .3em;
+  background-color: var(--theme--ivory-d1);
+  color: var(--text-colour--black);
+  text-decoration: none;
+  transition: background-color .35s ease;
+}
+.service-other_top,
+.service-other_bottom {
+  display: flex;
+  justify-content: space-between;
+  grid-column-gap: 1.2em;
+}
+.service-other_top {
+  align-items: flex-start;
+}
+.service-other_bottom {
+  align-items: flex-end;
+}
+.service-other_name {
+  letter-spacing: -.03em;
+  font-size: 2.4em;
+  line-height: 1.08;
+}
+.service-other_desc {
+  max-width: 11em;
+  color: #111111a6;
+  font-size: 1.5em;
+  line-height: 1.25;
+}
+.service-other_square {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 3.6em;
+  height: 3.6em;
+  border-radius: .15em;
+  background-color: var(--theme--ivory-d3);
+  transition: background-color .35s ease;
+}
+.service-other_square .service-other_arrow {
+  width: 1.3em;
+  height: 1.3em;
+  transition: transform .35s ease;
+}
+@media (hover: hover) {
+  .service-other_card:hover {
+    background-color: var(--theme--ivory-d2);
+  }
+  .service-other_card:hover .service-other_square {
+    background-color: var(--theme--primary);
+  }
+  .service-other_card:hover .service-other_arrow {
+    transform: translate(.15em, -.15em);
+  }
+}
+@media screen and (max-width: 991px) {
+  .service-other_list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-other_list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .service-other_card {
+    padding: 1.6em;
+  }
+  .service-other_square {
+    width: 3em;
+    height: 3em;
+  }
+  .service-other_name {
+    font-size: max(1.9em, 16px);
+  }
+  .service-other_desc {
+    font-size: max(1.3em, 12px);
+  }
+}
+
+/* ==================== Step cards (numbered, Fitosauna comparison columns) ==================== */
+/* Header (label and heading), then the steps as cards in the Osmo Swiper slider (shared/custom-css/swiper-slider.css):
+   the number square, title, a short line and the key points as a ruled list, each point with a ticked circle.
+   The slider runs past the container to the right, so the section clips it. */
+.section.service-step-cards {
+  overflow: clip;
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+/* Head row: label and heading at the left, the slider's arrows (and dots) at the right, level with the heading's foot */
+.service-step-cards_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  grid-column-gap: 3em;
+  margin-bottom: 6em;
+}
+.service-step-cards_intro {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 1.6em;
+}
+.service-step-cards_head .service-stack_label {
+  justify-content: flex-start;
+}
+.service-step-cards_head .text-size-regular {
+  margin: 0;
+}
+/* Arrows: Osmo's navigation moved into the head row (no dots), as large dark squares so they read clearly on ivory.
+   A disabled arrow dims rather than disappearing, so the row doesn't shift. */
+.service-step-cards_slider .swiper-navigation {
+  position: static;
+  flex: none;
+  justify-content: flex-end;
+  grid-column-gap: .6em;
+  transform: none;
+}
+.service-step-cards_slider .swiper-navigation__button {
+  flex: none;
+  width: max(3.6em, 40px);
+  padding: 0;
+  border-radius: .15em;
+  background-color: var(--theme--obsidian-d3);
+  color: #fff;
+  transition: opacity .2s ease, background-color .2s ease;
+}
+.service-step-cards_slider .swiper-navigation__button-arorw {
+  width: 36%;
+}
+@media (hover: hover) {
+  .service-step-cards_slider .swiper-navigation__button:hover {
+    background-color: var(--theme--primary);
+    color: var(--theme--obsidian-d3);
+  }
+}
+.service-step-cards_slider .swiper-button-disabled {
+  opacity: .25;
+}
+.service-step-cards_slider .swiper-wrapper {
+  align-items: stretch;
+}
+.service-step-cards_slider .swiper-slide {
+  display: flex;
+  height: auto;
+  max-width: none;
+}
+.service-step-cards_card {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 2.4em 2.4em 2.6em;
+  border-radius: .3em;
+  background-color: var(--theme--obsidian-base);
+  color: #fff;
+}
+.service-step-cards_card .service-stack_number {
+  background-color: #ffffff1a;
+  color: #fff;
+}
+.service-step-cards_title {
+  margin: 1.6em 0 0;
+  display: flex;
+  align-items: flex-end;
+  min-height: 2.2em;
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: 3em;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.service-step-cards_text {
+  min-height: 4.5em;
+  max-width: 24em;
+  margin: .8em 0 0;
+  color: #ffffffa6;
+  font-size: 1.6em;
+  line-height: 1.45;
+}
+.service-step-cards_list {
+  width: 100%;
+  margin: 1.8em 0 0;
+  padding: 0;
+  list-style: none;
+}
+.service-step-cards_item {
+  position: relative;
+  padding: .8em 0 .8em 2.2em;
+  border-top: 1px solid #ffffff24;
+  font-size: 1.45em;
+  line-height: 1.4;
+}
+.service-step-cards_item:last-child {
+  border-bottom: 1px solid #ffffff24;
+}
+/* Ticked circle (the reference's check marker), drawn as an inline SVG background */
+.service-step-cards_item::before {
+  content: "";
+  position: absolute;
+  top: .95em;
+  left: 0;
+  width: 1.2em;
+  height: 1.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='9' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3Cpath d='M6.2 10.3l2.6 2.6 5-5.2' fill='none' stroke='%23fff' stroke-width='1.3'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+@media screen and (max-width: 991px) {
+  .section.service-step-cards {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+  .service-step-cards_title {
+    font-size: max(2.6em, 22px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.service-step-cards {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  .service-step-cards_head {
+    flex-flow: column;
+    align-items: flex-start;
+    grid-row-gap: 3em;
+    margin-bottom: 4em;
+  }
+  .service-step-cards_card {
+    padding: 2.2em 2.2em 2.4em;
+  }
+  .service-step-cards_text {
+    min-height: 0;
+    font-size: max(1.5em, 15px);
+  }
+  .service-step-cards_item {
+    font-size: max(1.4em, 14px);
+  }
+}
+
+/* ==================== Service rows (editorial rows) ==================== */
+/* Copied from the Services rows of graphichunters.com and set on the 12-column grid of the global .container (1800px max,
+   page gutter, 2em gaps), so a block lines up with the sections around it: rules and numbers on the container edges,
+   the heading, intro and descriptions from column 6, titles in columns 2-4, the arrow (rows that link) in column 5,
+   the 4:3 photo in columns 10-12. --rows-edge is the container content edge. Optional label in columns 1-4.
+   Rows are opaque and their backgrounds run 2em past the screen edges (the list clips them), so the optional fan-out
+   scroll effect (shared/custom-js/service-rows.js, list attribute data-service-rows-fan) never shows a turned corner.
+   Rows that link (combo is-link) tint very lightly on hover. Used on: Luxury ("Looking for something else?", combo
+   is-in-fit) and Rural ("Our approach", "Two boundaries worth knowing"). Arrow, hover zoom and stretched link:
+   shared/custom-css/service-rows.css. */
+.service-rows {
+  --rows-edge: max(var(--_sizes---page-gutter), calc((100% - 1800px) / 2 + var(--_sizes---page-gutter)));
+  align-self: stretch;
+  width: 100%;
+}
+/* Inside the fit section (Luxury): space after the fit list. */
+.service-rows.is-in-fit {
+  margin-top: 12em;
+}
+.label-wrapeper.service-rows_label {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  justify-content: flex-start;
+  padding-top: .5em;
+}
+.service-rows_head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  grid-row-gap: 1.6em;
+  margin-left: var(--rows-edge);
+  margin-right: var(--rows-edge);
+  padding-bottom: 7em;
+  border-bottom: 1px solid #11111124;
+}
+.service-rows_heading {
+  grid-column: 6 / 13;
+  grid-row: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.03em;
+  font-size: var(--service-h3, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+/* Heading aligned with the row titles (column 2) instead of the text column (Rural). */
+.service-rows_heading.is-at-title {
+  grid-column: 2 / 13;
+}
+.service-rows_intro {
+  grid-column: 6 / 13;
+  grid-row: 2;
+  max-width: 28em;
+  margin: 0;
+  color: #111111a6;
+  font-size: max(1.6em, 15px);
+  line-height: 1.5;
+}
+.service-rows_inline-link {
+  color: var(--text-colour--black);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+  transition: text-decoration-color .3s ease, color .3s ease;
+}
+.service-rows_inline-link:hover {
+  text-decoration-color: #11111166;
+}
+.service-rows_list {
+  position: relative;
+  overflow: hidden;
+}
+.service-rows_row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  align-items: start;
+  position: relative;
+  margin-left: -2em;
+  margin-right: -2em;
+  padding: 1.2em calc(var(--rows-edge) + 2em) 0;
+  background-color: var(--theme--ivory-base);
+  color: var(--text-colour--black);
+  transform-origin: 50% 50%;
+}
+.service-rows_row.is-link {
+  transition: background-color .45s ease;
+}
+.service-rows_row.is-link:hover {
+  background-color: var(--theme--ivory-d1);
+}
+.service-rows_index {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  margin: 0;
+  padding-top: 1em;
+  font-family: var(--font-family--normal-font);
+  font-size: max(1.4em, 12px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.service-rows_title {
+  grid-column: 2 / 5;
+  grid-row: 1;
+  margin: 0;
+  padding-top: .16em;
+  font-family: var(--font-family--brand-font);
+  font-size: 4.3em;
+  font-weight: 300;
+  line-height: .92;
+  letter-spacing: -.03em;
+}
+/* The arrow (the site's Main CTA arrow) alone in column 5, centred across the column and level with the middle of
+   the title's first line. */
+.service-rows_link {
+  grid-column: 5 / 6;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  width: 4em;
+  height: 4em;
+  margin-top: .9em;
+  text-decoration: none;
+}
+.service-rows_arrow {
+  flex: none;
+  width: max(2em, 16px);
+  height: max(2em, 16px);
+  transition: transform .4s cubic-bezier(.625, .05, 0, 1);
+}
+.service-rows_text {
+  grid-column: 6 / 10;
+  grid-row: 1;
+  max-width: 19em;
+  margin: 0;
+  padding-top: .6em;
+  font-family: var(--font-family--normal-font);
+  color: #111;
+  font-size: max(1.75em, 15px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+.service-rows_media {
+  grid-column: 10 / 13;
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.service-rows_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.625, .05, 0, 1);
+}
+.service-rows_shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  background-image: linear-gradient(180deg, #000, #0000);
+  pointer-events: none;
+}
+/* The rule is the last grid row, across all 12 columns, so it spans exactly the container like the fit section rules. */
+.service-rows_rule {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 1px;
+  margin-top: 1.2em;
+  background-color: #11111124;
+}
+@media screen and (max-width: 991px) {
+  .service-rows.is-in-fit {
+    margin-top: 10em;
+  }
+  .service-rows_intro {
+    font-size: max(1.6em, 15px);
+  }
+  /* Tablet: the description and photo keep columns 6-9 and 10-12. */
+  .service-rows_row {
+    grid-template-rows: auto 1fr auto;
+    padding-top: 1.6em;
+  }
+  .service-rows_rule {
+    grid-row: 3;
+    margin-top: 1.6em;
+  }
+  .service-rows_index {
+    grid-row: 1 / 3;
+    padding-top: .4em;
+  }
+  .service-rows_title {
+    grid-column: 2 / 5;
+    padding-top: 0;
+    font-size: max(3.2em, 22px);
+  }
+  .service-rows_link {
+    margin-top: -.2em;
+  }
+  .service-rows_text {
+    grid-row: 1 / 3;
+    padding-top: .2em;
+    line-height: 1.15;
+  }
+  .service-rows_media {
+    grid-row: 1 / 3;
+  }
+}
+/* Phone (as on the reference): title with the index at the top right, the description, then the link; no photo. */
+@media screen and (max-width: 767px) {
+  .service-rows.is-in-fit {
+    margin-top: 7em;
+  }
+  .service-rows_head {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 1.4em;
+    padding-bottom: 3em;
+  }
+  .label-wrapeper.service-rows_label,
+  .service-rows_heading,
+  .service-rows_heading.is-at-title,
+  .service-rows_intro {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .service-rows_row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    grid-row-gap: 0;
+    padding-top: 2em;
+  }
+  .service-rows_rule {
+    grid-row: 4;
+    margin-top: 2.4em;
+  }
+  .service-rows_index {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: .3em;
+  }
+  .service-rows_title {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: max(3.4em, 30px);
+  }
+  .service-rows_text {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    max-width: 22em;
+    margin-top: 1.4em;
+    font-size: max(1.7em, 16px);
+    line-height: 1.18;
+  }
+  .service-rows_link {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+    margin-top: 2.4em;
+  }
+  .service-rows_media {
+    display: none;
+  }
+}
+
+/* A standalone block in its own section (Rural). */
+.section.is-service-rows {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-rows {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-rows {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+}
+
+
+/* ==================== Overlapping rows (copies the project rows of storeyarchitecture.co.uk) ==================== */
+/* Full-width rows on the page colour, each with a hairline at the top, on the container's 12-column grid: the title
+   (columns 1-3) and the text (columns 7-11) in the top band; far below, a large light number (columns 1-3, sitting
+   on the bottom) and a 5:3 photo (columns 7-9). As a row scrolls up past the top of the screen it sinks by a quarter
+   of its height under a darkening shade (0 to .4), so the next row (opaque, later in the page) slides over it
+   (shared/custom-js/service-overlap.js, 768px and up). Photos are revealed from a black cover with a slight zoom as
+   they enter. Head: optional label, heading, optional Main CTA. Used on: Planning Applications ("Is this the right
+   service for your project?") and 3D Visualisations ("Who we produce visualisations for"). */
+.section.is-service-overlap {
+  padding-top: 12em;
+  padding-bottom: 0;
+}
+/* Tinted variant (Planning): the band and its opaque rows one step darker than the page. */
+.section.is-service-overlap.is-tinted {
+  --overlap-bg: var(--theme--ivory-d1);
+  --overlap-number: var(--theme--ivory-d4);
+  background-color: var(--theme--ivory-d1);
+  padding-bottom: 6em;
+}
+.service-overlap_head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  grid-row-gap: 2.4em;
+  align-items: end;
+  padding-bottom: 6em;
+}
+.label-wrapeper.service-overlap_label {
+  grid-column: 1 / 7;
+  justify-content: flex-start;
+}
+.service-overlap_heading {
+  grid-column: 1 / 7;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.service-overlap_cta {
+  grid-column: 7 / 13;
+  justify-self: start;
+}
+.service-overlap_row {
+  position: relative;
+  background-color: var(--overlap-bg, var(--theme--ivory-base));
+  border-top: 1px solid #11111133;
+  color: var(--text-colour--black);
+}
+.service-overlap_grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  grid-column-gap: 2em;
+  grid-row-gap: 14em;
+  padding-top: 2.6em;
+  padding-bottom: 5.8em;
+}
+.service-overlap_title {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  max-width: 11em;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.035em;
+  font-size: 3.2em;
+  font-weight: 400;
+  line-height: 1.08;
+}
+.service-overlap_text {
+  grid-column: 7 / 12;
+  grid-row: 1;
+  max-width: 26em;
+  margin: 0;
+  letter-spacing: -.025em;
+  font-size: max(2.2em, 15px);
+  line-height: 1.22;
+}
+.service-overlap_number {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  align-self: end;
+  margin: 0 0 -.12em;
+  font-family: var(--font-family--brand-font);
+  color: var(--overlap-number, var(--theme--ivory-d2));
+  font-size: 20em;
+  font-weight: 300;
+  line-height: .8;
+  letter-spacing: -.04em;
+}
+.service-overlap_media {
+  grid-column: 7 / 10;
+  grid-row: 2;
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+}
+.service-overlap_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 50% 100%;
+}
+.service-overlap_cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--theme--obsidian-d4);
+  opacity: 0;
+  pointer-events: none;
+}
+.service-overlap_shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: var(--theme--obsidian-d4);
+  opacity: 0;
+  pointer-events: none;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-overlap {
+    padding-top: 9em;
+  }
+  .service-overlap_grid {
+    grid-row-gap: 9em;
+  }
+  .service-overlap_title {
+    font-size: max(2.8em, 22px);
+  }
+  .service-overlap_text {
+    grid-column: 7 / 13;
+    font-size: max(1.9em, 15px);
+  }
+  .service-overlap_number {
+    font-size: 16em;
+  }
+  .service-overlap_media {
+    grid-column: 7 / 13;
+  }
+}
+/* Phone: title, text, then the photo with the number beside it; rows simply stack (no sinking). */
+@media screen and (max-width: 767px) {
+  .section.is-service-overlap {
+    padding-top: 7em;
+  }
+  .service-overlap_head {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: 4em;
+  }
+  .label-wrapeper.service-overlap_label,
+  .service-overlap_heading,
+  .service-overlap_cta {
+    grid-column: 1;
+  }
+  .service-overlap_grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 1.6em;
+    padding-top: 2em;
+    padding-bottom: 3.2em;
+  }
+  .service-overlap_title,
+  .service-overlap_text {
+    grid-column: 1 / 3;
+    max-width: none;
+  }
+  .service-overlap_text {
+    grid-row: 2;
+    font-size: max(1.8em, 16px);
+  }
+  .service-overlap_number {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 11em;
+  }
+  .service-overlap_media {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 2.4em;
+  }
+}
+
+/* ==================== Expanding list (from a reference "Services" list) ==================== */
+/* A centred heading, then square stone cards 1.6em apart across the container. Each card is a 4-column grid: number
+   (the first 15%, vertically centred), photo (right-aligned in the next 31%), a gap, then the title and text. Closed,
+   the photo is a 3:2 thumbnail and the title sits centred beside it, further right; open (combo is-open), the photo
+   grows to a tall frame, the title moves up and left, and the text is revealed (grid rows 0fr to 1fr). All on the
+   site's ease, .7s. Hover: the card darkens a step. Opening and closing: shared/custom-js/service-expand.js. */
+.section.is-service-expand {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+.service-expand_head {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  grid-row-gap: 2.4em;
+  margin-bottom: 6em;
+  text-align: center;
+}
+.label-wrapeper.service-expand_label {
+  justify-content: center;
+}
+/* Dark variant (combo is-dark on the section): the site's dark band, cards a step lighter, light type. The colours
+   reach the list through the --expand-* properties. The label text takes the combo text-size-regular is-on-dark. */
+.section.is-service-expand.is-dark {
+  --expand-ink: var(--theme--ivory-base);
+  --expand-muted: #f5f4f1a6;
+  --expand-faint: #f5f4f14d;
+  --expand-card: #1b1b19;
+  --expand-card-hover: #242422;
+  background-color: var(--theme--obsidian-d3);
+}
+.text-size-regular.is-on-dark {
+  color: var(--theme--ivory-base);
+}
+.service-expand_intro {
+  max-width: 34em;
+  margin: 0;
+  color: var(--expand-muted, #111111a6);
+  font-size: max(1.7em, 15px);
+  line-height: 1.55;
+}
+.service-expand_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--expand-ink, var(--text-colour--black));
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.service-expand_list {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: .5em;
+}
+.service-expand_item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 15% 31% 8% minmax(0, 1fr);
+  align-items: stretch;
+  padding: 2.2em 4.4em 2.2em 3.2em;
+  border-radius: .5em;
+  background-color: var(--expand-card, #eae8e3);
+  color: var(--expand-ink, var(--text-colour--black));
+  transition: background-color .4s ease;
+}
+.service-expand_item:hover {
+  background-color: var(--expand-card-hover, #e2e0da);
+}
+.service-expand_number {
+  grid-column: 1;
+  align-self: center;
+  margin: 0;
+  color: var(--expand-faint, #1111114d);
+  letter-spacing: -.02em;
+  font-size: max(3em, 20px);
+  font-weight: 300;
+  line-height: 1;
+}
+.service-expand_media {
+  grid-column: 2;
+  justify-self: end;
+  align-self: center;
+  width: 14em;
+  height: 9.4em;
+  overflow: hidden;
+  transition: width .7s cubic-bezier(.625, .05, 0, 1), height .7s cubic-bezier(.625, .05, 0, 1);
+}
+.service-expand_item.is-open .service-expand_media {
+  width: 30em;
+  height: 34em;
+}
+.service-expand_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-expand_content {
+  grid-column: 4;
+  display: grid;
+  grid-template-rows: 1fr auto auto 1fr;
+  margin-left: 28%;
+  transition: grid-template-rows .7s cubic-bezier(.625, .05, 0, 1), margin-left .7s cubic-bezier(.625, .05, 0, 1), padding-top .7s cubic-bezier(.625, .05, 0, 1);
+}
+/* Open: the title moves up to the top, 3.2em below the photo's top edge. */
+.service-expand_item.is-open .service-expand_content {
+  grid-template-rows: 0fr auto auto 1fr;
+  margin-left: 0;
+  padding-top: 3.2em;
+}
+.service-expand_title {
+  grid-row: 2;
+  max-width: 14em;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: max(3em, 20px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+.service-expand_button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.service-expand_reveal {
+  grid-row: 3;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .7s cubic-bezier(.625, .05, 0, 1);
+}
+.service-expand_item.is-open .service-expand_reveal {
+  grid-template-rows: 1fr;
+}
+.service-expand_reveal-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.service-expand_text {
+  max-width: 30em;
+  margin: 0;
+  padding-top: 1.4em;
+  color: var(--expand-muted, #111111a6);
+  font-size: max(1.6em, 15px);
+  line-height: 1.55;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.service-expand_item.is-open .service-expand_text {
+  opacity: 1;
+  transition: opacity .5s ease .25s;
+}
+.service-expand_actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-expand_media,
+  .service-expand_content,
+  .service-expand_reveal,
+  .service-expand_text,
+  .service-expand_item.is-open .service-expand_text {
+    transition: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-expand {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+  .service-expand_item {
+    grid-template-columns: 12% 36% 6% minmax(0, 1fr);
+    padding: 2em 3.2em 2em 2.8em;
+  }
+  .service-expand_media {
+    width: 16em;
+    height: 10.6em;
+  }
+  .service-expand_item.is-open .service-expand_media {
+    width: 100%;
+    height: 36em;
+  }
+  .service-expand_content {
+    margin-left: 0;
+  }
+}
+/* Phone: number and title on one line; the photo (full width) and the text open below them. */
+@media screen and (max-width: 767px) {
+  .service-expand_head {
+    margin-bottom: 4em;
+  }
+  .service-expand_list {
+    grid-row-gap: .5em;
+  }
+  .service-expand_item {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    grid-column-gap: 1.6em;
+    padding: 2em;
+  }
+  .service-expand_number {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    font-size: max(2em, 18px);
+    line-height: 1.2;
+  }
+  .service-expand_content,
+  .service-expand_item.is-open .service-expand_content {
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-rows: 0fr auto auto 0fr;
+    padding-top: 0;
+  }
+  .service-expand_title {
+    font-size: max(2.4em, 19px);
+  }
+  .service-expand_media,
+  .service-expand_item.is-open .service-expand_media {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    justify-self: stretch;
+    width: auto;
+  }
+  .service-expand_media {
+    height: 0;
+    margin-top: 0;
+    transition: height .7s cubic-bezier(.625, .05, 0, 1), margin-top .7s cubic-bezier(.625, .05, 0, 1);
+  }
+  .service-expand_item.is-open .service-expand_media {
+    height: 56vw;
+    margin-top: 2.4em;
+  }
+  .service-expand_actions {
+    margin-top: 4em;
+  }
+}
+
+/* ==================== Planning routes: wide and narrow cards ==================== */
+/* Six routes as text cards in three rows of two, from a reference bento layout: on a 5-column grid a wide card spans
+   3 columns and a narrow one 2, swapping sides row by row (the longer copy takes the wide card). Stone cards on the
+   page colour, .6em corners, 1.2em apart; the number at the top in the brand serif, the title and text at the
+   bottom. Below 768px the cards stack. Combo is-routes on the section; no sticky or scroll effects. */
+.service-routes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-column-gap: 1.2em;
+  grid-row-gap: 1.2em;
+}
+.service-routes_card {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  grid-row-gap: 5em;
+  min-height: 30em;
+  padding: 3.2em 3.6em 3.6em;
+  border-radius: .6em;
+  background-color: var(--theme--ivory-d1);
+  color: var(--text-colour--black);
+}
+.service-routes_card.is-wide {
+  grid-column: span 3;
+}
+.service-routes_card.is-narrow {
+  grid-column: span 2;
+}
+/* Tones: three steps of the site's neutral ivory scale (no hue), each used twice; rows read mid | light,
+   deep | mid, light | deep. Black titles stay above 13:1 on the deepest. */
+.service-routes_card.is-mid {
+  background-color: var(--theme--ivory-d2);
+}
+.service-routes_card.is-deep {
+  background-color: var(--theme--ivory-d3);
+}
+/* Icon (the user's custom set, inline SVG, 1px strokes on a 24 grid) in place of the number. */
+.service-routes_icon {
+  width: max(3.2em, 26px);
+  height: max(3.2em, 26px);
+  color: var(--text-colour--black);
+}
+.service-routes_icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.service-routes_body {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 1.2em;
+}
+.service-routes_title {
+  max-width: 16em;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: max(2.6em, 20px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+.service-routes_text {
+  max-width: 34em;
+  margin: 0;
+  color: #111111a6;
+  font-size: max(1.6em, 15px);
+  line-height: 1.55;
+}
+@media screen and (max-width: 991px) {
+  .service-routes_card {
+    min-height: 26em;
+    grid-row-gap: 4em;
+    padding: 2.8em;
+  }
+  /* The stacked-rows head, one column */
+  .is-service-editorial.is-stacked.is-routes .service-stack_label,
+  .is-service-editorial.is-stacked.is-routes .service-stack_heading,
+  .is-service-editorial.is-stacked.is-routes .service-stack_intro {
+    grid-column: 1 / -1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-routes {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 1em;
+  }
+  .service-routes_card.is-wide,
+  .service-routes_card.is-narrow {
+    grid-column: auto;
+  }
+  .service-routes_card {
+    min-height: 0;
+    grid-row-gap: 3.2em;
+    padding: 2.4em 2.4em 2.8em;
+  }
+  .is-service-editorial.is-stacked.is-routes .service-stack_intro {
+    font-size: max(1.7em, 16px);
+  }
+}
+
+/* ==================== Feature pills (Osmo Expanding Feature Pills; Rural "Types of barns", 3D "What you receive") ==================== */
+/* A standalone pills section (3D "What you receive"); Rural's sits inside its showcase section. */
+.section.is-service-pills {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-pills {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-pills {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+}
+/* Holds the Osmo component on the container's edges (page gutter, 1800px max). Its type scale is on the component
+   (combo is-service): Osmo sizes the component for 1em = 16px at 1440px and this site's base is 10px there, so 1.3em
+   gives a slightly smaller, finer version (13px base, with a floor). Keeping the scale off the holder keeps the
+   gutter the page's. */
+.service-pills {
+  justify-content: center;
+  width: 100%;
+  padding-left: max(var(--_sizes---page-gutter), calc((100% - 1800px) / 2 + var(--_sizes---page-gutter)));
+  padding-right: max(var(--_sizes---page-gutter), calc((100% - 1800px) / 2 + var(--_sizes---page-gutter)));
+  display: flex;
+}
+.feature-pills__wrap.is-service {
+  font-size: max(1.3em, 13px);
+}
+
+/* Osmo Expanding Feature Pills: native classes, adapted to the site: full width inside the page gutter, the site's dark
+   colour, no outline, near-square corners (.15-.2em) on the card, pills, icons and close button, the pill list aligned
+   left, and a line-height on the label and body text (this site sets a fixed 10px line-height). Layout and behaviour
+   are otherwise Osmo's. */
+.feature-pills__wrap {
+  color: #f2f2f2;
+  background-color: var(--theme--obsidian-d3);
+  border-radius: .2em;
+  width: 100%;
+  height: 52em;
+  position: relative;
+  overflow: clip;
+}
+.feature-pills__layout {
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.feature-pills__col {
+  width: 50%;
+  position: relative;
+}
+.feature-pills__visual-collection {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.feature-pills__visual-item {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+.feature-pills__visual-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.feature-pills__visual-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.feature-pills__info-collection {
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-left: 6em;
+  padding-right: 3em;
+  display: flex;
+}
+/* "Types of barns we work with": inside the black box, above the pills (the box sets its own em, 1.3x the page's). */
+.service-pills_heading {
+  margin: 0 0 1.6em;
+  font-family: var(--font-family--normal-font);
+  color: #f2f2f2;
+  letter-spacing: -.03em;
+  font-size: max(2.3em, 22px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.feature-pills__info-list {
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  max-width: var(--content-item-expanded);
+  flex-flow: column;
+  flex: none;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.feature-pills__info-item {
+  padding: 0;
+  position: relative;
+}
+.feature-pills__item-bg {
+  z-index: 0;
+  background-color: #ffffff14;
+  border-radius: .15em;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+.feature-pills__item-button {
+  z-index: 1;
+  grid-column-gap: .625em;
+  grid-row-gap: .625em;
+  background-color: #0000;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .75em 1.25em;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font: inherit;
+}
+.feature-pills__item-label {
+  letter-spacing: -.015em;
+  white-space: nowrap;
+  flex: none;
+  font-size: 1.17em;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.feature-pills__item-icon {
+  aspect-ratio: 1;
+  background-color: #fff3;
+  border-radius: .15em;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 1.25em;
+  padding: 0;
+  display: flex;
+  position: relative;
+}
+.feature-pills__item-icon-bar {
+  background-color: #fff;
+  flex: none;
+  width: 1px;
+  height: 50%;
+  padding: 0;
+  position: absolute;
+}
+.feature-pills__item-icon-bar.is--horizontal {
+  width: 50%;
+  height: 1px;
+}
+.feature-pills__visual-cover {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+.feature-pills__visual-cover-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.feature-pills__item-content {
+  z-index: 2;
+  pointer-events: none;
+  position: absolute;
+  inset: 0%;
+}
+.feature-pills__item-mask {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.feature-pills__item-inner {
+  max-width: var(--content-item-expanded);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: max-content;
+  padding: 1.5em 1.5em 2em;
+  display: flex;
+}
+.feature-pills__item-body {
+  margin: 0;
+  font-size: 1.17em;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.feature-pills__item-body-span {
+  opacity: .5;
+}
+.feature-pills__close {
+  z-index: 2;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+.feature-pills__close-button {
+  aspect-ratio: 1;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: #ffffff14;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  padding: 8px;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font: inherit;
+}
+@media screen and (max-width: 991px) {
+  .feature-pills__wrap {
+    background-color: #0000;
+    border-style: none;
+    border-radius: 0;
+    height: auto;
+  }
+  .feature-pills__layout {
+    flex-flow: column;
+  }
+  .feature-pills__col {
+    width: 100%;
+  }
+  .feature-pills__col.is--visual {
+    aspect-ratio: 1;
+    border-radius: .2em;
+    order: -9999;
+    overflow: hidden;
+  }
+  .feature-pills__info-collection {
+    padding: 2.5em 0 4em;
+  }
+  .feature-pills__info-list {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: none;
+  }
+  .feature-pills__info-item {
+    width: var(--content-item-expanded);
+  }
+  .feature-pills__item-button {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .feature-pills__item-inner {
+    max-width: 100%;
+  }
+}
+/* Osmo's demo sits on a dark page, so below 992px it drops the dark card. This page is light, so the is-service
+   combo keeps the card (and its white text readable) at every size. */
+@media screen and (max-width: 991px) {
+  .feature-pills__wrap.is-service {
+    background-color: var(--theme--obsidian-d3);
+    border-radius: .2em;
+    padding: 1.25em 1.25em 0;
+  }
+  /* Osmo's script stores a closed pill's width rounded up to the next pixel. With two half-width pills per row,
+     that extra pixel each pushed the second pill onto a new row after closing; a 2px smaller gap absorbs it. */
+  .feature-pills__info-list.is-service {
+    grid-column-gap: calc(1em - 2px);
+  }
+}
+
+
+/* ==================== Paired cards (Rural barn types) ==================== */
+/* Two equal cards in the container, 2em apart: a 3:2 photo, then a stone panel (ivory-d1) in the language of the
+   service-cards panels (Luxury "Budget & planning certainty"): the title on a black hairline, then the number in its
+   own column beside a vertical rule and the text; on the second card the Main CTA, in line with the text and pinned to
+   the bottom so both panels end level. Corners .3em, as on the planning cards. Stacks below 768px. (The showcase above
+   already leaves 12em below its button.) */
+.section.is-service-pair {
+  padding-top: 0;
+  padding-bottom: 12em;
+}
+.service-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  align-items: stretch;
+}
+.service-pair_card {
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+  border-radius: .3em;
+  background-color: var(--theme--ivory-d1);
+  color: var(--text-colour--black);
+}
+.service-pair_media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.service-pair_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-pair_info {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 3.2em 3.6em 4em;
+}
+.service-pair_title {
+  width: 100%;
+  margin: 0;
+  padding-bottom: .7em;
+  border-bottom: 1px solid var(--text-colour--black);
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: max(3em, 22px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+/* Number column and text column, as service-cards_meta (5em, the text 1.6em in from a black rule). */
+.service-pair_meta {
+  display: grid;
+  grid-template-columns: 5em minmax(0, 1fr);
+  align-items: start;
+  width: 100%;
+  margin-top: 2.4em;
+  margin-bottom: 3.2em;
+}
+.service-pair_number,
+.service-pair_text {
+  margin: 0;
+  color: var(--text-colour--black);
+  font-size: max(1.45em, 14px);
+  line-height: 1.5;
+}
+.service-pair_body {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: .8em;
+  max-width: 52em;
+  padding-left: 1.6em;
+  border-left: 1px solid var(--text-colour--black);
+}
+/* The Main CTA starts where the text does (number column + the text's inset) and sits at the bottom of the card. */
+.service-pair_actions {
+  margin-top: auto;
+  padding-left: calc(5em + 1.6em);
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-pair {
+    padding-bottom: 9em;
+  }
+  .service-pair_info {
+    padding: 2.8em 2.8em 3.2em;
+  }
+  .service-pair_title {
+    font-size: max(2.6em, 22px);
+  }
+  .service-pair_number,
+  .service-pair_text {
+    font-size: max(1.6em, 15px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-pair {
+    padding-bottom: 7em;
+  }
+  .service-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .service-pair_info {
+    padding: 2.4em 2.4em 2.8em;
+  }
+  /* Phones: as on the service-cards panels, the number sits above the text, which takes the full width (no side rule). */
+  .service-pair_meta {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 1.2em;
+    margin-top: 2em;
+  }
+  .service-pair_body {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .service-pair_actions {
+    padding-left: 0;
+  }
+}
+
+/* After a feature pills box: a centred note and the Main CTA (Heritage "Work this typically includes"). */
+.service-pills_after {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  grid-row-gap: 3.2em;
+  margin-top: 5em;
+  padding-left: var(--_sizes---page-gutter);
+  padding-right: var(--_sizes---page-gutter);
+  text-align: center;
+}
+.service-pills_note {
+  max-width: 38em;
+  margin: 0;
+  color: #111111a6;
+  font-size: max(1.6em, 15px);
+  line-height: 1.55;
+}
+@media screen and (max-width: 767px) {
+  .service-pills_after {
+    margin-top: 3.6em;
+  }
+}
+/* Heritage: the pills follow the paired cards directly (the cards' section already leaves 12em below). */
+.section.is-service-pills.is-heritage {
+  padding-top: 0;
+}
+
+/* Statement after the heritage hero (combo is-heritage): a step smaller than the default, with a wider measure. */
+.service-statement_text.is-heritage {
+  max-width: 22em;
+  font-size: 4.4em;
+  line-height: 1.12;
+}
+@media screen and (max-width: 991px) {
+  .service-statement_text.is-heritage {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-statement_text.is-heritage {
+    max-width: none;
+    font-size: max(3.2em, 24px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-statement_text.is-heritage {
+    font-size: 2.5em;
+  }
+}
+/* Inline CTA on a band of its own (Heritage "Not sure whether…"): a light grey section, the CTA without its rules. */
+/* Contained in the page container like the panel above it: the light grey on the CTA itself, .6em corners. */
+.section.is-service-cta-band {
+  padding-top: 0;
+  padding-bottom: 12em;
+}
+.service-cta.is-in-band {
+  margin-top: 0;
+  padding: 5.6em 6.4em;
+  border-top-style: none;
+  border-bottom-style: none;
+  border-radius: .6em;
+  background-color: var(--theme--ivory-d1);
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-cta-band {
+    padding-bottom: 9em;
+  }
+  .service-cta.is-in-band {
+    padding: 4.8em 4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-cta-band {
+    padding-bottom: 7em;
+  }
+  .service-cta.is-in-band {
+    padding: 4em 2.4em;
+  }
+}
+
+/* ==================== Expanding tiers (Rural planning routes, Heritage "The work we take on") ==================== */
+/* Header row (heading and intro), then three tall photo cards in a row with one open (a reference screenshot of
+   expanding cards; motion studied from Osmo's Wavy Accordion without its bending edges). The open card has
+   flex-grow 2.4, the others 1; shared/custom-js/service-tiers.js moves those values on a critically damped spring and
+   sets three widths in px on .service-tiers so nothing reflows while the cards move:
+     --tiers-open-w   the open card's width: every photo is drawn at this width, centred, and a narrow card crops it
+     --tiers-title-w  the collapsed card's inner width: titles always wrap at this width
+     --tiers-text-w   the open card's inner width: the text always wraps at this width
+   Collapsed cards show the number and title; the open card reveals its text (grid rows 0fr to 1fr, then a fade).
+   Below 992px the cards stack and open in height (CSS only). Without the script the first card is simply open. */
+.section.is-service-tiers {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+.is-service-tiers .service-editorial_head {
+  padding-bottom: 5em;
+}
+/* Dark band: the section on the site's dark colour, the heading and intro light. The cards keep their photos;
+   their focus ring is already white. */
+.section.is-service-tiers.is-dark {
+  background-color: var(--theme--obsidian-d3);
+  color: var(--theme--ivory-base);
+}
+.service-editorial_heading.is-dark {
+  color: var(--theme--ivory-base);
+}
+.text-size-regular-copy.is-service-editorial.is-dark {
+  color: #f5f4f1b3;
+}
+.service-tiers_list {
+  display: flex;
+  grid-column-gap: 1.2em;
+  height: 64em;
+}
+.service-tiers_card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: .3em;
+  background-color: var(--theme--obsidian-d3);
+  color: var(--neutral--white);
+  cursor: pointer;
+  outline: none;
+}
+.service-tiers_card.is-active {
+  flex-grow: 2.4;
+  cursor: default;
+}
+.service-tiers_card:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--neutral--white);
+}
+.service-tiers_img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--tiers-open-w, 100%);
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-50%);
+}
+/* Bottom gradient for the text; collapsed cards are also dimmed a little. */
+.service-tiers_shade {
+  position: absolute;
+  inset: 0;
+  background-color: #00000038;
+  background-image: linear-gradient(0deg, #000000c2 0%, #00000059 38%, #0000 62%);
+  transition: background-color .6s ease;
+}
+.service-tiers_card.is-active .service-tiers_shade {
+  background-color: #0000;
+}
+.service-tiers_number {
+  position: absolute;
+  z-index: 1;
+  top: 2.4em;
+  left: 2.4em;
+  font-size: max(1.4em, 12px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  opacity: .85;
+}
+.service-tiers_content {
+  position: absolute;
+  z-index: 1;
+  left: 2.4em;
+  bottom: 2.4em;
+}
+.service-tiers_title {
+  width: var(--tiers-title-w, auto);
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: max(3em, 20px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.service-tiers_reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .7s cubic-bezier(.22, 1, .36, 1);
+}
+.service-tiers_card.is-active .service-tiers_reveal {
+  grid-template-rows: 1fr;
+}
+.service-tiers_reveal-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+.service-tiers_text {
+  width: var(--tiers-text-w, auto);
+  max-width: 36em;
+  margin: 0;
+  padding-top: 1.1em;
+  color: #ffffffdb;
+  font-size: max(1.6em, 15px);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(.6em);
+  transition: opacity .35s ease, transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+.service-tiers_card.is-active .service-tiers_text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .18s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-tiers_shade,
+  .service-tiers_reveal,
+  .service-tiers_text {
+    transition: none;
+  }
+  .service-tiers_card.is-active .service-tiers_text {
+    transition-delay: 0s;
+  }
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-tiers {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+  /* Stacked: each card is a photo band; the open one grows to show its text. */
+  .service-tiers_list {
+    flex-flow: column;
+    grid-row-gap: 1.2em;
+    height: auto;
+  }
+  .service-tiers_card,
+  .service-tiers_card.is-active {
+    display: flex;
+    flex: none;
+    flex-flow: column;
+    justify-content: flex-end;
+    min-height: 22em;
+    padding: 2.4em;
+    transition: min-height .7s cubic-bezier(.22, 1, .36, 1);
+  }
+  .service-tiers_card.is-active {
+    min-height: 44em;
+  }
+  /* Stacked, the open card's text runs up the photo: a deeper shade behind it. */
+  .service-tiers_card.is-active .service-tiers_shade {
+    background-image: linear-gradient(0deg, #000000d9 0%, #000000a6 55%, #00000040 100%);
+  }
+  .service-tiers_img {
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+  .service-tiers_content {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    padding-top: 3em;
+  }
+  .service-tiers_title,
+  .service-tiers_text {
+    width: auto;
+  }
+  .service-tiers_title {
+    font-size: max(2.6em, 22px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-tiers {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  .service-tiers_card,
+  .service-tiers_card.is-active {
+    min-height: 18em;
+    padding: 2em;
+  }
+  .service-tiers_card.is-active {
+    min-height: 40em;
+  }
+  .service-tiers_number {
+    top: 2em;
+    left: 2em;
+  }
+}
+@media screen and (max-width: 991px) and (prefers-reduced-motion: reduce) {
+  .service-tiers_card,
+  .service-tiers_card.is-active {
+    transition: none;
+  }
+}
+
+
+/* Long-copy variant (combo is-long on service-tiers): a deeper shade behind several paragraphs, and paragraph spacing; links in the text are white and underlined. */
+.service-tiers.is-long .service-tiers_card.is-active .service-tiers_shade {
+  background-image: linear-gradient(0deg, #000000e0 0%, #000000b3 50%, #00000033 78%, #0000 100%);
+}
+.service-tiers.is-long .service-tiers_text {
+  font-size: max(1.5em, 14px);
+  line-height: 1.5;
+}
+.service-tiers.is-long .service-tiers_text + .service-tiers_text {
+  padding-top: .8em;
+}
+.service-tiers_text a {
+  color: var(--neutral--white);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+@media screen and (max-width: 991px) {
+  .service-tiers.is-long .service-tiers_list {
+    height: auto;
+  }
+  .service-tiers.is-long .service-tiers_card.is-active {
+    min-height: 0;
+  }
+  /* Stacked, the long text covers most of the photo: more room under the number and an even shade. */
+  .service-tiers.is-long .service-tiers_content {
+    padding-top: 5.6em;
+  }
+  .service-tiers.is-long .service-tiers_card.is-active .service-tiers_shade {
+    background-color: #0000008c;
+    background-image: linear-gradient(0deg, #000000b3 0%, #0000 70%);
+  }
+}

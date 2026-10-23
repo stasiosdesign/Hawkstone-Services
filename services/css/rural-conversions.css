@@ -1,0 +1,243 @@
+/* Native Webflow classes used only on Rural Conversions. */
+
+/* ==================== Page wrapper ==================== */
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service.is-rural {
+    overflow-x: clip;
+  }
+}
+
+/* ==================== Building types (rotating headline + Osmo Expanding Feature Pills) ==================== */
+/* The statement sits centred between the hero and the barn-types box: equal space above and below it at every size. */
+.section.is-rural-showcase {
+  margin-top: 13em;
+  overflow: hidden;
+}
+@media screen and (max-width: 991px) {
+  .section.is-rural-showcase {
+    margin-top: 8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-rural-showcase {
+    margin-top: 6em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-rural-showcase {
+    margin-top: 5em;
+  }
+}
+/* Centred statement (Fluid Glass): the rotating headline is the section's main shape, about 75% of the content wide. */
+.rural-showcase_content {
+  flex-flow: column;
+  max-width: 1800px;
+  margin-bottom: 13em;
+  padding-left: 22em;
+  padding-right: 22em;
+  display: flex;
+}
+@media screen and (max-width: 991px) {
+  .rural-showcase_content {
+    margin-bottom: 8em;
+    padding-left: 10em;
+    padding-right: 10em;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rural-showcase_content {
+    margin-bottom: 6em;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .rural-showcase_content {
+    margin-bottom: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+.rotating-text__heading {
+  font-family: var(--font-family--normal-font);
+  text-align: center;
+  letter-spacing: -.02em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  letter-spacing: -.035em;
+  font-size: clamp(2.6em, 4.4vw, 5.4em);
+  font-weight: 400;
+  line-height: 1;
+}
+.rotating-text__highlight {
+  color: var(--text-colour--black);
+}
+.rural-showcase_actions {
+  grid-column-gap: 1.5em;
+  grid-row-gap: 1.5em;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+@media screen and (max-width: 479px) {
+  .rural-showcase_actions {
+    flex-flow: column;
+  }
+}
+.rural-showcase_actions.is-after-pills {
+  margin-top: 6em;
+  margin-bottom: 12em;
+}
+@media screen and (max-width: 991px) {
+  .rural-showcase_actions.is-after-pills {
+    margin-top: 6em;
+    margin-bottom: 8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rural-showcase_actions.is-after-pills {
+    margin-top: 4.8em;
+    margin-bottom: 6em;
+  }
+}
+/* ==================== Design and clients ==================== */
+.rural-design-section {
+  padding-top: 8em;
+  padding-bottom: var(--_layout---spacers--large-3);
+  background-color: var(--theme--obsidian-d3);
+  color: var(--theme--ivory-base);
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .rural-design-section {
+    padding-top: 6em;
+    padding-bottom: 5em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .rural-design-section {
+    padding-top: 5em;
+    padding-bottom: 4em;
+  }
+}
+
+/* ==================== Who we work with: one panel, three columns ==================== */
+/* From a reference of a single wide, softly rounded light panel split into three columns by inset hairlines, on a
+   slightly darker band: the heading centred above it; each column has its number at the top and the client type at
+   the bottom (the reference's logo-over-statistic rhythm). The band covers the heading and the panel only; the
+   "Two boundaries" service rows below stay on the page colour. Below 768px the columns stack with horizontal rules. */
+.section.is-rural-clients {
+  padding-top: 0;
+  padding-bottom: 12em;
+}
+.rural-clients_band {
+  align-self: stretch;
+  width: 100%;
+  padding-top: 12em;
+  padding-bottom: 12em;
+  background-color: var(--theme--ivory-d1);
+}
+.rural-clients_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  text-align: center;
+  letter-spacing: -.03em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.rural-clients_panel {
+  margin-top: 6em;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 2.4em 0;
+  border-radius: .6em;
+  background-color: #faf9f7;
+}
+.rural-clients_col {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  grid-row-gap: 6em;
+  min-height: 24em;
+  padding: 1.2em 3.6em;
+}
+.rural-clients_col + .rural-clients_col {
+  border-left: 1px solid #11111117;
+}
+.rural-clients_number {
+  margin: 0;
+  color: #11111180;
+  font-size: max(1.3em, 12px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+.rural-clients_text {
+  max-width: 14em;
+  margin: 0;
+  color: var(--text-colour--black);
+  letter-spacing: -.025em;
+  font-size: max(2.3em, 18px);
+  line-height: 1.22;
+}
+.service-rows.is-rural-boundaries {
+  margin-top: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-rural-clients {
+    padding-bottom: 9em;
+  }
+  .rural-clients_band {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+  .rural-clients_panel {
+    margin-top: 4.8em;
+  }
+  .rural-clients_col {
+    min-height: 20em;
+    padding: 1em 2.4em;
+  }
+  .service-rows.is-rural-boundaries {
+    margin-top: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-rural-clients {
+    padding-bottom: 7em;
+  }
+  .rural-clients_band {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  .rural-clients_panel {
+    margin-top: 3.6em;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0 2.4em;
+    border-radius: .6em;
+  }
+  .rural-clients_col {
+    min-height: 0;
+    grid-row-gap: 3.2em;
+    padding: 2.8em 0;
+  }
+  .rural-clients_col + .rural-clients_col {
+    border-left: 0;
+    border-top: 1px solid #11111117;
+  }
+  .service-rows.is-rural-boundaries {
+    margin-top: 7em;
+  }
+}
+
+
+/* Planning routes: the heading set on three lines by its line breaks ("Barn conversion / planning permission: /
+   Class Q or full planning"), so it needs room for its longest line. Combo is-three-line, Rural only. Phones drop
+   the breaks (.service-br) and wrap naturally. */
+.service-editorial_heading.is-three-line {
+  max-width: none;
+}

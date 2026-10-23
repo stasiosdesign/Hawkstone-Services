@@ -1,0 +1,163 @@
+/* Native Webflow classes used only on Heritage Design. */
+
+/* ==================== Getting it approved ==================== */
+/* The consent process, set apart from the project types as one stone panel with no photos or numbers: the heading
+   and the consent paragraphs, then "What we prepare and coordinate" beside its tabs, then the Main CTA. */
+.heritage-approval_link {
+  color: var(--text-colour--black);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+}
+.section.heritage-approval {
+  padding-top: 12em;
+  padding-bottom: 12em;
+}
+.heritage-approval_panel {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  padding: 7em 6.4em;
+  border-radius: .6em;
+  background-color: var(--theme--ivory-d1);
+}
+.heritage-approval_heading {
+  grid-column: 1 / 6;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.heritage-approval_intro {
+  grid-column: 6 / 13;
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 1.1em;
+  padding-top: .6em;
+}
+.heritage-approval_text {
+  margin: 0;
+  color: #111111bf;
+  font-size: max(1.6em, 15px);
+  line-height: 1.6;
+}
+/* "What we prepare and coordinate": set like "Getting it approved", always two lines (the <br>). */
+.heritage-approval_subheading {
+  grid-column: 1 / 6;
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+/* The tabs block repeats the panel's columns under a hairline: heading left (1-5), tabs right (6-12, the column of
+   the text above). */
+.heritage-approval_tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column-gap: 2em;
+  align-items: start;
+  margin-top: 6.4em;
+  padding-top: 6.4em;
+  border-top: 1px solid #11111124;
+}
+.heritage-approval_tabs .feature-pills__wrap {
+  grid-column: 6 / 13;
+}
+.heritage-approval_actions {
+  grid-column: 6 / 13;
+  margin-top: 4.8em;
+}
+@media screen and (max-width: 991px) {
+  .section.heritage-approval {
+    padding-top: 9em;
+    padding-bottom: 9em;
+  }
+  .heritage-approval_panel {
+    padding: 5.6em 4em;
+  }
+  .heritage-approval_heading,
+  .heritage-approval_intro,
+  .heritage-approval_actions {
+    grid-column: 1 / -1;
+  }
+  .heritage-approval_tabs {
+    display: block;
+    margin-top: 5.6em;
+    padding-top: 5.6em;
+  }
+  .heritage-approval_subheading {
+    margin-bottom: 1.2em;
+  }
+  .heritage-approval_intro {
+    margin-top: 2.8em;
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.heritage-approval {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  .heritage-approval_panel {
+    padding: 4em 2.4em;
+  }
+}
+
+/* ==================== Feature pills, light variant (Getting it approved) ==================== */
+/* Osmo Expanding Feature Pills on the stone panel instead of in the black box: no card of its own, dark text, pills a
+   step darker than the panel, no photo column (the pills take the whole width, at their natural height), the close
+   button at the top right of the column. Combo is-light on feature-pills__wrap and feature-pills__info-list; only
+   used here. */
+.feature-pills__wrap.is-light {
+  font-size: max(1.3em, 13px);
+  height: auto;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-colour--black);
+  overflow: visible;
+}
+.feature-pills__wrap.is-light .feature-pills__col {
+  width: 100%;
+}
+.feature-pills__wrap.is-light .feature-pills__info-collection {
+  padding: 0;
+}
+.feature-pills__wrap.is-light .feature-pills__close {
+  top: 0;
+  right: 0;
+}
+.feature-pills__wrap.is-light .feature-pills__item-bg {
+  background-color: var(--theme--ivory-d3);
+}
+.feature-pills__wrap.is-light .feature-pills__item-icon {
+  background-color: #1111111f;
+}
+.feature-pills__wrap.is-light .feature-pills__item-icon-bar {
+  background-color: var(--text-colour--black);
+}
+.feature-pills__wrap.is-light .feature-pills__item-body + .feature-pills__item-body {
+  margin-top: .6em;
+}
+.feature-pills__wrap.is-light .feature-pills__close-button {
+  background-color: #ffffffd9;
+}
+.feature-pills__wrap.is-light .feature-pills__close-button .feature-pills__item-icon-bar {
+  background-color: var(--text-colour--black);
+}
+@media screen and (max-width: 991px) {
+  /* The pills run the full width here, so the close button moves up beside the heading's last line. */
+  .feature-pills__wrap.is-light .feature-pills__close {
+    top: auto;
+    bottom: calc(100% + 1em);
+  }
+  .feature-pills__info-list.is-light {
+    grid-column-gap: calc(1em - 2px);
+  }
+}

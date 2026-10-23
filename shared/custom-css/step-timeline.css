@@ -1,0 +1,23 @@
+/* step-timeline: custom CSS (Webflow: Embed element). Osmo step timeline states. */
+/* Marker inside 'active' step item */ 
+[data-step-timeline-item][data-status="active"] [data-step-timeline-marker] {
+  background: #111;
+  color: #d1d0cc;
+  border-color: #111;
+} 
+/* Marker inside 'current' step item */   
+[data-step-timeline-item][data-current] [data-step-timeline-marker] {
+  box-shadow: 0 0 0 0.5em rgba(125, 138, 105, 0.16);
+} 
+/* Inactive state of the content wrapper */ 
+[data-step-timeline-item] .step-timeline__content {
+  opacity: 0.35;
+}  
+/* Make content full opacity in current step */
+[data-step-timeline-item][data-status="active"] .step-timeline__content {
+  opacity: 0.5;
+}   
+/* Make content full opacity in current step */
+[data-step-timeline-item][data-current] .step-timeline__content {
+  opacity: 1;
+}

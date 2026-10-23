@@ -1,0 +1,328 @@
+/* Native Webflow classes used only on Planning Applications. */
+
+/* ==================== Highlight statement (Service Statement, dark variant) ==================== */
+/* It runs straight into the dark Recent approvals section, so it needs less space below. */
+.section.is-service-statement.is-planning {
+  padding-bottom: 6em;
+}
+
+/* ==================== Recent approvals ==================== */
+@media screen and (max-width: 767px) {
+  .section.recent-approvals.is-planning {
+    grid-column-gap: 4.8em;
+    grid-row-gap: 4.8em;
+    margin-bottom: 6em;
+    padding-top: 6.4em;
+    padding-bottom: 7.2em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.recent-approvals.is-planning {
+    grid-column-gap: 4em;
+    grid-row-gap: 4em;
+    padding-top: 5.6em;
+    padding-bottom: 6em;
+  }
+}
+
+/* ==================== Split text ==================== */
+.container.is-planning-split {
+  margin-bottom: 5em;
+}
+
+/* ==================== White opening bands (statement and Recent approvals) ==================== */
+/* The statement after the hero and Recent approvals sit on pure white, close together: the statement keeps its top
+   space and has 8em below; Recent approvals starts 10em down. The statement measure is wider (24em) so the copy sets
+   in five lines on desktop. */
+/* A soft off-white, less stark than the white Recent approvals band below it. */
+.section.is-service-statement.is-soft {
+  background-color: #faf9f7;
+  color: var(--text-colour--black);
+}
+.page-wrapper.is-service .section.is-service-statement.is-planning {
+  padding-bottom: 8em;
+}
+.service-statement_text.is-planning {
+  max-width: 24em;
+  font-size: 4.6em;
+}
+.section.recent-approvals.is-soft {
+  padding-top: 10em;
+  background-color: #faf9f7;
+}
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service .section.is-service-statement.is-planning {
+    padding-bottom: 6em;
+  }
+  .section.recent-approvals.is-soft {
+    padding-top: 7em;
+  }
+  .service-statement_text.is-planning {
+    font-size: 4.1em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service .section.is-service-statement.is-planning {
+    padding-bottom: 4em;
+  }
+  .service-statement_text.is-planning {
+    max-width: none;
+    font-size: max(3.4em, 24px);
+  }
+}
+@media screen and (max-width: 479px) {
+  .service-statement_text.is-planning {
+    font-size: 2.6em;
+  }
+  .section.recent-approvals.is-soft {
+    padding-top: 5em;
+  }
+}
+
+/* ==================== Recent approvals: parallax image slider ==================== */
+/* Osmo Supply "Parallax Image Slider (Smooothy)": Osmo's classes as supplied, with the slides larger for this page
+   (52em wide at 3:2, 1.2em apart; 62vw at tablet, 80vw on phones) and a slightly softer radius. The head and the
+   overlays are the site's: label and heading at the left with square previous/next buttons at the right (as the
+   Luxury carousel's), and on each slide a lower shade, the "Approved" badge (the old flick card's check and label)
+   at the top left and "View Project" with the site's arrow at the bottom left. */
+.section.recent-approvals.is-soft {
+  grid-row-gap: 5em;
+  padding-bottom: 11em;
+}
+.approvals-slider_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  grid-column-gap: 3em;
+}
+.approvals-slider_title {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  grid-row-gap: 2em;
+}
+.label-wrapeper.approvals-slider_label {
+  justify-content: flex-start;
+}
+.approvals-slider_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.approvals-slider_nav {
+  display: flex;
+  flex: none;
+  grid-column-gap: .8em;
+}
+.approvals-slider_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max(4.4em, 40px);
+  height: max(4.4em, 40px);
+  padding: 0;
+  border: 0;
+  border-radius: .15em;
+  background-color: var(--theme--obsidian-d1);
+  color: var(--neutral--white);
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .approvals-slider_button:hover {
+    background-color: var(--theme--obsidian-d4);
+  }
+}
+.approvals-slider_button:active {
+  background-color: var(--theme--obsidian-d4);
+}
+.approvals-slider_arrow {
+  width: max(1.5em, 14px);
+  height: max(1.5em, 14px);
+}
+.approvals-slider_arrow.is-prev {
+  transform: rotate(180deg);
+}
+/* Osmo */
+.parallax-slider__group,
+.parallax-slider__collection {
+  width: 100%;
+}
+/* The slider starts at the container edge (the current photo under the heading) and runs off the right edge: the
+   offset is on the collection, so Smooothy measures an unpadded track. */
+.parallax-slider__collection {
+  padding-left: calc(max(var(--_sizes---page-gutter), (100% - 1800px) / 2 + var(--_sizes---page-gutter)) - .6em);
+}
+.parallax-slider__list {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  cursor: grab;
+}
+.parallax-slider__list:active {
+  cursor: grabbing;
+}
+.parallax-slider__item {
+  flex: none;
+  padding-left: .6em;
+  padding-right: .6em;
+  position: relative;
+}
+.parallax-slider__item-inner {
+  aspect-ratio: 3 / 2;
+  border-radius: .5em;
+  width: 47em;
+  position: relative;
+  overflow: clip;
+}
+.parallax-slider__item-img {
+  object-fit: cover;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 160%;
+  max-width: none;
+  height: 100%;
+  position: absolute;
+  left: -30%;
+}
+.parallax-slider__item-visual {
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+/* Overlays */
+.approvals-slider_shade {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(0deg, #00000080 0%, #0000 40%);
+  pointer-events: none;
+}
+.approvals-slider_badge {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  display: inline-flex;
+  align-items: center;
+  grid-column-gap: .6em;
+  padding: .7em 1.2em .7em .9em;
+  border-radius: .2em;
+  background-color: #ffffffe6;
+  color: var(--text-colour--black);
+  font-size: max(1.3em, 12px);
+  font-weight: 500;
+  line-height: 1;
+}
+.approvals-slider_badge-icon {
+  width: 1.3em;
+  height: 1.3em;
+}
+.approvals-slider_link {
+  position: absolute;
+  left: 2.4em;
+  bottom: 2.2em;
+  display: inline-flex;
+  align-items: center;
+  grid-column-gap: .7em;
+  padding-bottom: .35em;
+  border-bottom: 1px solid #ffffff99;
+  color: var(--neutral--white);
+  text-decoration: none;
+  font-size: max(1.5em, 14px);
+  font-weight: 500;
+  line-height: 1;
+  transition: border-color .3s ease;
+}
+.approvals-slider_link:hover {
+  border-bottom-color: var(--neutral--white);
+}
+.approvals-slider_link-arrow {
+  width: .85em;
+  height: .85em;
+  transition: transform .35s cubic-bezier(.625, .05, 0, 1);
+}
+.approvals-slider_link:hover .approvals-slider_link-arrow {
+  transform: rotate(45deg);
+}
+@media screen and (max-width: 991px) {
+  .section.recent-approvals.is-soft {
+    grid-row-gap: 4em;
+    padding-bottom: 9em;
+  }
+  .parallax-slider__item-inner {
+    width: 56vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.recent-approvals.is-soft {
+    grid-row-gap: 3.2em;
+    padding-bottom: 7em;
+  }
+  .approvals-slider_head {
+    align-items: flex-end;
+  }
+  .parallax-slider__item {
+    padding-left: .5em;
+    padding-right: .5em;
+  }
+  .parallax-slider__collection {
+    padding-left: calc(var(--_sizes---page-gutter) - .5em);
+  }
+  .parallax-slider__item-inner {
+    width: 74vw;
+    aspect-ratio: 4 / 5;
+  }
+  .approvals-slider_badge {
+    top: 1.6em;
+    left: 1.6em;
+  }
+  .approvals-slider_link {
+    left: 2em;
+    bottom: 2em;
+  }
+}
+
+/* ==================== Related reading (split text) ==================== */
+/* The three guide links as a list under the split text's rich text: a small label, then one link per row on a
+   hairline, all on the text column's left edge. (They were inline links in a paragraph, spaced by <br> and
+   zero-width characters, so each wrapped differently.) */
+.service-reading {
+  max-width: 64em;
+  margin-top: 3.2em;
+}
+.service-reading_label {
+  margin: 0 0 1.2em;
+  color: #111111a6;
+  font-size: max(1.3em, 12px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.service-reading_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #11111124;
+}
+.service-reading_item {
+  border-bottom: 1px solid #11111124;
+}
+.service-reading_link {
+  display: block;
+  padding: 1em 0;
+  color: var(--text-colour--black);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #11111159;
+  text-underline-offset: .25em;
+  font-size: max(1.6em, 15px);
+  line-height: 1.4;
+  transition: text-decoration-color .3s ease;
+}
+.service-reading_link:hover {
+  text-decoration-color: currentColor;
+}

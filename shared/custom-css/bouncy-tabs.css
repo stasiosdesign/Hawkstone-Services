@@ -1,0 +1,11 @@
+/* bouncy-tabs: custom CSS (Webflow: Embed element). Osmo bouncy tabs states. */
+[data-bouncy-tabs-button][data-active] {
+  color: #f1efe2;
+}  
+[data-bouncy-tabs-panel]:not([data-active]) {
+  opacity: 0;
+  visibility: hidden;
+}
+.wf-design-mode [data-bouncy-tabs-panel][data-active] {
+  position: relative;
+}

@@ -1,0 +1,208 @@
+<!-- Global component: site-wide custom head code (Project settings > Custom code > Head). Mirror of the live Webflow site: do not edit here. -->
+<!-- -------------------------------------------Centered Looping Slider CSS ---------------------------------------------------- -->
+  <style>
+  /* Orange highlight ring on bullet point nav for hover + focus states */
+  .centered-slider-bullet::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 100em;
+    z-index: -1;
+    border: 1px solid #FF4C24;
+    transition: all 0.5s cubic-bezier(0.65, 0.05, 0, 1);
+  }
+  .centered-slider-bullet:hover::after,
+  .centered-slider-bullet.active::after,
+  .centered-slider-bullet:focus::after{
+    inset: -5px;
+  }
+  /* Fade non-active slides */
+  .centered-slider-row:has( .centered-slider-slide.active) .centered-slider-slide:not(.active){
+    opacity: 0.45;
+  }
+  /* Removed: Little (orange) corners on each slide */
+</style>
+  <!-- -------------------------- Auto Image Cycle (Slideshow) CSS ---------------------------------------- -->
+  <style>
+[data-image-cycle-item="active"] {
+  transition: opacity 0.4s ease 0s, visibility 0s ease 0s;
+  opacity: 1;
+  visibility: visible;
+  z-index: 3;
+}
+[data-image-cycle-item="previous"] {
+  transition: opacity 0.4s ease 0.4s, visibility 0s ease 0.4s;
+  opacity: 0;
+  visibility: visible;
+  z-index: 2;
+}
+[data-image-cycle-item="not-active"] {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+</style>
+  <!-- -------------------------- Page Loader/Page Transition (CSS CHATGPT TO PREVENT FOUC) ---------------------------------------- -->
+  <style>
+  /* Prevent 1-frame flash before SplitText/GSAP runs */
+  [data-load-text] { opacity: 0; visibility: hidden; }
+</style>
+  <!-- -------------------------------------- Dot Nav (Dots + Text Opacity) — CSS ----------------------------------------------- -->
+  <style>
+  /* =========================
+     DOTS (UNCHANGED LOGIC)
+     ========================= */
+  /* DOT DEFAULT (hidden) */
+  [data-dot-link] [data-dot] {
+    transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+    transform: scale(0) rotate(0.001deg);
+    opacity: 0.5;
+  }
+  /* DOT WHEN LINK IS CURRENT PAGE */
+  [data-dot-link][aria-current] [data-dot] {
+    transform: scale(1) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* While hovering a DIFFERENT link, hide the current-page dot (prevents 2 dots showing).
+     But if you're hovering the current link itself, keep it visible. */
+  [data-dot-nav][data-dot-nav-hover="true"]
+    [data-dot-link][aria-current]:not([data-dot-hover="true"])
+    [data-dot] {
+    transform: scale(0) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* DOT ON HOVER/FOCUS (shown) */
+  [data-dot-link][data-dot-hover="true"] [data-dot] {
+    transform: scale(1) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* If the hovered link is ALSO the current page, keep it strong */
+  [data-dot-link][aria-current][data-dot-hover="true"] [data-dot] {
+    opacity: 1;
+  }
+  /* =========================
+     NEW: TEXT OPACITY FEATURE
+     ========================= */
+  /* Default for any labeled nav text (non-active state) */
+  [data-dot-link] [data-dot-text] {
+    transition: opacity 0.25s ease;
+    opacity: 0.25;
+  }
+  /* Active page text = 100% (when not hovering another link) */
+  [data-dot-link][aria-current] [data-dot-text] {
+    opacity: 1;
+  }
+  /* Hovered/focused link text = 50% (including if it's the current page) */
+  [data-dot-link][data-dot-hover="true"] [data-dot-text] {
+    opacity: 1;
+  }
+  /* When hovering ANY link, force the current page text down to 25%
+     unless the current link itself is the one being hovered. */
+  [data-dot-nav][data-dot-nav-hover="true"]
+    [data-dot-link][aria-current]:not([data-dot-hover="true"])
+    [data-dot-text] {
+    opacity: 0.25;
+  }
+  /* If hovered link IS current, keep it at 100% (overrides the 0.5 rule above) */
+  [data-dot-link][aria-current][data-dot-hover="true"] [data-dot-text] {
+    opacity: 1;
+  }
+</style>
+  <!-- -------------------------- Horizontal Scrolling Sections - CSS ---------------------------------------- -->
+  <style>
+/* Add auto overflow in webflow to make editing easier */
+.wf-design-mode [data-horizontal-scroll-wrap] {
+  overflow: auto;
+}
+</style>
+  <!-- -------------------------------------------Centered Looping Slider CSS ---------------------------------------------------- -->
+  <style>
+  /* Orange highlight ring on bullet point nav for hover + focus states */
+  .centered-slider-bullet::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 100em;
+    z-index: -1;
+    border: 1px solid #FF4C24;
+    transition: all 0.5s cubic-bezier(0.65, 0.05, 0, 1);
+  }
+  .centered-slider-bullet:hover::after,
+  .centered-slider-bullet.active::after,
+  .centered-slider-bullet:focus::after{
+    inset: -5px;
+  }
+  /* Fade non-active slides */
+  .centered-slider-row:has( .centered-slider-slide.active) .centered-slider-slide:not(.active){
+    opacity: 0.45;
+  }
+  /* Removed: Little (orange) corners on each slide */
+</style>
+  <!-- -------------------------- Accordion CSS Animation - CSS ---------------------------------------- -->
+  <style>
+ /* Animate Accordion Bottom Grid */
+.accordion-css__item-bottom {
+  transition: grid-template-rows 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+[data-accordion-status="active"] .accordion-css__item-bottom {
+  grid-template-rows: 1fr;
+}
+/* Animate Icon */
+.accordion-css__item-icon {
+  transition: transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+[data-accordion-status="active"] .accordion-css__item-icon {
+  transform: rotate(0.001deg);
+}
+</style>
+  <!-- -------------------------- Scroll barstyle ---------------------------------------- -->
+  <style>
+/* Chrome / Safari / Edge (webkit) */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 0;
+}
+/* Firefox */
+* {
+  scrollbar-width: none; /* hides scrollbar */
+}
+/* Old Edge/IE (harmless elsewhere) */
+html, body {
+  -ms-overflow-style: none; /* hides scrollbar */
+}
+</style>
+  <!-- -------------------------------------------Button with Rotating Icon ---------------------------------------------------- -->
+  <style>
+/* Global attribute to easily control easing and timing of all targetted elements */
+[data-button-anim-target]{
+  transition: transform 0.525s cubic-bezier(0.625, 0.05, 0, 1);
+}
+/* Fake a duplicate text element using text shadow without blur  */
+.btn-icon-content__text{
+  --text-duplicate-distance: 1.5em;
+  text-shadow: 0px var(--text-duplicate-distance) currentColor;
+}
+/* Only apply hover animations if hover is supported */
+@media (hover:hover) and (pointer:fine){
+  [data-btn-icon-link]:hover .btn-icon-content__text{
+    transform: translate(0px, calc(-1 * var(--text-duplicate-distance)));
+  }
+  [data-btn-icon-link]:hover .btn-icon-icon__bg{
+    transform: rotate(90deg);
+  }
+  [data-btn-icon-link]:hover .btn-icon-icon__arrow{
+    transform: translate(200%, 0px);
+  }
+  [data-btn-icon-link]:hover .btn-icon-content__bg{
+    transform: translate(0px, 0%) rotate(0deg);
+  }
+}
+</style>

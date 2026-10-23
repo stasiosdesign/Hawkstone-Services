@@ -1,0 +1,25 @@
+/* service-typography: custom CSS (Webflow: Embed element). Wrapping refinements for the service pages' own sections
+   (global components such as the Final CTA, testimonials and footer are excluded). text-wrap has no Designer control. */
+.page-wrapper.is-service > :not(.prefooter):not(.testimonials):not(.footer) :is(h1, h2, h3, h4, h5, h6, .heading-statement, .text-size-x-large) {
+  text-wrap: balance;
+}
+.page-wrapper.is-service > :not(.prefooter):not(.testimonials):not(.footer) :is(p, li) {
+  text-wrap: pretty;
+}
+/* Type scale for global components used inside the service sections. Their classes are global, and a component
+   instance can't take combo classes, so these sizes stay as custom CSS scoped to the service pages:
+   the Sub Heading component's heading (div-block-40 > text-size-x-large) and the Process Step heading. */
+.page-wrapper.is-service .div-block-40 .text-size-x-large { font-size: 3.01em; }
+.page-wrapper.is-service .process-heading { font-size: 1.88em; }
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service .div-block-40 .text-size-x-large { font-size: 3.2em; }
+  .page-wrapper.is-service .process-heading { font-size: 1.69em; }
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service .div-block-40 .text-size-x-large { font-size: max(3.2em, 21px); }
+  .page-wrapper.is-service .process-heading { font-size: max(1.79em, 15px); }
+}
+@media screen and (max-width: 479px) {
+  .page-wrapper.is-service .div-block-40 .text-size-x-large { font-size: 2.44em; }
+  .page-wrapper.is-service .process-heading { font-size: 1.6em; }
+}

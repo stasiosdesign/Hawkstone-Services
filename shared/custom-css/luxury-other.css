@@ -1,0 +1,19 @@
+/* luxury-other: custom CSS (Webflow: Embed element on Luxury Architecture), for the "Looking for something else?" rows.
+   - The arrow link covers its whole row (a stretched link through ::after), so the row stays clickable as a whole
+     without nesting links; Designer has no control for pseudo-elements.
+   - Hover: a slow, slight zoom of the photo, and the arrow turns from diagonal to pointing right, as on the site's
+     Main CTA (a child reacting to its row's hover has no native Designer control). */
+.luxury-other_link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .luxury-other_row:hover .luxury-other_img {
+    transform: scale(1.035);
+  }
+  .luxury-other_row:hover .luxury-other_arrow {
+    transform: rotate(45deg);
+  }
+}

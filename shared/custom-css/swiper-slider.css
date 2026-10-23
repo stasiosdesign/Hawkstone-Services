@@ -1,0 +1,99 @@
+/* swiper-slider: custom CSS (Webflow: Embed element). Osmo Swiper Slider Setup, as supplied (demo-card styles left out;
+   the cards are the page's own). Needs Swiper 12's CSS from the CDN in the page head.
+   Used on: Luxury Architecture (step cards). */
+body{
+  --swiper-pagination-color: currentColor;
+  --swiper-pagination-bottom: auto;
+  --swiper-pagination-bullet-size: 0.5em;
+  --swiper-pagination-bullet-inactive-color: currentColor;
+  --swiper-pagination-bullet-inactive-opacity: 0.15;
+  --swiper-pagination-bullet-horizontal-gap: 0.25em;
+  --swiper-wrapper-transition-timing-function: cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.swiper-group {
+  width: 100%;
+  position: relative;
+}
+
+.swiper {
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
+  overflow: visible !important;
+}
+
+.swiper-wrapper {
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
+}
+
+.swiper-slide {
+  flex: none;
+  max-width: 20em;
+  padding-right: 1.25em;
+  --gap: 1.25em;
+  padding-right: var(--gap);
+}
+
+.swiper-slide:last-of-type{
+  margin-right: calc(-1 * var(--gap));
+}
+
+.swiper-pagination {
+  pointer-events: auto;
+  z-index: 0 !important;
+}
+
+.swiper-navigation {
+  z-index: 2;
+  pointer-events: none;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate(0, 150%);
+}
+
+.swiper-navigation__button {
+  z-index: 1;
+  aspect-ratio: 1;
+  pointer-events: auto;
+  color: #000;
+  background-color: #fff;
+  border-radius: 100em;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  padding: 1em;
+  display: flex;
+  position: relative;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font: inherit;
+}
+
+.swiper-button-disabled{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swiper-navigation__button-arorw {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.swiper-navigation__button-arorw.is--prev {
+  transform: rotate(-180deg);
+}

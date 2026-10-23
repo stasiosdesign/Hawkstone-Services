@@ -1,0 +1,7 @@
+/* service-editorial: custom CSS (Webflow: Embed element). Hover for the editorial rows that are links: a slow, slight
+   zoom of the photo. A child changing on its parent's hover has no native Designer control. */
+@media (hover: hover) and (pointer: fine) {
+  a.service-editorial_row:hover .service-editorial_img {
+    transform: scale(1.035);
+  }
+}

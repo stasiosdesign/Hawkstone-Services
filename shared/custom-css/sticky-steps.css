@@ -1,0 +1,91 @@
+/* sticky-steps: custom CSS (Webflow: Embed element). Scroll states for the sticky steps section. */
+@media screen and (min-width: 992px) {
+  [data-sticky-steps-item-status] .sticky-steps__visual {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+  [data-sticky-steps-item-status="before"] .sticky-steps__visual,
+  [data-sticky-steps-item-status="active"] .sticky-steps__visual {
+    opacity: 1;
+    visibility: visible;
+  }
+  [data-sticky-steps-item-status] .sticky-steps__text {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.25;
+  }
+  [data-sticky-steps-item-status="active"] .sticky-steps__text {
+    opacity: 1;
+  }
+}
+
+/* Service-page composition (the markup is the global Text Block component, so these stay as custom CSS scoped to
+   .sticky-steps.is-service). Process composition: instead of a full-bleed cover, the sticky left half holds a composed
+   photo pair, the primary frame (4:5) top-left and the supporting frame (is-secondary, 4:5) bottom-right, overlapping
+   at one corner; the reading group on the right is a narrow column with a large heading. */
+.sticky-steps.is-service .sticky-steps__visual {
+  aspect-ratio: auto;
+  height: 100svh;
+}
+.sticky-steps.is-service .sticky-steps__cover-image {
+  top: 12svh;
+  left: 13%;
+  width: 52%;
+  height: auto;
+  aspect-ratio: .81;
+  border-radius: .2em;
+}
+.sticky-steps.is-service .sticky-steps__cover-image.is-secondary {
+  top: auto;
+  bottom: 10svh;
+  left: auto;
+  right: 9%;
+  width: 41%;
+  aspect-ratio: .8;
+}
+.sticky-steps.is-service .sticky-steps__text {
+  padding-left: 6em;
+}
+.sticky-steps.is-service .sticky-steps__text .text-size-x-large {
+  max-width: 11em;
+  letter-spacing: -.03em;
+  font-size: 3.8em;
+  line-height: 1.02;
+}
+.sticky-steps.is-service .sticky-steps__p {
+  width: auto;
+  max-width: 27em;
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+@media screen and (max-width: 991px) {
+  .sticky-steps.is-service .sticky-steps__visual {
+    aspect-ratio: .857;
+    height: auto;
+  }
+  .sticky-steps.is-service .sticky-steps__cover-image {
+    top: 0;
+    left: 0;
+    width: 62%;
+  }
+  .sticky-steps.is-service .sticky-steps__cover-image.is-secondary {
+    bottom: 0;
+    right: 0;
+    width: 48%;
+  }
+  .sticky-steps.is-service .sticky-steps__text { grid-row-gap: 1.6em; padding-bottom: 3.2em; }
+  .sticky-steps.is-service .sticky-steps__text .text-size-x-large { font-size: 3.4em; }
+  .sticky-steps.is-service .sticky-steps__p { max-width: 38em; font-size: max(1.5em, 15px); }
+  .sticky-steps.is-service .sticky-steps__list { padding-bottom: 7em; }
+}
+@media screen and (max-width: 767px) {
+  .sticky-steps.is-service .sticky-steps__list { padding-bottom: 5em; }
+}
+@media screen and (max-width: 479px) {
+  .sticky-steps.is-service .sticky-steps__text .text-size-x-large { font-size: 2.6em; }
+  .sticky-steps.is-service .sticky-steps__p { font-size: max(1.5em, 15px); }
+}
+/* Large screens: keep the text inside the site's 1800px content column; the photo half stays full width */
+@media screen and (min-width: 1920px) {
+  .sticky-steps.is-service .sticky-steps__text { padding-right: calc((100vw - 1800px) / 2 + var(--_sizes---page-gutter)); }
+}

@@ -1,0 +1,436 @@
+<!-- Global component: Global Code. Mirror of the live Webflow site: do not edit here. -->
+<div class="global-styles">
+      <div class="global-styles-2 w-embed"><!--  ============================================================
+     Scaling System by Osmo [https://osmo.supply/]
+     ============================================================  -->
+        <style>
+  /* Desktop */
+  :root {
+    --size-unit: 10; /* body font-size in design - no px */
+    --size-container-ideal: 1440; /* screen-size in design - no px */
+    --size-container-min: 992px;
+    --size-container-max: 1800px;
+    --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+    --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+  }
+  /* Tablet */
+  @media screen and (max-width: 991px) {
+    :root {
+      --size-container-ideal: 1000; /* screen-size in design - no px */
+      --size-container-min: 768px;
+      --size-container-max: 991px;
+    }
+  }
+  /* Mobile Landscape */
+  @media screen and (max-width: 767px) {
+    :root {
+      --size-container-ideal: 800; /* screen-size in design - no px */
+      --size-container-min: 480px;
+      --size-container-max: 767px;
+    }
+  }
+  /* Mobile Portrait */
+  @media screen and (max-width: 479px) {
+    :root {
+      --size-container-ideal: 375; /* screen-size in design - no px */
+      --size-container-min: 320px;
+      --size-container-max: 479px;
+    }
+  }
+  /* Hook the scaling to the root font-size */
+  html {
+    font-size: var(--size-font);
+  }
+  .osmo-container {
+    max-width: var(--size-container);
+  }
+</style>
+      </div>
+      <div class="global-styles-custom w-embed"><!-- -------------------------- Multilevel Navigation CSS ---------------------------------------- -->
+        <style>
+:root {
+  /* Global fallback height — used by any dropdown without its own data-nav-height */
+  --nav-bg-height: calc(40em + calc(2em + 3em + 2.5em + 3em));
+  --cubic-default: cubic-bezier(0.525, 0, 0, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.450s;
+  --color-dark: #2b1d15;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--color-dark);
+}
+.nav-bg {
+  transition: height var(--duration-normal) var(--cubic-default);
+}
+.page-bg {
+  transition: opacity var(--duration-fast) var(--cubic-default);
+}
+.nav {
+  transition: color var(--duration-fast) var(--cubic-default);
+}
+.nav-button {
+  transition: all var(--duration-fast) var(--cubic-default);
+}
+/* ———— SHOW DROPDOWN ———— */
+.nav-dropdown {
+  transition: all var(--duration-fast) ease, transform var(--duration-normal) var(--cubic-default);
+}
+[data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover+.nav-dropdown,
+[data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-visible+.nav-dropdown,
+[data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:hover,
+[data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:focus-within,
+.wf-design-mode [data-dropdown-toggle="open"]+.nav-dropdown{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/*———— STYLING WHEN DROPDOWN IS OPEN ———— */
+:is(body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover),
+  body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-visible),
+  body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-within),
+  body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:hover),
+  body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:focus-within)),
+  .wf-design-mode body:has([data-dropdown-toggle="open"]){
+  .nav-bg {
+    /* Per-link value wins when present, otherwise the global fallback */
+    height: var(--nav-bg-height-override, var(--nav-bg-height));
+  }
+  .page-bg {
+    opacity: 1;
+  }
+  .nav {
+    color: var(--color-dark);
+  }
+  .nav-button {
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+  }
+  .nav-button.is--primary {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+    color: #FFF;
+  }
+}
+/*———— DROPDOWN TOGGLE ———— */
+.nav-link__dropdown-icon {
+  transition: transform var(--duration-normal) var(--cubic-default);
+}
+[data-dropdown-toggle] {
+  transition: background-color var(--duration-fast) var(--cubic-default);
+}
+/*———— DESKTOP HOVER AND FOCUS ———— */
+@media screen and (min-width: 768px) {
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover .nav-link__dropdown-icon,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus .nav-link__dropdown-icon,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-within .nav-link__dropdown-icon,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):has(+ .nav-dropdown:hover) .nav-link__dropdown-icon,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):has(+ .nav-dropdown:focus-within) .nav-link__dropdown-icon {
+    transform: rotate(180deg);
+  }
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-within,
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):has(+ .nav-dropdown:hover),
+  [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):has(+ .nav-dropdown:focus-within),
+  .wf-design-mode body:has([data-dropdown-toggle="open"])+.nav-dropdown{
+    background-color: transparent;
+  }
+}
+/*————  DROPDOWN CONTENT LIST ITEMS ———— */
+.nav-dropdown__content-li {
+  transition: all var(--duration-normal) var(--cubic-default);
+  transition-delay: 0.18s;
+  opacity: 0;
+  transform: translate(4em, 0px);
+}
+.nav-dropdown__content-li:nth-child(2) {
+  transition-delay: 0.24s;
+}
+.nav-dropdown__content-li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.nav-dropdown__content-li:nth-child(4) {
+  transition-delay: 0.36s;
+}
+.nav-dropdown__content-li:nth-child(5) {
+  transition-delay: 0.44s;
+}
+body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover) [data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):hover+.nav-dropdown .nav-dropdown__content-li,
+body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-visible) .nav-dropdown__content-li,
+body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"]):focus-within) .nav-dropdown__content-li,
+body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:hover) .nav-dropdown__content-li,
+body:has([data-dropdown-toggle]:not([data-dropdown-toggle="closed"])+.nav-dropdown:focus-within) .nav-dropdown__content-li,
+.wf-design-mode [data-dropdown-toggle="open"]+.nav-dropdown .nav-dropdown__content-li{
+  opacity: 1;
+  transform: translate(0em, 0px);
+}
+/*————  DROPDOWN LINKS + IMAGES ———— */
+.nav-dropdown__link:hover .nav-dropdown__img-overlay,
+.nav-dropdown__link:focus-visible .nav-dropdown__img-overlay {
+  opacity: 0;
+}
+.nav-dropdown__link:hover .nav-dropdown__img,
+.nav-dropdown__link:focus-visible .nav-dropdown__img {
+  transform: scale(1.1);
+}
+/*———— DROPDOWN LINKS ———— */
+.nav-dropdown__link.is--static:hover,
+.nav-dropdown__link.is--static:focus-visible {
+  background: #D1D0CC;
+}
+/* ———— NAV LINKS ———— */
+a.nav-link .nav-link__label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--duration-normal) var(--cubic-default);
+  transform: scale(0, 1);
+  transform-origin: right center;
+}
+a.nav-link:hover .nav-link__label::after,
+a.nav-link:focus-visible .nav-link__label::after {
+  transform: scale(1, 1);
+  transform-origin: left center;
+}
+/* ———— MOBILE STATE WITH BURGER MENU ———— */
+@media screen and (max-width: 767px) {
+  :root {
+    --nav-bg-height: 100dvh;
+  }
+  .nav-dropdown__overflow {
+    transition: grid-template-rows var(--duration-normal) var(--cubic-default);
+  }
+  .nav-center {
+    transition: all var(--duration-normal) var(--cubic-default), opacity var(--duration-fast) var(--cubic-default);
+  }
+  .menu-button__line {
+    transition: all var(--duration-normal) var(--cubic-default);
+  }
+  /* ———— STYLES WHEN MENU IS OPEN ———— */
+  :is([data-menu-status="open"]) {
+    color: var(--color-dark);
+    .menu-button__line:nth-of-type(1) {
+      transform: translate(0px, 0.125em) rotate(135deg);
+      background-color: #FFF;
+    }
+    .menu-button__line:nth-of-type(2) {
+      transform: translate(0px, -0.175em) rotate(-135deg);
+      background-color: #FFF;
+    }
+    .nav-bg {
+      /* Kill any per-link value so the burger menu is always full-screen */
+      --nav-bg-height-override: initial;
+      height: var(--nav-bg-height);
+    }
+    .page-bg {
+      opacity: 1;
+    }
+    .nav-button.is--primary {
+      background-color: var(--color-dark);
+      border-color: var(--color-dark);
+      color: #FFF;
+    }
+    .nav-center {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0px, 0em);
+      transition-delay: 0.1s;
+    }
+  }
+  [data-dropdown-toggle="open"]+.nav-dropdown .nav-dropdown__overflow {
+    grid-template-rows: 1fr;
+  }
+  [data-dropdown-toggle="open"]+.nav-dropdown .nav-dropdown__content-li {
+    opacity: 1;
+    transform: translate(0em, 0px);
+  }
+  [data-dropdown-toggle="open"] .nav-link__dropdown-icon {
+    transform: rotate(180deg);
+  }
+}
+</style>
+        <!-- -------------------------------------- Dot Nav (Dots + Text Opacity) — CSS ----------------------------------------------- -->
+        <style>
+  /* =========================
+     DOTS (UNCHANGED LOGIC)
+     ========================= */
+  /* DOT DEFAULT (hidden) */
+  [data-dot-link] [data-dot] {
+    transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+    transform: scale(0) rotate(0.001deg);
+    opacity: 0.5;
+  }
+  /* DOT WHEN LINK IS CURRENT PAGE */
+  [data-dot-link][aria-current] [data-dot] {
+    transform: scale(1) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* While hovering a DIFFERENT link, hide the current-page dot (prevents 2 dots showing).
+     But if you're hovering the current link itself, keep it visible. */
+  [data-dot-nav][data-dot-nav-hover='true'] [data-dot-link][aria-current]:not([data-dot-hover='true']) [data-dot] {
+    transform: scale(0) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* DOT ON HOVER/FOCUS (shown) */
+  [data-dot-link][data-dot-hover='true'] [data-dot] {
+    transform: scale(1) rotate(0.001deg);
+    opacity: 1;
+  }
+  /* If the hovered link is ALSO the current page, keep it strong */
+  [data-dot-link][aria-current][data-dot-hover='true'] [data-dot] {
+    opacity: 1;
+  }
+  /* =========================
+     NEW: TEXT OPACITY FEATURE
+     ========================= */
+  /* Default for any labeled nav text (non-active state) */
+  [data-dot-link] [data-dot-text] {
+    transition: opacity 0.25s ease;
+    opacity: 0.25;
+  }
+  /* Active page text = 100% (when not hovering another link) */
+  [data-dot-link][aria-current] [data-dot-text] {
+    opacity: 1;
+  }
+  /* Hovered/focused link text = 50% (including if it's the current page) */
+  [data-dot-link][data-dot-hover='true'] [data-dot-text] {
+    opacity: 1;
+  }
+  /* When hovering ANY link, force the current page text down to 25%
+     unless the current link itself is the one being hovered. */
+  [data-dot-nav][data-dot-nav-hover='true'] [data-dot-link][aria-current]:not([data-dot-hover='true']) [data-dot-text] {
+    opacity: 0.25;
+  }
+  /* If hovered link IS current, keep it at 100% (overrides the 0.5 rule above) */
+  [data-dot-link][aria-current][data-dot-hover='true'] [data-dot-text] {
+    opacity: 1;
+  }
+</style>
+        <!-- -------------------------- Horizontal Scrolling Sections - CSS ---------------------------------------- -->
+        <style>
+  /* Add auto overflow in webflow to make editing easier */
+  .wf-design-mode [data-horizontal-scroll-wrap] {
+    overflow: auto;
+  }
+</style>
+        <!-- -------------------------- Accordion CSS Animation - CSS ---------------------------------------- -->
+        <style>
+  /* Animate Accordion Bottom Grid */
+  .accordion-css__item-bottom {
+    transition: grid-template-rows 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  }
+  [data-accordion-status='active'] .accordion-css__item-bottom {
+    grid-template-rows: 1fr;
+  }
+  /* Animate Icon */
+  .accordion-css__item-icon {
+    transition: transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  }
+  [data-accordion-status='active'] .accordion-css__item-icon {
+    transform: rotate(0.001deg);
+  }
+</style>
+        <!-- -------------------------------------------Centered Looping Slider CSS ---------------------------------------------------- -->
+        <style>
+  /* Orange highlight ring on bullet point nav for hover + focus states */
+  .centered-slider-bullet::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 100em;
+    z-index: -1;
+    border: 1px solid #ff4c24;
+    transition: all 0.5s cubic-bezier(0.65, 0.05, 0, 1);
+  }
+  .centered-slider-bullet:hover::after,
+  .centered-slider-bullet.active::after,
+  .centered-slider-bullet:focus::after {
+    inset: -5px;
+  }
+  /* Fade non-active slides */
+  .centered-slider-row:has(.centered-slider-slide.active) .centered-slider-slide:not(.active) {
+    opacity: 0.45;
+  }
+  /* Removed: Little (orange) corners on each slide */
+</style>
+        <!-- -------------------------------------------Button with Rotating Icon ---------------------------------------------------- -->
+        <style>
+  /* Global attribute to easily control easing and timing of all targetted elements */
+  [data-button-anim-target] {
+    transition: transform 0.525s cubic-bezier(0.625, 0.05, 0, 1);
+  }
+  /* Fake a duplicate text element using text shadow without blur  */
+  .btn-icon-content__text {
+    --text-duplicate-distance: 1.5em;
+    text-shadow: 0px var(--text-duplicate-distance) currentColor;
+  }
+  /* Only apply hover animations if hover is supported */
+  @media (hover: hover) and (pointer: fine) {
+    [data-btn-icon-link]:hover .btn-icon-content__text {
+      transform: translate(0px, calc(-1 * var(--text-duplicate-distance)));
+    }
+    [data-btn-icon-link]:hover .btn-icon-icon__bg {
+      transform: rotate(90deg);
+    }
+    [data-btn-icon-link]:hover .btn-icon-icon__arrow {
+      transform: translate(200%, 0px);
+    }
+    [data-btn-icon-link]:hover .btn-icon-content__bg {
+      transform: translate(0px, 0%) rotate(0deg);
+    }
+  }
+</style>
+        <!-- ------------------ Depth Tiles Infinite Loop --------------------------------------------- -->
+        <style>
+/* Depth Tiles — structural only. */
+[data-depth-tiles-list] {
+  display: grid;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+[data-depth-tiles-item] {
+  grid-area: 1 / 1;
+  will-change: transform, opacity, filter;
+}
+[data-depth-tiles-item] img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+/* Overridable defaults — zero specificity, any Designer class wins. */
+:where([data-depth-tiles-init]) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: clip;
+}
+:where([data-depth-tiles-list]) {
+  justify-items: center;
+  align-items: end;
+  cursor: grab;
+}
+:where([data-depth-tiles-init][data-depth-tiles-direction="down"]) {
+  align-items: flex-start;
+}
+:where([data-depth-tiles-init][data-depth-tiles-direction="down"] [data-depth-tiles-list]) {
+  align-items: start;
+}
+:where([data-depth-tiles-item-status="not-active"]) {
+  cursor: pointer;
+}
+:where([data-depth-tiles-dragging] [data-depth-tiles-list]),
+:where([data-depth-tiles-dragging] [data-depth-tiles-item]) {
+  cursor: grabbing;
+}
+</style>
+      </div>
+    </div>

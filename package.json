@@ -1,0 +1,11 @@
+{
+  "name": "hawkstone-services",
+  "private": true,
+  "description": "Hawkstone's six service pages, built for design review before the Webflow rebuild",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

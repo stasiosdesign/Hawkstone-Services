@@ -1,0 +1,11 @@
+/* service-projects: custom CSS (Webflow: Embed element). Hover for the Projects panels: a slow, slight zoom of the
+   photo. A child changing on its parent's hover has no native Designer control. The zoom is on the photo's wrapper
+   because the script's one-time reveal animates the photo itself. */
+.service-projects_media {
+  transition: transform 1.2s cubic-bezier(.2, .6, .2, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-projects_panel:hover .service-projects_media {
+    transform: scale(1.03);
+  }
+}

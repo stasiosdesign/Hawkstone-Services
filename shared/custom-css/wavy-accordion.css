@@ -1,0 +1,21 @@
+/* wavy-accordion: custom CSS (Webflow: Embed element). Osmo Supply "Wavy Accordion" state CSS, unchanged. */
+[data-wavy-accordion-init][data-wavy-accordion-status="ready"] .wavy-accordion__image {
+  opacity: 0;
+}
+
+[data-wavy-accordion-item][data-wavy-accordion-item-status="active"] .wavy-accordion__label {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wavy-accordion__label {
+    transition: none;
+  }
+}
+
+.wf-design-mode .wavy-accordion__label {
+  opacity: 1;
+  transform: translate(0, 0);
+}

@@ -1,0 +1,16 @@
+/* service-expand: custom CSS (Webflow: Embed element on Planning Applications), for the expanding list. The title
+   button covers its whole card (a stretched button through ::after), so a click anywhere on the card opens or closes
+   it; Designer has no control for pseudo-elements. */
+.service-expand_button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.service-expand_button:focus-visible {
+  outline: none;
+}
+.service-expand_button:focus-visible::after {
+  outline: 2px solid var(--expand-ink, var(--theme--obsidian-d3));
+  outline-offset: -2px;
+}

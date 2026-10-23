@@ -1,0 +1,45 @@
+/* Native Webflow classes used only on 3D Visualisations. */
+
+/* ==================== Numbered steps without titles (What you receive) ==================== */
+.service-steps_row.is-visuals {
+  grid-template-columns: 3em minmax(0, 1fr);
+}
+
+/* ==================== Lead paragraph ==================== */
+.visuals-lead {
+  max-width: 30em;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  margin-top: 2em;
+  margin-bottom: 0;
+  font-size: 1.6em;
+  font-weight: 300;
+  line-height: 1.45em;
+}
+@media screen and (max-width: 991px) {
+  .visuals-lead {
+    font-size: max(1.6em, 15px);
+  }
+}
+/* Under the numbered-steps heading, in the same right field */
+.visuals-lead.is-steps {
+  grid-column: 6 / 13;
+  margin-top: 0;
+}
+@media screen and (max-width: 991px) {
+  .visuals-lead.is-steps {
+    grid-column: 5 / 13;
+  }
+}
+@media screen and (max-width: 767px) {
+  .visuals-lead.is-steps {
+    grid-column: auto;
+  }
+}
+/* After the process slides, on the dark band */
+.visuals-lead.is-dark {
+  color: #ffffffb8;
+  margin-top: 0;
+  padding-top: 6em;
+  padding-bottom: 8em;
+}
