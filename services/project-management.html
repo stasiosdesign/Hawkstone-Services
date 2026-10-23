@@ -324,30 +324,6 @@
         </div>
       </div>
     </section>
-    <!-- Page section: Where the gap is (pm-gap). A programme diagram, read like a Gantt bar on a drawing sheet: the
-         architect's band runs solid across feasibility, concept, planning and technical design, then becomes an empty
-         dashed outline ("Nobody") across construction, which takes a third of the width; the five stages hang from a
-         hairline baseline; the contractor's band exists only under construction. Then one quiet closing line. Left
-         anchored, no motion. Below 768px the diagram turns vertical: stages top to bottom, the architect band and the
-         void down the left, the contractor band down the right beside construction only. CSS grid, all text real.
-         Styles: pm-gap* in services/css/project-management.css. -->
-    <section class="pm-gap">
-      <div class="container">
-        <h2 class="pm-gap_heading">Where the gap is</h2>
-        <figure class="pm-gap_chart" role="group" aria-label="Diagram: the architect represents the approved design through feasibility, concept, planning and technical design. During construction nobody represents it; only the contractor is present.">
-          <div class="pm-gap_band is-architect"><span class="pm-gap_band-label">Architect</span></div>
-          <div class="pm-gap_band is-void"><span class="pm-gap_band-label">Nobody</span></div>
-          <div class="pm-gap_axis" aria-hidden="true"></div>
-          <p class="pm-gap_stage is-1">Feasibility</p>
-          <p class="pm-gap_stage is-2">Concept</p>
-          <p class="pm-gap_stage is-3">Planning</p>
-          <p class="pm-gap_stage is-4">Technical</p>
-          <p class="pm-gap_stage is-5">Construction</p>
-          <div class="pm-gap_band is-contractor"><span class="pm-gap_band-label">Contractor</span></div>
-        </figure>
-        <p class="pm-gap_note">The approved design stops being represented exactly where the money starts being spent.</p>
-      </div>
-    </section>
     <!-- Shared section: Expanding list ("What we do, and when"; the same component and dark variant as Planning's
          "Architect-led planning application"): label, heading and intro centred, then one card per stage, all closed at
          first. Clicking a card opens it (the photo grows) and reveals the stage's activities, each a small title and its

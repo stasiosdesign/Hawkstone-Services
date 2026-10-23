@@ -474,6 +474,10 @@ Checked in headless Edge at 1440, 768 and 390px on all six pages (no horizontal 
   - **Smaller screens:** the head goes to one column below 992px; the cards stack below 768px.
   - **No motion:** no sticky positioning, scroll effects or hover.
 
+## 3ar. Project Management: "Where the gap is" removed
+
+23 October 2026, at the user's request. The `pm-gap` section (3ap) and its `pm-gap*` rules in `services/css/project-management.css` are removed; the statement is now followed directly by "What we do, and when". Nothing else changed.
+
 ## 3aq. 3D: "The projects we visualise" as the expanding list; deeper showcase gradient
 
 23 October 2026. Copy unchanged.
