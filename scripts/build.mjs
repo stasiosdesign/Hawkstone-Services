@@ -20,8 +20,13 @@ const has = (params, k) => Boolean(params[k]);
 function expandIncludes(html, params, depth) {
   if (depth > 8) throw new Error('Includes nested too deeply');
   if (params && Object.keys(params).length) {
-    html = html.replace(/\{\{#([\w-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (m, k, body) => (has(params, k) ? body : ''));
-    html = html.replace(/\{\{\^([\w-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (m, k, body) => (has(params, k) ? '' : body));
+    // Repeated until nothing changes, so a block may sit inside another block with a different name (as serve.ps1).
+    let before;
+    do {
+      before = html;
+      html = html.replace(/\{\{#([\w-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (m, k, body) => (has(params, k) ? body : ''));
+      html = html.replace(/\{\{\^([\w-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (m, k, body) => (has(params, k) ? '' : body));
+    } while (html !== before);
     html = html.replace(/\{\{([\w-]+)\}\}/g, (m, k) => params[k] ?? '');
   }
   return html.replace(/<!--#include\s+file="([^"]+)"((?:\s+[\w-]+="[^"]*")*)\s*-->/g, (m, file, attrs) => {

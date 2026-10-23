@@ -1,6 +1,25 @@
 /* Native Webflow classes used only on Project Management. */
 
 /* ==================== Statement ==================== */
+/* Closer to the hero than the shared 20em / 14em / 10em / 7em (combo is-pm on the section). */
+.section.is-service-statement.is-pm {
+  padding-top: 12em;
+}
+@media screen and (max-width: 991px) {
+  .section.is-service-statement.is-pm {
+    padding-top: 9em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-statement.is-pm {
+    padding-top: 6.4em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-service-statement.is-pm {
+    padding-top: 5em;
+  }
+}
 .pm-statement_note {
   max-width: 40em;
   font-family: var(--font-family--normal-font);
@@ -22,152 +41,213 @@
   }
 }
 
-/* ==================== The gap this fills ==================== */
+/* ==================== Where the gap is ==================== */
+/* A programme diagram on the page colour, in the site's palette only: the near-black for text, hairlines and the void's
+   dashed outline (the strongest linework, so the eye goes to the void); the same near-black at 62% as a muted warm grey
+   for the architect's solid band; a pale stone for the contractor's band; the page colour inside the void.
+   Five columns, the four design stages 1fr each and construction 2fr, so construction is a third of the width and the
+   void reads large. Order top to bottom: the bands above (architect, then the void), the hairline baseline, the stage
+   labels hanging from their ticks, the contractor's band under construction only. The heading is left anchored above,
+   the closing line quiet and well clear below. No motion. Below 768px the same elements turn vertical (see below). */
 .pm-gap {
-  padding-top: 6em;
-  padding-bottom: 12em;
+  padding-top: 14em;
+  padding-bottom: 16em;
+}
+.pm-gap_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.pm-gap_chart {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 2fr);
+  grid-template-rows: auto auto auto auto;
+  margin: 10em 0 0;
+  color: var(--theme--obsidian-base);
+}
+.pm-gap_band {
   position: relative;
+  height: 4.4em;
+  border-radius: 2px;
+}
+.pm-gap_band.is-architect {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  border-radius: 2px 0 0 2px;
+  background-color: #1e1e1c9e;
+  color: var(--theme--ivory-base);
+}
+.pm-gap_band.is-void {
+  grid-column: 5;
+  grid-row: 1;
+  border: 1px dashed var(--theme--obsidian-base);
+  border-left: 0;
+  border-radius: 0 2px 2px 0;
+}
+.pm-gap_band.is-contractor {
+  grid-column: 5;
+  grid-row: 4;
+  margin-top: 2.4em;
+  background-color: var(--theme--ivory-d3);
+}
+.pm-gap_band-label {
+  position: absolute;
+  top: 1.15em;
+  left: 1.15em;
+  font-family: var(--font-family--normal-font);
+  font-size: max(1.3em, 12px);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+/* The baseline: one hairline across the whole programme, 2.4em under the bands. */
+.pm-gap_axis {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 1px;
+  margin-top: 2.4em;
+  background-color: var(--theme--obsidian-base);
+}
+/* Stage labels hang from a tick at the start of each stage; construction also closes the programme with an end tick. */
+.pm-gap_stage {
+  position: relative;
+  grid-row: 3;
+  margin: 0;
+  padding: 1.1em 0 0 .8em;
+  font-family: var(--font-family--normal-font);
+  color: var(--theme--obsidian-base);
+  font-size: max(1.4em, 13px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.pm-gap_stage::before,
+.pm-gap_stage.is-5::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: .75em;
+  background-color: var(--theme--obsidian-base);
+}
+.pm-gap_stage.is-5::after {
+  left: auto;
+  right: 0;
+}
+.pm-gap_stage.is-1 { grid-column: 1; }
+.pm-gap_stage.is-2 { grid-column: 2; }
+.pm-gap_stage.is-3 { grid-column: 3; }
+.pm-gap_stage.is-4 { grid-column: 4; }
+.pm-gap_stage.is-5 { grid-column: 5; }
+.pm-gap_note {
+  max-width: 30em;
+  margin: 10em 0 0;
+  font-family: var(--font-family--normal-font);
+  color: #111111b3;
+  letter-spacing: -.01em;
+  font-size: max(1.8em, 16px);
+  font-weight: 300;
+  line-height: 1.45;
 }
 @media screen and (max-width: 991px) {
   .pm-gap {
-    padding-top: 4em;
+    padding-top: 10em;
+    padding-bottom: 12em;
+  }
+  .pm-gap_chart {
+    margin-top: 7em;
+  }
+  .pm-gap_note {
+    margin-top: 7em;
+  }
+}
+/* Phones: the programme runs top to bottom. Column 1 holds the architect's band down the four design stages and the
+   void beside construction; column 2 the baseline (now vertical) with the stage labels to its right, each under a
+   short tick; column 3 the contractor's band beside construction only. Rows: the design stages 1fr each, construction
+   2fr, as the widths on desktop. */
+@media screen and (max-width: 767px) {
+  .pm-gap {
+    padding-top: 7em;
     padding-bottom: 9em;
   }
-}
-@media screen and (max-width: 767px) {
-  .pm-gap {
-    padding-top: 2em;
-    padding-bottom: 7em;
+  .pm-gap_chart {
+    grid-template-columns: 8em minmax(0, 1fr) 8em;
+    grid-template-rows: repeat(4, 5.6em) 11.2em;
+    grid-column-gap: 1.2em;
+    margin-top: 4.8em;
   }
-}
-.pm-gap_grid {
-  grid-column-gap: 8em;
-  grid-row-gap: 4em;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  align-items: start;
-  display: grid;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_grid {
-    grid-template-columns: minmax(0, 1fr);
+  .pm-gap_band {
+    height: auto;
   }
-}
-.pm-gap_aside {
-  grid-row-gap: 2.4em;
-  flex-direction: column;
-  align-items: flex-start;
-  display: flex;
-  position: sticky;
-  top: 14em;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_aside {
-    position: relative;
+  .pm-gap_band.is-architect {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    border-radius: 2px 2px 0 0;
+  }
+  .pm-gap_band.is-void {
+    grid-column: 1;
+    grid-row: 5;
+    border-left: 1px dashed var(--theme--obsidian-base);
+    border-top: 0;
+    border-radius: 0 0 2px 2px;
+  }
+  .pm-gap_band.is-contractor {
+    grid-column: 3;
+    grid-row: 5;
+    margin-top: 0;
+  }
+  .pm-gap_band-label {
+    top: .9em;
+    left: .9em;
+  }
+  .pm-gap_axis {
+    grid-column: 2;
+    grid-row: 1 / 6;
+    width: 1px;
+    height: auto;
+    margin-top: 0;
+  }
+  .pm-gap_stage {
+    grid-column: 2;
+    padding: .55em 0 0 1.1em;
+  }
+  .pm-gap_stage::before,
+  .pm-gap_stage.is-5::after {
+    width: .75em;
+    height: 1px;
+  }
+  .pm-gap_stage.is-5::after {
     top: auto;
+    bottom: 0;
+    left: 0;
+    right: auto;
   }
-}
-.pm-gap_body {
-  grid-row-gap: 3.2em;
-  flex-direction: column;
-  padding-top: .6em;
-  display: flex;
-}
-.pm-gap_lead {
-  font-family: var(--font-family--normal-font);
-  color: var(--text-colour--black);
-  letter-spacing: -.01em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 2em;
-  font-weight: 300;
-  line-height: 1.35em;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_lead {
-    font-size: max(1.85em, 15px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-gap_lead {
-    font-size: max(1.62em, 15px);
-  }
-}
-.pm-gap_para {
-  max-width: 34em;
-  font-family: var(--font-family--normal-font);
-  color: #111111b8;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.7em;
-  font-weight: 300;
-  line-height: 1.65em;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_para {
-    font-size: max(1.7em, 15px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-gap_para {
-    max-width: none;
-    font-size: max(1.61em, 15px);
-  }
-}
-.pm-gap_closing {
-  border-left: 2px solid var(--theme--primary);
-  margin-top: 1.6em;
-  padding-left: 2.8em;
-}
-@media screen and (max-width: 767px) {
-  .pm-gap_closing {
-    margin-top: .8em;
-    padding-left: 2em;
-  }
-}
-.pm-gap_closing-text {
-  max-width: 24em;
-  font-family: var(--font-family--normal-font);
-  color: var(--text-colour--black);
-  letter-spacing: -.01em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.76em;
-  font-weight: 400;
-  line-height: 1.4em;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_closing-text {
-    font-size: max(1.76em, 15px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-gap_closing-text {
-    font-size: max(1.52em, 15px);
-  }
-}
-.pm-gap_media {
-  aspect-ratio: 21 / 9;
-  border-radius: .3em;
-  margin-top: 10em;
-  overflow: hidden;
-}
-@media screen and (max-width: 991px) {
-  .pm-gap_media {
-    aspect-ratio: 16 / 9;
-    margin-top: 6.4em;
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-gap_media {
-    aspect-ratio: 4 / 3;
+  .pm-gap_stage.is-1,
+  .pm-gap_stage.is-2,
+  .pm-gap_stage.is-3,
+  .pm-gap_stage.is-4,
+  .pm-gap_stage.is-5 { grid-column: 2; }
+  .pm-gap_stage.is-1 { grid-row: 1; }
+  .pm-gap_stage.is-2 { grid-row: 2; }
+  .pm-gap_stage.is-3 { grid-row: 3; }
+  .pm-gap_stage.is-4 { grid-row: 4; }
+  .pm-gap_stage.is-5 { grid-row: 5; }
+  .pm-gap_note {
     margin-top: 4.8em;
   }
 }
-.pm-gap_img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  display: block;
+/* Small phones: the bands keep room for their labels ("Contractor" at 12px). */
+@media screen and (max-width: 479px) {
+  .pm-gap_chart {
+    grid-template-columns: max(8em, 78px) minmax(0, 1fr) max(8em, 78px);
+  }
+  .pm-gap_band-label {
+    left: .7em;
+  }
 }
 
 /* ==================== Headings and labels (used across the page) ==================== */
@@ -210,9 +290,6 @@
 .text-size-regular.is-pm-light {
   color: #fffc;
 }
-.pm-h2.is-light {
-  color: var(--text-colour--white);
-}
 .pm-h2.is-case {
   font-size: 3.01em;
 }
@@ -232,184 +309,10 @@
   }
 }
 
-/* ==================== Scope phases ==================== */
-.pm-scope {
-  background-color: var(--theme--obsidian-base);
-  color: var(--text-colour--white);
-  padding-top: 14em;
-  padding-bottom: 14em;
-  position: relative;
-}
-@media screen and (max-width: 991px) {
-  .pm-scope {
-    padding-top: 10em;
-    padding-bottom: 10em;
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-scope {
-    padding-top: 8em;
-    padding-bottom: 8em;
-  }
-}
-@media screen and (max-width: 479px) {
-  .pm-scope {
-    padding-top: 6em;
-    padding-bottom: 6em;
-  }
-}
-.pm-scope_head {
-  grid-column-gap: 8em;
-  grid-row-gap: 3.2em;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: end;
-  padding-bottom: 8em;
-  display: grid;
-}
-@media screen and (max-width: 991px) {
-  .pm-scope_head {
-    grid-template-columns: minmax(0, 1fr);
-    padding-bottom: 5.6em;
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-scope_head {
-    padding-bottom: 4.8em;
-  }
-}
-.pm-scope_intro {
-  max-width: 30em;
-  font-family: var(--font-family--normal-font);
-  color: #ffffffb8;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.7em;
-  font-weight: 300;
-  line-height: 1.6em;
-}
-@media screen and (max-width: 991px) {
-  .pm-scope_intro {
-    font-size: max(1.7em, 15px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-scope_intro {
-    max-width: none;
-    font-size: max(1.61em, 15px);
-  }
-}
-.pm-phase {
-  grid-column-gap: 8em;
-  grid-row-gap: 3.2em;
-  border-top: 1px solid #ffffff29;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  padding-top: 4.8em;
-  padding-bottom: 4.8em;
-  display: grid;
-}
-@media screen and (max-width: 991px) {
-  .pm-phase {
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 4em;
-    padding-bottom: 4em;
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-phase {
-    grid-row-gap: 2.4em;
-    padding-top: 3.6em;
-    padding-bottom: 3.6em;
-  }
-}
-.pm-phase_meta {
-  grid-row-gap: 1.6em;
-  flex-direction: column;
-  align-items: flex-start;
-  display: flex;
-}
-.pm-phase_num {
-  font-family: var(--font-family--normal-font);
-  color: var(--theme--primary);
-  font-size: 1.3em;
-  font-weight: 400;
-  line-height: 1em;
-}
-.pm-phase_title {
-  font-family: var(--font-family--normal-font);
-  color: var(--text-colour--white);
-  letter-spacing: -.015em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 2.35em;
-  font-weight: 400;
-  line-height: 1.1em;
-}
-@media screen and (max-width: 991px) {
-  .pm-phase_title {
-    font-size: 2.05em;
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-phase_title {
-    font-size: max(1.76em, 16px);
-  }
-}
-.pm-phase_items {
-  grid-column-gap: 4.8em;
-  grid-row-gap: 4em;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  display: grid;
-}
-@media screen and (max-width: 767px) {
-  .pm-phase_items {
-    grid-row-gap: 3.2em;
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.pm-phase_item {
-  grid-row-gap: 1.2em;
-  border-top: 1px solid #ffffff14;
-  flex-direction: column;
-  padding-top: 2em;
-  display: flex;
-}
-.pm-phase_item-title {
-  font-family: var(--font-family--normal-font);
-  color: var(--text-colour--white);
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.65em;
-  font-weight: 400;
-  line-height: 1.25em;
-}
-@media screen and (max-width: 991px) {
-  .pm-phase_item-title {
-    font-size: max(1.65em, 15px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .pm-phase_item-title {
-    font-size: max(1.57em, 15px);
-  }
-}
-.pm-phase_item-text {
-  font-family: var(--font-family--normal-font);
-  color: #ffffffa8;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.6em;
-  font-weight: 300;
-  line-height: 1.65em;
-}
-@media screen and (max-width: 991px) {
-  .pm-phase_item-text {
-    font-size: max(1.6em, 15px);
-  }
-}
-
 /* ==================== Case study ==================== */
-/* Process composition: the composed photo group (shared Service visual, combo is-case) in columns 1-5, column 6 as the
-   channel, and the narrow reading group (label, heading, project) from column 7, vertically centred. */
+/* One stone panel (ivory-d1, .3em corners, as the paired cards): the construction photo fills the left 7 of 12 parts,
+   the label, heading and project sit on the right, vertically centred, the project under a hairline. No overlapping
+   frames. Below 992px the photo sits above the text (16:10). */
 .pm-case {
   padding-top: 14em;
   padding-bottom: 14em;
@@ -434,41 +337,48 @@
   }
 }
 .pm-case_grid {
-  grid-column-gap: 2em;
-  grid-row-gap: 4em;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: center;
   display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: .3em;
+  background-color: var(--theme--ivory-d1);
+}
+.pm-case_media {
+  position: relative;
+  min-height: 46em;
+  overflow: hidden;
+}
+.pm-case_img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pm-case_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-row-gap: 4em;
+  padding: 5.6em 5.6em 5.6em 6.4em;
 }
 @media screen and (max-width: 991px) {
   .pm-case_grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
-.service-visual.is-case {
-  grid-column: 1 / 6;
-}
-@media screen and (max-width: 991px) {
-  .service-visual.is-case {
-    grid-column: auto;
-    max-width: 460px;
+  .pm-case_media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
-}
-.pm-case_content {
-  grid-column: 7 / 12;
-  grid-row-gap: 4.8em;
-  flex-direction: column;
-  display: flex;
-}
-@media screen and (max-width: 991px) {
   .pm-case_content {
-    grid-column: auto;
+    padding: 4.8em 4em 5.6em;
   }
 }
 @media screen and (max-width: 767px) {
   .pm-case_content {
-    grid-row-gap: 4em;
+    grid-row-gap: 3.2em;
+    padding: 3.2em 2.4em 4em;
   }
 }
 .pm-case_project {
@@ -553,5 +463,18 @@
 @media screen and (max-width: 767px) {
   .pm-pathway_link {
     font-size: max(1.5em, 14px);
+  }
+}
+
+/* ==================== This is likely to suit you if ==================== */
+/* The page has no label or heading of its own here, so its list title takes the heading slot (column 6, as on Luxury)
+   and the list sits under it from the same column, in line with the "Looking for something else?" rows below.
+   Combo is-pm on service-fit. */
+.service-fit.is-pm .service-fit_details {
+  grid-column: 6 / 13;
+}
+@media screen and (max-width: 767px) {
+  .service-fit.is-pm .service-fit_details {
+    grid-column: auto;
   }
 }

@@ -591,7 +591,7 @@
          "Architect-led planning application"): label and heading centred, then one card per stage. Clicking a card opens
          it (the photo grows, the text is revealed) and closes the one that was open. Styles: service-expand* in
          shared/css/service-pages.css; script shared/custom-js/service-expand.js; shared/custom-css/service-expand.css. -->
-    <section data-nav-show-after="true" class="section is-service-expand is-dark">
+    <section data-nav-show-after="true" class="section is-service-expand is-dark is-heritage">
       <div class="container">
         <div class="service-expand_head">
           <div class="label-wrapeper service-expand_label">
@@ -601,11 +601,11 @@
           <h2 class="service-expand_heading">How a heritage <br class="service-br">project runs</h2>
         </div>
         <div data-service-expand="" class="service-expand_list">
-          <article data-service-expand-item="" class="service-expand_item is-open">
+          <article data-service-expand-item="" class="service-expand_item">
             <p class="service-expand_number">01</p>
             <div class="service-expand_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="true" aria-controls="heritage-step-01" class="service-expand_button">Initial consultation</button></h3>
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="heritage-step-01" class="service-expand_button">Initial consultation</button></h3>
               <div id="heritage-step-01" class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">We discuss your objectives, the condition of the building and the changes you are considering, and give an early view on what is realistic.</p>
@@ -739,56 +739,51 @@
       </div>
       <!-- Shared component: Service rows ("Looking for something else?"; styles service-rows* in shared/css/service-pages.css,
            on the fit section's 12-column grid). Copy: each service's meta description; photos: each page's hero photo
-           (temporary). The list fans out on scroll (data-service-rows-fan, shared/custom-js/service-rows.js). -->
+           (temporary). Static rows (no scroll effect); hover in shared/custom-css/service-rows.css. -->
       <div class="service-rows is-in-fit">
         <div class="service-rows_head">
           <h3 class="service-rows_heading">Looking for<br>something else?</h3>
           <p class="service-rows_intro">Explore our other services, or <a href="/contact" class="service-rows_inline-link">book a free consultation</a> and we will point you to the right one.</p>
         </div>
-        <div data-service-rows-fan="" class="service-rows_list">
-          <div data-service-rows-row="" class="service-rows_row is-link">
+        <div class="service-rows_list">
+          <div class="service-rows_row is-link">
             <p class="service-rows_index">01</p>
             <h4 class="service-rows_title">Rural<br>Conversions</h4>
             <a href="/services/rural-conversions" aria-label="View Rural Conversions service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Barn, stable and modern farm building conversions in Derbyshire, Staffordshire and Cheshire. Class Q or full planning, structure and cost assessed first.</p>
             <div class="service-rows_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
-            <div data-service-rows-shade="" class="service-rows_shade"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div data-service-rows-row="" class="service-rows_row is-link">
+          <div class="service-rows_row is-link">
             <p class="service-rows_index">02</p>
             <h4 class="service-rows_title">Luxury<br>Architecture</h4>
             <a href="/services/luxury-architecture" aria-label="View Luxury Architecture service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Bespoke homes for your plot, replacement dwellings and complete redesigns in Derbyshire, Staffordshire and Cheshire. Budget and planning certainty first.</p>
             <div class="service-rows_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
-            <div data-service-rows-shade="" class="service-rows_shade"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div data-service-rows-row="" class="service-rows_row is-link">
+          <div class="service-rows_row is-link">
             <p class="service-rows_index">03</p>
             <h4 class="service-rows_title">Planning Applications</h4>
             <a href="/services/planning-applications" aria-label="View Planning Applications service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Extensions, new homes and plots in Derbyshire, Staffordshire and Cheshire, designed and taken through planning by one team, starting with a site appraisal.</p>
             <div class="service-rows_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
-            <div data-service-rows-shade="" class="service-rows_shade"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div data-service-rows-row="" class="service-rows_row is-link">
+          <div class="service-rows_row is-link">
             <p class="service-rows_index">04</p>
             <h4 class="service-rows_title">3D<br>Visualisations</h4>
             <a href="/services/3d-visualisations" aria-label="View 3D Visualisations service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Architectural CGI for new homes, extensions and barn conversions in Derbyshire, Staffordshire and Cheshire, for design decisions, planning and marketing.</p>
             <div class="service-rows_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
-            <div data-service-rows-shade="" class="service-rows_shade"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div data-service-rows-row="" class="service-rows_row is-link">
+          <div class="service-rows_row is-link">
             <p class="service-rows_index">05</p>
             <h4 class="service-rows_title">Project Management</h4>
             <a href="/services/project-management" aria-label="View Project Management service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Independent construction-stage support for homes in Derbyshire, Staffordshire and Cheshire: site inspections, written reports and pre-completion snagging.</p>
             <div class="service-rows_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
-            <div data-service-rows-shade="" class="service-rows_shade"></div>
             <div class="service-rows_rule"></div>
           </div>
         </div>
@@ -975,7 +970,6 @@
 <!-- Page custom code (Webflow: Page settings > Custom code > Before </body> tag). One file per effect, in shared/custom-js/. -->
 <script src="../shared/custom-js/highlight-text.js"></script>
 <script src="../shared/custom-js/feature-pills.js"></script>
-<script src="../shared/custom-js/service-rows.js"></script>
 <script src="../shared/custom-js/service-expand.js"></script>
 <script src="../shared/custom-js/service-tiers.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>

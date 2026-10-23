@@ -304,6 +304,9 @@
     <!--#include file="/shared/custom-css/service-editorial.css" -->
     </style>
     <style>
+    <!--#include file="/shared/custom-css/service-expand.css" -->
+    </style>
+    <style>
     <!--#include file="/shared/custom-css/sticky-steps.css" -->
     </style>
     <style>
@@ -601,298 +604,213 @@
         </div>
       </div>
     </section>
-    <!-- Shared section: Editorial rows, "is-stacked is-process" variant (as on Luxury Architecture; Telha Clarke stack cards):
-         label and heading, then one numbered row per item (title, text, photo) that pins one title band below the row
-         before as you scroll; the stack then leaves together. Styles: shared/css/service-pages.css. -->
-    <section class="section is-service-editorial is-stacked is-process">
+    <!-- Shared section: Expanding list ("The projects we visualise"; the same component and dark variant as Planning's
+         "Architect-led planning application"): label, heading (one line on desktop) and intro centred, then one card per
+         project type, all closed at first. Clicking a card opens it (the photo grows, the text is revealed) and closes the
+         one that was open. Styles: service-expand* in shared/css/service-pages.css; script shared/custom-js/service-expand.js;
+         shared/custom-css/service-expand.css. -->
+    <section class="section is-service-expand is-dark">
       <div class="container">
-        <div class="service-editorial_head">
-          <div class="label-wrapeper service-stack_label">
+        <div class="service-expand_head">
+          <div class="label-wrapeper service-expand_label">
             <div class="yellow-dot"></div>
-            <p class="text-size-regular">Routes</p>
+            <p class="text-size-regular is-on-dark">Routes</p>
           </div>
-          <h2 class="service-stack_heading">The projects <br class="service-br">we visualise</h2>
-          <p class="service-stack_intro">Most of the visualisation work we do sits alongside one of our other services. If your project is one of these, the imagery and the design can be handled by the same practice, which usually makes both faster and cheaper than running them separately.</p>
+          <h2 class="service-expand_heading">The projects we visualise</h2>
+          <p class="service-expand_intro">Most of the visualisation work we do sits alongside one of our other services. If your project is one of these, the imagery and the design can be handled by the same practice, which usually makes both faster and cheaper than running them separately.</p>
         </div>
-        <div class="service-editorial_rows">
-          <article class="service-editorial_row">
-            <div class="service-editorial_title-group">
-              <span class="service-stack_number">1</span>
-              <h3 class="service-editorial_title">New homes, replacement dwellings and major extensions</h3>
+        <div data-service-expand="" class="service-expand_list">
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">01</p>
+            <div class="service-expand_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-01" class="service-expand_button">New homes, replacement dwellings and major extensions</button></h3>
+              <div id="visualise-type-01" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <p class="service-expand_text">Where the whole point is what the building will look like when it is finished, and where the client is making decisions about form, glazing and materials that are difficult to judge on paper. See our work on luxury architecture and bespoke homes.</p>
+                </div>
+              </div>
             </div>
-            <div class="service-editorial_body">
-              <p class="text-size-regular-copy is-service-editorial-text">Where the whole point is what the building will look like when it is finished, and where the client is making decisions about form, glazing and materials that are difficult to judge on paper. See our work on luxury architecture and bespoke homes.</p>
-            </div>
-            <div class="service-editorial_media"><img src="../images/hero-farmhouse-aerial-800.avif" srcset="../images/hero-farmhouse-aerial-800.avif 800w, ../images/hero-farmhouse-aerial-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-editorial_img"></div>
           </article>
-          <article class="service-editorial_row">
-            <div class="service-editorial_title-group">
-              <span class="service-stack_number">2</span>
-              <h3 class="service-editorial_title">Barn and rural conversions</h3>
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">02</p>
+            <div class="service-expand_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-02" class="service-expand_button">Barn and rural conversions</button></h3>
+              <div id="visualise-type-02" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <p class="service-expand_text">A converted barn is unusually hard to picture from drawings, because most of the interest lies in what is retained rather than what is added. Visualisation helps both you and the planning authority understand how new openings, glazing and interventions sit within the existing structure. See our work on rural conversions.</p>
+                </div>
+              </div>
             </div>
-            <div class="service-editorial_body">
-              <p class="text-size-regular-copy is-service-editorial-text">A converted barn is unusually hard to picture from drawings, because most of the interest lies in what is retained rather than what is added. Visualisation helps both you and the planning authority understand how new openings, glazing and interventions sit within the existing structure. See our work on rural conversions.</p>
-            </div>
-            <div class="service-editorial_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-editorial_img"></div>
           </article>
-          <article class="service-editorial_row">
-            <div class="service-editorial_title-group">
-              <span class="service-stack_number">3</span>
-              <h3 class="service-editorial_title">Listed buildings and conservation areas</h3>
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">03</p>
+            <div class="service-expand_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-03" class="service-expand_button">Listed buildings and conservation areas</button></h3>
+              <div id="visualise-type-03" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <p class="service-expand_text">Where a contemporary addition has to be justified to a conservation officer, an accurate image of old and new together is often more persuasive than any amount of written argument. See our work on heritage projects.</p>
+                </div>
+              </div>
             </div>
-            <div class="service-editorial_body">
-              <p class="text-size-regular-copy is-service-editorial-text">Where a contemporary addition has to be justified to a conservation officer, an accurate image of old and new together is often more persuasive than any amount of written argument. See our work on heritage projects.</p>
-            </div>
-            <div class="service-editorial_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-editorial_img"></div>
           </article>
-          <article class="service-editorial_row">
-            <div class="service-editorial_title-group">
-              <span class="service-stack_number">4</span>
-              <h3 class="service-editorial_title">Designs by other practices</h3>
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">04</p>
+            <div class="service-expand_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-04" class="service-expand_button">Designs by other practices</button></h3>
+              <div id="visualise-type-04" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <p class="service-expand_text">We regularly work from another practice&#x27;s completed design, producing imagery to their brief and under their direction.</p>
+                </div>
+              </div>
             </div>
-            <div class="service-editorial_body">
-              <p class="text-size-regular-copy is-service-editorial-text">We regularly work from another practice&#x27;s completed design, producing imagery to their brief and under their direction.</p>
-            </div>
-            <div class="service-editorial_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-editorial_img"></div>
           </article>
         </div>
       </div>
     </section>
-    <!-- Shared section: Horizontal Process (as on Luxury Architecture; copies the "Our process" section of fluid.glass/approach).
-         The section pins while the row slides left, the rule fills as a progress bar and the photos drift; below 992px
-         the panels stack. Styles: h-process* in shared/css/service-pages.css. Script: shared/custom-js/horizontal-process.js. -->
-    <section data-h-process="" data-nav-show-after="true" class="h-process">
-      <div class="h-process_sticky">
-        <div class="h-process_bar"><div data-h-process-bar="" class="h-process_bar-fill"></div></div>
-        <p class="h-process_section-label">Our approach</p>
-        <div data-h-process-track="" class="h-process_track">
-          <div class="h-process_intro">
-            <h2 class="h-process_intro-heading">How the process works</h2>
-            <p class="h-process_intro-text"></p>
-          </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-interior-vaulted-lounge-1400.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">01</p>
-                <h2 class="h-process_heading">Visualisation brief</h2>
-                <p class="h-process_text is-short">We confirm the purpose of the images, who will see them, the views you need, the architectural character, the materials, the landscaping and the atmosphere you are after.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-2">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">02</p>
-                <h2 class="h-process_heading">Information review</h2>
-                <p class="h-process_text is-short">We review your plans, elevations, sections, schedules and reference imagery, along with any 3D model you already have.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-house-contemporary-dark-1400.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">03</p>
-                <h2 class="h-process_heading">3D modelling</h2>
-                <p class="h-process_text is-short">We build, or develop, an accurate three-dimensional model of the proposed design from the information provided.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-2">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">04</p>
-                <h2 class="h-process_heading">Viewpoint selection</h2>
-                <p class="h-process_text is-short">We prepare camera options and agree the views with you before detailed rendering begins. This is the stage that prevents wasted work.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-farmhouse-brick-front-1400.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">05</p>
-                <h2 class="h-process_heading">Materials, lighting and context</h2>
-                <p class="h-process_text is-short">Finishes, glazing, lighting, landscaping, planting, furniture and the surrounding setting are applied.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-2">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">06</p>
-                <h2 class="h-process_heading">Draft visuals and review</h2>
-                <p class="h-process_text is-short">Drafts are issued for your review and the agreed revisions are made.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-barn-timber-cladding-1400.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">07</p>
-                <h2 class="h-process_heading">Final rendering</h2>
-                <p class="h-process_text is-short">The agreed views are rendered at high resolution, professionally finished, and supplied for planning, design or marketing use.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Shared section: Fit lists (offset layout: heading from the sixth column, untitled ruled rows beneath) + inline CTA -->
-    <div class="section is-service-split">
-      <div class="container">
-        <div class="service-fit">
-          <h2 class="service-fit_heading">What we need from you</h2>
-          <div class="service-fit_details">
-            <div class="service-fit_row is-untitled">
-              <div class="service-fit_list">
-                <div class="service-fit_item">
-                  <div class="service-fit_marker is-tick"></div>
-                  <div class="service-fit_body">
-                    <p class="service-fit_text">Plans, elevations and sections, at whatever stage they have reached</p>
-                  </div>
-                </div>
-                <div class="service-fit_item">
-                  <div class="service-fit_marker is-tick"></div>
-                  <div class="service-fit_body">
-                    <p class="service-fit_text">A material schedule, or reference images of the finishes you have in mind</p>
-                  </div>
-                </div>
-                <div class="service-fit_item">
-                  <div class="service-fit_marker is-tick"></div>
-                  <div class="service-fit_body">
-                    <p class="service-fit_text">Site information: a survey, boundary details, or simply photographs of the site and its surroundings</p>
-                  </div>
-                </div>
-                <div class="service-fit_item">
-                  <div class="service-fit_marker is-tick"></div>
-                  <div class="service-fit_body">
-                    <p class="service-fit_text">The purpose of the images and any date you are working to</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="service-fit_row is-untitled is-alt">
-              <div class="service-fit_list">
-                <div class="service-fit_item">
-                  <div class="service-fit_body">
-                    <p class="service-fit_text">If you already have a 3D model, send it and we will work from it. If you have nothing but a sketch and a site, say so. We will tell you honestly whether there is enough to work with, and what it would cost to produce anything that is missing.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="service-cta">
-          <p class="service-cta_text">Not sure whether you have enough? Send us what you have and we will tell you.</p>
-          <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/contact" class="wrapper_cta w-inline-block">
-            <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
-              <div class="btn-icon-content__mask cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 buton"><span data-button-anim-target="" class="btn-icon-content__text">Send us your drawings</span></div>
-              <div data-button-anim-target="" class="btn-icon-content__bg cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"></div>
-            </div>
-            <div class="square_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 white"></div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Shared section: Section intro (container is-service-intro) -->
-    <div class="section margin-top margin-large-2">
-      <div class="container is-service-intro">
-        <div class="service-intro">
-          <div class="label-wrapeper is-service-intro">
+    <!-- Shared section: Process slider (service-slider, as on Luxury Architecture "From first conversation to completion"):
+         intro at the left (label, heading, dark square previous/next buttons), the seven step cards to the right in the
+         Osmo Overlapping Slider (shared/custom-js/overlapping-slider.js), square step indicators under them. Arrows and
+         indicators: shared/custom-js/service-slider.js. Styles: service-slider* in shared/css/service-pages.css. -->
+    <section data-service-slider="" data-nav-show-after="true" class="section service-slider">
+      <div class="service-slider_layout">
+        <div class="service-slider_intro">
+          <div class="label-wrapeper service-slider_label">
             <div class="yellow-dot"></div>
-            <h2 class="text-size-medium is-service-intro">Recent work</h2>
+            <p class="text-size-regular">Our approach</p>
           </div>
-          <p class="text-size-x-large is-service-intro">Three projects where the design was resolved visually before it was resolved on site.</p>
+          <h2 class="service-slider_heading">How the process works</h2>
+          <div class="service-slider_nav">
+            <button type="button" data-service-slider-prev="" class="service-slider_button" aria-label="Previous step">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="service-slider_arrow is-prev" aria-hidden="true"><path d="M14 19L21 12L14 5" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.6"></path><path d="M21 12H3" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.6"></path></svg>
+            </button>
+            <button type="button" data-service-slider-next="" class="service-slider_button" aria-label="Next step">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="service-slider_arrow" aria-hidden="true"><path d="M14 19L21 12L14 5" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.6"></path><path d="M21 12H3" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.6"></path></svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- Shared section: Sticky steps (items are the global Text Block component) -->
-    <section class="sticky-steps is-service is-single-image">
-      <div class="sticky-steps__container">
-        <div data-sticky-steps-init="" class="sticky-steps__collection">
-          <div class="sticky-steps__list">
-            <div data-sticky-steps-item-status="active" data-sticky-steps-item="" data-wf--text-block--variant="black" class="sticky-steps__item">
-              <div data-sticky-steps-anchor="" class="sticky-steps__text">
-                <h2 class="text-size-x-large">Sandboro House Farm, Staffordshire</h2>
-                <p class="sticky-steps__p">A £1.65m transformation of a farmhouse and its outbuildings into a single family home. The scale of the intervention, and the relationship between the retained buildings and the new work, made this a project that had to be understood in three dimensions long before it was committed to.</p>
-              </div>
-              <div class="sticky-steps__media">
-                <div class="sticky-steps__sticky">
-                  <div class="sticky-steps__visual"><img loading="lazy" src="../images/hero-farmhouse-aerial-960.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w" sizes="(max-width: 991px) 62vw, 26vw" decoding="async" alt="" class="sticky-steps__cover-image"></div>
-                </div>
-              </div>
-            </div>
-            <div data-sticky-steps-item-status="active" data-sticky-steps-item="" data-wf--text-block--variant="with-cta" class="sticky-steps__item">
-              <div data-sticky-steps-anchor="" class="sticky-steps__text w-variant-4ba55928-7acc-7ea3-fbf6-d5046f537978">
-                <h2 class="text-size-x-large">Furs House</h2>
-                <p class="sticky-steps__p">The complete transformation of an existing bungalow into a contemporary family home. Projects like this are consistently undersold by drawings, because the finished house bears so little relation to what is there now.</p>
-                <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/projects/furs-house" class="wrapper_cta w-inline-block">
-                  <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
-                    <div class="btn-icon-content__mask cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 buton"><span data-button-anim-target="" class="btn-icon-content__text">View Furs House</span></div>
-                    <div data-button-anim-target="" class="btn-icon-content__bg cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"></div>
+        <div class="service-slider_carousel">
+          <div data-overlap-slider-init="" data-scale="0.45" data-rotate="-8" data-overlap-slider-label="Visualisation process steps" class="overlapping-slider__wrap service-slider_slider">
+            <div data-overlap-slider-collection="" class="overlapping-slider__collection">
+              <div data-overlap-slider-list="" class="overlapping-slider__list service-slider_track">
+              <div data-overlap-slider-item="" data-service-slider-step="Visualisation brief" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Visualisation brief</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">01</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">We confirm the purpose of the images, who will see them, the views you need, the architectural character, the materials, the landscaping and the atmosphere you are after.</p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="square_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 white"></div>
-                </a>
+                </article>
               </div>
-              <div class="sticky-steps__media">
-                <div class="sticky-steps__sticky">
-                  <div class="sticky-steps__visual"><img loading="lazy" src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 62vw, 26vw" decoding="async" alt="" class="sticky-steps__cover-image"></div>
-                </div>
+              <div data-overlap-slider-item="" data-service-slider-step="Information review" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Information review</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">02</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">We review your plans, elevations, sections, schedules and reference imagery, along with any 3D model you already have.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </div>
-            <div data-sticky-steps-item-status="active" data-sticky-steps-item="" data-wf--text-block--variant="black" class="sticky-steps__item">
-              <div data-sticky-steps-anchor="" class="sticky-steps__text">
-                <h2 class="text-size-x-large">Barn Conversion, Tean</h2>
-                <p class="sticky-steps__p">The conversion of an agricultural building into a home, where the quality of the scheme depends almost entirely on how new glazing and openings sit within the retained structure.</p>
+              <div data-overlap-slider-item="" data-service-slider-step="3D modelling" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">3D modelling</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">03</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">We build, or develop, an accurate three-dimensional model of the proposed design from the information provided.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
-              <div class="sticky-steps__media">
-                <div class="sticky-steps__sticky">
-                  <div class="sticky-steps__visual"><img loading="lazy" src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 62vw, 26vw" decoding="async" alt="" class="sticky-steps__cover-image"></div>
-                </div>
+              <div data-overlap-slider-item="" data-service-slider-step="Viewpoint selection" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Viewpoint selection</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">04</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">We prepare camera options and agree the views with you before detailed rendering begins. This is the stage that prevents wasted work.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div data-overlap-slider-item="" data-service-slider-step="Materials, lighting and context" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Materials, lighting and context</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">05</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">Finishes, glazing, lighting, landscaping, planting, furniture and the surrounding setting are applied.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div data-overlap-slider-item="" data-service-slider-step="Draft visuals and review" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Draft visuals and review</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">06</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">Drafts are issued for your review and the agreed revisions are made.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div data-overlap-slider-item="" data-service-slider-step="Final rendering" class="overlapping-slider__item service-slider_slide">
+                <article class="service-slider_card">
+                  <div class="service-slider_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
+                  <div class="service-slider_panel">
+                    <h3 class="service-slider_title">Final rendering</h3>
+                    <div class="service-slider_meta">
+                      <p class="service-slider_number">07</p>
+                      <div class="service-slider_body">
+                        <p class="service-slider_text">The agreed views are rendered at high resolution, professionally finished, and supplied for planning, design or marketing use.</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
               </div>
             </div>
           </div>
+          <div data-service-slider-pagination="" class="service-slider_pagination" aria-label="Process steps"></div>
         </div>
       </div>
     </section>
-    <!-- Shared section: Inline CTA (service-cta) -->
+    <!-- Shared section: Projects (Service Projects component, as on every page): "Recent work", three full-screen panels that
+         stack on scroll (shared/custom-js/service-overlap.js), each with its name, its description (pN-text, combo
+         is-described, 3D only) and a View Project Main CTA. No "View All Projects" here (no-actions): the inline CTA
+         below links to all projects. Project links: Furs House as before; the other two use the slugs of this page's
+         former Recent Projects cards. See the partial and docs/webflow-migration.md 7a. -->
+    <!--#include file="/shared/partials/service-projects.html" label="Recent work" heading="Projects where the design was resolved visually before it was resolved on site." no-actions="true" p1-slug="sandborough-house-farmhouse" p1-name="Sandboro House Farm, Staffordshire" p1-image="hero-farmhouse-aerial" p1-small="960" p1-large="1600" p1-text="A £1.65m transformation of a farmhouse and its outbuildings into a single family home. The scale of the intervention, and the relationship between the retained buildings and the new work, made this a project that had to be understood in three dimensions long before it was committed to." p2-slug="furs-house" p2-name="Furs House" p2-image="temp-house-gable-exterior" p2-text="The complete transformation of an existing bungalow into a contemporary family home. Projects like this are consistently undersold by drawings, because the finished house bears so little relation to what is there now." p3-slug="barn-conversion-1" p3-name="Barn Conversion, Tean" p3-image="temp-barn-brick-courtyard" p3-text="The conversion of an agricultural building into a home, where the quality of the scheme depends almost entirely on how new glazing and openings sit within the retained structure." -->
+    <!-- Shared section: Inline CTA (service-cta), combo is-boxed: a stone panel instead of the two rules (3D CSS) -->
     <div class="section">
       <div class="container">
-        <div class="service-cta">
+        <div class="service-cta is-boxed">
           <p class="service-cta_text">More of our residential and rural work.</p>
           <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/projects" class="wrapper_cta w-inline-block">
             <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
@@ -904,13 +822,16 @@
         </div>
       </div>
     </div>
-    <!-- Shared section: Sticky cards (as on Luxury Architecture; Fitosauna two-column section): the left panel (heading,
-         text, Main CTA) is sticky while photo cards scroll past on the right. Styles: service-cards* in shared/css/service-pages.css. -->
-    <section class="section service-cards">
-      <div class="service-cards_layout">
-        <div class="service-cards_left">
-          <div class="service-cards_sticky">
-            <h2 class="service-cards_heading">Three ways to commission <br class="service-br">architectural visualisation services</h2>
+    <!-- Shared section: Expanding tiers ("Architectural visualisation service options"; the same component as Rural's "Barn conversion planning
+         permission"), on the page colour (no is-dark): heading and the Free Consultation Main CTA, then the three ways as
+         photo cards in a row with one open. Hover, focus or tap opens a card; collapsed cards show the number and title;
+         below 992px they stack and open in height. Styles: service-tiers* in shared/css/service-pages.css (heading combo
+         is-visuals in services/css/3d-visualisations.css); script shared/custom-js/service-tiers.js. -->
+    <section class="section is-service-tiers">
+      <div class="container">
+        <div class="service-editorial_head">
+          <h2 class="service-editorial_heading is-visuals">Architectural visualisation <br class="service-br">service options</h2>
+          <div class="service-editorial_aside">
             <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/contact" class="wrapper_cta w-inline-block">
               <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
                 <div class="btn-icon-content__mask cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 buton"><span data-button-anim-target="" class="btn-icon-content__text">Free Consultation</span></div>
@@ -920,44 +841,51 @@
             </a>
           </div>
         </div>
-        <div class="service-cards_right">
-          <article class="service-cards_card">
-            <div class="service-cards_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">Within a full architectural appointment</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">01</p>
-                <div class="service-cards_text"><p>Visualisation is Stage 2.1 of our design process. If we are designing your project, the model already exists and the imagery is a natural next step rather than a separate exercise.</p></div>
+        <div data-service-tiers="" class="service-tiers">
+          <div role="list" class="service-tiers_list">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card is-active">
+              <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">01</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">Within a full architectural appointment</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">Visualisation is Stage 2.1 of our design process. If we are designing your project, the model already exists and the imagery is a natural next step rather than a separate exercise.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </article>
-          <article class="service-cards_card">
-            <div class="service-cards_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">As a standalone commission</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">02</p>
-                <div class="service-cards_text"><p>You have drawings, whether from us or from someone else, and you need images. We work from what you have, to an agreed package and a fixed proposal.<br>‍</p></div>
+            </article>
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+              <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">02</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">As a standalone commission</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">You have drawings, whether from us or from someone else, and you need images. We work from what you have, to an agreed package and a fixed proposal.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </article>
-          <article class="service-cards_card">
-            <div class="service-cards_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">For another practice</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">03</p>
-                <div class="service-cards_text"><p>We produce imagery for architects and design practices under their direction and to their brief. Your relationship with your client remains yours.<br>‍</p></div>
+            </article>
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+              <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">03</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">For another practice</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">We produce imagery for architects and design practices under their direction and to their brief. Your relationship with your client remains yours.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Shared section: Projects (Service Projects component). The three projects are TEMPORARY page data, not the final
-         selection: in Webflow the cards come from the Projects collection filtered by Project Type. See the partial and
-         docs/webflow-migration.md 7a. -->
-    <!--#include file="/shared/partials/service-projects.html" p1-slug="sandborough-house-farmhouse" p1-name="Sandborough House Farmhouse" p1-image="temp-farmhouse-brick-front" p2-slug="furs-house" p2-name="Furs House" p2-image="temp-house-contemporary-dark" p3-slug="barn-conversion-1" p3-name="Barn Conversion 1" p3-image="temp-barn-timber-cladding" -->
     <!-- Shared section: FAQ (accordion-css global classes; rich text is-service) -->
     <div class="section padding-top padding-large-1">
       <div class="container margin-bottom margin-medium-2">
@@ -1136,10 +1064,12 @@
   </div>
 <!--#include file="/global/partials/scripts.html" -->
 <!-- Page custom code (Webflow: Page settings > Custom code > Before </body> tag). One file per effect, in shared/custom-js/. -->
-<script src="../shared/custom-js/sticky-steps.js"></script>
 <script src="../shared/custom-js/bouncy-tabs.js"></script>
-<script src="../shared/custom-js/horizontal-process.js"></script>
 <script src="../shared/custom-js/feature-pills.js"></script>
+<script src="../shared/custom-js/overlapping-slider.js"></script>
+<script src="../shared/custom-js/service-slider.js"></script>
+<script src="../shared/custom-js/service-expand.js"></script>
+<script src="../shared/custom-js/service-tiers.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>

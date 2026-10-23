@@ -31,10 +31,14 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Expand-Includes([string]$html, [hashtable]$params, [int]$depth) {
   if ($depth -gt 8) { throw "Includes nested too deeply" }
   if ($params) {
-    $html = [regex]::Replace($html, '\{\{#([\w-]+)\}\}([\s\S]*?)\{\{/\1\}\}', [System.Text.RegularExpressions.MatchEvaluator]{
-      param($m) if ($params[$m.Groups[1].Value]) { $m.Groups[2].Value } else { '' } })
-    $html = [regex]::Replace($html, '\{\{\^([\w-]+)\}\}([\s\S]*?)\{\{/\1\}\}', [System.Text.RegularExpressions.MatchEvaluator]{
-      param($m) if ($params[$m.Groups[1].Value]) { '' } else { $m.Groups[2].Value } })
+    # Repeated until nothing changes, so a block may sit inside another block with a different name.
+    do {
+      $before = $html
+      $html = [regex]::Replace($html, '\{\{#([\w-]+)\}\}([\s\S]*?)\{\{/\1\}\}', [System.Text.RegularExpressions.MatchEvaluator]{
+        param($m) if ($params[$m.Groups[1].Value]) { $m.Groups[2].Value } else { '' } })
+      $html = [regex]::Replace($html, '\{\{\^([\w-]+)\}\}([\s\S]*?)\{\{/\1\}\}', [System.Text.RegularExpressions.MatchEvaluator]{
+        param($m) if ($params[$m.Groups[1].Value]) { '' } else { $m.Groups[2].Value } })
+    } while ($html -ne $before)
     $html = [regex]::Replace($html, '\{\{([\w-]+)\}\}', [System.Text.RegularExpressions.MatchEvaluator]{
       param($m) [string]$params[$m.Groups[1].Value] })
   }

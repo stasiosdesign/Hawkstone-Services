@@ -1145,20 +1145,40 @@
   /* clear of the floating CTA bar (shared/custom-js/service-cta-bar.js) when a panel fills the screen */
   padding-bottom: 12em;
 }
-/* Project name: the sans and size of the section headings (H2 scale), so it holds its own over a full-screen photo. */
+/* Project name: the site's accent serif (--font-family--brand-font, set as the service-rows titles: weight 300,
+   -.03em), a tenth larger than the section headings (H2 scale) because the serif runs smaller than the sans at the
+   same size; it holds its own over a full-screen photo. */
 .heading-style-h3-brand.is-service-projects {
   max-width: 12em;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: var(--font-family--normal-font);
+  font-family: var(--font-family--brand-font);
   color: var(--text-colour--white);
-  letter-spacing: -.035em;
-  font-size: var(--service-h2, 4em);
-  font-weight: 400;
-  line-height: 1.06;
+  letter-spacing: -.03em;
+  font-size: calc(var(--service-h2, 4em) * 1.1);
+  font-weight: 300;
+  line-height: 1;
 }
 .wrapper_cta.service-projects_cta {
   flex: none;
+}
+/* Name and optional description, stacked at the bottom left. */
+.service-projects_info {
+  display: flex;
+  flex-flow: column;
+  grid-row-gap: 1.6em;
+}
+/* Described panels (combo is-described, 3D only): the project's description under its name, light on the photo, at
+   reading width; the gradient reaches a little higher and darker behind it. */
+.service-projects_text {
+  max-width: 36em;
+  margin: 0;
+  color: #f5f4f1e0;
+  font-size: max(1.6em, 15px);
+  line-height: 1.5;
+}
+.service-projects_panel.is-described .service-projects_media::after {
+  background-image: linear-gradient(180deg, #0000001f 0%, #0000 25%, #00000026 45%, #000000c2 100%);
 }
 @media screen and (max-width: 991px) {
   .service-projects_panel {
@@ -1177,6 +1197,23 @@
     flex-flow: column;
     align-items: flex-start;
     padding-bottom: 3.2em;
+  }
+  /* Phones: a described panel grows with its text (at least the usual 4:5) and the text sits in the flow, so long
+     descriptions never run off the top of the photo. */
+  .service-projects_panel.is-described {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    aspect-ratio: auto;
+    min-height: 125vw;
+  }
+  .service-projects_panel.is-described .service-projects_content {
+    position: relative;
+    padding-top: 14em;
+  }
+  /* The text takes most of a phone panel, so the shade starts higher and ends darker. */
+  .service-projects_panel.is-described .service-projects_media::after {
+    background-image: linear-gradient(180deg, #0000001f 0%, #00000040 22%, #000000a6 50%, #000000d1 100%);
   }
 }
 .service-projects_actions {
@@ -2898,6 +2935,13 @@
 .page-wrapper.is-service .heading-style-h2-brand.is-service-projects {
   color: var(--neutral--white);
 }
+/* On the dark band the optional label is light too, and a long heading (3D) is held to a readable measure. */
+.page-wrapper.is-service .service-projects_label {
+  color: #f5f4f1b3;
+}
+.page-wrapper.is-service .heading-style-h2-brand.is-service-projects {
+  max-width: 18em;
+}
 
 /* ==================== Fit list: ticks and other services ==================== */
 /* "It's for you if" items get a black-square tick instead of the diamond; the second row is a list of the other
@@ -3377,10 +3421,10 @@
    page gutter, 2em gaps), so a block lines up with the sections around it: rules and numbers on the container edges,
    the heading, intro and descriptions from column 6, titles in columns 2-4, the arrow (rows that link) in column 5,
    the 4:3 photo in columns 10-12. --rows-edge is the container content edge. Optional label in columns 1-4.
-   Rows are opaque and their backgrounds run 2em past the screen edges (the list clips them), so the optional fan-out
-   scroll effect (shared/custom-js/service-rows.js, list attribute data-service-rows-fan) never shows a turned corner.
-   Rows that link (combo is-link) tint very lightly on hover. Used on: Luxury ("Looking for something else?", combo
-   is-in-fit) and Rural ("Our approach", "Two boundaries worth knowing"). Arrow, hover zoom and stretched link:
+   Rows are opaque and their backgrounds run 2em past the screen edges (the list clips them). No scroll effect (the
+   fan-out, shared/custom-js/service-rows.js, is no longer loaded). Rows that link (combo is-link) tint very lightly on
+   hover. Used on: Luxury and Heritage ("Looking for something else?", combo is-in-fit) and Rural ("Looking for
+   something else?", combo is-rural-boundaries). Arrow, hover zoom and stretched link:
    shared/custom-css/service-rows.css. */
 .service-rows {
   --rows-edge: max(var(--_sizes---page-gutter), calc((100% - 1800px) / 2 + var(--_sizes---page-gutter)));
@@ -3533,14 +3577,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform .6s cubic-bezier(.625, .05, 0, 1);
-}
-.service-rows_shade {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0;
-  background-image: linear-gradient(180deg, #000, #0000);
-  pointer-events: none;
 }
 /* The rule is the last grid row, across all 12 columns, so it spans exactly the container like the fit section rules. */
 .service-rows_rule {
@@ -3874,6 +3910,7 @@
 /* Dark variant (combo is-dark on the section): the site's dark band, cards a step lighter, light type. The colours
    reach the list through the --expand-* properties. The label text takes the combo text-size-regular is-on-dark. */
 .section.is-service-expand.is-dark {
+  --expand-rule: #f5f4f124;
   --expand-ink: var(--theme--ivory-base);
   --expand-muted: #f5f4f1a6;
   --expand-faint: #f5f4f14d;
@@ -4010,6 +4047,37 @@
   opacity: 1;
   transition: opacity .5s ease .25s;
 }
+/* Optional second level (Project Management stages): a stage's activities in its reveal, each a small title and its
+   text, between fine rules; they fade in with the text. --expand-rule follows the light or dark variant. */
+.service-expand_activities {
+  display: flex;
+  flex-flow: column;
+  max-width: 36em;
+  padding-top: 2.4em;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.service-expand_item.is-open .service-expand_activities {
+  opacity: 1;
+  transition: opacity .5s ease .25s;
+}
+.service-expand_activity {
+  padding: 1.6em 0 1.8em;
+  border-top: 1px solid var(--expand-rule, #11111124);
+}
+.service-expand_activity-title {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--expand-ink, var(--text-colour--black));
+  letter-spacing: -.02em;
+  font-size: max(1.9em, 17px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+.service-expand_text.is-activity {
+  padding-top: .6em;
+  font-size: max(1.5em, 14px);
+}
 .service-expand_actions {
   display: flex;
   justify-content: center;
@@ -4020,7 +4088,9 @@
   .service-expand_content,
   .service-expand_reveal,
   .service-expand_text,
-  .service-expand_item.is-open .service-expand_text {
+  .service-expand_item.is-open .service-expand_text,
+  .service-expand_activities,
+  .service-expand_item.is-open .service-expand_activities {
     transition: none;
   }
 }
@@ -4102,6 +4172,28 @@
    3 columns and a narrow one 2, swapping sides row by row (the longer copy takes the wide card). Stone cards on the
    page colour, .6em corners, 1.2em apart; the number at the top in the brand serif, the title and text at the
    bottom. Below 768px the cards stack. Combo is-routes on the section; no sticky or scroll effects. */
+/* Head: centred like "Architect-led planning application" (service-expand_head): label, heading and intro in one
+   column, 2.4em apart, 6em above the cards. The intro is held to 30em so it sets on three lines on desktop. */
+.is-service-editorial.is-stacked.is-routes .service-editorial_head {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  grid-row-gap: 2.4em;
+  padding-bottom: 6em;
+  text-align: center;
+}
+.is-service-editorial.is-stacked.is-routes .service-stack_label {
+  align-self: center;
+  justify-content: center;
+  padding-top: 0;
+}
+.is-service-editorial.is-stacked.is-routes .service-stack_heading,
+.is-service-editorial.is-stacked.is-routes .service-stack_intro {
+  margin: 0;
+}
+.is-service-editorial.is-stacked.is-routes .service-stack_intro {
+  max-width: 30em;
+}
 .service-routes {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -4195,6 +4287,9 @@
   }
   .is-service-editorial.is-stacked.is-routes .service-stack_intro {
     font-size: max(1.7em, 16px);
+  }
+  .is-service-editorial.is-stacked.is-routes .service-editorial_head {
+    padding-bottom: 4em;
   }
 }
 
@@ -4936,5 +5031,293 @@
   .service-tiers.is-long .service-tiers_card.is-active .service-tiers_shade {
     background-color: #0000008c;
     background-image: linear-gradient(0deg, #000000b3 0%, #0000 70%);
+  }
+}
+
+/* ==================== Process slider (Luxury "From first conversation to completion", 3D "How the process works") ==================== */
+/* Composition from the Glide carousel section: the intro (label, heading, lead, dark square buttons) in a 46em column
+   at the page gutter, the cards filling the rest of the width up to the right edge of the screen, where the next card
+   is cut off. Cards in the language of the "Budget & planning certainty" cards (service-cards is-band): a 16:10 photo
+   over a grey panel; the title on a hairline; below it the number in its own column beside a vertical rule, then one
+   paragraph. The row is the Osmo Overlapping Slider (shared/custom-js/overlapping-slider.js): Osmo's global classes,
+   with combos for this section's card width, gap and equal heights. Controls:
+   shared/custom-js/service-slider.js. Shared since 23 Oct 2026 (was luxury-process*, Luxury only). */
+.section.service-slider {
+  padding-top: 12em;
+  padding-bottom: 12em;
+  overflow: hidden;
+}
+.service-slider_layout {
+  align-self: stretch;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 46em) minmax(0, 1fr);
+  grid-column-gap: 8em;
+  align-items: start;
+  padding-left: var(--_sizes---page-gutter);
+}
+/* The intro group is centred on the cards: centred in the row, less the pagination's height (3.2em + 3.2em) below
+   the cards. */
+.service-slider_intro {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: center;
+  padding-bottom: 6.4em;
+}
+.label-wrapeper.service-slider_label {
+  justify-content: flex-start;
+  margin-bottom: 2.4em;
+}
+.service-slider_heading {
+  margin: 0;
+  font-family: var(--font-family--normal-font);
+  color: var(--text-colour--black);
+  letter-spacing: -.035em;
+  font-size: var(--service-h2, 4em);
+  font-weight: 400;
+  line-height: 1.06;
+}
+.service-slider_lead {
+  max-width: 26em;
+  margin: 2.4em 0 0;
+  color: #111111bf;
+  font-size: 1.8em;
+  line-height: 1.5;
+}
+.service-slider_nav {
+  display: flex;
+  grid-column-gap: 1.2em;
+  margin-top: 4.4em;
+}
+/* Previous/next: compact charcoal squares with ivory arrows; black on hover; faded at the first and last step. */
+.service-slider_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.4em;
+  height: 4.4em;
+  padding: 0;
+  border: 0;
+  border-radius: .15em;
+  background-color: var(--theme--obsidian-base);
+  color: var(--theme--ivory-base);
+  cursor: pointer;
+  transition: background-color .3s ease, opacity .3s ease;
+}
+.service-slider_button:hover {
+  background-color: var(--theme--obsidian-d4);
+}
+.service-slider_button.is-disabled {
+  opacity: .3;
+  cursor: default;
+  pointer-events: none;
+}
+.service-slider_arrow {
+  width: 1.6em;
+  height: 1.6em;
+}
+.service-slider_arrow.is-prev {
+  transform: rotate(180deg);
+}
+.service-slider_carousel {
+  min-width: 0;
+}
+/* Osmo Overlapping Slider: its classes (overlapping-slider__wrap, __collection, __list, __item) are already global in
+   the Webflow site, as Osmo supplies them, and are not redefined here. This section only adds combos: slides stretch
+   to the tallest card, so every panel ends on one line; a 2.4em gap; a grab cursor. The list slides left over the
+   intro as it moves, so only the cards take the pointer (the drag still reaches the list through them); otherwise
+   the empty list would cover the previous/next buttons. */
+.overlapping-slider__list.service-slider_track {
+  align-items: stretch;
+  pointer-events: none;
+}
+.overlapping-slider__item.service-slider_slide {
+  pointer-events: auto;
+  cursor: grab;
+}
+.overlapping-slider__item.service-slider_slide:active {
+  cursor: grabbing;
+}
+.overlapping-slider__item.service-slider_slide {
+  display: flex;
+  width: max(36em, 300px);
+  margin-right: 2.4em;
+}
+.service-slider_card {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  background-color: var(--theme--ivory-d1);
+  color: var(--text-colour--black);
+}
+.service-slider_media {
+  flex: none;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.service-slider_img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+.service-slider_panel {
+  flex: 1;
+  padding: 2em 2em 2.4em;
+}
+.service-slider_title {
+  margin: 0;
+  padding-bottom: .6em;
+  border-bottom: 1px solid var(--text-colour--black);
+  font-family: var(--font-family--normal-font);
+  letter-spacing: -.03em;
+  font-size: max(2.3em, 20px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.service-slider_meta {
+  display: grid;
+  grid-template-columns: 3.6em minmax(0, 1fr);
+  align-items: start;
+  margin-top: 1.6em;
+}
+.service-slider_number,
+.service-slider_text {
+  margin: 0;
+  color: var(--text-colour--black);
+  font-size: max(1.3em, 13px);
+  line-height: 1.45;
+}
+.service-slider_body {
+  padding-left: 1.4em;
+  border-left: 1px solid var(--text-colour--black);
+}
+.service-slider_pagination {
+  display: flex;
+  align-items: center;
+  grid-column-gap: 1em;
+  height: 3.2em;
+  margin-top: 3.2em;
+}
+.service-slider_dot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  position: relative;
+  min-width: 1.2em;
+  height: 1.2em;
+  padding: 0;
+  border: 0;
+  border-radius: .15em;
+  background-color: var(--theme--ivory-d3);
+  color: var(--text-colour--black);
+  cursor: pointer;
+  transition: height .45s cubic-bezier(.625, .05, 0, 1), padding .45s cubic-bezier(.625, .05, 0, 1), background-color .3s ease;
+}
+/* Step indicators: small squares; the current one widens and grows to show its name (corners .15em, as the buttons).
+   A 40px-tall invisible hit area around each, for touch. */
+.service-slider_dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -.5em;
+  right: -.5em;
+  height: 40px;
+  transform: translateY(-50%);
+}
+.service-slider_dot:hover {
+  background-color: var(--theme--ivory-d4);
+}
+.service-slider_dot.is-active {
+  height: 3.2em;
+  padding: 0 1.8em;
+  background-color: var(--theme--ivory-d2);
+}
+.service-slider_dot-label {
+  display: block;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: max(1.3em, 12px);
+  font-weight: 500;
+  line-height: 1;
+  transition: max-width .45s cubic-bezier(.625, .05, 0, 1), opacity .3s ease;
+}
+.service-slider_dot.is-active .service-slider_dot-label {
+  max-width: 24em;
+  opacity: 1;
+}
+@media screen and (max-width: 991px) {
+  .section.service-slider {
+    padding-top: 10em;
+    padding-bottom: 10em;
+  }
+  .service-slider_layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 6em;
+  }
+  .service-slider_intro {
+    min-height: 0;
+    padding-right: var(--_sizes---page-gutter);
+  }
+  .service-slider_lead {
+    font-size: max(1.8em, 16px);
+  }
+  .service-slider_intro {
+    padding-bottom: 0;
+  }
+  .overlapping-slider__item.service-slider_slide {
+    width: max(40em, 320px);
+  }
+  .service-slider_title {
+    font-size: max(2.6em, 20px);
+  }
+  .service-slider_number,
+  .service-slider_text {
+    font-size: max(1.35em, 14px);
+  }
+  .service-slider_dot-label {
+    font-size: max(1.3em, 12px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .section.service-slider {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  .service-slider_layout {
+    grid-row-gap: 4em;
+  }
+  .service-slider_nav {
+    margin-top: 3.2em;
+  }
+  .overlapping-slider__item.service-slider_slide {
+    width: calc(100vw - 2 * var(--_sizes---page-gutter) - 3.6em);
+    margin-right: 1.6em;
+  }
+  .service-slider_panel {
+    padding: 1.8em 1.8em 2.2em;
+  }
+  .service-slider_title {
+    font-size: max(2.2em, 20px);
+  }
+  /* Phones: as on the reference cards, the number sits above the text, which takes the full width (no side rule). */
+  .service-slider_meta {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: .8em;
+    margin-top: 1.4em;
+  }
+  .service-slider_body {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .service-slider_dot-label {
+    font-size: 12px;
   }
 }

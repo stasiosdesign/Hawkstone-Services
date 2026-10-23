@@ -474,6 +474,175 @@ Checked in headless Edge at 1440, 768 and 390px on all six pages (no horizontal 
   - **Smaller screens:** the head goes to one column below 992px; the cards stack below 768px.
   - **No motion:** no sticky positioning, scroll effects or hover.
 
+## 3aq. 3D: "The projects we visualise" as the expanding list; deeper showcase gradient
+
+23 October 2026. Copy unchanged.
+
+- **"The projects we visualise":** the image route cards (3ao) are replaced by the shared expanding list, dark variant, as Planning's "Architect-led planning application" (`section is-service-expand is-dark`).
+  - **Head:** label "Routes", heading and intro (`service-expand_intro`), centred. The heading lost its `service-br`, so it sits on one line on desktop and wraps naturally on phones.
+  - **Rows:** four, one per project type: number 01-04, the same photos as the cards, the title as the button and the text in the reveal. All start closed.
+  - **Includes:** `service-expand.css` and `service-expand.js` are now on 3D.
+  - **Removed:** the `is-image` route-card rules in `services/css/3d-visualisations.css`.
+- **Project showcase (3D only):** the described panels' gradient now starts at the bottom edge and fades out three quarters of the way up (80% black at the bottom, 64% at 28%, 28% at 52%, clear by 75%). On phones the dark part reaches higher (84% → 0 at the top). It is on the photo's wrapper, so it moves with the panels through the stacking. Rules are in the 3D stylesheet; the other pages' panels keep their gradient.
+
+## 3ap. Project Management: "Where the gap is" diagram; two headings renamed
+
+23 October 2026. Copy supplied by the user.
+
+- **Headings:**
+  - "How the appointment works" → "What we do, / and when" (a plain `<br>`, so it is two lines at every width).
+  - "The projects this service is built for" → "Projects that benefit from / construction-stage support" (sentence case, as every heading on the site; `service-br`).
+- **"Where projects lose their thread" → "Where the gap is":** the user's brief replaces the whole `pm-gap` section with a programme diagram.
+  - **Removed:** the old label, lead, paragraph, closing statement and photo (no other visible text is allowed).
+  - **Copy:** the H2, the band labels (Architect, Nobody, Contractor), the five stage labels and one closing line, verbatim.
+  - **Build:** CSS grid with real text, no SVG or library. The `figure` has `role="group"` and an `aria-label` describing the diagram.
+  - **Desktop grid:** five columns (four design stages at 1fr, construction at 2fr, so construction is a third).
+    - **Row 1:** the architect band (columns 1-4, the near-black at 62%, a muted warm grey) and the void (column 5, a 1px dashed near-black outline, no fill, "Nobody" inside).
+    - **Baseline:** a 1px near-black hairline.
+    - **Stage labels:** each hangs from a tick at its stage's start, and construction also has an end tick.
+    - **Contractor band:** pale stone (`ivory-d3`), under construction only.
+    - **Corners:** 2px. No shadows, gradients, icons, caps or motion.
+  - **Text:** the H2 is left-anchored at the H2 size. The closing line is quiet (18px at 1440, 300 weight), 10em clear of the diagram.
+  - **Below 768px:** the same elements turn vertical. The bands and the void run down the left, the baseline becomes vertical with the stage labels to its right, and the contractor band sits on the right beside construction only. Rows are 1fr per design stage and 2fr for construction. From 479px the bands are at least 78px wide so their labels fit. No horizontal scroll at any width (checked down to 320px).
+  - **Styles:** `pm-gap*` in `services/css/project-management.css`; the old `pm-gap_*` rules are replaced.
+
+## 3ao. 3D: showcase heading and spacing, service options heading, boxed CTA, project types as image route cards
+
+23 October 2026. Two headings changed at the user's request; all other copy unchanged.
+
+- **Showcase** (Service Projects partial on 3D):
+  - **Heading:** now "Projects where the design was resolved visually before it was resolved on site." (the `heading` parameter). It was already centred.
+  - **Spacing (3D CSS only):** equal space above the label and below the heading (10em / 8em / 6em), and no bottom padding, so the 6em strip of dark band under the last panel is gone and the section ends on the photo.
+- **Service options:** the tiers heading is now "Architectural visualisation / service options", on two lines with a `service-br` (combo `is-visuals` unchanged).
+- **"More of our residential and rural work":** the inline CTA takes the combo `is-boxed` (3D CSS): an ivory-d1 panel with .3em corners and 4.8em / 5.6em padding (4em tablet, 3.2em / 2.4em phones), inside the container, so it aligns with the gutters. The two rules are gone.
+- **"The projects we visualise":** the stacked editorial rows become Planning's route cards. The section takes `is-routes` (with `is-service-editorial is-stacked is-process`, as Planning), so its head is centred like the reference.
+  - **Layout:** four cards on the 5-column grid, narrow | wide, then wide | narrow; the longer copy takes the wide card.
+  - **Combo `is-image` (3D CSS):** a photo covers each card (`service-routes_img`, object-position per card), with a gradient (lighter at the top, deeper behind the text; higher on phones) and light type. The number is shown as 01-04 (`service-routes_number`, was 1-4). The cards are 42em tall (38em tablet, 36em phones minimum).
+  - **Photos (temporary):**
+    - new homes: contemporary dark house;
+    - barns: timber-clad barn;
+    - listed: brick farmhouse;
+    - other practices: vaulted interior.
+  - **Fix:** the old first row's missing `hero-farmhouse-aerial-800/1400` image is gone with the rows, so the 3D page now loads without 404s.
+
+## 3an. Project Management "The projects this service is built for"; Rural card text narrower
+
+23 October 2026.
+
+- **Project Management:** the sticky cards ("When construction-stage support earns its place") are replaced by the shared expanding tiers in Rural's dark variant (`section is-service-tiers is-dark`).
+  - **Copy:** new, supplied by the user word for word: the heading, the intro (in `service-editorial_aside`) and three cards (Bespoke and architect-designed homes; Rural and barn conversions; Heritage and listed properties). The heading has a `service-br` after "this", so it sets on two lines like Rural's.
+  - **Photos:** the section's existing ones.
+  - **Removed:** the old section's Free Consultation button (Rural's tiers head has none; the floating bar keeps one), and the cards' `href="#"` placeholder links.
+  - **Script:** `service-tiers.js` is added to PM.
+- **Rural, building-type cards:** from 992px the number column is 12em instead of the shared 5em (Rural CSS, `service-pair_meta`), so the vertical rule sits further right and the text sets in shorter lines (at 1440px the rule is 156px into the card and the text 454px wide, from about 520px). The Free Consultation button follows the text's start. Tablet and phone layouts are unchanged.
+
+## 3am. Project Management: "Where projects lose their thread" as one editorial split
+
+23 October 2026. Copy unchanged (the edit script checked the section's words before and after).
+
+- **Layout:** the `pm-gap` section is one 12-column grid.
+  - **Text, columns 1-7:** `pm-gap_head` (label and heading), then `pm-gap_body` (lead, paragraph and closing statement).
+  - **Photo, columns 8-12:** `pm-gap_media`, the same construction photo, now portrait and cropped to the text's full height (.3em corners) instead of a 21:9 band below.
+  - **Removed:** the sticky left heading column.
+- **Type:**
+  - **Lead:** `max(2em, 17px)` at 30em, line-height 1.4.
+  - **Paragraph:** `max(1.6em, 15px)` at 36em, line-height 1.65.
+  - **Closing statement:** the conclusion, set a step larger and darker (`max(2.2em, 18px)`, weight 400) under a hairline at the lead's width, instead of the yellow side bar.
+- **Below 992px:** heading, photo (4:3), then the text.
+
+## 3al. Project Management: statement, appointment as expanding stages, suitability as on Luxury, simpler case study
+
+23 October 2026. Copy unchanged. Recent Projects untouched.
+
+- **Statement:**
+  - **Spacing:** combo `is-pm` on `section is-service-statement` sets the top padding to 12em / 9em / 6.4em / 5em (from 20 / 14 / 10 / 7), so it sits closer to the hero.
+  - **Highlight:** the text already had `data-highlight-text`. It now also has `data-highlight-scroll-start="top 60%"`, as the other statements do, and `highlight-text.js` is loaded on PM (it wasn't, so the effect never ran).
+- **"How the appointment works":** the page-only `pm-scope` / `pm-phase*` section is replaced by the shared expanding list, dark variant, as Planning's "Architect-led planning application". It keeps `id="scope"`.
+  - **Head:** label "Scope", the heading and the intro (`service-expand_intro`), centred.
+  - **Stages:** one card per stage (number, photo, stage title as the button), all closed at first.
+  - **Activities (new optional second level, shared CSS):** in the reveal, `service-expand_activities` holds one `service-expand_activity` per activity: an h4 `service-expand_activity-title` and a `service-expand_text is-activity`, between fine rules (`--expand-rule`, light on the dark variant). They fade in with the reveal; the script is unchanged.
+  - **Photos:** temporary, one per stage.
+  - **Removed:** the obsolete `pm-scope*`, `pm-phase*` and `pm-h2.is-light` rules.
+- **Suitability:** the fit list and the "Looking for something else?" cards (`service-other_*`) become Luxury's structure: `service-fit` (combo `is-pm`), then `service-rows is-in-fit`.
+  - **Heading:** PM has no heading of its own here, so its list title "This is likely to suit you if" takes the heading slot (column 6). The list (untitled row) sits under it from the same column (combo `is-pm`, PM CSS).
+  - **Rows:** five, with PM's own names, short descriptions and links (the 3D link loses its trailing slash). Photos as on the other pages' rows.
+  - **Intro:** "book a free consultation" now links to /contact, as on Luxury.
+  - **Includes:** `service-rows.css` and `service-expand.css` are now included on PM, and `service-expand.js` is loaded.
+- **Case study:** the overlapping photo pair (`service-visual is-case`) is gone.
+  - **Layout:** one ivory-d1 panel (.3em corners): the construction photo fills the left 7/12, and the label, heading and project (under a hairline) sit centred on the right. Below 992px the photo sits above the text at 16:10.
+  - **Content:** the copy and link are unchanged; the second (interior) photo is no longer used.
+
+## 3ak. Heritage process spacing; closed process cards; static service rows; 3D rebuilt from shared components
+
+23 October 2026. Copy unchanged, except the 3D sections removed at the user's request.
+
+- **Heritage, "How a heritage project runs":**
+  - **Spacing:** combo `is-heritage` on the `section is-service-expand` sets a 2em top padding (3em on phones), down from 12em / 9em, because the dark statement above already ends in a deep padding. The gap from the statement's CTA to the label is 350 → 250px at 1440px.
+  - **Closed cards (Heritage and Planning, every `service-expand`):** no card starts open. `is-open` is removed from the markup and the first button starts `aria-expanded="false"`; opening and closing are unchanged.
+- **"Looking for something else?" (Heritage, Luxury; Rural's never moved):** the scroll fan-out is removed.
+  - **Removed:** the `data-service-rows-fan`, `data-service-rows-row` and `data-service-rows-shade` hooks, the `service-rows_shade` element and style, and the `service-rows.js` script tags (the file is kept, unloaded).
+  - **Unchanged:** the hover (tint, photo zoom, arrow).
+- **Process slider shared (`service-slider`):** Luxury's `luxury-process` is renamed `service-slider` (classes and `data-service-slider*` hooks) and its CSS moves from `services/css/luxury-architecture.css` to `shared/css/service-pages.css`. Luxury looks and behaves the same.
+  - **Script:** `shared/custom-js/service-slider.js` sets up every `[data-service-slider]` on a page; `luxury-process.js` is kept, unloaded.
+  - **3D, "How the process works":** now this slider, with the seven steps' own titles, text and photos. The intro has the label and heading, with no lead because the old one was empty.
+  - **Removed from 3D:** the pinned horizontal section and `horizontal-process.js` (Luxury still uses it for its other section).
+- **3D, "What we need from you":** removed, with its "Not sure whether you have enough?" CTA.
+- **3D, recent work:** the "Recent work" intro and sticky steps become the Service Projects partial: three full-screen stacking panels, the same component and motion as every page.
+  - **New partial parameters:** `label` (text), `heading`, `pN-text` (a description under the name; combo `is-described`), `pN-small` / `pN-large` (image widths when not 800 / 1400) and `no-actions`.
+  - **Template engine:** `serve.ps1` and `scripts/build.mjs` now repeat the condition pass, so a block can sit inside another; the other pages' output is unchanged apart from the new `service-projects_info` wrapper.
+  - **Descriptions:** sit under the name at 36em, with a deeper gradient. On phones a described panel grows with its text and its gradient starts higher.
+  - **Label colour:** the label is now light on the dark band (Rural's "Projects" label had been near-invisible), and the long heading is held to 18em.
+  - **Links:** Furs House as before. Sandboro and Tean use the slugs of the page's former Recent Projects cards (`sandborough-house-farmhouse`, `barn-conversion-1`); confirm in the CMS.
+  - **Unchanged:** the inline "More of our residential and rural work" CTA below stays, so the partial's "View All Projects" is off (`no-actions`).
+  - **Duplicate removed:** the page's separate Recent Projects (the same projects) is gone, and `sticky-steps.js` is no longer loaded on 3D. `sticky-steps.css` stays, because it also holds the composed photo pair.
+- **3D, "Three ways to commission":** the sticky cards become the shared expanding tiers (as Rural's planning routes) on the page colour: heading (combo `is-visuals`, columns 1-8, no max-width, so its two lines hold) and the Free Consultation CTA in the aside, then three photo cards with the same titles and text. Hover, focus or tap opens a card; below 992px they stack. `service-tiers.js` is added to 3D.
+
+## 3aj. Planning routes head centred; project names in the accent serif
+
+23 October 2026. Copy unchanged.
+
+- **Planning, "The planning routes we prepare"** (`is-routes`, Planning only): the head is set like "Architect-led planning application" (`service-expand_head`).
+  - **Layout:** label, heading and intro are centred in one column, 2.4em apart, with 6em above the cards (4em on phones).
+  - **Spacing removed:** the stacked-rows grid placement, the label's 1.2em top padding and the heading's 1.6em desktop top margin.
+  - **Intro width:** held to 30em, so it sets on three lines from 768px up.
+  - **Unchanged:** the cards.
+- **Recent Projects (all six pages):** the project names (`heading-style-h3-brand is-service-projects`) use the site's accent serif.
+  - **Font:** `--font-family--brand-font`, IvyPresto Headline, set as the service-rows titles: weight 300, -.03em, line-height 1.
+  - **Size:** 1.1 × the H2 size, because the serif runs smaller than the sans.
+  - **Unchanged:** positions, CTA and motion.
+
+## 3ai. Rural: Class R copy; "Looking for something else?" on the band colour
+
+23 October 2026.
+
+- **Class R card** (planning routes, card 03): the placeholder is replaced with real copy, written from the GPDO 2015, Schedule 2, Part 3, Class R as amended (legislation.gov.uk).
+  - **Uses:** change of use from agriculture to a flexible commercial use, not a home.
+  - **Thresholds:** notification only up to 150 m²; prior approval (transport, noise, contamination, flood risk) up to 1,000 m².
+  - **Limits:** change of use only, with no building works; listed buildings are excluded.
+  - **Length:** about the same as the Class Q and full planning cards. The other cards are unchanged.
+- **Looking for something else?** now sits on `--theme--ivory-d1`, the "Who we work with" band colour.
+  - **Section:** `section is-rural-clients` takes that colour, so the band runs on under the rows. The rows' own 12em / 9em / 7em top margin is removed (the band's bottom padding gives the spacing).
+  - **Rows:** they are opaque, so on Rural (`is-rural-boundaries`) they take ivory-d1 too, and their hover goes to ivory-d2 so it still shows.
+
+## 3ah. Luxury: process cards on the Osmo Overlapping Slider
+
+23 October 2026. Card copy rewritten at the user's request (below).
+
+- **Copy:** each card's bullet list is merged into its paragraph, keeping every fact and keyword with nothing added. Lengths are balanced: 229–267 characters, from 216–290 in drafts. Titles and numbers are unchanged; `luxury-process_list` and `_item` are removed.
+- **Slider:** Swiper is replaced by Osmo Supply's "Overlapping Slider". Dragging or throwing the row snaps to a card, and each passed card shrinks (0.45) and tilts (-8°) behind the next.
+  - **Markup:** `data-overlap-slider-init` (`data-scale="0.45"`, `data-rotate="-8"`, `data-overlap-slider-label`) > `-collection` > `-list` > six `-item`s. Each item holds the unchanged `luxury-process_card`.
+  - **Classes:** Osmo's `overlapping-slider__wrap`, `__collection`, `__list` and `__item` already exist globally in the Webflow site and are not redefined. Combos `luxury-process_track` (on the list) and `luxury-process_slide` (on the items) set the card width (`max(36em, 300px)`; tablet `max(40em, 320px)`; phones the screen less the gutters), the 2.4em gap (1.6em on phones), equal card heights (stretch) and the grab cursor.
+  - **Pointer:** the list itself ignores the pointer and only the cards take it, because the moving list slides over the intro and would otherwise block the buttons.
+- **Script:** `shared/custom-js/overlapping-slider.js` is the supplied code (it replaces an older, unused copy from the export). It has four marked adaptations:
+  - it runs once per page;
+  - `touch-action: pan-y` instead of `none`, so phones can still scroll the page vertically over the cards;
+  - the region label comes from the markup;
+  - controls: `init.overlapSlider` exposes `goToSlide()` and the index, and an `overlapslider:change` event fires while dragging and throwing, and on keys and button presses. On resize it re-anchors to the current card.
+- **Page script:** `shared/custom-js/luxury-process.js` now drives the arrows (disabled at the ends) and the step indicators from that API.
+- **Swiper:** removed from the page, both the CSS link in the head and the script.
+- **Controls:** the arrows are 4.4em charcoal squares (`--theme--obsidian-base`, black on hover) with ivory arrows. The step indicators are square (.15em corners) and keep the same widening and name reveal.
+- **Dependencies:** GSAP Draggable and InertiaPlugin, already loaded site-wide.
+
 ## 3ag. Rural: building-type cards, routes heading, clients panel
 
 23 October 2026. Copy, images and CTA unchanged.
@@ -661,7 +830,7 @@ Where a service page needed something different, it got a combo (`is-service…`
 | Service Numbered Steps | PA 3D | heading, optional lead; steps: index, title, text; optional CTA | `service-steps_head` + `service-steps_list` of full-width rows; see 3k |
 | Service Fit Lists | HD LA 3D PM | optional label and heading; repeatable rows: optional title, list; optional note | `service-fit` grid with `service-fit_row` (`is-alt`, `is-untitled`, `is-full`); see 3k |
 | Service Editorial Rows | RC HD LA PA 3D PM | optional header (heading; intro text or text + Main CTA); repeatable rows: index, title, text, optional link, photo; rows optionally link blocks | `service-editorial_head` + `service-editorial_rows`; see 3k |
-| Service Projects | all six | label (Rural only), heading; 3 full-screen project panels (image, name, View Project link) from the Projects CMS; View All Projects | shared partial `shared/partials/service-projects.html`; one Collection List filtered by Project Type, limit 3, with the `service-overlap` hooks; see 3ae and 7a |
+| Service Projects | all six | optional label (Rural, 3D), heading (default "Recent Projects"; 3D its own); 3 full-screen project panels (image, name, optional description on 3D, View Project link) from the Projects CMS; View All Projects (not on 3D) | shared partial `shared/partials/service-projects.html`; one Collection List filtered by Project Type, limit 3, with the `service-overlap` hooks; see 3ae, 3ak and 7a |
 | Service Statement | LA HD PA 3D PM | statement text; optional label, note, CTA; variant `is-dark` | `section is-service-statement` > `service-statement`; see 3g and 3k |
 | Service Inline CTA | HD 3D | text, button | `service-cta` |
 | Service Bouncy Tabs | LA PA 3D | heading, tabs, panels | Osmo bouncy tabs; Planning uses the dark variant (`section is-service-dark`, `is-dark` combos) |
@@ -699,12 +868,12 @@ Today all of these sit in one "Services Pages CSS" component on every page. Past
 
 | Page | Scripts, in order |
 |---|---|
-| Rural Conversions | sticky-steps, feature-pills, rotating-text, rc-plan, service-overlap, service-cta-bar |
-| Heritage Design | sticky-steps, service-overlap, service-cta-bar |
-| Luxury Architecture | highlight-text, horizontal-process, bouncy-tabs, Swiper 12.2.0 (jsDelivr) then luxury-process, service-rows, service-overlap, service-cta-bar |
+| Rural Conversions | feature-pills, rotating-text, service-tiers, service-overlap, service-cta-bar |
+| Heritage Design | highlight-text, feature-pills, service-expand, service-tiers, service-overlap, service-cta-bar |
+| Luxury Architecture | highlight-text, horizontal-process, bouncy-tabs, overlapping-slider then service-slider, service-overlap, service-cta-bar |
 | Planning Applications | highlight-text, flick-cards, bouncy-tabs, horizontal-process, service-overlap, service-cta-bar |
-| 3D Visualisations | sticky-steps, bouncy-tabs, horizontal-process, service-overlap, service-cta-bar |
-| Project Management | service-overlap, service-cta-bar |
+| 3D Visualisations | bouncy-tabs, feature-pills, overlapping-slider then service-slider, service-expand, service-tiers, service-overlap, service-cta-bar |
+| Project Management | highlight-text, service-expand, service-tiers, service-overlap, service-cta-bar |
 
 Each file's header names its pages, what it needs (GSAP plugins, Lenis, Swiper) and the `data-*` hooks it reads. Every file runs inside its own function and returns at once if it has already run on the page (flag `window.HawkstoneService.<effect>`, or a `data-…-ready` mark on the element), so pasting it twice or alongside other site code can't double its listeners or overwrite another script's global functions.
 
@@ -807,7 +976,7 @@ The rebuild goes into the live Webflow project, alongside the homepage, About, P
 
 **Native in Designer:** sections, containers, grids and type from `shared/css/service-pages.css` and `services/css/*.css` (section 6). The components are in section 5. Global components (navigation, floating navigation, Main CTA, Sub Heading, Text Block, Process Step, Client Success, Final CTA, footer) are reused as instances, never edited.
 
-**Retained custom code:** custom CSS files as page Embeds, and JS files in Page settings before `</body>` (both tables in section 6). They depend on GSAP 3.15 with ScrollTrigger, SplitText, Draggable and Lenis, which the site's global code already loads. Swiper 12.2.0 is needed on Luxury only.
+**Retained custom code:** custom CSS files as page Embeds, and JS files in Page settings before `</body>` (both tables in section 6). They depend on GSAP 3.15 with ScrollTrigger, SplitText, Draggable, InertiaPlugin and Lenis, which the site's global code already loads. No page needs Swiper since 3ah.
 
 **Conflicts to check before creating anything:**
 - **Class names.** Before creating a class, search the site's style panel for it. A class that already exists with the same name takes on that class's styles everywhere it's used. Watch the generic Osmo names in particular: `swiper`, `swiper-wrapper`, `swiper-slide`, `swiper-group` (Luxury), `text-line-mask`, `flick-*`, `bouncy-tabs__*`, `feature-pills__*`. Locally only the six pages use them, and the export defines none of them, but the live site may have changed since the export.

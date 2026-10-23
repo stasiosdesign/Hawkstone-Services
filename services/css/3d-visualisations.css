@@ -43,3 +43,75 @@
   padding-top: 6em;
   padding-bottom: 8em;
 }
+
+/* ==================== Three ways to commission (expanding tiers) ==================== */
+/* The heading is set on two lines by its line break ("Architectural visualisation / service options"), so it takes columns 1-8 and no max-width; phones drop the break and wrap naturally. Combo is-visuals. */
+.service-editorial_heading.is-visuals {
+  grid-column: 1 / 9;
+  max-width: none;
+}
+@media screen and (max-width: 991px) {
+  .service-editorial_heading.is-visuals {
+    grid-column: auto;
+  }
+}
+
+/* ==================== Projects (Service Projects partial on this page) ==================== */
+/* Equal space above the label and below the heading (10em / 8em / 6em), and no bottom padding: the last panel ends the
+   section, so no strip of the dark band shows under it. This page only. */
+.page-wrapper.is-service .section.is-service-projects {
+  padding-top: 10em;
+  padding-bottom: 0;
+}
+.page-wrapper.is-service .service-projects_header {
+  margin-bottom: 10em;
+}
+@media screen and (max-width: 991px) {
+  .page-wrapper.is-service .section.is-service-projects {
+    padding-top: 8em;
+  }
+  .page-wrapper.is-service .service-projects_header {
+    margin-bottom: 8em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .page-wrapper.is-service .section.is-service-projects {
+    padding-top: 6em;
+  }
+  .page-wrapper.is-service .service-projects_header {
+    margin-bottom: 6em;
+  }
+}
+
+/* ==================== More of our residential and rural work (inline CTA, combo is-boxed) ==================== */
+/* A stone panel (ivory-d1, .3em corners, as the other panels) inside the container instead of the two rules. */
+.service-cta.is-boxed {
+  padding: 4.8em 5.6em;
+  border-top: 0;
+  border-bottom: 0;
+  border-radius: .3em;
+  background-color: var(--theme--ivory-d1);
+}
+@media screen and (max-width: 991px) {
+  .service-cta.is-boxed {
+    padding: 4em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .service-cta.is-boxed {
+    padding: 3.2em 2.4em;
+  }
+}
+
+/* ==================== Projects: text contrast (described panels on this page) ==================== */
+/* A gradient from the bottom edge, fading out by three quarters of the way up: dark behind the name, description and
+   CTA, the upper part of the photo left almost untouched. It sits on the photo's wrapper, so it moves with the panel
+   through the stacking. Phones: the text takes most of the panel, so the dark part reaches higher. */
+.service-projects_panel.is-described .service-projects_media::after {
+  background-image: linear-gradient(0deg, #000000cc 0%, #000000a3 28%, #00000047 52%, #0000 75%);
+}
+@media screen and (max-width: 767px) {
+  .service-projects_panel.is-described .service-projects_media::after {
+    background-image: linear-gradient(0deg, #000000d6 0%, #000000ad 45%, #00000052 72%, #0000 100%);
+  }
+}
