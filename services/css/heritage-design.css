@@ -161,3 +161,15 @@
     grid-column-gap: calc(1em - 2px);
   }
 }
+
+/* ==================== How a heritage project runs ==================== */
+/* The dark statement above already ends in a deep bottom padding, so the process list (same dark band) starts with a
+   shorter top padding than the shared 12em / 9em: the two read as one band. Combo is-heritage on the section. */
+.section.is-service-expand.is-heritage {
+  padding-top: 2em;
+}
+@media screen and (max-width: 767px) {
+  .section.is-service-expand.is-heritage {
+    padding-top: 3em;
+  }
+}

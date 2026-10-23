@@ -126,8 +126,8 @@
 /* ==================== Who we work with: one panel, three columns ==================== */
 /* From a reference of a single wide, softly rounded light panel split into three columns by inset hairlines, on a
    slightly darker band: the heading centred above it; each column has its number at the top and the client type at
-   the bottom (the reference's logo-over-statistic rhythm). The band covers the heading and the panel only; the
-   "Two boundaries" service rows below stay on the page colour. Below 768px the columns stack with horizontal rules. */
+   the bottom (the reference's logo-over-statistic rhythm). The band colour runs on under the "Looking for something
+   else?" service rows below. Below 768px the columns stack with horizontal rules. */
 .section.is-rural-clients {
   padding-top: 0;
   padding-bottom: 12em;
@@ -184,8 +184,20 @@
   font-size: max(2.3em, 18px);
   line-height: 1.22;
 }
+/* "Looking for something else?" sits on the same band colour as "Who we work with" (ivory-d1): the whole section is
+   the band, so the rows follow the panel at the band's own bottom padding instead of a second section gap. The rows
+   are opaque (the fan-out needs it), so they take the band colour too, and their hover goes one step darker. */
+.section.is-rural-clients {
+  background-color: var(--theme--ivory-d1);
+}
 .service-rows.is-rural-boundaries {
-  margin-top: 12em;
+  margin-top: 0;
+}
+.service-rows.is-rural-boundaries .service-rows_row {
+  background-color: var(--theme--ivory-d1);
+}
+.service-rows.is-rural-boundaries .service-rows_row.is-link:hover {
+  background-color: var(--theme--ivory-d2);
 }
 @media screen and (max-width: 991px) {
   .section.is-rural-clients {
@@ -201,9 +213,6 @@
   .rural-clients_col {
     min-height: 20em;
     padding: 1em 2.4em;
-  }
-  .service-rows.is-rural-boundaries {
-    margin-top: 9em;
   }
 }
 @media screen and (max-width: 767px) {
@@ -229,9 +238,6 @@
     border-left: 0;
     border-top: 1px solid #11111117;
   }
-  .service-rows.is-rural-boundaries {
-    margin-top: 7em;
-  }
 }
 
 
@@ -240,4 +246,17 @@
    the breaks (.service-br) and wrap naturally. */
 .service-editorial_heading.is-three-line {
   max-width: none;
+}
+
+/* ==================== Building-type cards: narrower text column ==================== */
+/* The number column is wider than the shared 5em (12em), so the vertical rule sits further right and the text sets in
+   shorter lines; the Main CTA follows the text's new start. Desktop only: the tablet cards are already narrow and
+   phones stack the number above the text. */
+@media screen and (min-width: 992px) {
+  .service-pair_meta {
+    grid-template-columns: 12em minmax(0, 1fr);
+  }
+  .service-pair_actions {
+    padding-left: calc(12em + 1.6em);
+  }
 }

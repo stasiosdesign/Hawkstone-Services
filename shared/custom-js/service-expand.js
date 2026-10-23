@@ -1,7 +1,8 @@
 /* service-expand: page custom code (Webflow: Page settings > Custom code > Before </body> tag).
    Used on: Planning Applications ("Is this the right service for your project?"). Clicking a card's title button (it
-   covers the card) opens that card and closes the one that was open; clicking an open card closes it. State is the
-   is-open combo on the card and aria-expanded on its button; the motion is CSS.
+   covers the card) opens that card and closes the one that was open; clicking an open card closes it. All cards start
+   closed (no is-open in the markup). State is the is-open combo on the card and aria-expanded on its button; the
+   motion is CSS. Also on Heritage Design ("How a heritage project runs").
    Needs: nothing beyond the browser. Hooks: [data-service-expand] (the list), [data-service-expand-item],
    [data-service-expand-button].
    Wrapped so it runs once per page and adds no global names (the Webflow site loads other code). */

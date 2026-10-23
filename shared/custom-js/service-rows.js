@@ -1,5 +1,7 @@
 /* service-rows: page custom code (Webflow: Page settings > Custom code > Before </body> tag).
-   Used on: Luxury Architecture ("Looking for something else?"), on lists with data-service-rows-fan only. From the
+   Not loaded by any page since 23 Oct 2026: "Looking for something else?" is static everywhere (kept for reference).
+   Was used on: Luxury Architecture and Heritage Design ("Looking for something else?"), on lists with
+   data-service-rows-fan only. From the
    Services rows of graphichunters.com:
    rows 2-5 start stacked behind row 1 (moved up by the rows above them), each turned 5° further (-5°, -10°…) under a
    dark top shade, and fan out to their places as the list scrolls in: from the list's top at 75% of the viewport to

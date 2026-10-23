@@ -300,127 +300,152 @@
     <style>
     <!--#include file="/shared/custom-css/service-editorial.css" -->
     </style>
+    <style>
+    <!--#include file="/shared/custom-css/service-expand.css" -->
+    </style>
+    <style>
+    <!--#include file="/shared/custom-css/service-rows.css" -->
+    </style>
   </div>
 </div>
 <div class="page-wrapper is-service">
     <!-- Shared section: Hero (Service Hero component) -->
     <!--#include file="/shared/partials/service-hero.html" image="temp-barn-timber-cladding" label="Book a free consultation" heading="Independent project management through construction" text="Planning has been granted, the technical drawings are complete and the contractor is ready to start. This is the point at which most clients lose sight of their own project." -->
     <!-- Shared section: Statement (Service Statement component) -->
-    <section data-nav-show-after="yes" class="section is-service-statement">
+    <section data-nav-show-after="yes" class="section is-service-statement is-pm">
       <div class="service-statement">
         <div class="label-wrapeper is-service-statement">
           <div class="yellow-dot"></div>
           <p class="text-size-regular is-service-statement">Construction-stage support</p>
         </div>
-        <p data-highlight-text="" class="service-statement_text">Our construction-stage service keeps an informed, independent eye on the work as it is built, so that what goes up reflects what was approved. You get a point of contact who already understands the design, periodic inspections of the work, and a written record of progress.</p>
+        <p data-highlight-scroll-start="top 60%" data-highlight-text="" class="service-statement_text">Our construction-stage service keeps an informed, independent eye on the work as it is built, so that what goes up reflects what was approved. You get a point of contact who already understands the design, periodic inspections of the work, and a written record of progress.</p>
         <div class="service-statement_meta">
           <p class="pm-statement_note">Hawkstone is an architectural design and planning practice for homes, working across Derbyshire, Staffordshire and Cheshire.</p>
         </div>
       </div>
     </section>
-    <!-- Page section: The gap this fills (pm-gap) -->
+    <!-- Page section: Where the gap is (pm-gap). A programme diagram, read like a Gantt bar on a drawing sheet: the
+         architect's band runs solid across feasibility, concept, planning and technical design, then becomes an empty
+         dashed outline ("Nobody") across construction, which takes a third of the width; the five stages hang from a
+         hairline baseline; the contractor's band exists only under construction. Then one quiet closing line. Left
+         anchored, no motion. Below 768px the diagram turns vertical: stages top to bottom, the architect band and the
+         void down the left, the contractor band down the right beside construction only. CSS grid, all text real.
+         Styles: pm-gap* in services/css/project-management.css. -->
     <section class="pm-gap">
       <div class="container">
-        <div class="pm-gap_grid">
-          <div class="pm-gap_aside">
-            <div class="label-wrapeper is-pm">
-              <div class="yellow-dot"></div>
-              <p class="text-size-regular">The gap this fills</p>
-            </div>
-            <h2 class="pm-h2">Where projects lose their thread</h2>
-          </div>
-          <div class="pm-gap_body">
-            <p class="pm-gap_lead">Once construction begins, the pace of the project changes. Decisions get made on site, questions arrive by phone, and drawings that took months to develop are suddenly being interpreted by people who were not part of the conversation.</p>
-            <p class="pm-gap_para">The concerns clients raise at this stage are consistent. Communication becomes patchy. Timescales drift. Choices are made without them. They are unsure whether what the contractor is asking for is reasonable, who should be coordinating information between the different consultants, and whether the finished building will actually match the approved design.</p>
-            <div class="pm-gap_closing">
-              <p class="pm-gap_closing-text">None of that means the contractor is doing anything wrong. It usually means nobody is holding the design side of the project while the building side takes over.</p>
-            </div>
-          </div>
-        </div>
-        <div class="pm-gap_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 50vw" decoding="async" loading="lazy" alt="Residential construction site with work in progress" class="pm-gap_img"></div>
+        <h2 class="pm-gap_heading">Where the gap is</h2>
+        <figure class="pm-gap_chart" role="group" aria-label="Diagram: the architect represents the approved design through feasibility, concept, planning and technical design. During construction nobody represents it; only the contractor is present.">
+          <div class="pm-gap_band is-architect"><span class="pm-gap_band-label">Architect</span></div>
+          <div class="pm-gap_band is-void"><span class="pm-gap_band-label">Nobody</span></div>
+          <div class="pm-gap_axis" aria-hidden="true"></div>
+          <p class="pm-gap_stage is-1">Feasibility</p>
+          <p class="pm-gap_stage is-2">Concept</p>
+          <p class="pm-gap_stage is-3">Planning</p>
+          <p class="pm-gap_stage is-4">Technical</p>
+          <p class="pm-gap_stage is-5">Construction</p>
+          <div class="pm-gap_band is-contractor"><span class="pm-gap_band-label">Contractor</span></div>
+        </figure>
+        <p class="pm-gap_note">The approved design stops being represented exactly where the money starts being spent.</p>
       </div>
     </section>
-    <!-- Page section: Scope phases (pm-scope) -->
-    <section id="scope" class="pm-scope">
+    <!-- Shared section: Expanding list ("What we do, and when"; the same component and dark variant as Planning's
+         "Architect-led planning application"): label, heading and intro centred, then one card per stage, all closed at
+         first. Clicking a card opens it (the photo grows) and reveals the stage's activities, each a small title and its
+         text between fine rules (service-expand_activities, the component's optional second level). Keeps id="scope".
+         Styles: service-expand* in shared/css/service-pages.css; script shared/custom-js/service-expand.js;
+         shared/custom-css/service-expand.css. -->
+    <section id="scope" class="section is-service-expand is-dark">
       <div class="container">
-        <div class="pm-scope_head">
-          <div class="pm-title-wrap">
-            <div class="label-wrapeper is-pm">
-              <div class="yellow-dot"></div>
-              <p class="text-size-regular is-pm-light">Scope</p>
-            </div>
-            <h2 class="pm-h2 is-light">How the appointment works</h2>
+        <div class="service-expand_head">
+          <div class="label-wrapeper service-expand_label">
+            <div class="yellow-dot"></div>
+            <p class="text-size-regular is-on-dark">Scope</p>
           </div>
-          <p class="pm-scope_intro">The number of visits and the exact level of support are agreed in your individual proposal. A typical appointment includes up to two site inspections each calendar month.</p>
+          <h2 class="service-expand_heading">What we do,<br>and when</h2>
+          <p class="service-expand_intro">The number of visits and the exact level of support are agreed in your individual proposal. A typical appointment includes up to two site inspections each calendar month.</p>
         </div>
-        <div>
-          <div class="pm-phase">
-            <div class="pm-phase_meta">
-              <div class="pm-phase_num">01</div>
-              <h3 class="pm-phase_title">Before work starts</h3>
-            </div>
-            <div class="pm-phase_items">
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Pre-construction review</h4>
-                <p class="pm-phase_item-text">We review the approved design, the technical information, consultant requirements and any planning or Building Control matters that affect the construction stage.</p>
-              </div>
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Pre-start meeting</h4>
-                <p class="pm-phase_item-text">We meet you and the contractor to go through the proposed works, the programme, communication arrangements and the key milestones. A written agenda is prepared and issued.</p>
-              </div>
-            </div>
-          </div>
-          <div class="pm-phase">
-            <div class="pm-phase_meta">
-              <div class="pm-phase_num">02</div>
-              <h3 class="pm-phase_title">During construction</h3>
-            </div>
-            <div class="pm-phase_items">
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Periodic site inspections</h4>
-                <p class="pm-phase_item-text">Agreed visits to review general progress, visible workmanship and apparent conformity with the approved design information.</p>
-              </div>
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Written site reports</h4>
-                <p class="pm-phase_item-text">After each visit you receive a report recording progress, our observations, recommended actions and the work expected over the following weeks.</p>
-              </div>
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Construction-stage communication</h4>
-                <p class="pm-phase_item-text">Telephone and email support throughout the build, and answers to design-related questions as they come up.</p>
-              </div>
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Design and consultant coordination</h4>
-                <p class="pm-phase_item-text">Liaison with the contractor, specialist consultants and Building Control where reasonably required, to keep project information aligned and respond to issues raised on site.</p>
+        <div data-service-expand="" class="service-expand_list">
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">01</p>
+            <div class="service-expand_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="appointment-stage-01" class="service-expand_button">Before work starts</button></h3>
+              <div id="appointment-stage-01" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <div class="service-expand_activities">
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Pre-construction review</h4>
+                      <p class="service-expand_text is-activity">We review the approved design, the technical information, consultant requirements and any planning or Building Control matters that affect the construction stage.</p>
+                    </div>
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Pre-start meeting</h4>
+                      <p class="service-expand_text is-activity">We meet you and the contractor to go through the proposed works, the programme, communication arrangements and the key milestones. A written agenda is prepared and issued.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="pm-phase">
-            <div class="pm-phase_meta">
-              <div class="pm-phase_num">03</div>
-              <h3 class="pm-phase_title">Towards completion</h3>
-            </div>
-            <div class="pm-phase_items">
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Pre-completion inspection</h4>
-                <p class="pm-phase_item-text">A review of the substantially completed work, and a schedule of visible defects, incomplete items and outstanding work for the contractor to address.</p>
+          </article>
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">02</p>
+            <div class="service-expand_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="appointment-stage-02" class="service-expand_button">During construction</button></h3>
+              <div id="appointment-stage-02" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <div class="service-expand_activities">
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Periodic site inspections</h4>
+                      <p class="service-expand_text is-activity">Agreed visits to review general progress, visible workmanship and apparent conformity with the approved design information.</p>
+                    </div>
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Written site reports</h4>
+                      <p class="service-expand_text is-activity">After each visit you receive a report recording progress, our observations, recommended actions and the work expected over the following weeks.</p>
+                    </div>
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Construction-stage communication</h4>
+                      <p class="service-expand_text is-activity">Telephone and email support throughout the build, and answers to design-related questions as they come up.</p>
+                    </div>
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Design and consultant coordination</h4>
+                      <p class="service-expand_text is-activity">Liaison with the contractor, specialist consultants and Building Control where reasonably required, to keep project information aligned and respond to issues raised on site.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="pm-phase_item">
-                <h4 class="pm-phase_item-title">Completion support</h4>
-                <p class="pm-phase_item-text">We review the status of the recorded items and support communication between you and the contractor as the project moves towards handover, where this is included in your appointment.</p>
+            </div>
+          </article>
+          <article data-service-expand-item="" class="service-expand_item">
+            <p class="service-expand_number">03</p>
+            <div class="service-expand_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
+            <div class="service-expand_content">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="appointment-stage-03" class="service-expand_button">Towards completion</button></h3>
+              <div id="appointment-stage-03" class="service-expand_reveal">
+                <div class="service-expand_reveal-inner">
+                  <div class="service-expand_activities">
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Pre-completion inspection</h4>
+                      <p class="service-expand_text is-activity">A review of the substantially completed work, and a schedule of visible defects, incomplete items and outstanding work for the contractor to address.</p>
+                    </div>
+                    <div class="service-expand_activity">
+                      <h4 class="service-expand_activity-title">Completion support</h4>
+                      <p class="service-expand_text is-activity">We review the status of the recorded items and support communication between you and the contractor as the project moves towards handover, where this is included in your appointment.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
-    <!-- Page section: Case study (process composition: the composed photo group left, the narrow reading group right; was an ivory panel) -->
+    <!-- Page section: Case study: one stone panel, the construction photo on the left (no overlapping frames), the label,
+         heading and project on the right, vertically centred; stacks below 992px. Styles: pm-case* in
+         services/css/project-management.css. -->
     <section class="pm-case">
       <div class="container">
         <div class="pm-case_grid">
-          <div class="service-visual is-case">
-            <div class="service-visual_frame is-primary"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 60vw, 28vw" decoding="async" loading="lazy" alt="Residential project under construction" class="service-visual_img"></div>
-            <div class="service-visual_frame is-secondary"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 48vw, 22vw" decoding="async" loading="lazy" alt="" class="service-visual_img"></div>
-          </div>
+          <div class="pm-case_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 55vw" decoding="async" loading="lazy" alt="Residential project under construction" class="pm-case_img"></div>
           <div class="pm-case_content">
             <div class="pm-title-wrap">
               <div class="label-wrapeper is-pm">
@@ -438,64 +463,74 @@
         </div>
       </div>
     </section>
-    <!-- Shared section: Sticky cards (as on Luxury Architecture; Fitosauna two-column section): the left panel (heading,
-         text, Main CTA) is sticky while photo cards scroll past on the right. Styles: service-cards* in shared/css/service-pages.css. -->
-    <section class="section service-cards">
-      <div class="service-cards_layout">
-        <div class="service-cards_left">
-          <div class="service-cards_sticky">
-            <h2 class="service-cards_heading">When construction-stage <br class="service-br">support earns its place</h2>
-            <p class="service-cards_intro">Not every project needs it. It matters most where the detail is the point of the project, or where you cannot be on site often enough to catch things as they happen.</p>
-            <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="black" href="/contact" class="wrapper_cta w-inline-block">
-              <div class="btn-icon-content cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9">
-                <div class="btn-icon-content__mask cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 buton"><span data-button-anim-target="" class="btn-icon-content__text">Free Consultation</span></div>
-                <div data-button-anim-target="" class="btn-icon-content__bg cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"></div>
-              </div>
-              <div class="square_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta w-variant-e8778998-cb78-2105-5131-afed7af33fb9 white"></div>
-            </a>
+    <!-- Shared section: Expanding tiers ("Projects that benefit from construction-stage support"; the same component and dark variant as
+         Rural's "Barn conversion planning permission"): heading and intro, then the three project types as photo cards in
+         a row with one open. Hover, focus or tap opens a card; collapsed cards show the number and title; below 992px they
+         stack and open in height. Styles: service-tiers* in shared/css/service-pages.css; script
+         shared/custom-js/service-tiers.js. -->
+    <section class="section is-service-tiers is-dark">
+      <div class="container">
+        <div class="service-editorial_head">
+          <h2 class="service-editorial_heading is-dark">Projects that benefit from <br class="service-br">construction-stage support</h2>
+          <div class="service-editorial_aside">
+            <p class="text-size-regular-copy is-service-editorial is-dark">Construction-stage support matters most where the detail is the point of the project. These are the three types where we are most often appointed.</p>
           </div>
         </div>
-        <div class="service-cards_right">
-          <a href="#" class="service-cards_card w-inline-block">
-            <div class="service-cards_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">Bespoke and architect-designed homes</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">01</p>
-                <div class="service-cards_text"><p>Where materials, junctions and finishes were chosen deliberately, substitutions made quickly on site can quietly undo the design.</p></div>
+        <div data-service-tiers="" class="service-tiers">
+          <div role="list" class="service-tiers_list">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card is-active">
+              <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">01</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">Bespoke and architect-designed homes</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">Materials, junctions and finishes are chosen deliberately. A substitution made quickly on site can undo that work before anyone notices.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
-          <a href="#" class="service-cards_card w-inline-block">
-            <div class="service-cards_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">Rural and barn conversions</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">02</p>
-                <div class="service-cards_text"><p>Existing structures reveal themselves as work progresses, and decisions often have to be tested against what the approval actually permits.</p></div>
+            </article>
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+              <img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">02</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">Rural and barn conversions</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">Existing structures reveal themselves as work progresses. Decisions made on site have to be tested against what the approval actually permits.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
-          <a href="#" class="service-cards_card w-inline-block">
-            <div class="service-cards_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
-            <div class="service-cards_info">
-              <h3 class="service-cards_title">Heritage and listed properties</h3>
-              <div class="service-cards_meta">
-                <p class="service-cards_number">03</p>
-                <div class="service-cards_text"><p>Historic fabric, specified materials and the conditions attached to consent all have to be respected as the work is carried out.</p></div>
+            </article>
+            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+              <img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">03</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">Heritage and listed properties</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <p class="service-tiers_text">Historic fabric, specified materials and the conditions attached to consent all have to be respected as the work is carried out.</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </a>
+            </article>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Shared section: Fit lists (ruled title/list rows across the content, lists from the sixth column; was the dark two-column panel) -->
-    <section class="section is-service-fit">
+    <!-- Shared section: Fit lists + service rows (the structure of Luxury's "Is this the right service for your project?"):
+         the heading and an untitled ruled list from the sixth column, then "Looking for something else?" as service rows
+         (index, title, arrow link, short description, photo), static, hover in shared/custom-css/service-rows.css. Copy
+         and links are this page's own. Styles: service-fit* and service-rows* in shared/css/service-pages.css. -->
+    <div class="section is-service-fit">
       <div class="container">
-        <div class="service-fit is-plain">
-          <div class="service-fit_details is-full">
-            <div class="service-fit_row is-full">
-              <h3 class="service-fit_title">This is likely to suit you if</h3>
+        <div class="service-fit is-pm">
+          <h2 class="service-fit_heading">This is likely to suit you if</h2>
+          <div class="service-fit_details">
+            <div class="service-fit_row is-untitled">
               <div class="service-fit_list">
                 <div class="service-fit_item">
                   <div class="service-fit_marker is-tick"></div>
@@ -523,23 +558,58 @@
                 </div>
               </div>
             </div>
-            <div class="service-fit_row service-other is-full">
-              <div class="service-other_intro">
-                <h3 class="service-fit_title"><strong>Looking for something else?</strong></h3>
-                <p class="service-other_text">Explore our other services, or book a free consultation and we will point you to the right one.</p>
-              </div>
-              <div class="service-other_list">
-                <a href="/services/rural-conversions" class="service-other_card w-inline-block"><span class="service-other_top"><span class="service-other_name">Rural<br>Conversions</span></span><span class="service-other_bottom"><span class="service-other_desc">Rural building transformations</span><span class="service-other_square"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-other_arrow"></span></span></a>
-                <a href="/services/luxury-architecture" class="service-other_card w-inline-block"><span class="service-other_top"><span class="service-other_name">Luxury<br>Architecture</span></span><span class="service-other_bottom"><span class="service-other_desc">Bespoke home design</span><span class="service-other_square"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-other_arrow"></span></span></a>
-                <a href="/services/heritage-design" class="service-other_card w-inline-block"><span class="service-other_top"><span class="service-other_name">Heritage<br>Design</span></span><span class="service-other_bottom"><span class="service-other_desc">Sensitive heritage design</span><span class="service-other_square"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-other_arrow"></span></span></a>
-                <a href="/services/planning-applications" class="service-other_card w-inline-block"><span class="service-other_top"><span class="service-other_name">Planning<br>Applications</span></span><span class="service-other_bottom"><span class="service-other_desc">Planning made simpler</span><span class="service-other_square"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-other_arrow"></span></span></a>
-                <a href="/services/3d-visualisations/" class="service-other_card w-inline-block"><span class="service-other_top"><span class="service-other_name">3D<br>Visualisations</span></span><span class="service-other_bottom"><span class="service-other_desc">Photorealistic design visuals</span><span class="service-other_square"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-other_arrow"></span></span></a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="service-rows is-in-fit">
+        <div class="service-rows_head">
+          <h3 class="service-rows_heading">Looking for<br>something else?</h3>
+          <p class="service-rows_intro">Explore our other services, or <a href="/contact" class="service-rows_inline-link">book a free consultation</a> and we will point you to the right one.</p>
+        </div>
+        <div class="service-rows_list">
+          <div class="service-rows_row is-link">
+            <p class="service-rows_index">01</p>
+            <h4 class="service-rows_title">Rural<br>Conversions</h4>
+            <a href="/services/rural-conversions" aria-label="View Rural Conversions service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
+            <p class="service-rows_text">Rural building transformations</p>
+            <div class="service-rows_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
+            <div class="service-rows_rule"></div>
+          </div>
+          <div class="service-rows_row is-link">
+            <p class="service-rows_index">02</p>
+            <h4 class="service-rows_title">Luxury<br>Architecture</h4>
+            <a href="/services/luxury-architecture" aria-label="View Luxury Architecture service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
+            <p class="service-rows_text">Bespoke home design</p>
+            <div class="service-rows_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
+            <div class="service-rows_rule"></div>
+          </div>
+          <div class="service-rows_row is-link">
+            <p class="service-rows_index">03</p>
+            <h4 class="service-rows_title">Heritage<br>Design</h4>
+            <a href="/services/heritage-design" aria-label="View Heritage Design service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
+            <p class="service-rows_text">Sensitive heritage design</p>
+            <div class="service-rows_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
+            <div class="service-rows_rule"></div>
+          </div>
+          <div class="service-rows_row is-link">
+            <p class="service-rows_index">04</p>
+            <h4 class="service-rows_title">Planning<br>Applications</h4>
+            <a href="/services/planning-applications" aria-label="View Planning Applications service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
+            <p class="service-rows_text">Planning made simpler</p>
+            <div class="service-rows_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
+            <div class="service-rows_rule"></div>
+          </div>
+          <div class="service-rows_row is-link">
+            <p class="service-rows_index">05</p>
+            <h4 class="service-rows_title">3D<br>Visualisations</h4>
+            <a href="/services/3d-visualisations" aria-label="View 3D Visualisations service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
+            <p class="service-rows_text">Photorealistic design visuals</p>
+            <div class="service-rows_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
+            <div class="service-rows_rule"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Shared section: Projects (Service Projects component). The three projects are TEMPORARY page data, not the final
          selection: in Webflow the cards come from the Projects collection filtered by Project Type. See the partial and
          docs/webflow-migration.md 7a. -->
@@ -722,6 +792,9 @@
   </div>
 <!--#include file="/global/partials/scripts.html" -->
 <!-- Page custom code (Webflow: Page settings > Custom code > Before </body> tag). One file per effect, in shared/custom-js/. -->
+<script src="../shared/custom-js/highlight-text.js"></script>
+<script src="../shared/custom-js/service-expand.js"></script>
+<script src="../shared/custom-js/service-tiers.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>
