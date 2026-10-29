@@ -13,6 +13,14 @@ The six service pages from the Webflow site, rebuilt locally for design iteratio
 
 The overview of all six is at http://localhost:5190/services. The pages as exported, before the refactor, are served by the reference server on port 5191 (see Checking changes below).
 
+## Moving to Webflow
+
+The plan for rebuilding these pages in Webflow (which sections become Webflow Components and with which properties,
+which are CMS-powered, the custom code, what to confirm and decide first) is in
+[docs/webflow/README.md](docs/webflow/README.md). Every section in the markup carries `data-migrate-*` attributes that
+tie it to that plan; after a design change run `npm run migration:inventory` (or
+`node scripts/migration-check.mjs --write`) and fix whatever it reports.
+
 ## Running it
 
 ```
@@ -51,8 +59,10 @@ services/
 dev/                       Local only, not migrated: the Service Pages overview, the shared placeholder and their CSS
 reference/                 The pages as exported, unchanged (comparison only)
 images/                    Logos, icons, the footer placeholder and the temporary photos
-scripts/                   compare-pages.cjs (style comparison), import-from-export.mjs (rebuilds reference/)
-docs/                      webflow-migration.md (how this maps to Webflow), class-map.md (every rename)
+scripts/                   compare-pages.cjs (style comparison), import-from-export.mjs (rebuilds reference/),
+                           migration-check.mjs (checks the Webflow mapping, writes docs/webflow/inventory.md)
+docs/webflow/              The Webflow migration plan: start at README.md (components, CMS, one file per page)
+docs/                      webflow-migration.md (design history, class conventions), class-map.md (every rename)
 ```
 
 ## Editing
@@ -85,7 +95,7 @@ Once you start changing designs on purpose, the comparison will report those dif
 
 ## Notes
 
-- The CMS lists (nav dropdowns, project cards, testimonials, flick cards) are static copies of the published staging site (how they bind in Webflow: [docs/webflow-migration.md 7a](docs/webflow-migration.md#7a-cms-binding-services-projects-and-the-project-type-relationship)); the photos are temporary (`images/hero-farmhouse-aerial-*.avif` and `images/temp-*.avif`), chosen from the client's own project photos until the real ones are picked.
+- The CMS lists (nav dropdowns, project cards, testimonials, the Planning approvals slider, the "Looking for something else?" rows) are static copies of the published staging site (how they bind in Webflow: [docs/webflow/cms.md](docs/webflow/cms.md)); the photos are temporary (`images/hero-farmhouse-aerial-*.avif` and `images/temp-*.avif`), chosen from the client's own project photos until the real ones are picked.
 - Every page has a fixed "Book a free consultation" bar with a back-to-top button (`shared/partials/service-cta-bar.html`, `shared/custom-js/service-cta-bar.js`); it hides while the footer is in view.
 - Google Analytics and Ahrefs are left out so local visits aren't recorded.
 - Luxury Architecture still links to two pages on the old `hawkstone-developments-testing.vercel.app` prototype, as on the live site.

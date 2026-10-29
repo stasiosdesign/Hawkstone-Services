@@ -1,4 +1,6 @@
-/* bouncy-tabs: custom CSS (Webflow: Embed element). Osmo bouncy tabs states. */
+/* bouncy-tabs: custom CSS (Webflow: Embed element). Osmo bouncy tabs states. The script marks the open panel
+   data-active (the first, unless one is marked); in the Designer, where it doesn't run, every panel shows in turn so
+   each tab can be edited. */
 [data-bouncy-tabs-button][data-active] {
   color: #f1efe2;
 }  
@@ -8,4 +10,9 @@
 }
 .wf-design-mode [data-bouncy-tabs-panel][data-active] {
   position: relative;
+}
+.wf-design-mode [data-bouncy-tabs-panel] {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
 }

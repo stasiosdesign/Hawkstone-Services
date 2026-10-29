@@ -43,15 +43,29 @@
   width: 100%;
   padding: 0 var(--_sizes---page-gutter) 5.5vw;
 }
+/* The H1's own words are a step back (white at 80%); its key phrase is the accent serif in full white. */
 .heading-style-h1-normal.is-service-hero {
   width: auto;
   max-width: none;
   margin: 0;
-  color: var(--text-colour--white);
+  color: #fffc;
   text-align: left;
   letter-spacing: -.055em;
   font-size: 3.4vw;
   line-height: 1.04;
+}
+/* Key phrase: IvyPresto Headline italic (300, the weight the site uses) set 1.08x, which puts its x-height (.54)
+   just above Poppins' (.55 at 1x) and makes up for its narrower, lighter letters, so the two read as one size
+   (judged from rendered type, not equal font sizes). Line height 0 keeps the H1's line spacing as Poppins sets it.
+   Its letters stand taller than Poppins', so shared/custom-js/service-hero.js levels the aside with the H1. */
+.service-hero_accent {
+  color: var(--text-colour--white);
+  font-family: var(--font-family--brand-font);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.08em;
+  letter-spacing: -.03em;
+  line-height: 0;
 }
 .service-hero_aside {
   display: flex;
@@ -195,8 +209,15 @@
   width: 98vw;
   height: 100%;
 }
+/* One route: its full-bleed photo panel and its step, side by side. The wrapper makes each route one element (one slot
+   item in Webflow) without changing the row of panels. */
+.h-process_route {
+  display: flex;
+  flex: none;
+  height: 100%;
+}
 /* The last step is a full screen wide, so the track ends on it alone, with the photo before it fully scrolled away */
-.h-process_slide:last-child {
+.h-process_route:last-child .h-process_slide {
   width: 100vw;
 }
 /* fluid.glass's slide container: the text column comes first in the DOM; is-layout-1 puts the photo on the left,
@@ -326,8 +347,13 @@
     width: auto;
     transform: none !important;
   }
+  .h-process_route {
+    flex-direction: column;
+    grid-row-gap: 7em;
+    height: auto;
+  }
   .h-process_slide,
-  .h-process_slide:last-child {
+  .h-process_route:last-child .h-process_slide {
     width: auto;
     height: auto;
     padding: 0 var(--_sizes---page-gutter);
@@ -1122,13 +1148,15 @@
   opacity: 0;
   pointer-events: none;
 }
-/* Gradient under the text: clear over the top half of the photo, darker towards the bottom edge. */
+/* Gradient under the text (3D Visualisations' treatment, now every page's): dark behind the name, description and
+   CTA, fading out by three quarters of the way up, so the upper part of the photo is left almost untouched. It sits
+   on the photo's wrapper, so it moves with the panel through the stacking. */
 .service-projects_media::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: linear-gradient(180deg, #0000001f 0%, #0000 30%, #0000 50%, #000000a6 100%);
+  background-image: linear-gradient(0deg, #000000cc 0%, #000000a3 28%, #00000047 52%, #0000 75%);
   pointer-events: none;
 }
 .service-projects_content {
@@ -1162,23 +1190,20 @@
 .wrapper_cta.service-projects_cta {
   flex: none;
 }
-/* Name and optional description, stacked at the bottom left. */
+/* Name and description, stacked at the bottom left. */
 .service-projects_info {
   display: flex;
   flex-flow: column;
   grid-row-gap: 1.6em;
 }
-/* Described panels (combo is-described, 3D only): the project's description under its name, light on the photo, at
-   reading width; the gradient reaches a little higher and darker behind it. */
+/* The project's short description (Projects CMS: the summary field, docs/webflow/cms.md) under its name, light on
+   the photo, at reading width. */
 .service-projects_text {
   max-width: 36em;
   margin: 0;
   color: #f5f4f1e0;
   font-size: max(1.6em, 15px);
   line-height: 1.5;
-}
-.service-projects_panel.is-described .service-projects_media::after {
-  background-image: linear-gradient(180deg, #0000001f 0%, #0000 25%, #00000026 45%, #000000c2 100%);
 }
 @media screen and (max-width: 991px) {
   .service-projects_panel {
@@ -1189,31 +1214,25 @@
   .service-projects_list {
     grid-row-gap: 3px;
   }
-  .service-projects_panel {
-    height: auto;
-    aspect-ratio: 4 / 5;
-  }
-  .service-projects_content {
-    flex-flow: column;
-    align-items: flex-start;
-    padding-bottom: 3.2em;
-  }
-  /* Phones: a described panel grows with its text (at least the usual 4:5) and the text sits in the flow, so long
+  /* Phones: a panel grows with its text (at least 4:5, 125vw tall) and the text sits in the flow, so long
      descriptions never run off the top of the photo. */
-  .service-projects_panel.is-described {
+  .service-projects_panel {
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
-    aspect-ratio: auto;
+    height: auto;
     min-height: 125vw;
   }
-  .service-projects_panel.is-described .service-projects_content {
+  .service-projects_content {
     position: relative;
+    flex-flow: column;
+    align-items: flex-start;
     padding-top: 14em;
+    padding-bottom: 3.2em;
   }
-  /* The text takes most of a phone panel, so the shade starts higher and ends darker. */
-  .service-projects_panel.is-described .service-projects_media::after {
-    background-image: linear-gradient(180deg, #0000001f 0%, #00000040 22%, #000000a6 50%, #000000d1 100%);
+  /* The text takes most of a phone panel, so the dark part reaches higher. */
+  .service-projects_media::after {
+    background-image: linear-gradient(0deg, #000000d6 0%, #000000ad 45%, #00000052 72%, #0000 100%);
   }
 }
 .service-projects_actions {
@@ -1517,7 +1536,14 @@
 .service-fit_marker.is-alt {
   color: #11111152;
 }
-.service-fit_link {
+/* The note is one Rich Text block (one sentence with a link), styled through its paragraphs and links, as Webflow
+   styles tags inside a Rich Text class ("All Paragraphs", "All Links"). */
+.service-fit_note-text p {
+  color: var(--theme--obsidian-base);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.service-fit_note-text a {
   color: var(--theme--obsidian-d4);
   text-underline-offset: .26em;
   padding-left: .3em;
@@ -1837,6 +1863,11 @@
   width: 100%;
   height: 100%;
   position: relative;
+}
+/* The tab's name, held by its panel and never shown there: shared/custom-js/bouncy-tabs.js builds the tab buttons
+   from these, so a tab is one element (one slot item in Webflow). */
+.bouncy-tabs__tab-name {
+  display: none;
 }
 /* Panel: process composition on a 12-column grid, the photo in columns 1-6 and the narrow reading group from column 8. */
 .bouncy-tabs__item {
@@ -3423,17 +3454,15 @@
    the 4:3 photo in columns 10-12. --rows-edge is the container content edge. Optional label in columns 1-4.
    Rows are opaque and their backgrounds run 2em past the screen edges (the list clips them). No scroll effect (the
    fan-out, shared/custom-js/service-rows.js, is no longer loaded). Rows that link (combo is-link) tint very lightly on
-   hover. Used on: Luxury and Heritage ("Looking for something else?", combo is-in-fit) and Rural ("Looking for
-   something else?", combo is-rural-boundaries). Arrow, hover zoom and stretched link:
-   shared/custom-css/service-rows.css. */
+   hover. Used on: Luxury, Heritage and Project Management ("Looking for something else?", section combo is-after-fit)
+   and Rural (section combo is-rural, rows combo is-rural-boundaries). Each block is a section of its own because the
+   rows are a Services Collection List in Webflow (docs/webflow/cms.md): the row numbers are a CSS counter and the
+   service names wrap one word per line (max-width: min-content), so CMS items carry neither. Counter, arrow, hover
+   zoom and stretched link: shared/custom-css/service-rows.css. */
 .service-rows {
   --rows-edge: max(var(--_sizes---page-gutter), calc((100% - 1800px) / 2 + var(--_sizes---page-gutter)));
   align-self: stretch;
   width: 100%;
-}
-/* Inside the fit section (Luxury): space after the fit list. */
-.service-rows.is-in-fit {
-  margin-top: 12em;
 }
 .label-wrapeper.service-rows_label {
   grid-column: 1 / 5;
@@ -3520,9 +3549,11 @@
   line-height: 1;
   letter-spacing: -.02em;
 }
+/* max-width: min-content puts each word of the service name on its own line, as the hand-set breaks did. */
 .service-rows_title {
   grid-column: 2 / 5;
   grid-row: 1;
+  max-width: min-content;
   margin: 0;
   padding-top: .16em;
   font-family: var(--font-family--brand-font);
@@ -3587,9 +3618,6 @@
   background-color: #11111124;
 }
 @media screen and (max-width: 991px) {
-  .service-rows.is-in-fit {
-    margin-top: 10em;
-  }
   .service-rows_intro {
     font-size: max(1.6em, 15px);
   }
@@ -3625,9 +3653,6 @@
 }
 /* Phone (as on the reference): title with the index at the top right, the description, then the link; no photo. */
 @media screen and (max-width: 767px) {
-  .service-rows.is-in-fit {
-    margin-top: 7em;
-  }
   .service-rows_head {
     grid-template-columns: minmax(0, 1fr);
     grid-row-gap: 1.4em;
@@ -3682,21 +3707,39 @@
   }
 }
 
-/* A standalone block in its own section (Rural). */
+/* The block's own section. */
 .section.is-service-rows {
   padding-top: 12em;
   padding-bottom: 12em;
+}
+/* After the fit section (Luxury, Heritage, Project Management): the fit section's bottom padding is the gap above the
+   rows, so this section adds none at the top (1em on small phones, where the fit section's is 1em smaller), and its
+   bottom padding is the fit section's. */
+.section.is-service-rows.is-after-fit {
+  padding-top: 0;
 }
 @media screen and (max-width: 991px) {
   .section.is-service-rows {
     padding-top: 9em;
     padding-bottom: 9em;
   }
+  .section.is-service-rows.is-after-fit {
+    padding-bottom: 10em;
+  }
 }
 @media screen and (max-width: 767px) {
   .section.is-service-rows {
     padding-top: 7em;
     padding-bottom: 7em;
+  }
+  .section.is-service-rows.is-after-fit {
+    padding-bottom: 7em;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.is-service-rows.is-after-fit {
+    padding-top: 1em;
+    padding-bottom: 6em;
   }
 }
 
@@ -4168,7 +4211,7 @@
 }
 
 /* ==================== Planning routes: wide and narrow cards ==================== */
-/* Six routes as text cards in three rows of two, from a reference bento layout: on a 5-column grid a wide card spans
+/* Eight routes as text cards in four rows of two, from a reference bento layout: on a 5-column grid a wide card spans
    3 columns and a narrow one 2, swapping sides row by row (the longer copy takes the wide card). Stone cards on the
    page colour, .6em corners, 1.2em apart; the number at the top in the brand serif, the title and text at the
    bottom. Below 768px the cards stack. Combo is-routes on the section; no sticky or scroll effects. */
@@ -4217,8 +4260,8 @@
 .service-routes_card.is-narrow {
   grid-column: span 2;
 }
-/* Tones: three steps of the site's neutral ivory scale (no hue), each used twice; rows read mid | light,
-   deep | mid, light | deep. Black titles stay above 13:1 on the deepest. */
+/* Tones: three steps of the site's neutral ivory scale (no hue), cycling card by card; rows read mid | light,
+   deep | mid, light | deep, mid | light. Black titles stay above 13:1 on the deepest. */
 .service-routes_card.is-mid {
   background-color: var(--theme--ivory-d2);
 }
@@ -4567,6 +4610,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+  }
+  /* The pill is the column's width here, so a label longer than it wraps inside the pill instead of running off the
+     screen (today's labels fit on one line). */
+  .feature-pills__item-label {
+    white-space: normal;
+    flex: 0 1 auto;
+    min-width: 0;
   }
   .feature-pills__item-inner {
     max-width: 100%;

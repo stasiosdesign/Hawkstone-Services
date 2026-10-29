@@ -3,7 +3,8 @@
    with only these adaptations (each marked "Hawkstone:" below):
    - wrapped so it runs once per page and adds no global names (the Webflow site loads other code);
    - touch-action pan-y instead of none, so a vertical swipe on the cards still scrolls the page on phones;
-   - the region's aria-label comes from [data-overlap-slider-label] (default unchanged);
+   - the region's aria-label comes from [data-overlap-slider-label], else the heading (h2) of its section (a component
+     instance can't vary the attribute), else Osmo's default;
    - external controls: the instance exposes goToSlide() and its index on the init element (init.overlapSlider), and
      dispatches "overlapslider:change" ({ index }) whenever the nearest card changes: while dragging or throwing,
      from the arrow keys and from goToSlide(). After a drag the keyboard continues from the card it settled on.
@@ -175,7 +176,9 @@ function initOverlappingSlider() {
     // Aria labels for accessibility
     wrap.setAttribute("role", "region");
     wrap.setAttribute("aria-roledescription", "carousel");
-    wrap.setAttribute("aria-label", init.getAttribute('data-overlap-slider-label') || "Testimonial slider"); // Hawkstone: label from the markup
+    // Hawkstone: label from the markup, else the heading of the section the slider sits in
+    const sectionHeading = init.closest("section")?.querySelector("h2");
+    wrap.setAttribute("aria-label", init.getAttribute('data-overlap-slider-label') || sectionHeading?.textContent.trim() || "Testimonial slider");
 
     // key listener
     function onKey(e) {

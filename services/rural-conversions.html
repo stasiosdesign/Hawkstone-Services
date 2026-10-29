@@ -299,22 +299,22 @@
 </div>
 <div class="page-wrapper is-service is-rural">
     <!-- Shared section: Hero (Service Hero component) -->
-    <!--#include file="/shared/partials/service-hero.html" image="temp-barn-brick-courtyard" label="Free Consultation" heading="Barn Conversion Architecture for Derbyshire, Staffordshire &amp; Cheshire" text="You own, or are about to buy, a barn, stable block, outbuilding or agricultural shed, and you want to know two things: can it become a home, and what will it take to get there?" -->
+    <!--#include file="/shared/partials/service-hero.html" image="temp-barn-brick-courtyard" label="Free Consultation" heading-accent="Barn Conversion" heading-end=" Architecture for Derbyshire, Staffordshire &amp; Cheshire" text="You own, or are about to buy, a barn, stable block, outbuilding or agricultural shed, and you want to know two things: can it become a home, and what will it take to get there?" -->
     <!-- Page section: Building types (rotating headline + Osmo Expanding Feature Pills). The pills keep Osmo's
          markup, classes and data-feature-pills-* attributes; script shared/custom-js/feature-pills.js, state CSS
          shared/custom-css/feature-pills.css. Pills and visuals are matched by order: keep the same count in both. -->
-    <section class="section is-rural-showcase">
+    <section data-migrate-component="Rural Building Types" class="section is-rural-showcase">
       <div class="rural-showcase_content">
         <h2 data-step-duration="2" data-rotating-title="" data-words="planning, design, structural" class="rotating-text__heading">Every barn presents a different <span class="rotating-text__highlight">planning</span> problem. That&#x27;s where we start.</h2>
       </div>
       <div class="service-pills">
-        <div data-feature-pills-active="false" aria-label="Building types" data-feature-pills-init="" data-edit-mode="false" class="feature-pills__wrap is-service">
+        <div data-migrate-component="Service Feature Pills" data-feature-pills-active="false" aria-label="Types of projects" data-feature-pills-init="" data-edit-mode="false" class="feature-pills__wrap is-service">
           <div class="feature-pills__layout">
             <div class="feature-pills__col">
               <div data-feature-pills-collection="" class="feature-pills__info-collection">
-                <h3 class="service-pills_heading">Types of barns<br>we work with</h3>
-                <ul role="list" data-feature-pills-list="" class="feature-pills__info-list is-service">
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+                <h3 class="service-pills_heading">Types of projects<br>we work with</h3>
+                <ul role="list" data-feature-pills-list="" data-migrate-slot="Pills" class="feature-pills__info-list is-service">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Stable block</span>
@@ -333,7 +333,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Steel portal frame</span>
@@ -352,7 +352,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Dutch barn</span>
@@ -371,7 +371,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Farm outbuilding</span>
@@ -390,7 +390,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Stone threshing barn</span>
@@ -414,20 +414,20 @@
             </div>
             <div class="feature-pills__col is--visual">
               <div class="feature-pills__visual-collection">
-                <div class="feature-pills__visual-list">
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+                <div data-migrate-slot="Pill Photos" class="feature-pills__visual-list">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
                 </div>
@@ -459,12 +459,11 @@
          a stone panel with the number, the title and the text; the second card ends with the Free Consultation Main CTA.
          No scroll effects. The cards stack below 768px. Panels in the language of Luxury's "Budget & planning certainty" cards:
          the title on a hairline, then the number beside a vertical rule and the text. Styles: service-pair* in
-         shared/css/service-pages.css.
-         Keeps data-nav-show-after for the floating navigation. -->
-    <section data-nav-show-after="true" class="section is-service-pair">
+         shared/css/service-pages.css. -->
+    <section data-migrate-component="Service Pair Cards" class="section is-service-pair">
       <div class="container">
-        <div class="service-pair">
-          <article class="service-pair_card">
+        <div data-migrate-slot="Cards" class="service-pair">
+          <article data-migrate-item="Service Pair Card" class="service-pair_card">
             <div class="service-pair_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 48vw" decoding="async" loading="lazy" alt="" class="service-pair_img"></div>
             <div class="service-pair_info">
               <h2 class="service-pair_title">Modern farm buildings <br class="service-br">&amp; steel frame barn conversions</h2>
@@ -477,7 +476,7 @@
               </div>
             </div>
           </article>
-          <article class="service-pair_card">
+          <article data-migrate-item="Service Pair Card" class="service-pair_card">
             <div class="service-pair_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 48vw" decoding="async" loading="lazy" alt="" class="service-pair_img"></div>
             <div class="service-pair_info">
               <h2 class="service-pair_title">Barns, stables, outbuildings <br class="service-br">&amp; agricultural buildings</h2>
@@ -501,9 +500,13 @@
         </div>
       </div>
     </section>
-    <!-- Page section: Planning routes. Header row (heading and intro), then three expanding photo cards, one per route.
-         Card 03 covers Class R (flexible commercial use). Styles: service-tiers* in services/css/rural-conversions.css. -->
-    <section id="statement-plan-approved" class="section is-service-tiers is-dark">
+    <!-- Page element: Nav trigger. The floating navigation (global) appears once the bottom of the first
+         [data-nav-show-after="true"] element scrolls past the top of the screen; this empty marker sits right after the
+         section it should follow, so no component carries a page-specific attribute. -->
+    <div data-nav-show-after="true"></div>
+    <!-- Page section: Planning routes. Header row (heading and intro), then four expanding photo cards, one per route.
+         Card 03 covers Class R (flexible commercial use), card 04 farm diversification. Styles: service-tiers* in shared/css/service-pages.css. -->
+    <section data-migrate-component="Service Expanding Tiers" id="statement-plan-approved" class="section is-service-tiers is-dark">
       <div class="container">
         <div class="service-editorial_head">
           <h2 class="service-editorial_heading is-dark is-three-line">Barn conversion <br class="service-br">planning permission: <br class="service-br">Class&nbsp;Q or full planning</h2>
@@ -512,13 +515,13 @@
           </div>
         </div>
         <!-- Expanding cards (from the reference screenshot; motion studied from Osmo's Wavy Accordion, without its bending
-             edges or shader): three photo cards in a row, one open. Hover, focus or tap opens a card; it widens on a
+             edges or shader): four photo cards in a row, one open. Hover, focus or tap opens a card; it widens on a
              critically damped spring while the others narrow, and its text is revealed. Collapsed cards show only the
              number and title. Below 992px the cards stack and open in height. Not links. Script
              shared/custom-js/service-tiers.js (is-active combo); styles service-tiers* in shared/css/service-pages.css. -->
         <div data-service-tiers="" class="service-tiers">
-          <div role="list" class="service-tiers_list">
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card is-active">
+          <div role="list" data-migrate-slot="Cards" class="service-tiers_list">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">01</span>
@@ -531,7 +534,7 @@
                 </div>
               </div>
             </article>
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">02</span>
@@ -544,7 +547,7 @@
                 </div>
               </div>
             </article>
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">03</span>
@@ -558,15 +561,29 @@
                 </div>
               </div>
             </article>
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
+              <img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
+              <div class="service-tiers_shade"></div>
+              <span class="service-tiers_number">04</span>
+              <div class="service-tiers_content">
+                <h3 class="service-tiers_title">Farm diversification</h3>
+                <div class="service-tiers_reveal">
+                  <div class="service-tiers_reveal-inner">
+                    <!-- Farm diversification copy written 29 Oct 2026 from GOV.UK planning guidance and the NPPF's support for
+                         rural businesses reusing existing buildings; Class R is named as one route, not the general one. -->
+                    <p class="service-tiers_text">Farm diversification gives agricultural buildings the farm no longer needs a new use and a new income: workshops, offices, storage or light industrial units, a farm shop, holiday lets. Some changes of use can follow Class R; many need a full planning application, judged on access, noise, neighbours and landscape. Planning policy generally supports reusing rural buildings, and we build the case around the building and the business.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
     <!-- Shared section: Sticky cards ("Our approach"; the same structure as Luxury's "Budget and planning certainty"):
          a light grey band; the left panel (label, heading, intro) is sticky while the stages scroll past on the right as
-         photo cards. Styles: service-cards* and the is-band combos in shared/css/service-pages.css. Keeps
-         data-nav-show-after for the floating navigation. -->
-    <section data-nav-show-after="true" class="section service-cards is-band">
+         photo cards. Styles: service-cards* and the is-band combos in shared/css/service-pages.css. -->
+    <section data-migrate-component="Service Sticky Cards" class="section service-cards is-band">
       <div class="service-cards_layout is-band">
         <div class="service-cards_left">
           <div class="service-cards_sticky">
@@ -578,34 +595,34 @@
             <p class="service-cards_intro">The most expensive mistake in this type of project is designing a scheme the building can’t support or the council won’t approve. So we start with feasibility:</p>
           </div>
         </div>
-        <div class="service-cards_right">
-          <article class="service-cards_card is-band">
+        <div data-migrate-slot="Cards" class="service-cards_right">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Structural condition</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">01</p>
-                <p class="service-cards_text">Can the walls, frame and foundations take conversion? Planning law expects a genuine conversion, not a new build barn conversion in disguise — if the building would effectively need rebuilding, the route and the risks change, and you should know that before committing to design fees.</p>
+                <div class="service-cards_text"><p>Can the walls, frame and foundations take conversion? Planning law expects a genuine conversion, not a new build barn conversion in disguise — if the building would effectively need rebuilding, the route and the risks change, and you should know that before committing to design fees.</p></div>
               </div>
             </div>
           </article>
-          <article class="service-cards_card is-band">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Surveys</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">02</p>
-                <p class="service-cards_text">A measured survey to design from, a structural engineer’s appraisal, and where relevant an ecology and bat survey or contamination assessment. We tell you which are actually needed for your building and sequence them so nothing is paid for twice.</p>
+                <div class="service-cards_text"><p>A measured survey to design from, a structural engineer’s appraisal, and where relevant an ecology and bat survey or contamination assessment. We tell you which are actually needed for your building and sequence them so nothing is paid for twice.</p></div>
               </div>
             </div>
           </article>
-          <article class="service-cards_card is-band">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Access and services</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">03</p>
-                <p class="service-cards_text">Highways access, water, drainage and power — unglamorous, but they decide budgets and sometimes planning outcomes.</p>
+                <div class="service-cards_text"><p>Highways access, water, drainage and power — unglamorous, but they decide budgets and sometimes planning outcomes.</p></div>
               </div>
             </div>
           </article>
@@ -615,9 +632,9 @@
     <!-- Shared section: Projects (Service Projects component). The three projects are TEMPORARY page data, not the final
          selection: in Webflow the cards come from the Projects collection filtered by Project Type. See the partial and
          docs/webflow-migration.md 7a. -->
-    <!--#include file="/shared/partials/service-projects.html" p1-slug="barrow" p1-name="Barrow House" p1-image="temp-house-gable-exterior" p2-slug="farm-diversification-scheme-1" p2-name="Farm Diversification Scheme 1" p2-image="temp-barn-brick-courtyard" p3-slug="barn-conversion-1" p3-name="Barn Conversion 1" p3-image="temp-house-contemporary-dark" label="Projects" black="true" -->
+    <!--#include file="/shared/partials/service-projects.html" p1-slug="barrow" p1-name="Barrow House" p1-image="temp-house-gable-exterior" p1-text="[Project description to come from the Projects CMS]" p2-slug="farm-diversification-scheme-1" p2-name="Farm Diversification Scheme 1" p2-image="temp-barn-brick-courtyard" p2-text="[Project description to come from the Projects CMS]" p3-slug="barn-conversion-1" p3-name="Barn Conversion 1" p3-image="temp-house-contemporary-dark" p3-text="The conversion of an agricultural building into a home, where the quality of the scheme depends almost entirely on how new glazing and openings sit within the retained structure." label="Projects" black="true" -->
     <!-- Page section: Design (split text row on a dark background) -->
-    <section class="rural-design-section">
+    <section data-migrate-component="Rural Design" class="rural-design-section">
       <div class="container"></div>
       <div class="container">
         <div class="container blog-page is-service-split">
@@ -641,7 +658,7 @@
          "Looking for something else?" (the two services the old boundaries paragraph pointed to) as service rows (shared
          component) on the page colour, the heading aligned with the row titles (is-at-title). Styles: rural-clients* in
          services/css/rural-conversions.css; service-rows* in shared/css/service-pages.css. -->
-    <section class="section is-rural-clients">
+    <section data-migrate-component="Rural Who We Work With" class="section is-rural-clients">
       <div class="rural-clients_band">
         <div class="container">
           <h2 class="rural-clients_heading">Who we work with</h2>
@@ -656,27 +673,35 @@
             </div>
             <div role="listitem" class="rural-clients_col">
               <p class="rural-clients_number">03</p>
-              <p class="rural-clients_text">A developer planning a small rural residential scheme</p>
+              <p class="rural-clients_text">A developer planning a small rural residential, commercial or industrial scheme</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <!-- CMS section: "Looking for something else?" (Services collection; docs/webflow/cms.md). Header static; one row per
+         Services item (Rural: two chosen services with this page’s own descriptions, see
+         docs/webflow/pages/rural-conversions.md). Rows are numbered by a CSS counter and the service names wrap one word
+         per line (max-width: min-content), so CMS items need no number or line break. Styles:
+         service-rows* in shared/css/service-pages.css; counter, stretched link and hover in
+         shared/custom-css/service-rows.css. -->
+    <section data-migrate-cms="Services" class="section is-service-rows is-rural">
       <div class="service-rows is-rural-boundaries">
         <div class="service-rows_head">
           <h3 class="service-rows_heading is-at-title">Looking for<br>something else?</h3>
         </div>
-        <div class="service-rows_list">
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">01</p>
-            <h4 class="service-rows_title">Heritage<br>Design</h4>
+        <div data-migrate-list="Services" class="service-rows_list">
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
+            <h4 class="service-rows_title">Heritage Design</h4>
             <a href="/services/heritage-design" aria-label="View Heritage Design service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">If your barn is listed or in a conservation area, the project is heritage-led, see our Listed Buildings service.</p>
             <div class="service-rows_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">02</p>
-            <h4 class="service-rows_title">Luxury<br>Architecture</h4>
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
+            <h4 class="service-rows_title">Luxury Architecture</h4>
             <a href="/services/luxury-architecture" aria-label="View Luxury Architecture service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">If what you actually want is a new house on a rural plot rather than a conversion, that’s our Luxury Architecture service.</p>
             <div class="service-rows_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
@@ -686,7 +711,7 @@
       </div>
     </section>
     <!-- Shared section: FAQ (accordion-css global classes; rich text is-service) -->
-    <div class="section padding-top padding-large-1">
+    <div data-migrate-component="Service FAQ" class="section padding-top padding-large-1">
       <div class="container margin-bottom margin-medium-2">
         <div data-wf--sub-heading--variant="2-1-left-black-text" class="heading-wrapper w-variant-732c0b0b-8a1e-3936-aefc-64c279357b4f">
           <div class="div-block-41 w-variant-732c0b0b-8a1e-3936-aefc-64c279357b4f">
@@ -701,8 +726,8 @@
         </div>
       </div>
       <div data-accordion-close-siblings="true" data-accordion-css-init="" class="accordion-css is-service">
-        <div class="accordion-css__list">
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+        <div data-migrate-slot="Questions" class="accordion-css__list">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I need planning permission for a barn conversion?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -719,7 +744,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Does my barn qualify for Class Q permitted development?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -736,7 +761,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What happens if my barn doesn’t qualify for Class Q?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -753,7 +778,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can a modern steel-framed or block agricultural building be converted?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -770,7 +795,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Is it a conversion or a rebuild?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -787,7 +812,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What surveys are needed for a barn conversion?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -804,7 +829,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How long does a barn conversion take?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -821,7 +846,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can I extend a barn as part of the conversion?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -838,7 +863,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I pay VAT on a barn conversion?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -868,6 +893,7 @@
 <script src="../shared/custom-js/rotating-text.js"></script>
 <script src="../shared/custom-js/service-tiers.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
+<script src="../shared/custom-js/service-hero.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>
 </html>

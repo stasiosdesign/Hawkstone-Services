@@ -3,7 +3,9 @@
   "private": true,
   "description": "Hawkstone's six service pages, built for design review before the Webflow rebuild",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "migration:check": "node scripts/migration-check.mjs",
+    "migration:inventory": "node scripts/migration-check.mjs --write"
   },
   "engines": {
     "node": ">=18"

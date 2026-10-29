@@ -316,12 +316,12 @@
 </div>
 <div class="page-wrapper is-service">
     <!-- Shared section: Hero (Service Hero component) -->
-    <!--#include file="/shared/partials/service-hero.html" image="temp-interior-vaulted-lounge" label="Book a free consultation" heading="Architectural Visualisation &amp; 3D CGI for Residential Projects" text="See your home as it will actually be built, before you commit to building it. We produce high-resolution architectural CGI for new homes, extensions, barn conversions and heritage projects across Derbyshire, Staffordshire and Cheshire, and for clients further afield." -->
+    <!--#include file="/shared/partials/service-hero.html" image="temp-interior-vaulted-lounge" label="Free Consultation" heading-accent="Architectural Visualisation" heading-end=" &amp; 3D CGI for Residential Projects" text="See your home as it will actually be built, before you commit to building it. We produce high-resolution architectural CGI for new homes, extensions, barn conversions and heritage projects across Derbyshire, Staffordshire and Cheshire, and for clients further afield." -->
     <!-- Shared section: Overlapping rows ("Who we produce visualisations for"; copies storeyarchitecture.co.uk, as on
          Planning Applications): label and heading, then one full-width row per client type, each sinking under the next
          as the page scrolls. Styles: service-overlap* in shared/css/service-pages.css; script
          shared/custom-js/service-overlap.js. -->
-    <section class="section is-service-overlap">
+    <section data-migrate-component="Service Overlapping Rows" class="section is-service-overlap">
       <div class="container">
         <div class="service-overlap_head">
           <div class="label-wrapeper service-overlap_label">
@@ -331,8 +331,8 @@
           <h3 class="service-overlap_heading">Who we produce<br>visualisations for</h3>
         </div>
       </div>
-      <div data-service-overlap="" class="service-overlap_list">
-        <article data-service-overlap-row="" class="service-overlap_row">
+      <div data-service-overlap="" data-migrate-slot="Rows" class="service-overlap_list">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">Homeowners and self-builders</h3>
             <p class="service-overlap_text">You are planning a new home, a substantial extension or a full redesign, and you want to understand the design properly before committing to construction. Most people find it difficult to judge scale, light and materials from plans and elevations alone. Visualisation removes that guesswork at the point where changes are still cheap.</p>
@@ -341,7 +341,7 @@
           </div>
           <div data-service-overlap-shade="" class="service-overlap_shade"></div>
         </article>
-        <article data-service-overlap-row="" class="service-overlap_row">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">Landowners and small developers</h3>
             <p class="service-overlap_text">You need photorealistic CGI to support a planning application, a funding conversation, a public consultation, or the marketing of a scheme before it is built.</p>
@@ -350,7 +350,7 @@
           </div>
           <div data-service-overlap-shade="" class="service-overlap_shade"></div>
         </article>
-        <article data-service-overlap-row="" class="service-overlap_row">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">Architects and design practices</h3>
             <p class="service-overlap_text">You have completed the design and need someone to translate it into high-quality imagery. We work from your information and to your intent, and we do not approach your client.</p>
@@ -366,15 +366,15 @@
          deliverable's own opening words, the body its full text. Pills and visuals are matched by order: keep the same
          count in both. Styles: feature pills in shared/css/service-pages.css; state CSS shared/custom-css/feature-pills.css;
          script shared/custom-js/feature-pills.js. -->
-    <section data-nav-show-after="true" class="section is-service-pills">
+    <section data-migrate-wrapper="" class="section is-service-pills">
       <div class="service-pills">
-        <div data-feature-pills-active="false" aria-label="What you receive" data-feature-pills-init="" data-edit-mode="false" class="feature-pills__wrap is-service">
+        <div data-migrate-component="Service Feature Pills" data-feature-pills-active="false" aria-label="What you receive" data-feature-pills-init="" data-edit-mode="false" class="feature-pills__wrap is-service">
           <div class="feature-pills__layout">
             <div class="feature-pills__col">
               <div data-feature-pills-collection="" class="feature-pills__info-collection">
                 <h2 class="service-pills_heading">What you receive</h2>
-                <ul role="list" data-feature-pills-list="" class="feature-pills__info-list is-service">
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+                <ul role="list" data-feature-pills-list="" data-migrate-slot="Pills" class="feature-pills__info-list is-service">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">An accurate 3D model</span>
@@ -391,7 +391,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Camera viewpoints</span>
@@ -408,7 +408,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Realistic materials</span>
@@ -425,7 +425,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Draft images</span>
@@ -442,7 +442,7 @@
                 </div>
               </div>
             </li>
-            <li data-feature-pills-item="" data-active="false" class="feature-pills__info-item">
+            <li data-feature-pills-item="" data-active="false" data-migrate-item="Service Feature Pill" class="feature-pills__info-item">
               <div class="feature-pills__item-bg"></div>
               <button data-feature-pills-button="" aria-expanded="false" class="feature-pills__item-button">
                 <span class="feature-pills__item-label">Final high-resolution images</span>
@@ -464,20 +464,20 @@
             </div>
             <div class="feature-pills__col is--visual">
               <div class="feature-pills__visual-collection">
-                <div class="feature-pills__visual-list">
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+                <div data-migrate-slot="Pill Photos" class="feature-pills__visual-list">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
-            <div aria-hidden="true" data-feature-pills-visual="" class="feature-pills__visual-item">
+            <div aria-hidden="true" data-feature-pills-visual="" data-migrate-item="Service Feature Pill Photo" class="feature-pills__visual-item">
               <img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 991px) 90vw, 45vw" decoding="async" loading="lazy" alt="" class="feature-pills__visual-img">
             </div>
                 </div>
@@ -496,9 +496,13 @@
         </div>
       </div>
     </section>
+    <!-- Page element: Nav trigger. The floating navigation (global) appears once the bottom of the first
+         [data-nav-show-after="true"] element scrolls past the top of the screen; this empty marker sits right after the
+         section it should follow, so no component carries a page-specific attribute. -->
+    <div data-nav-show-after="true"></div>
     <!-- Shared section: Split text (split rows) -->
-    <div class="section is-service-split">
-      <div class="container">
+    <div data-migrate-component="Service Split Text" data-migrate-slot="Rows" class="section is-service-split">
+      <div data-migrate-item="Service Split Row" class="container">
         <div class="container blog-page is-service-split">
           <div class="row is-service-split">
             <div class="col col-lg-4 col-md-12 is-sticky">
@@ -514,7 +518,7 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div data-migrate-item="Service Split Row" class="container">
         <div class="container blog-page is-service-split">
           <div class="row is-service-split">
             <div class="col col-lg-4 col-md-12 is-sticky">
@@ -533,67 +537,74 @@
       </div>
     </div>
     <!-- Shared section: Bouncy tabs (Osmo bouncy tabs) -->
-    <section class="section">
+    <section data-migrate-component="Service Tabs" class="section">
       <div data-bouncy-tabs-init="" class="bouncy-tabs is-tab-bar">
         <div class="wrapper_statement">
           <h2 data-highlight-text="" class="heading-statement is-service-tabs">What we can produce</h2>
         </div>
         <div data-bouncy-tabs-nav="" role="tablist" class="bouncy-tabs__nav">
           <div data-bouncy-tabs-ghost="" class="bouncy-tabs__ghost"></div>
-          <div data-bouncy-tabs-indicator="" class="bouncy-tabs__indicator"></div><button data-bouncy-tabs-button="" data-active="" role="tab" class="bouncy-tabs__button">Exterior</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Interior</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Aerial</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Dusk</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Materials</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Animation</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Virtual reality</button>
+          <div data-bouncy-tabs-indicator="" class="bouncy-tabs__indicator"></div>
         </div>
         <div data-bouncy-tabs-card="" class="bouncy-tabs__collection">
-          <div data-bouncy-tabs-panels="" class="bouncy-tabs__list">
-            <div data-active="" data-bouncy-tabs-panel="" role="tabpanel" class="bouncy-tabs__item">
+          <div data-bouncy-tabs-panels="" data-migrate-slot="Tabs" class="bouncy-tabs__list">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Exterior</p>
                 <p class="bouncy-tabs__label">01</p>
                 <h3 class="bouncy-tabs__heading">Exterior visualisation</h3>
                 <p class="bouncy-tabs__para">The standard commission. Agreed views of the proposed building in its setting.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/hero-farmhouse-aerial-960.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Interior</p>
                 <p class="bouncy-tabs__label">02</p>
                 <h3 class="bouncy-tabs__heading">Interior visualisation</h3>
                 <p class="bouncy-tabs__para">Key internal spaces, showing layout, light, finishes and the relationship between rooms.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Aerial</p>
                 <p class="bouncy-tabs__label">03</p>
                 <h3 class="bouncy-tabs__heading">Aerial and contextual views</h3>
                 <p class="bouncy-tabs__para">Useful where the relationship to the site, to neighbouring buildings or to the wider landscape is the point being made.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Dusk</p>
                 <p class="bouncy-tabs__label">04</p>
                 <h3 class="bouncy-tabs__heading">Dusk and evening scenes</h3>
                 <p class="bouncy-tabs__para">Lighting design, glazing and the way the building reads after dark.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Materials</p>
                 <p class="bouncy-tabs__label">05</p>
                 <h3 class="bouncy-tabs__heading">Material and finish options</h3>
                 <p class="bouncy-tabs__para">The same view rendered with alternative palettes, so you can compare properly rather than imagine.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Animation</p>
                 <p class="bouncy-tabs__label">06</p>
                 <h3 class="bouncy-tabs__heading">Animation and walkthroughs</h3>
                 <p class="bouncy-tabs__para">Moving imagery for presentations, consultations and marketing.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Virtual reality</p>
                 <p class="bouncy-tabs__label">07</p>
                 <h3 class="bouncy-tabs__heading">Virtual reality content</h3>
                 <p class="bouncy-tabs__para">For schemes that benefit from being walked through at full scale.</p>
@@ -609,7 +620,7 @@
          project type, all closed at first. Clicking a card opens it (the photo grows, the text is revealed) and closes the
          one that was open. Styles: service-expand* in shared/css/service-pages.css; script shared/custom-js/service-expand.js;
          shared/custom-css/service-expand.css. -->
-    <section class="section is-service-expand is-dark">
+    <section data-migrate-component="Service Expanding List" class="section is-service-expand is-dark">
       <div class="container">
         <div class="service-expand_head">
           <div class="label-wrapeper service-expand_label">
@@ -619,49 +630,49 @@
           <h2 class="service-expand_heading">The projects we visualise</h2>
           <p class="service-expand_intro">Most of the visualisation work we do sits alongside one of our other services. If your project is one of these, the imagery and the design can be handled by the same practice, which usually makes both faster and cheaper than running them separately.</p>
         </div>
-        <div data-service-expand="" class="service-expand_list">
-          <article data-service-expand-item="" class="service-expand_item">
+        <div data-service-expand="" data-migrate-slot="Items" class="service-expand_list">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">01</p>
             <div class="service-expand_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-01" class="service-expand_button">New homes, replacement dwellings and major extensions</button></h3>
-              <div id="visualise-type-01" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">New homes, replacement dwellings and major extensions</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Where the whole point is what the building will look like when it is finished, and where the client is making decisions about form, glazing and materials that are difficult to judge on paper. See our work on luxury architecture and bespoke homes.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">02</p>
             <div class="service-expand_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-02" class="service-expand_button">Barn and rural conversions</button></h3>
-              <div id="visualise-type-02" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Barn and rural conversions</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">A converted barn is unusually hard to picture from drawings, because most of the interest lies in what is retained rather than what is added. Visualisation helps both you and the planning authority understand how new openings, glazing and interventions sit within the existing structure. See our work on rural conversions.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">03</p>
             <div class="service-expand_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-03" class="service-expand_button">Listed buildings and conservation areas</button></h3>
-              <div id="visualise-type-03" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Listed buildings and conservation areas</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Where a contemporary addition has to be justified to a conservation officer, an accurate image of old and new together is often more persuasive than any amount of written argument. See our work on heritage projects.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">04</p>
             <div class="service-expand_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="visualise-type-04" class="service-expand_button">Designs by other practices</button></h3>
-              <div id="visualise-type-04" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Designs by other practices</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">We regularly work from another practice&#x27;s completed design, producing imagery to their brief and under their direction.</p>
                 </div>
@@ -675,7 +686,7 @@
          intro at the left (label, heading, dark square previous/next buttons), the seven step cards to the right in the
          Osmo Overlapping Slider (shared/custom-js/overlapping-slider.js), square step indicators under them. Arrows and
          indicators: shared/custom-js/service-slider.js. Styles: service-slider* in shared/css/service-pages.css. -->
-    <section data-service-slider="" data-nav-show-after="true" class="section service-slider">
+    <section data-migrate-component="Service Process Slider" data-service-slider="" class="section service-slider">
       <div class="service-slider_layout">
         <div class="service-slider_intro">
           <div class="label-wrapeper service-slider_label">
@@ -695,8 +706,8 @@
         <div class="service-slider_carousel">
           <div data-overlap-slider-init="" data-scale="0.45" data-rotate="-8" data-overlap-slider-label="Visualisation process steps" class="overlapping-slider__wrap service-slider_slider">
             <div data-overlap-slider-collection="" class="overlapping-slider__collection">
-              <div data-overlap-slider-list="" class="overlapping-slider__list service-slider_track">
-              <div data-overlap-slider-item="" data-service-slider-step="Visualisation brief" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-list="" data-migrate-slot="Steps" class="overlapping-slider__list service-slider_track">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -710,7 +721,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Information review" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -724,7 +735,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="3D modelling" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -738,7 +749,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Viewpoint selection" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -752,7 +763,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Materials, lighting and context" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -766,7 +777,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Draft visuals and review" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -780,7 +791,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Final rendering" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -808,7 +819,7 @@
          former Recent Projects cards. See the partial and docs/webflow-migration.md 7a. -->
     <!--#include file="/shared/partials/service-projects.html" label="Recent work" heading="Projects where the design was resolved visually before it was resolved on site." no-actions="true" p1-slug="sandborough-house-farmhouse" p1-name="Sandboro House Farm, Staffordshire" p1-image="hero-farmhouse-aerial" p1-small="960" p1-large="1600" p1-text="A £1.65m transformation of a farmhouse and its outbuildings into a single family home. The scale of the intervention, and the relationship between the retained buildings and the new work, made this a project that had to be understood in three dimensions long before it was committed to." p2-slug="furs-house" p2-name="Furs House" p2-image="temp-house-gable-exterior" p2-text="The complete transformation of an existing bungalow into a contemporary family home. Projects like this are consistently undersold by drawings, because the finished house bears so little relation to what is there now." p3-slug="barn-conversion-1" p3-name="Barn Conversion, Tean" p3-image="temp-barn-brick-courtyard" p3-text="The conversion of an agricultural building into a home, where the quality of the scheme depends almost entirely on how new glazing and openings sit within the retained structure." -->
     <!-- Shared section: Inline CTA (service-cta), combo is-boxed: a stone panel instead of the two rules (3D CSS) -->
-    <div class="section">
+    <div data-migrate-component="Service Inline CTA" class="section">
       <div class="container">
         <div class="service-cta is-boxed">
           <p class="service-cta_text">More of our residential and rural work.</p>
@@ -827,7 +838,7 @@
          photo cards in a row with one open. Hover, focus or tap opens a card; collapsed cards show the number and title;
          below 992px they stack and open in height. Styles: service-tiers* in shared/css/service-pages.css (heading combo
          is-visuals in services/css/3d-visualisations.css); script shared/custom-js/service-tiers.js. -->
-    <section class="section is-service-tiers">
+    <section data-migrate-component="Service Expanding Tiers" class="section is-service-tiers">
       <div class="container">
         <div class="service-editorial_head">
           <h2 class="service-editorial_heading is-visuals">Architectural visualisation <br class="service-br">service options</h2>
@@ -842,8 +853,8 @@
           </div>
         </div>
         <div data-service-tiers="" class="service-tiers">
-          <div role="list" class="service-tiers_list">
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card is-active">
+          <div role="list" data-migrate-slot="Cards" class="service-tiers_list">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">01</span>
@@ -856,7 +867,7 @@
                 </div>
               </div>
             </article>
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">02</span>
@@ -869,7 +880,7 @@
                 </div>
               </div>
             </article>
-            <article role="listitem" tabindex="0" data-service-tiers-card="" class="service-tiers_card">
+            <article role="listitem" tabindex="0" data-service-tiers-card="" data-migrate-item="Service Tier Card" class="service-tiers_card">
               <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 50vw" decoding="async" loading="lazy" alt="" class="service-tiers_img">
               <div class="service-tiers_shade"></div>
               <span class="service-tiers_number">03</span>
@@ -887,7 +898,7 @@
       </div>
     </section>
     <!-- Shared section: FAQ (accordion-css global classes; rich text is-service) -->
-    <div class="section padding-top padding-large-1">
+    <div data-migrate-component="Service FAQ" class="section padding-top padding-large-1">
       <div class="container margin-bottom margin-medium-2">
         <div data-wf--sub-heading--variant="2-1-left-black-text" class="heading-wrapper w-variant-732c0b0b-8a1e-3936-aefc-64c279357b4f">
           <div class="div-block-41 w-variant-732c0b0b-8a1e-3936-aefc-64c279357b4f">
@@ -902,8 +913,8 @@
         </div>
       </div>
       <div data-accordion-close-siblings="true" data-accordion-css-init="" class="accordion-css is-service">
-        <div class="accordion-css__list">
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+        <div data-migrate-slot="Questions" class="accordion-css__list">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What is architectural 3D visualisation?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -920,7 +931,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How much does an architectural CGI cost?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -937,7 +948,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How long does a 3D architectural render take?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -954,7 +965,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What information do you need to create a CGI?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -971,7 +982,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I need to provide an existing 3D model?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -988,7 +999,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How many revisions are included?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -1005,7 +1016,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can CGI images support a planning application?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -1022,7 +1033,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can you visualise a design created by another practice?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -1039,7 +1050,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can you produce interiors, aerial views, animations and walkthroughs?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -1071,6 +1082,7 @@
 <script src="../shared/custom-js/service-expand.js"></script>
 <script src="../shared/custom-js/service-tiers.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
+<script src="../shared/custom-js/service-hero.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>
 </html>

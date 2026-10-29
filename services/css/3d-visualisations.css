@@ -102,16 +102,3 @@
     padding: 3.2em 2.4em;
   }
 }
-
-/* ==================== Projects: text contrast (described panels on this page) ==================== */
-/* A gradient from the bottom edge, fading out by three quarters of the way up: dark behind the name, description and
-   CTA, the upper part of the photo left almost untouched. It sits on the photo's wrapper, so it moves with the panel
-   through the stacking. Phones: the text takes most of the panel, so the dark part reaches higher. */
-.service-projects_panel.is-described .service-projects_media::after {
-  background-image: linear-gradient(0deg, #000000cc 0%, #000000a3 28%, #00000047 52%, #0000 75%);
-}
-@media screen and (max-width: 767px) {
-  .service-projects_panel.is-described .service-projects_media::after {
-    background-image: linear-gradient(0deg, #000000d6 0%, #000000ad 45%, #00000052 72%, #0000 100%);
-  }
-}
