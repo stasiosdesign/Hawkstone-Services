@@ -6,7 +6,8 @@
    step shows as a wider square with its name, the others as small squares; clicking one goes to that step. Both follow
    the slider however it moves (drag, throw, arrow keys, buttons).
    Needs: overlapping-slider.js. Hooks: [data-service-slider] (root), [data-overlap-slider-init] (the slider, which
-   exposes overlapSlider and fires "overlapslider:change"), [data-service-slider-step] (slide, its value the step name),
+   exposes overlapSlider and fires "overlapslider:change"), [data-overlap-slider-item] (a slide; its step name is its
+   card title, .service-slider_title, without a closing full stop, or a data-service-slider-step value if one is set),
    [data-service-slider-prev], [data-service-slider-next], [data-service-slider-pagination].
    Wrapped so it runs once per page and adds no global names (the Webflow site loads other code). */
 (() => {
@@ -19,7 +20,7 @@
 
   function setup(root) {
     const slider = root.querySelector('[data-overlap-slider-init]');
-    const slides = Array.from(root.querySelectorAll('[data-service-slider-step]'));
+    const slides = Array.from(root.querySelectorAll('[data-overlap-slider-item]'));
     const pagination = root.querySelector('[data-service-slider-pagination]');
     const prev = root.querySelector('[data-service-slider-prev]');
     const next = root.querySelector('[data-service-slider-next]');
@@ -28,7 +29,8 @@
 
     // Pagination: one button per step; the label shows only on the current one (CSS).
     const dots = slides.map((slide, i) => {
-      const name = slide.getAttribute('data-service-slider-step');
+      const title = slide.querySelector('.service-slider_title');
+      const name = slide.getAttribute('data-service-slider-step') || (title ? title.textContent.trim().replace(/\.$/, '') : '');
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'service-slider_dot';

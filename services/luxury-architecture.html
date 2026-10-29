@@ -302,87 +302,98 @@
 </div>
 <div class="page-wrapper is-service">
     <!-- Shared section: Hero (Service Hero component) -->
-    <!--#include file="/shared/partials/service-hero.html" image="temp-house-gable-exterior" label="Free Consultation" heading="Luxury home architecture for bespoke new homes" text="You have a plot, a house you want to replace, or a home you want to change fundamentally, and you want it designed properly. That is the situation most clients on this page arrive in, and it is the work this practice was set up to do." -->
+    <!--#include file="/shared/partials/service-hero.html" image="temp-house-gable-exterior" label="Free Consultation" heading-accent="Luxury home" heading-end=" architecture for bespoke new homes" text="You have a plot, a house you want to replace, or a home you want to change fundamentally, and you want it designed properly. That is the situation most clients on this page arrive in, and it is the work this practice was set up to do." -->
     <!-- Shared section: Statement (Service Statement component) -->
-    <section id="statement-plan-approved" class="section is-service-statement">
+    <section data-migrate-component="Service Statement" id="statement-plan-approved" class="section is-service-statement">
       <div class="service-statement">
         <h2 data-highlight-scroll-start="top 60%" data-highlight-text="" class="service-statement_text">Hawkstone is an architectural design and planning practice for homes. Luxury residential architects across Derbyshire, Staffordshire and Cheshire, from first sketch through planning, technical design and construction.</h2>
       </div>
     </section>
     <!-- Page section: Horizontal Process (Luxury Architecture; copies the "Our process" section of fluid.glass/approach).
-         Panels follow fluid.glass's DOM: intro, then photo / step / photo / step / photo / step; each step is a
-         container (is-layout-1: photos left, is-layout-2: photos right) holding the text column first and a one-photo column.
+         Panels follow fluid.glass's DOM: intro, then photo / step / photo / step / photo / step, each photo and its step
+         wrapped in one route (h-process_route: one slot item in Webflow); each step is a container (is-layout-1: photos
+         left, is-layout-2: photos right) holding the text column first and a one-photo column.
          Desktop: the section pins for its scroll length while the row of panels slides left, the rule at the top fills as
          a progress bar, each full-bleed photo (scaled 1.1) drifts from -25% to 25% across its panel and each step's photo
          eases in from 20% to rest.
          Below 992px the panels simply stack. Styles: h-process* in services/css/luxury-architecture.css.
          Script: shared/custom-js/horizontal-process.js. -->
-    <section data-h-process="" data-nav-show-after="true" class="h-process">
+    <section data-migrate-component="Service Horizontal Scroll" data-h-process="" class="h-process">
       <div class="h-process_sticky">
         <div class="h-process_bar"><div data-h-process-bar="" class="h-process_bar-fill"></div></div>
         <p class="h-process_section-label">What we design</p>
-        <div data-h-process-track="" class="h-process_track">
+        <div data-h-process-track="" data-migrate-slot="Routes" class="h-process_track">
           <div class="h-process_intro">
             <h2 class="h-process_intro-heading">Three routes <br class="service-br">to a bespoke home</h2>
             <p class="h-process_intro-text">An empty plot, a house worth replacing or a home that needs rethinking: each starts with what the site and planning allow, then a design that belongs where it stands.</p>
           </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/hero-farmhouse-aerial-1600.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w, ../images/hero-farmhouse-aerial-2560.avif 2560w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">01</p>
-                <h2 class="h-process_heading">New build house <br class="service-br">architects</h2>
-                <p class="h-process_text">We design bespoke new build homes for private clients and self-build plots, including custom build sites with a design code. Planning comes first: what the site allows, what the local authority expects, and whether the plot sits in the Green Belt or open countryside. On qualifying rural sites, Paragraph 84 allows an isolated home of exceptional design quality, and we have worked that route. Contemporary, traditional or a blend of both: the site usually decides.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+          <div data-migrate-item="Service Horizontal Scroll Route" class="h-process_route">
+            <div data-h-process-asset="" class="h-process_asset">
+              <div class="h-process_asset-inner"><img src="../images/hero-farmhouse-aerial-1600.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w, ../images/hero-farmhouse-aerial-2560.avif 2560w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
+            </div>
+            <div class="h-process_slide">
+              <div class="h-process_slide-inner is-layout-1">
+                <div class="h-process_column is-text">
+                  <p class="h-process_label">01</p>
+                  <h2 class="h-process_heading">New build house <br class="service-br">architects</h2>
+                  <p class="h-process_text">We design bespoke new build homes for private clients and self-build plots, including custom build sites with a design code. Planning comes first: what the site allows, what the local authority expects, and whether the plot sits in the Green Belt or open countryside. On qualifying rural sites, Paragraph 84 allows an isolated home of exceptional design quality, and we have worked that route. Contemporary, traditional or a blend of both: the site usually decides.</p>
+                </div>
+                <div class="h-process_column is-media">
+                  <img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+                </div>
               </div>
             </div>
           </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-interior-oak-pool-1400.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-2">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">02</p>
-                <h2 class="h-process_heading">Replacement dwellings <br class="service-br">&amp; knock-down rebuilds</h2>
-                <p class="h-process_text">Sometimes the best plot is under a house you already own. Where the existing property is poorly built or the wrong house for its site, replacing it can make more sense than repairing it. Replacement dwelling policy is tightest in the Green Belt, where the new house is generally expected to be no larger than the old one. There is more room in that than the wording suggests, but only with a design-led case, and we establish what is achievable before you commit.</p>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+          <div data-migrate-item="Service Horizontal Scroll Route" class="h-process_route">
+            <div data-h-process-asset="" class="h-process_asset">
+              <div class="h-process_asset-inner"><img src="../images/temp-interior-oak-pool-1400.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
+            </div>
+            <div class="h-process_slide">
+              <div class="h-process_slide-inner is-layout-2">
+                <div class="h-process_column is-text">
+                  <p class="h-process_label">02</p>
+                  <h2 class="h-process_heading">Replacement dwellings <br class="service-br">&amp; knock-down rebuilds</h2>
+                  <p class="h-process_text">Sometimes the best plot is under a house you already own. Where the existing property is poorly built or the wrong house for its site, replacing it can make more sense than repairing it. Replacement dwelling policy is tightest in the Green Belt, where the new house is generally expected to be no larger than the old one. There is more room in that than the wording suggests, but only with a design-led case, and we establish what is achievable before you commit.</p>
+                </div>
+                <div class="h-process_column is-media">
+                  <img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+                </div>
               </div>
             </div>
           </div>
-          <div data-h-process-asset="" class="h-process_asset">
-            <div class="h-process_asset-inner"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
-          </div>
-          <div class="h-process_slide">
-            <div class="h-process_slide-inner is-layout-1">
-              <div class="h-process_column is-text">
-                <p class="h-process_label">03</p>
-                <h2 class="h-process_heading">Complete redesigns <br class="service-br">&amp; substantial extensions</h2>
-                <p class="h-process_text">Not every transformation starts with demolition. Many clients own a house with good bones and the wrong plan: a period farmhouse, a mid-century bungalow, a family home that has stopped working. We redesign the whole house, not one room: reorganising the plan, opening it to garden and light, adding significant space and bringing fabric and services up to new-build standard.</p>
-                <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="white" href="/contact" class="wrapper_cta w-inline-block">
-                  <div class="btn-icon-content cta">
-                    <div class="btn-icon-content__mask cta buton"><span data-button-anim-target="" class="btn-icon-content__text">Free Consultation</span></div>
-                    <div data-button-anim-target="" class="btn-icon-content__bg cta"></div>
-                  </div>
-                  <div class="square_cta"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta white"></div>
-                </a>
-              </div>
-              <div class="h-process_column is-media">
-                <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+          <div data-migrate-item="Service Horizontal Scroll Route" class="h-process_route">
+            <div data-h-process-asset="" class="h-process_asset">
+              <div class="h-process_asset-inner"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 120vw" decoding="async" loading="lazy" alt="" class="h-process_img"></div>
+            </div>
+            <div class="h-process_slide">
+              <div class="h-process_slide-inner is-layout-1">
+                <div class="h-process_column is-text">
+                  <p class="h-process_label">03</p>
+                  <h2 class="h-process_heading">Complete redesigns <br class="service-br">&amp; substantial extensions</h2>
+                  <p class="h-process_text">Not every transformation starts with demolition. Many clients own a house with good bones and the wrong plan: a period farmhouse, a mid-century bungalow, a family home that has stopped working. We redesign the whole house, not one room: reorganising the plan, opening it to garden and light, adding significant space and bringing fabric and services up to new-build standard.</p>
+                  <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="white" href="/contact" class="wrapper_cta w-inline-block">
+                    <div class="btn-icon-content cta">
+                      <div class="btn-icon-content__mask cta buton"><span data-button-anim-target="" class="btn-icon-content__text">Free Consultation</span></div>
+                      <div data-button-anim-target="" class="btn-icon-content__bg cta"></div>
+                    </div>
+                    <div class="square_cta"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="arrow_cta"><img src="../images/arrow-white.svg" loading="lazy" alt="" class="arrow_cta white"></div>
+                  </a>
+                </div>
+                <div class="h-process_column is-media">
+                  <img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 991px) 80vw, 24vw" decoding="async" loading="lazy" alt="" class="h-process_photo is-primary">
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Page element: Nav trigger. The floating navigation (global) appears once the bottom of the first
+         [data-nav-show-after="true"] element scrolls past the top of the screen; this empty marker sits right after the
+         section it should follow, so no component carries a page-specific attribute. -->
+    <div data-nav-show-after="true"></div>
     <!-- Shared section: Bouncy tabs (Osmo bouncy tabs) -->
-    <section class="section">
+    <section data-migrate-component="Service Tabs" class="section">
       <div data-bouncy-tabs-init="" class="bouncy-tabs is-tab-bar">
         <div class="wrapper_statement">
           <div class="label-wrapeper">
@@ -393,36 +404,40 @@
         </div>
         <div data-bouncy-tabs-nav="" role="tablist" class="bouncy-tabs__nav">
           <div data-bouncy-tabs-ghost="" class="bouncy-tabs__ghost"></div>
-          <div data-bouncy-tabs-indicator="" class="bouncy-tabs__indicator"></div><button data-bouncy-tabs-button="" data-active="" role="tab" class="bouncy-tabs__button">Site</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Light</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Materials</button><button data-bouncy-tabs-button="" role="tab" class="bouncy-tabs__button">Restraint</button>
+          <div data-bouncy-tabs-indicator="" class="bouncy-tabs__indicator"></div>
         </div>
         <div data-bouncy-tabs-card="" class="bouncy-tabs__collection">
-          <div data-bouncy-tabs-panels="" class="bouncy-tabs__list">
-            <div data-active="" data-bouncy-tabs-panel="" role="tabpanel" class="bouncy-tabs__item">
+          <div data-bouncy-tabs-panels="" data-migrate-slot="Tabs" class="bouncy-tabs__list">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Site</p>
                 <p class="bouncy-tabs__label">01</p>
                 <h3 class="bouncy-tabs__heading">Designed from the ground <br class="service-br">it stands on</h3>
                 <p class="bouncy-tabs__para">Every house starts with its plot: orientation, views, slope, neighbours. We design around what the site gives and what it takes away, so the house belongs there rather than landing on it.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Light</p>
                 <p class="bouncy-tabs__label">02</p>
                 <h3 class="bouncy-tabs__heading">Planned around <br class="service-br">the day</h3>
                 <p class="bouncy-tabs__para">Rooms are arranged for how daylight moves from morning to evening, with volume spent where it matters most. The aim is a house that feels generous at eight in the morning and at eight at night.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Materials</p>
                 <p class="bouncy-tabs__label">03</p>
                 <h3 class="bouncy-tabs__heading">Fewer, chosen <br class="service-br">to age well</h3>
                 <p class="bouncy-tabs__para">A restrained palette selected for how it weathers, not how it photographs. Fewer materials used well will always outlast more materials used for effect.</p>
               </div>
               <div class="bouncy-tabs__item-visual"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 767px) 90vw, 40vw" decoding="async" loading="lazy" alt="" class="bouncy-tabs__item-img"></div>
             </div>
-            <div role="tabpanel" data-bouncy-tabs-panel="" class="bouncy-tabs__item">
+            <div role="tabpanel" data-bouncy-tabs-panel="" data-migrate-item="Service Tab" class="bouncy-tabs__item">
               <div class="bouncy-tabs__item-text">
+                <p data-bouncy-tabs-tab="" class="bouncy-tabs__tab-name">Restraint</p>
                 <p class="bouncy-tabs__label">04</p>
                 <h3 class="bouncy-tabs__heading">Knowing what <br class="service-br">to leave out</h3>
                 <p class="bouncy-tabs__para">The high-end residential architects whose work lasts are the ones who edit. We would rather design a house that still looks right in thirty years than one that looks good next spring.</p>
@@ -437,7 +452,7 @@
          Fitosauna two-column section): two equal columns split by a 1px rule; the left panel (heading, text, Main CTA)
          is sticky while photo cards scroll past on the right, each with an ivory panel holding the title over a rule,
          the number and the text. Styles: service-cards* in services/css/luxury-architecture.css. -->
-    <section class="section service-cards is-band">
+    <section data-migrate-component="Service Sticky Cards" class="section service-cards is-band">
       <div class="service-cards_layout is-band">
         <div class="service-cards_left">
           <div class="service-cards_sticky">
@@ -452,34 +467,34 @@
             </a>
           </div>
         </div>
-        <div class="service-cards_right">
-          <article class="service-cards_card is-band">
+        <div data-migrate-slot="Cards" class="service-cards_right">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Feasibility first.</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">01</p>
-                <p class="service-cards_text">Every project starts with a site appraisal: the plot or property, its planning constraints and its opportunities. It comes before any detailed design, so you never pay for drawings of something that cannot be built or consented.</p>
+                <div class="service-cards_text"><p>Every project starts with a site appraisal: the plot or property, its planning constraints and its opportunities. It comes before any detailed design, so you never pay for drawings of something that cannot be built or consented.</p></div>
               </div>
             </div>
           </article>
-          <article class="service-cards_card is-band">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">A budget you can hold.</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">02</p>
-                <p class="service-cards_text">We set the budget at brief stage and design to it, with cost reviewed at fixed decision points as the design develops. The cost of a bespoke home is driven by size, specification and site; we give honest pointers early and bring in a cost consultant where the project warrants it.</p>
+                <div class="service-cards_text"><p>We set the budget at brief stage and design to it, with cost reviewed at fixed decision points as the design develops. The cost of a bespoke home is driven by size, specification and site; we give honest pointers early and bring in a cost consultant where the project warrants it.</p></div>
               </div>
             </div>
           </article>
-          <article class="service-cards_card is-band">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card is-band">
             <div class="service-cards_media"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Planning strategy.</h3>
               <div class="service-cards_meta">
                 <p class="service-cards_number">03</p>
-                <p class="service-cards_text">For a new home, a replacement dwelling or a large extension in the countryside, the planning case is part of the design. We shape the scheme around the policy it has to satisfy and involve a planning consultant where the case needs one.</p>
+                <div class="service-cards_text"><p>For a new home, a replacement dwelling or a large extension in the countryside, the planning case is part of the design. We shape the scheme around the policy it has to satisfy and involve a planning consultant where the case needs one.</p></div>
               </div>
             </div>
           </article>
@@ -489,9 +504,9 @@
     <!-- Shared section: Projects (Service Projects component). The three projects are TEMPORARY page data, not the final
          selection: in Webflow the cards come from the Projects collection filtered by Project Type. See the partial and
          docs/webflow-migration.md 7a. -->
-    <!--#include file="/shared/partials/service-projects.html" p1-slug="luxury-development-1" p1-name="Luxury Development 1" p1-image="temp-house-garden-terrace" p2-slug="sandborough-house-farmhouse" p2-name="Sandborough House Farmhouse" p2-image="temp-barn-timber-cladding" p3-slug="furs-house" p3-name="Furs House" p3-image="temp-interior-vaulted-lounge" -->
+    <!--#include file="/shared/partials/service-projects.html" p1-slug="luxury-development-1" p1-name="Luxury Development 1" p1-image="temp-house-garden-terrace" p1-text="[Project description to come from the Projects CMS]" p2-slug="sandborough-house-farmhouse" p2-name="Sandborough House Farmhouse" p2-image="temp-barn-timber-cladding" p2-text="A £1.65m transformation of a farmhouse and its outbuildings into a single family home. The scale of the intervention, and the relationship between the retained buildings and the new work, made this a project that had to be understood in three dimensions long before it was committed to." p3-slug="furs-house" p3-name="Furs House" p3-image="temp-interior-vaulted-lounge" p3-text="The complete transformation of an existing bungalow into a contemporary family home. Projects like this are consistently undersold by drawings, because the finished house bears so little relation to what is there now." -->
     <!-- Shared section: Fit lists (offset layout: label at the left, heading and ruled title/list rows from the sixth column) -->
-    <div class="section is-service-fit">
+    <div data-migrate-component="Service Fit List" class="section is-service-fit">
       <div class="container">
         <div class="service-fit">
           <div class="label-wrapeper is-service-fit">
@@ -502,26 +517,26 @@
           <div class="service-fit_details">
             <div class="service-fit_row">
               <h3 class="service-fit_title"><strong>It’s for you if:</strong></h3>
-              <div class="service-fit_list">
-                <div class="service-fit_item">
+              <div data-migrate-slot="Points" class="service-fit_list">
+                <div data-migrate-item="Service Fit Point" class="service-fit_item">
                   <div class="service-fit_marker is-tick"></div>
                   <div class="service-fit_body">
                     <p class="service-fit_text">You own or are buying a plot in Derbyshire, Staffordshire or Cheshire and want an architect-designed home on it.</p>
                   </div>
                 </div>
-                <div class="service-fit_item">
+                <div data-migrate-item="Service Fit Point" class="service-fit_item">
                   <div class="service-fit_marker is-tick"></div>
                   <div class="service-fit_body">
                     <p class="service-fit_text">You own a house you want to replace, or to transform so completely that it becomes a different home.</p>
                   </div>
                 </div>
-                <div class="service-fit_item">
+                <div data-migrate-item="Service Fit Point" class="service-fit_item">
                   <div class="service-fit_marker is-tick"></div>
                   <div class="service-fit_body">
                     <p class="service-fit_text">You want one practice to design it, gain planning and see it through.</p>
                   </div>
                 </div>
-                <div class="service-fit_item">
+                <div data-migrate-item="Service Fit Point" class="service-fit_item">
                   <div class="service-fit_marker is-tick"></div>
                   <div class="service-fit_body">
                     <p class="service-fit_text">You want a house designed for your site and the way you live, not a plan adapted from somewhere else.</p>
@@ -532,49 +547,53 @@
           </div>
         </div>
       </div>
-      <!-- Shared component: Service rows ("Looking for something else?"; styles service-rows* in shared/css/service-pages.css,
-           on the fit section's 12-column grid). Copy: each service's meta description; photos: each page's hero photo
-           (temporary). Static rows (no scroll effect); hover in shared/custom-css/service-rows.css. -->
-      <div class="service-rows is-in-fit">
+    </div>
+    <!-- CMS section: "Looking for something else?" (Services collection; docs/webflow/cms.md). Header static; one row per
+         Services item except this page’s own. Rows are numbered by a CSS counter and the service
+         names wrap one word per line (max-width: min-content), so CMS items need no number or line break. Styles:
+         service-rows* in shared/css/service-pages.css; counter, stretched link and hover in
+         shared/custom-css/service-rows.css. -->
+    <section data-migrate-cms="Services" class="section is-service-rows is-after-fit">
+      <div class="service-rows">
         <div class="service-rows_head">
           <h3 class="service-rows_heading">Looking for<br>something else?</h3>
           <p class="service-rows_intro">Explore other services or <a href="/contact" class="service-rows_inline-link">book a free consultation</a> and we will point you to the right one.</p>
         </div>
-        <div class="service-rows_list">
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">01</p>
-            <h4 class="service-rows_title">Rural<br>Conversions</h4>
+        <div data-migrate-list="Services" class="service-rows_list">
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
+            <h4 class="service-rows_title">Rural Conversions</h4>
             <a href="/services/rural-conversions" aria-label="View Rural Conversions service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Barn, stable and modern farm building conversions in Derbyshire, Staffordshire and Cheshire. Class Q or full planning, structure and cost assessed first.</p>
             <div class="service-rows_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">02</p>
-            <h4 class="service-rows_title">Heritage<br>Design</h4>
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
+            <h4 class="service-rows_title">Heritage Design</h4>
             <a href="/services/heritage-design" aria-label="View Heritage Design service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Extending or renovating a listed home in Derbyshire, Staffordshire or Cheshire? Heritage-led design, with the Listed Building Consent applications to support it.</p>
             <div class="service-rows_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">03</p>
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
             <h4 class="service-rows_title">Planning Applications</h4>
             <a href="/services/planning-applications" aria-label="View Planning Applications service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Extensions, new homes and plots in Derbyshire, Staffordshire and Cheshire, designed and taken through planning by one team, starting with a site appraisal.</p>
             <div class="service-rows_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">04</p>
-            <h4 class="service-rows_title">3D<br>Visualisations</h4>
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
+            <h4 class="service-rows_title">3D Visualisations</h4>
             <a href="/services/3d-visualisations" aria-label="View 3D Visualisations service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Architectural CGI for new homes, extensions and barn conversions in Derbyshire, Staffordshire and Cheshire, for design decisions, planning and marketing.</p>
             <div class="service-rows_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 25vw" decoding="async" loading="lazy" alt="" class="service-rows_img"></div>
             <div class="service-rows_rule"></div>
           </div>
-          <div class="service-rows_row is-link">
-            <p class="service-rows_index">05</p>
+          <div data-migrate-list-item="" class="service-rows_row is-link">
+            <div class="service-rows_index"></div>
             <h4 class="service-rows_title">Project Management</h4>
             <a href="/services/project-management" aria-label="View Project Management service" class="service-rows_link w-inline-block"><img src="../images/arrow-black.svg" loading="lazy" alt="" class="service-rows_arrow"></a>
             <p class="service-rows_text">Independent construction-stage support for homes in Derbyshire, Staffordshire and Cheshire: site inspections, written reports and pre-completion snagging.</p>
@@ -583,7 +602,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- Shared section: Process slider (service-slider; also on 3D Visualisations). Intro at the left (label, heading,
          lead, dark square previous/next buttons); the step cards to the right in the Osmo Supply "Overlapping Slider"
          (data-overlap-slider-*, shared/custom-js/overlapping-slider.js): drag or throw the row and each passed card
@@ -591,7 +610,7 @@
          widening to show its name. Cards: a 16:10 photo over a grey panel, the title on a hairline, then the number beside
          a vertical rule and one paragraph. Arrows and indicators: shared/custom-js/service-slider.js. Styles:
          service-slider* in shared/css/service-pages.css. -->
-    <section data-service-slider="" class="section service-slider">
+    <section data-migrate-component="Service Process Slider" data-service-slider="" class="section service-slider">
       <div class="service-slider_layout">
         <div class="service-slider_intro">
           <div class="label-wrapeper service-slider_label">
@@ -612,8 +631,8 @@
         <div class="service-slider_carousel">
           <div data-overlap-slider-init="" data-scale="0.45" data-rotate="-8" data-overlap-slider-label="Design process steps" class="overlapping-slider__wrap service-slider_slider">
             <div data-overlap-slider-collection="" class="overlapping-slider__collection">
-              <div data-overlap-slider-list="" class="overlapping-slider__list service-slider_track">
-              <div data-overlap-slider-item="" data-service-slider-step="Feasibility consultation" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-list="" data-migrate-slot="Steps" class="overlapping-slider__list service-slider_track">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/hero-farmhouse-aerial-960.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -627,7 +646,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Brief and surveys" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-farmhouse-brick-front-800.avif" srcset="../images/temp-farmhouse-brick-front-800.avif 800w, ../images/temp-farmhouse-brick-front-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -641,7 +660,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Concept design" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -655,7 +674,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Planning &amp; design development" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -669,7 +688,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Technical design" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -683,7 +702,7 @@
                   </div>
                 </article>
               </div>
-              <div data-overlap-slider-item="" data-service-slider-step="Construction support" class="overlapping-slider__item service-slider_slide">
+              <div data-overlap-slider-item="" data-migrate-item="Service Process Step" class="overlapping-slider__item service-slider_slide">
                 <article class="service-slider_card">
                   <div class="service-slider_media"><img src="../images/temp-barn-timber-cladding-800.avif" srcset="../images/temp-barn-timber-cladding-800.avif 800w, ../images/temp-barn-timber-cladding-1400.avif 1400w" sizes="(max-width: 767px) 85vw, 30vw" decoding="async" loading="lazy" alt="" class="service-slider_img"></div>
                   <div class="service-slider_panel">
@@ -705,7 +724,7 @@
       </div>
     </section>
     <!-- Shared section: FAQ (accordion-css global classes; rich text is-service) -->
-    <section class="section padding-top padding-large-1">
+    <section data-migrate-component="Service FAQ" class="section padding-top padding-large-1">
       <div class="container margin-bottom margin-medium-2">
         <div class="heading-wrapper is-stacked">
           <div class="div-block-41 is-stacked">
@@ -720,8 +739,8 @@
         </div>
       </div>
       <div data-accordion-close-siblings="true" data-accordion-css-init="" class="accordion-css is-service">
-        <div class="accordion-css__list">
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+        <div data-migrate-slot="Questions" class="accordion-css__list">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How much does it cost to design a luxury home?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -738,7 +757,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What is included in a luxury residential architectural design service?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -756,7 +775,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I need planning permission to build a new home?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -773,7 +792,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How long does it take to design and build a bespoke home?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -790,7 +809,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can you design a bespoke home around our budget?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -807,7 +826,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do you design both contemporary and traditional homes?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -824,7 +843,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can you redesign or extend our existing house instead of replacing it?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -841,7 +860,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do you manage the project through construction?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -872,6 +891,7 @@
 <script src="../shared/custom-js/overlapping-slider.js"></script>
 <script src="../shared/custom-js/service-slider.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
+<script src="../shared/custom-js/service-hero.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>
 </html>

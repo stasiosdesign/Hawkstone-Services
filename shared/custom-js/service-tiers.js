@@ -1,5 +1,7 @@
 /* service-tiers: page custom code (Webflow: Page settings > Custom code > Before </body> tag).
-   Used on: Rural Conversions ("Barn conversion planning permission") and Heritage Design ("The work we take on"). Three photo cards in a row, one open:
+   Used on: Rural Conversions ("Barn conversion planning permission"), Heritage Design ("The work we take on"), 3D
+   Visualisations ("Architectural visualisation service options") and Project Management ("Projects that benefit from
+   construction-stage support"); every [data-service-tiers] block is set up on its own. Photo cards in a row, one open:
    hovering a card (mouse), focusing it (keyboard) or tapping it (touch) opens it. The open card's flex-grow moves to
    2.4 and the others' to 1 on a spring that is slightly over critically damped (stiffness 170), so the motion eases
    in organically but never overshoots; the edges stay straight (plain DOM boxes, no canvas). The open card also gets
@@ -17,15 +19,26 @@
   const DAMPING = 2 * Math.sqrt(STIFFNESS) * 1.08; // a little over critical: no overshoot
 
   function initServiceTiers() {
-    const root = document.querySelector('[data-service-tiers]');
-    if (!root) return;
+    document.querySelectorAll('[data-service-tiers]').forEach(setup);
+  }
+
+  function setup(root) {
     const cards = Array.from(root.querySelectorAll('[data-service-tiers-card]'));
     if (!cards.length) return;
     const list = cards[0].parentElement;
     const row = window.matchMedia('(min-width: 992px)');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    // The card marked is-active opens first; without one, the first card (slot items in Webflow carry no marks). It
+    // opens without its transition, as if marked in the markup: animating it open would move the page below after
+    // other scripts (the stacking panels) have measured it.
     let active = Math.max(0, cards.findIndex((c) => c.classList.contains('is-active')));
+    // (below 992px the card's own min-height animates too)
+    const eased = [...cards, ...root.querySelectorAll('.service-tiers_shade, .service-tiers_reveal, .service-tiers_text')];
+    eased.forEach((el) => { el.style.transition = 'none'; });
+    cards.forEach((card, i) => card.classList.toggle('is-active', i === active));
+    void root.offsetHeight;
+    eased.forEach((el) => { el.style.transition = ''; });
     const target = (i) => (i === active ? OPEN : 1);
     const grow = cards.map((_, i) => target(i));
     const speed = cards.map(() => 0);

@@ -1,5 +1,10 @@
 # Webflow migration guide
 
+> **Start with [webflow/README.md](webflow/README.md)** (29 October 2026): the component and CMS architecture, the
+> per-page mappings and the migration procedure. This file stays as the design history and the reference for classes,
+> native-vs-custom code and limitations; its sections 5 (components) and 7a (CMS binding) are replaced by
+> [webflow/components.md](webflow/components.md) and [webflow/cms.md](webflow/cms.md).
+
 How the local service pages map onto Webflow, for the day the six pages are deleted in Webflow and rebuilt from this code through the Webflow MCP. Nothing here has been done in Webflow yet.
 
 The refactor changed structure only. Every element on all six pages has the same computed style as the Webflow export at 1920, 1440, 1280, 991, 768, 767, 479 and 375 px, with JavaScript off and on (`scripts/compare-pages.cjs`).
@@ -822,6 +827,8 @@ Where a service page needed something different, it got a combo (`is-service…`
 
 ## 5. Webflow components to create
 
+> Superseded on 29 October 2026 by [webflow/components.md](webflow/components.md); kept for history.
+
 | Component | Used on | Props / slots | Notes |
 |---|---|---|---|
 | Service Hero | all six | heading (rich text), supporting text, background image | `service-hero` with image, overlay and centred content; see 3b |
@@ -897,6 +904,9 @@ Scripts that had nothing to act on were dropped from their pages (3i): line-reve
 - **Page IDs:** interactions in `webflow.js` are keyed to each page's `data-wf-page`. Rebuilt pages get new IDs, which is fine: the six pages have no page-specific Webflow interactions, and site interactions target global classes and attributes only.
 
 ## 7a. CMS binding: Services, Projects and the Project Type relationship
+
+> Superseded on 29 October 2026 by [webflow/cms.md](webflow/cms.md), which adds "Looking for something else?" and
+> the decisions still open; kept for history.
 
 Rewritten on 19 October 2026. The earlier version assumed the relationship ran from Services to Projects and described a staggered three-slot gallery that has since been removed. Neither is right any more.
 

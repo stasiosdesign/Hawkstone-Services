@@ -127,10 +127,11 @@
 /* From a reference of a single wide, softly rounded light panel split into three columns by inset hairlines, on a
    slightly darker band: the heading centred above it; each column has its number at the top and the client type at
    the bottom (the reference's logo-over-statistic rhythm). The band colour runs on under the "Looking for something
-   else?" service rows below. Below 768px the columns stack with horizontal rules. */
+   else?" service rows, which follow in a section of their own (the CMS list), so this section ends with the band.
+   Below 768px the columns stack with horizontal rules. */
 .section.is-rural-clients {
   padding-top: 0;
-  padding-bottom: 12em;
+  padding-bottom: 0;
 }
 .rural-clients_band {
   align-self: stretch;
@@ -184,14 +185,15 @@
   font-size: max(2.3em, 18px);
   line-height: 1.22;
 }
-/* "Looking for something else?" sits on the same band colour as "Who we work with" (ivory-d1): the whole section is
-   the band, so the rows follow the panel at the band's own bottom padding instead of a second section gap. The rows
-   are opaque (the fan-out needs it), so they take the band colour too, and their hover goes one step darker. */
-.section.is-rural-clients {
+/* "Looking for something else?" sits on the same band colour as "Who we work with" (ivory-d1): its section (combo
+   is-rural) starts with no top padding, so the rows follow the panel at the band's own bottom padding instead of a
+   second section gap. The rows are opaque, so they take the band colour too, and their hover goes one step darker. */
+.section.is-rural-clients,
+.section.is-service-rows.is-rural {
   background-color: var(--theme--ivory-d1);
 }
-.service-rows.is-rural-boundaries {
-  margin-top: 0;
+.section.is-service-rows.is-rural {
+  padding-top: 0;
 }
 .service-rows.is-rural-boundaries .service-rows_row {
   background-color: var(--theme--ivory-d1);
@@ -200,9 +202,6 @@
   background-color: var(--theme--ivory-d2);
 }
 @media screen and (max-width: 991px) {
-  .section.is-rural-clients {
-    padding-bottom: 9em;
-  }
   .rural-clients_band {
     padding-top: 9em;
     padding-bottom: 9em;
@@ -216,9 +215,6 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .section.is-rural-clients {
-    padding-bottom: 7em;
-  }
   .rural-clients_band {
     padding-top: 7em;
     padding-bottom: 7em;

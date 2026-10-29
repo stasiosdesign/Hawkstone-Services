@@ -1,6 +1,6 @@
 /* horizontal-process: page custom code (Webflow: Page settings > Custom code > Before </body> tag).
-   Used on: Rural Conversions, Luxury Architecture, Planning Applications, 3D Visualisations. Copies the "Our process" section of fluid.glass/approach: on desktop the section
-   ([data-h-process]) is made as tall as the horizontal travel needs, its inner frame pins (CSS sticky) and the track
+   Used on: Luxury Architecture ("What we design"). Copies the "Our process" section of fluid.glass/approach: on desktop
+   the section ([data-h-process]) is made as tall as the horizontal travel needs, its inner frame pins (CSS sticky) and the track
    ([data-h-process-track]) slides left with the scroll; the rule ([data-h-process-bar]) fills as a progress bar; each
    full-bleed photo ([data-h-process-asset]) drifts against the track (parallax); the first photo of each step eases
    in from 20% to rest as the step arrives (values from the captured fluid.glass DOM). Scroll smoothing comes from the
@@ -21,9 +21,10 @@
       if (!track) return;
 
       gsap.matchMedia().add('(min-width: 992px)', () => {
-        // Travel ends with the last panel's left edge exactly at the screen edge (measured, not rounded), so nothing of
-        // the panel before it can show
-        const lastPanel = track.lastElementChild;
+        // Travel ends with the last step's left edge exactly at the screen edge (measured, not rounded), so nothing of
+        // the panel before it can show. Found by class, not position, as routes may sit in a wrapper (Webflow slot).
+        const steps = track.querySelectorAll('.h-process_slide');
+        const lastPanel = steps[steps.length - 1] || track.lastElementChild;
         const travel = () => Math.ceil(lastPanel.getBoundingClientRect().left - track.getBoundingClientRect().left);
         const distance = () => travel() / SPEED;
         const setHeight = () => { section.style.height = (distance() + window.innerHeight) + 'px'; };

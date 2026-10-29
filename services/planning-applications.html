@@ -331,9 +331,9 @@
 </div>
 <div class="page-wrapper is-service">
     <!-- Shared section: Hero (Service Hero component) -->
-    <!--#include file="/shared/partials/service-hero.html" image="temp-house-garden-terrace" label="Book a free consultation" heading="Planning permission architects for homes, plots and residential schemes" text="Whether you want to extend or transform your home, build on a plot, or find out what a piece of land could become, we design the proposal and prepare, submit and manage the planning application for it." -->
+    <!--#include file="/shared/partials/service-hero.html" image="temp-house-garden-terrace" label="Free Consultation" heading-accent="Planning permission" heading-end=" architects for homes, plots and residential schemes" text="Whether you want to extend or transform your home, build on a plot, or find out what a piece of land could become, we design the proposal and prepare, submit and manage the planning application for it." -->
     <!-- Page section: Highlight statement (Service Statement component, white band, combo is-white; runs into the white Recent approvals section) -->
-    <section class="section is-service-statement is-soft is-planning">
+    <section data-migrate-component="Service Statement" class="section is-service-statement is-soft is-planning">
       <div class="service-statement">
         <p data-highlight-scroll-start="top 60%" data-highlight-text="" class="service-statement_text is-planning">Hawkstone is an architectural design and planning practice for homes. The architects who design your scheme prepare and submit the planning application for it. We work with homeowners, landowners and small developers across Derbyshire, Staffordshire and Cheshire.</p>
       </div>
@@ -346,7 +346,7 @@
          unpkg); styles parallax-slider__* and approvals-slider_* in services/css/planning-applications.css.
          CMS: the slides are a static copy of staging's Projects list (TEMPORARY data); in Webflow the list is a Projects
          Collection List, each parallax-slider__item a Collection Item. See docs/webflow-migration.md 7a. -->
-    <section data-nav-show-after="true" data-parallax-section="" class="section recent-approvals is-planning is-soft">
+    <section data-migrate-cms="Projects" data-parallax-section="" class="section recent-approvals is-planning is-soft">
       <div class="container">
         <div class="approvals-slider_head">
           <div class="approvals-slider_title">
@@ -364,71 +364,82 @@
       </div>
       <div data-parallax-init="" class="parallax-slider__group">
         <div class="parallax-slider__collection">
-          <div data-parallax-infinite="true" data-parallax-slider="" data-parallax-amount="10" data-parallax-snap="true" class="parallax-slider__list">
-            <div class="parallax-slider__item">
+          <div data-parallax-infinite="true" data-parallax-slider="" data-parallax-amount="10" data-parallax-snap="true" data-migrate-list="Projects" class="parallax-slider__list">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/sandboro-house-farm" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Sandboro House Farm</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/furs-house" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Furs House</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/hero-farmhouse-aerial-960.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/15-trent-lane" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Trent Lane</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/39-nightingale-lane" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Nightingale Lane</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/55-derby-road" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Derby Road</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/glamping-scheme" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Luxury Glamping Scheme</h3>
             </div>
-            <div class="parallax-slider__item">
+            <div data-migrate-list-item="" class="parallax-slider__item">
               <div class="parallax-slider__item-inner">
                 <div data-parallax-inner="" class="parallax-slider__item-visual"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 80vw, 60vw" draggable="false" decoding="async" loading="lazy" alt="" class="parallax-slider__item-img"></div>
                 <div class="approvals-slider_shade"></div>
                 <span class="approvals-slider_badge"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" aria-hidden="true" class="approvals-slider_badge-icon"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg><span>Approved</span></span>
                 <a href="/projects/castle-street" draggable="false" class="approvals-slider_link w-inline-block"><span>View Project</span><img src="../images/arrow-white.svg" alt="" class="approvals-slider_link-arrow"></a>
               </div>
+              <h3 class="approvals-slider_name">Castle Street</h3>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Page element: Nav trigger. The floating navigation (global) appears once the bottom of the first
+         [data-nav-show-after="true"] element scrolls past the top of the screen; this empty marker sits right after the
+         section it should follow, so no component carries a page-specific attribute. -->
+    <div data-nav-show-after="true"></div>
     <!-- Shared section: Overlapping rows ("Is this the right service for your project?"; copies storeyarchitecture.co.uk):
          heading and Main CTA, then one full-width row per kind of project, each sinking under the next as the page
          scrolls. Styles: service-overlap* in shared/css/service-pages.css; script shared/custom-js/service-overlap.js. -->
-    <section class="section is-service-overlap is-tinted">
+    <section data-migrate-component="Service Overlapping Rows" class="section is-service-overlap is-tinted">
       <div class="container">
         <div class="service-overlap_head">
           <h2 class="service-overlap_heading">Is this the right service <br class="service-br">for your project?</h2>
@@ -441,8 +452,8 @@
           </a>
         </div>
       </div>
-      <div data-service-overlap="" class="service-overlap_list">
-        <article data-service-overlap-row="" class="service-overlap_row">
+      <div data-service-overlap="" data-migrate-slot="Rows" class="service-overlap_list">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">You want to extend or alter your home</h3>
             <p class="service-overlap_text">A rear or side extension, an additional storey, a garage or outbuilding, or a wider remodel of the house. This is usually a householder planning application. Sometimes permitted development covers it, and we will tell you if planning permission for a house extension is not needed at all.</p>
@@ -451,7 +462,7 @@
           </div>
           <div data-service-overlap-shade="" class="service-overlap_shade"></div>
         </article>
-        <article data-service-overlap-row="" class="service-overlap_row">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">You own a plot, or a house you want to replace</h3>
             <p class="service-overlap_text">An infill or garden plot, a self-build site, or an existing dwelling to knock down and rebuild. These are full applications, sometimes preceded by an outline application to establish the principle first.</p>
@@ -460,7 +471,7 @@
           </div>
           <div data-service-overlap-shade="" class="service-overlap_shade"></div>
         </article>
-        <article data-service-overlap-row="" class="service-overlap_row">
+        <article data-service-overlap-row="" data-migrate-item="Service Overlapping Row" class="service-overlap_row">
           <div class="container service-overlap_grid">
             <h3 class="service-overlap_title">You want to know what your land could become</h3>
             <p class="service-overlap_text">A paddock, a field edge, a redundant building or an awkward corner of a larger site. We appraise the planning potential and the likely route before you commit to surveys and drawings.</p>
@@ -475,7 +486,7 @@
          then one card per part of an appointment. Clicking a card opens it (the photo grows, the text is revealed) and
          closes the one that was open; clicking it again closes it. Styles: service-expand* in shared/css/service-pages.css;
          script shared/custom-js/service-expand.js; the stretched title button in shared/custom-css/service-expand.css. -->
-    <section data-nav-show-after="true" class="section is-service-expand is-dark">
+    <section data-migrate-component="Service Expanding List" class="section is-service-expand is-dark">
       <div class="container">
         <div class="service-expand_head">
           <div class="label-wrapeper service-expand_label">
@@ -484,97 +495,97 @@
           </div>
           <h2 class="service-expand_heading">Architect-led <br class="service-br">planning application</h2>
         </div>
-        <div data-service-expand="" class="service-expand_list">
-          <article data-service-expand-item="" class="service-expand_item">
+        <div data-service-expand="" data-migrate-slot="Items" class="service-expand_list">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">01</p>
             <div class="service-expand_media"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-01" class="service-expand_button">Site appraisal &amp; planning strategy</button></h3>
-              <div id="approach-step-01" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Site appraisal &amp; planning strategy</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">The planning history, the constraints, the relevant policy, the right application route and an honest view of the risks before anything is drawn. It starts with a 60-minute call, a desktop review of your property or plot, and a written report on what is achievable and which route we recommend.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">02</p>
             <div class="service-expand_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-02" class="service-expand_button">Measured survey of the building or site</button></h3>
-              <div id="approach-step-02" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Measured survey of the building or site</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">arranged and coordinated by us.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">03</p>
             <div class="service-expand_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-03" class="service-expand_button">Concept design</button></h3>
-              <div id="approach-step-03" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Concept design</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Layout, scale and appearance developed with you through drawings and, where it helps, 3D views, so what is submitted is something you actually want to build.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">04</p>
             <div class="service-expand_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-04" class="service-expand_button">Planning application drawings</button></h3>
-              <div id="approach-step-04" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Planning application drawings</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Materials and architectural details are refined, then the planning application, the Listed Building Consent application and the supporting heritage information are prepared, coordinated and submitted.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">05</p>
             <div class="service-expand_media"><img src="../images/temp-barn-brick-courtyard-800.avif" srcset="../images/temp-barn-brick-courtyard-800.avif 800w, ../images/temp-barn-brick-courtyard-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-05" class="service-expand_button">Supporting documents</button></h3>
-              <div id="approach-step-05" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Supporting documents</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Detailed construction drawings and conservation specifications are produced, coordinated with structural engineers and other specialists, and conditions attached to the consent are discharged.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">06</p>
             <div class="service-expand_media"><img src="../images/temp-interior-vaulted-lounge-800.avif" srcset="../images/temp-interior-vaulted-lounge-800.avif 800w, ../images/temp-interior-vaulted-lounge-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-06" class="service-expand_button">Pre-application enquiries</button></h3>
-              <div id="approach-step-06" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Pre-application enquiries</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Where appointed, we assist with contractor selection, answer design queries and help oversee the work on site so that approved details survive the build.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">07</p>
             <div class="service-expand_media"><img src="../images/temp-house-contemporary-dark-800.avif" srcset="../images/temp-house-contemporary-dark-800.avif 800w, ../images/temp-house-contemporary-dark-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-07" class="service-expand_button">Submission and validation</button></h3>
-              <div id="approach-step-07" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Submission and validation</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">The application is submitted and validated.</p>
                 </div>
               </div>
             </div>
           </article>
-          <article data-service-expand-item="" class="service-expand_item">
+          <article data-service-expand-item="" data-migrate-item="Service Expanding Item" class="service-expand_item">
             <p class="service-expand_number">08</p>
             <div class="service-expand_media"><img src="../images/temp-house-gable-exterior-800.avif" srcset="../images/temp-house-gable-exterior-800.avif 800w, ../images/temp-house-gable-exterior-1400.avif 1400w" sizes="(max-width: 767px) 100vw, 30vw" decoding="async" loading="lazy" alt="" class="service-expand_img"></div>
             <div class="service-expand_content">
-              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" aria-controls="approach-step-08" class="service-expand_button">Liaison during determination</button></h3>
-              <div id="approach-step-08" class="service-expand_reveal">
+              <h3 class="service-expand_title"><button type="button" data-service-expand-button="" aria-expanded="false" class="service-expand_button">Liaison during determination</button></h3>
+              <div class="service-expand_reveal">
                 <div class="service-expand_reveal-inner">
                   <p class="service-expand_text">Dealing with the case officer, responding to consultee and neighbour comments, and negotiating amendments where they are needed.</p>
                 </div>
@@ -585,9 +596,9 @@
       </div>
     </section>
     <!-- Shared section: Planning routes (combo is-routes): the stacked-rows head (label, heading, intro) unchanged, then the
-         six routes as text cards in three rows of two (an icon, then the title and text): a wide card and a narrow one, swapping sides row by row. No sticky or scroll effects.
+         eight routes as text cards in four rows of two (an icon, then the title and text): a wide card and a narrow one, swapping sides row by row. No sticky or scroll effects.
          Styles: service-routes* in shared/css/service-pages.css. -->
-    <section class="section is-service-editorial is-stacked is-process is-routes">
+    <section data-migrate-component="Service Route Cards" class="section is-service-editorial is-stacked is-process is-routes">
       <div class="container">
         <div class="service-editorial_head">
           <div class="label-wrapeper service-stack_label">
@@ -597,55 +608,73 @@
           <h2 class="service-stack_heading">The planning <br class="service-br">routes we prepare</h2>
           <p class="service-stack_intro">Choosing the wrong route is one of the most common reasons an application stalls at validation. These are the routes we deal with most often, and what each is for.</p>
         </div>
-        <div class="service-routes">
-          <article class="service-routes_card is-wide is-mid">
+        <div data-migrate-slot="Routes" class="service-routes">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-wide is-mid">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M4 11V21H20V11L12 3L4 11Z" stroke="currentColor"></path><path d="M9.5 21V13H14.5V21" stroke="currentColor"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Householder planning application</h3>
               <p class="service-routes_text">Extensions, alterations, outbuildings and other works to a single house within its garden. Most are determined within eight weeks of validation.</p>
             </div>
           </article>
-          <article class="service-routes_card is-narrow">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-narrow">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M16 2H8V5H16V2Z" stroke="currentColor" stroke-miterlimit="10"></path><path d="M16 3H17.5L19 4.5V19.5L17.5 21H6.5L5 19.5V4.5L6.5 3H8" stroke="currentColor" stroke-miterlimit="10"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Full planning application</h3>
               <p class="service-routes_text">New dwellings, replacement dwellings, changes of use and anything beyond householder scope. Every detail of the scheme is decided at once.</p>
             </div>
           </article>
-          <article class="service-routes_card is-narrow is-deep">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-narrow is-deep">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor"></path><path d="M8 12L11 15L16 10" stroke="currentColor" stroke-miterlimit="10"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Prior approval</h3>
               <p class="service-routes_text">Permitted development that still needs the council to sign off specific matters, most often Class Q barn conversions.</p>
             </div>
           </article>
-          <article class="service-routes_card is-wide is-mid">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-wide is-mid">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M22 4H2V21H22V4Z" stroke="currentColor"></path><path d="M8 9V21" stroke="currentColor"></path><path d="M2 9H22" stroke="currentColor"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Outline and reserved matters</h3>
               <p class="service-routes_text">Outline planning permission establishes the principle of building on a plot before the detail is designed; reserved matters follows with the design. Useful when you want to test or sell a site.</p>
             </div>
           </article>
-          <article class="service-routes_card is-wide">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-wide">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M4 18L5 13.5L16.5 2H17.5L20 4.5V5.5L8.5 17L4 18Z" stroke="currentColor" stroke-miterlimit="10"></path><path d="M14.5 3.5L18.5 7.5" stroke="currentColor" stroke-miterlimit="10"></path><path d="M3.5 21.5H20.5" stroke="currentColor" stroke-miterlimit="10"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Amendments and discharge of conditions</h3>
               <p class="service-routes_text">Non-material and minor material amendments to an approval, and the condition submissions that must be cleared before work starts on site.</p>
             </div>
           </article>
-          <article class="service-routes_card is-narrow is-deep">
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-narrow is-deep">
             <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M6 22H18L17 19H7L6 22Z" stroke="currentColor"></path><path d="M11 15L10 19" stroke="currentColor"></path><path d="M13 15L14 19" stroke="currentColor"></path><path d="M6 2V9C6 10.5913 6.63214 12.1174 7.75736 13.2426C8.88258 14.3679 10.4087 15 12 15C13.5913 15 15.1174 14.3679 16.2426 13.2426C17.3679 12.1174 18 10.5913 18 9V2H6Z" stroke="currentColor"></path><path d="M17.93 9.93C18.1159 9.97908 18.3077 10.0026 18.5 10C19.163 10 19.7989 9.73661 20.2678 9.26777C20.7366 8.79893 21 8.16304 21 7.5C21 6.83696 20.7366 6.20107 20.2678 5.73223C19.7989 5.26339 19.163 5 18.5 5C18.3337 4.98471 18.1663 4.98471 18 5" stroke="currentColor"></path><path d="M6 5.05C5.83368 5.03471 5.66632 5.03471 5.5 5.05C4.83696 5.05 4.20107 5.31339 3.73223 5.78223C3.26339 6.25107 3 6.88696 3 7.55C3 8.21304 3.26339 8.84893 3.73223 9.31777C4.20107 9.78661 4.83696 10.05 5.5 10.05C5.6923 10.0526 5.88405 10.0291 6.07 9.98" stroke="currentColor"></path></svg></div>
             <div class="service-routes_body">
               <h3 class="service-routes_title">Retrospective applications &amp; lawful development certificates</h3>
               <p class="service-routes_text">For work already carried out, or to confirm formally that a proposal does not need permission.</p>
             </div>
           </article>
+          <!-- Cards 7 and 8 written 29 Oct 2026 from GOV.UK planning practice guidance ("Permission in principle";
+               "Before submitting an application"): PiP covers location, land use and amount only, by application for minor
+               housing-led schemes, and only technical details consent grants planning permission; pre-application
+               advice can't pre-empt the decision. -->
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-narrow is-mid">
+            <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M2 3H22V16H11L6 20.5V16H2V3Z" stroke="currentColor" stroke-miterlimit="10"></path><path d="M6.5 8H17.5" stroke="currentColor"></path><path d="M6.5 11.5H13.5" stroke="currentColor"></path></svg></div>
+            <div class="service-routes_body">
+              <h3 class="service-routes_title">Pre-applications</h3>
+              <p class="service-routes_text">The council’s advice before a formal application: how policy applies and what to submit. It isn’t planning permission and doesn’t bind the decision, but it raises issues early.</p>
+            </div>
+          </article>
+          <article data-migrate-item="Service Route Card" class="service-routes_card is-wide">
+            <div class="service-routes_icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none"><path d="M3 6H15V22H3V6Z" stroke="currentColor" stroke-miterlimit="10"></path><path d="M8 6V2H21V18H15" stroke="currentColor" stroke-miterlimit="10"></path><path d="M6 11H12" stroke="currentColor"></path><path d="M6 14.5H12" stroke="currentColor"></path><path d="M6 18H9.5" stroke="currentColor"></path></svg></div>
+            <div class="service-routes_body">
+              <h3 class="service-routes_title">Permission in principle and technical details consent</h3>
+              <p class="service-routes_text">A two-stage route for minor housing-led schemes: permission in principle settles location, land use and the amount of development; technical details consent then covers the design, and only its approval grants planning permission.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
     <!-- Shared section: Split text (split rows) -->
-    <div class="section is-service-split">
-      <div class="container">
+    <div data-migrate-component="Service Split Text" data-migrate-slot="Rows" class="section is-service-split">
+      <div data-migrate-item="Service Split Row" class="container">
         <div class="container blog-page is-service-split">
           <div class="row is-service-split">
             <div class="col col-lg-4 col-md-12 is-sticky">
@@ -659,10 +688,10 @@
               </div>
               <div class="service-reading">
                 <p class="service-reading_label">Related reading</p>
-                <ul role="list" class="service-reading_list">
-                  <li class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/what-is-allowed-in-the-green-belt-uk-2026-guide" class="service-reading_link">Green Belt land: what can and cannot be built</a></li>
-                  <li class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/conservation-area-planning-permission-2026-guide" class="service-reading_link">Planning permission in conservation areas</a></li>
-                  <li class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/class-q-barn-conversion-planning-guide" class="service-reading_link">Class Q barn conversions explained</a></li>
+                <ul role="list" data-migrate-slot="Related Reading" class="service-reading_list">
+                  <li data-migrate-item="Service Reading Link" class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/what-is-allowed-in-the-green-belt-uk-2026-guide" class="service-reading_link">Green Belt land: what can and cannot be built</a></li>
+                  <li data-migrate-item="Service Reading Link" class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/conservation-area-planning-permission-2026-guide" class="service-reading_link">Planning permission in conservation areas</a></li>
+                  <li data-migrate-item="Service Reading Link" class="service-reading_item"><a href="https://hawkstone-developments-testing.vercel.app/news/class-q-barn-conversion-planning-guide" class="service-reading_link">Class Q barn conversions explained</a></li>
                 </ul>
               </div>
             </div>
@@ -673,7 +702,7 @@
     <!-- Shared section: Sticky cards ("Refused planning permission? What we do next"; the layout "Is this the right
          service" used before, as on Luxury Architecture): the left panel (heading, intro, Main CTA) is sticky while the
          three options scroll past on the right as photo cards. Styles: service-cards* in shared/css/service-pages.css. -->
-    <section data-nav-show-after="true" class="section service-cards">
+    <section data-migrate-component="Service Sticky Cards" class="section service-cards">
       <div class="service-cards_layout">
         <div class="service-cards_left">
           <div class="service-cards_sticky">
@@ -688,8 +717,8 @@
             </a>
           </div>
         </div>
-        <div class="service-cards_right">
-          <article class="service-cards_card">
+        <div data-migrate-slot="Cards" class="service-cards_right">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card">
             <div class="service-cards_media"><img src="../images/temp-interior-oak-pool-800.avif" srcset="../images/temp-interior-oak-pool-800.avif 800w, ../images/temp-interior-oak-pool-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Amend and resubmit.</h3>
@@ -699,7 +728,7 @@
               </div>
             </div>
           </article>
-          <article class="service-cards_card">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card">
             <div class="service-cards_media"><img src="../images/temp-house-garden-terrace-800.avif" srcset="../images/temp-house-garden-terrace-800.avif 800w, ../images/temp-house-garden-terrace-1400.avif 1400w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Appeal to the Planning Inspectorate.</h3>
@@ -709,7 +738,7 @@
               </div>
             </div>
           </article>
-          <article class="service-cards_card">
+          <article data-migrate-item="Service Sticky Card" class="service-cards_card">
             <div class="service-cards_media"><img src="../images/hero-farmhouse-aerial-960.avif" srcset="../images/hero-farmhouse-aerial-960.avif 960w, ../images/hero-farmhouse-aerial-1600.avif 1600w" sizes="(max-width: 991px) 100vw, 46vw" decoding="async" loading="lazy" alt="" class="service-cards_img"></div>
             <div class="service-cards_info">
               <h3 class="service-cards_title">Rethink the proposal.</h3>
@@ -725,9 +754,9 @@
     <!-- Shared section: Projects (Service Projects component). The three projects are TEMPORARY page data, not the final
          selection: in Webflow the cards come from the Projects collection filtered by Project Type. See the partial and
          docs/webflow-migration.md 7a. -->
-    <!--#include file="/shared/partials/service-projects.html" p1-slug="luxury-development-1" p1-name="Luxury Development 1" p1-image="temp-interior-vaulted-lounge" p2-slug="barrow" p2-name="Barrow House" p2-image="temp-interior-oak-pool" p3-slug="55-derby-road" p3-name="Derby Road" p3-image="temp-house-gable-exterior" -->
+    <!--#include file="/shared/partials/service-projects.html" p1-slug="luxury-development-1" p1-name="Luxury Development 1" p1-image="temp-interior-vaulted-lounge" p1-text="[Project description to come from the Projects CMS]" p2-slug="barrow" p2-name="Barrow House" p2-image="temp-interior-oak-pool" p2-text="[Project description to come from the Projects CMS]" p3-slug="55-derby-road" p3-name="Derby Road" p3-image="temp-house-gable-exterior" p3-text="[Project description to come from the Projects CMS]" -->
     <!-- Shared section: FAQ (accordion-css global classes; rich text is-service) -->
-    <section class="section padding-top padding-large-1">
+    <section data-migrate-component="Service FAQ" class="section padding-top padding-large-1">
       <div class="container margin-bottom margin-medium-2">
         <div class="heading-wrapper is-stacked">
           <div class="div-block-41 is-stacked">
@@ -742,8 +771,8 @@
         </div>
       </div>
       <div data-accordion-close-siblings="true" data-accordion-css-init="" class="accordion-css is-service">
-        <div class="accordion-css__list">
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+        <div data-migrate-slot="Questions" class="accordion-css__list">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I need planning permission for my project?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -760,7 +789,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Do I need an architect for planning permission?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -777,7 +806,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What drawings are required for a planning application?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -794,7 +823,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Householder or full planning permission: which do I need?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -811,7 +840,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Is pre-application advice worth it?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -828,7 +857,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Can you tell me whether my project is likely to get permission?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -845,7 +874,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How much does a planning application cost?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -862,7 +891,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">How long does planning permission take?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -879,7 +908,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">Will neighbour objections affect my application?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -896,7 +925,7 @@
               </div>
             </div>
           </li>
-          <li data-accordion-status="not-active" hover-darken="on" class="accordion-css__item">
+          <li data-accordion-status="not-active" hover-darken="on" data-migrate-item="Service FAQ Item" class="accordion-css__item">
             <div data-accordion-toggle="" class="accordion-css__item-top faq">
               <h3 class="text-size-medium is-service-faq">What happens if planning permission is refused?</h3>
               <div class="accordion-css__item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none" class="accordion-css__item-icon-svg">
@@ -926,6 +955,7 @@
 <script src="../shared/custom-js/parallax-slider.js"></script>
 <script src="../shared/custom-js/service-overlap.js"></script>
 <script src="../shared/custom-js/service-expand.js"></script>
+<script src="../shared/custom-js/service-hero.js"></script>
 <script src="../shared/custom-js/service-cta-bar.js"></script>
 </body>
 </html>

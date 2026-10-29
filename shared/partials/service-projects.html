@@ -8,25 +8,25 @@
        p1-slug, p1-name, p1-image ... p3-slug, p3-name, p3-image  (image: file prefix in /images; -800 and -1400 .avif)
        label: the small label above the heading, when set (Rural "Projects", 3D "Recent work").
        heading: the section heading; "Recent Projects" when not set (3D sets its own).
-       pN-text: a description under the project name; the panel then takes the combo is-described (3D only).
+       pN-text: the short description under the project name (every page; Projects CMS summary field in Webflow).
        pN-small, pN-large: image widths when the files aren't -800 / -1400 (e.g. 960 / 1600).
        black: set it for the black "View All Projects" Main CTA variant (Rural); white otherwise.
        no-actions: set it to leave out "View All Projects" (3D, which has its own projects CTA after the section).
-     WEBFLOW / CMS (docs/webflow-migration.md 7a). Collection: Projects. One Collection List, limit 3. Filter:
+     WEBFLOW / CMS (docs/webflow/cms.md). Collection: Projects. One Collection List, limit 3. Filter:
        Project Type (multi-reference to Services) contains <this page's Services item>. Sort: Sorting, ascending.
        service-projects_list    = Collection List (custom attribute data-service-overlap)
        service-projects_panel   = Collection Item (custom attribute data-service-overlap-row)
        service-projects_img     <- project image field (field to confirm)     h3 <- Project Name
-       service-projects_text    <- a project summary field, if one exists (3D only; static text until then)
+       service-projects_text    <- the project summary field (to confirm or add; hidden when empty)
        View Project Main CTA    link = current Project page (/projects/<slug>)
      The header, the "View Project" label and the "View All Projects" button stay static. -->
-<section class="section is-service-projects">
+<section data-migrate-cms="Projects" class="section is-service-projects">
   <div class="service-projects_header">
 {{#label}}    <p class="service-projects_label">{{label}}</p>
 {{/label}}    <h2 class="heading-style-h2-brand is-service-projects">{{#heading}}{{heading}}{{/heading}}{{^heading}}Recent Projects{{/heading}}</h2>
   </div>
-  <div data-service-overlap="" class="service-projects_list">
-    <article data-service-overlap-row="" class="service-projects_panel{{#p1-text}} is-described{{/p1-text}}">
+  <div data-service-overlap="" data-migrate-list="Projects" class="service-projects_list">
+    <article data-service-overlap-row="" data-migrate-list-item="" class="service-projects_panel">
       <div data-service-overlap-media="" class="service-projects_media">
 {{#p1-large}}        <img src="../images/{{p1-image}}-{{p1-large}}.avif" srcset="../images/{{p1-image}}-{{p1-small}}.avif {{p1-small}}w, ../images/{{p1-image}}-{{p1-large}}.avif {{p1-large}}w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
 {{/p1-large}}{{^p1-large}}        <img src="../images/{{p1-image}}-1400.avif" srcset="../images/{{p1-image}}-800.avif 800w, ../images/{{p1-image}}-1400.avif 1400w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
@@ -35,8 +35,8 @@
       <div class="container service-projects_content">
         <div class="service-projects_info">
           <h3 class="heading-style-h3-brand is-service-projects">{{p1-name}}</h3>
-{{#p1-text}}          <p class="service-projects_text">{{p1-text}}</p>
-{{/p1-text}}        </div>
+          <p class="service-projects_text">{{p1-text}}</p>
+        </div>
         <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="white" href="/projects/{{p1-slug}}" class="wrapper_cta service-projects_cta w-inline-block">
           <div class="btn-icon-content cta">
             <div class="btn-icon-content__mask cta buton"><span data-button-anim-target="" class="btn-icon-content__text">View Project</span></div>
@@ -47,7 +47,7 @@
       </div>
       <div data-service-overlap-shade="" class="service-overlap_shade"></div>
     </article>
-    <article data-service-overlap-row="" class="service-projects_panel{{#p2-text}} is-described{{/p2-text}}">
+    <article data-service-overlap-row="" data-migrate-list-item="" class="service-projects_panel">
       <div data-service-overlap-media="" class="service-projects_media">
 {{#p2-large}}        <img src="../images/{{p2-image}}-{{p2-large}}.avif" srcset="../images/{{p2-image}}-{{p2-small}}.avif {{p2-small}}w, ../images/{{p2-image}}-{{p2-large}}.avif {{p2-large}}w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
 {{/p2-large}}{{^p2-large}}        <img src="../images/{{p2-image}}-1400.avif" srcset="../images/{{p2-image}}-800.avif 800w, ../images/{{p2-image}}-1400.avif 1400w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
@@ -56,8 +56,8 @@
       <div class="container service-projects_content">
         <div class="service-projects_info">
           <h3 class="heading-style-h3-brand is-service-projects">{{p2-name}}</h3>
-{{#p2-text}}          <p class="service-projects_text">{{p2-text}}</p>
-{{/p2-text}}        </div>
+          <p class="service-projects_text">{{p2-text}}</p>
+        </div>
         <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="white" href="/projects/{{p2-slug}}" class="wrapper_cta service-projects_cta w-inline-block">
           <div class="btn-icon-content cta">
             <div class="btn-icon-content__mask cta buton"><span data-button-anim-target="" class="btn-icon-content__text">View Project</span></div>
@@ -68,7 +68,7 @@
       </div>
       <div data-service-overlap-shade="" class="service-overlap_shade"></div>
     </article>
-    <article data-service-overlap-row="" class="service-projects_panel{{#p3-text}} is-described{{/p3-text}}">
+    <article data-service-overlap-row="" data-migrate-list-item="" class="service-projects_panel">
       <div data-service-overlap-media="" class="service-projects_media">
 {{#p3-large}}        <img src="../images/{{p3-image}}-{{p3-large}}.avif" srcset="../images/{{p3-image}}-{{p3-small}}.avif {{p3-small}}w, ../images/{{p3-image}}-{{p3-large}}.avif {{p3-large}}w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
 {{/p3-large}}{{^p3-large}}        <img src="../images/{{p3-image}}-1400.avif" srcset="../images/{{p3-image}}-800.avif 800w, ../images/{{p3-image}}-1400.avif 1400w" sizes="100vw" decoding="async" loading="lazy" alt="" class="service-projects_img">
@@ -77,8 +77,8 @@
       <div class="container service-projects_content">
         <div class="service-projects_info">
           <h3 class="heading-style-h3-brand is-service-projects">{{p3-name}}</h3>
-{{#p3-text}}          <p class="service-projects_text">{{p3-text}}</p>
-{{/p3-text}}        </div>
+          <p class="service-projects_text">{{p3-text}}</p>
+        </div>
         <a cta-arrow-rotate="" data-btn-icon-link="" data-wf--main-cta--variant="white" href="/projects/{{p3-slug}}" class="wrapper_cta service-projects_cta w-inline-block">
           <div class="btn-icon-content cta">
             <div class="btn-icon-content__mask cta buton"><span data-button-anim-target="" class="btn-icon-content__text">View Project</span></div>

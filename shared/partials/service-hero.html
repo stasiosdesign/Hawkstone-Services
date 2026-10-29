@@ -2,13 +2,18 @@
      the bottom, the H1 on the left and the supporting text and consultation button from 58.6% across, the tops of the
      H1 and the text level. Once the button scrolls out of view, the fixed Service CTA Bar takes over
      (shared/custom-js/service-cta-bar.js). The button is an instance of the global Main CTA component (white variant).
-     Parameters: heading (H1), text (supporting copy), image (file prefix in /images; -800 and -1400 .avif must exist),
-     label (button text). Styles: service-hero* in shared/css/service-pages.css. -->
-<section class="service-hero">
+     The H1 is one heading in three parts: the key phrase in the site's accent serif (span service-hero_accent),
+     between optional plain text before and after it. The serif's letters stand taller than Poppins', so
+     shared/custom-js/service-hero.js measures both first lines and lifts the aside to keep the tops level.
+     Parameters: heading-start (text before the phrase, with its trailing space; leave it out when the phrase opens the
+     heading), heading-accent (the phrase), heading-end (text after it, with its leading space), text (supporting copy),
+     image (file prefix in /images; -800 and -1400 .avif must exist), label (button text).
+     Styles: service-hero* in shared/css/service-pages.css. -->
+<section data-migrate-component="Service Hero" class="service-hero">
   <img src="../images/{{image}}-1400.avif" srcset="../images/{{image}}-800.avif 800w, ../images/{{image}}-1400.avif 1400w" sizes="100vw" alt="" fetchpriority="high" class="service-hero_image">
   <div class="service-hero_overlay"></div>
   <div class="service-hero_text">
-    <h1 class="heading-style-h1-normal is-service-hero">{{heading}}</h1>
+    <h1 class="heading-style-h1-normal is-service-hero">{{heading-start}}<span class="service-hero_accent">{{heading-accent}}</span>{{heading-end}}</h1>
     <div class="service-hero_aside">
       <h3 class="text-size-small service-page is-service-hero">{{text}}</h3>
       <a cta-arrow-rotate="" data-btn-icon-link="" data-service-hero-cta="" data-wf--main-cta--variant="white" href="/contact" class="wrapper_cta w-inline-block">

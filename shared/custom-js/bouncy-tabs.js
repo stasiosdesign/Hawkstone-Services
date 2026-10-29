@@ -1,6 +1,8 @@
 /* bouncy-tabs: page custom code (Webflow: Page settings > Custom code > Before </body> tag).
-   Used on: Luxury Architecture, Planning Applications, 3D Visualisations. Self-contained; paste as-is inside <script></script>.
-   Needs: GSAP (site-wide). Hooks: [data-bouncy-tabs-init] and its data-bouncy-tabs-* children.
+   Used on: Luxury Architecture, 3D Visualisations. Self-contained; paste as-is inside <script></script>.
+   Needs: GSAP (site-wide). Hooks: [data-bouncy-tabs-init] and its data-bouncy-tabs-* children. When the nav has no
+   buttons, they are built from the panels' [data-bouncy-tabs-tab] names; the first tab opens unless one is marked
+   data-active.
    Wrapped so it runs once per page and adds no global names (the Webflow site loads other code). */
 (() => {
 if (window.HawkstoneService?.bouncyTabs) return;
@@ -21,13 +23,28 @@ function initBouncyContentTabs() {
     const nav = root.querySelector("[data-bouncy-tabs-nav]");
     const indicator = root.querySelector("[data-bouncy-tabs-indicator]");
     const ghost = root.querySelector("[data-bouncy-tabs-ghost]");
-    const buttons = nav ? Array.from(nav.querySelectorAll("[data-bouncy-tabs-button]")) : [];
-    if (!nav || !indicator || buttons.length < 2) return;
     const card = root.querySelector("[data-bouncy-tabs-card]");
     const panelsWrap = root.querySelector("[data-bouncy-tabs-panels]");
     const panels = panelsWrap
       ? Array.from(panelsWrap.querySelectorAll("[data-bouncy-tabs-panel]"))
       : [];
+    // The nav's buttons are built from the panels when none are written: each panel holds its own tab name
+    // ([data-bouncy-tabs-tab], hidden), so one tab is one element (one slot item in a Webflow component).
+    if (nav && !nav.querySelector("[data-bouncy-tabs-button]")) {
+      panels.forEach((panel) => {
+        const name = panel.querySelector("[data-bouncy-tabs-tab]");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "bouncy-tabs__button";
+        button.setAttribute("data-bouncy-tabs-button", "");
+        button.setAttribute("role", "tab");
+        button.textContent = name ? name.textContent.trim() : "";
+        if (panel.hasAttribute("data-active")) button.setAttribute("data-active", "");
+        nav.appendChild(button);
+      });
+    }
+    const buttons = nav ? Array.from(nav.querySelectorAll("[data-bouncy-tabs-button]")) : [];
+    if (!nav || !indicator || buttons.length < 2) return;
     const hasCard = Boolean(card && panelsWrap && panels.length);
     instanceCount += 1;
     buttons.forEach((button, i) => {
@@ -210,7 +227,10 @@ function initBouncyContentTabs() {
     window.addEventListener("resize", refreshLayout);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshLayout);
     if (ghost) gsap.set(ghost, { autoAlpha: 0 });
-    panels.forEach((p, i) => gsap.set(p, { autoAlpha: i === activeIndex ? 1 : 0 }));
+    panels.forEach((p, i) => {
+      p.toggleAttribute("data-active", i === activeIndex);
+      gsap.set(p, { autoAlpha: i === activeIndex ? 1 : 0 });
+    });
     syncButtonState();
     refreshLayout();
   });
