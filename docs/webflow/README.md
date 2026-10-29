@@ -13,12 +13,16 @@ update these files.
 | [cms.md](cms.md) | The CMS-powered sections (Recent Projects, Recent Approvals, Looking for something else?) |
 | [pages/](pages/) | One file per page: section order, each instance's settings, page code, interactions to keep |
 | [inventory.md](inventory.md) | Generated from the markup: per page, each section's heading, photos and slot items |
+| [environment.md](environment.md) | The Webflow side: site, page, collection and component IDs, domains, plan limits, the staging-only publishing guard, how to check work visually |
 | [../webflow-migration.md](../webflow-migration.md), [../class-map.md](../class-map.md) | Older: the design history, class conventions (Client-First), native-vs-custom code, limitations. Its sections 5 and 7a are replaced by these files. |
 
 ## Ground rules
 
 - Don't change anything in Webflow or on the live site until the user says the migration starts. Build new pages as
   drafts first; replacing the live pages is the user's call (see *Procedure*).
+- Publish only to the Webflow staging subdomain, never to production or a custom domain; a hook enforces it
+  ([environment.md](environment.md#publishing-staging-only-guard)). The site isn't on Enterprise, so every publish is
+  a whole-site publish.
 - The pages sit in the existing site. Reuse its global components as they are and never edit them or their classes:
   Navigation Desktop, Navigation [2], Global Code, Page Transition, Main CTA, Sub Heading, Section - Testimonials
   (Client Success), Section - Final CTA, Section - Footer. Where a service page needs something different, use the
